@@ -78,7 +78,8 @@ def salvar_e_push():
         .section { padding: 40px 0; }
         h1 { font-size: 2.2rem; color: #222; text-align: center; margin-bottom: 25px; }
         h2 { font-size: 1.6rem; color: #b8860b; border-left: 6px solid #f6c945; padding-left: 15px; margin: 35px 0 20px 0; }
-        .link-seo { color: #d4a017; font-weight: bold; text-decoration: underline; }
+        p { margin-bottom: 20px; font-size: 1.1rem; color: #444; text-align: justify; }
+        .links-seo { color: #d4a017; font-weight: bold; text-decoration: underline; }
         .palpite-box { background: #f9f9f9; border: 1px solid #eee; border-radius: 12px; padding: 20px; margin: 25px 0; }
         .numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; text-align: center; }
         .num-card { border: 1px solid #ddd; padding: 10px; border-radius: 8px; background: #fff; }
@@ -92,33 +93,19 @@ def salvar_e_push():
     </style>'''
 
     def build_page(title, kw, btn_link, btn_text):
-        # ARTIGO SEO COM +600 PALAVRAS E PALAVRAS SEMÂNTICAS DA PLANILHA
+        intro_text = f"Você está procurando pelo <strong>{kw}</strong>? Chegou ao lugar certo. O Jogo do Bicho é uma das tradições mais enraizadas no cotidiano fluminense, e entender as tendências de cada extração é fundamental para quem busca um <strong>palpite fácil do jogo do bicho do rio de janeiro</strong>. Nossa equipe analisa diariamente milhares de resultados para oferecer a você as melhores indicações para PTM, PT, PTV, PTN e Corujinha."
+
+        # ARTIGO SEO CORRIGIDO (SEM SPAM, COM CONTEXTO)
         artigo_seo = f'''
-        <p>Você está procurando pelo <strong>{kw}</strong>? Chegou ao lugar certo. O Jogo do Bicho é uma das tradições mais enraizadas no cotidiano fluminense, e entender as tendências de cada extração é fundamental para quem busca um <strong>palpite fácil do jogo do bicho do rio de janeiro</strong>. Nossa equipe analisa diariamente milhares de resultados para oferecer a você as melhores indicações para PTM, PT, PTV, PTN e Corujinha.</p>
+        <h2>Análise para o {kw}</h2>
+        <p>Para obter um bom desempenho nas apostas, é essencial acompanhar o <strong>resultado pt rio</strong> e observar quais bichos estão com maior frequência de saída. Nosso método de análise cruza dados históricos para gerar um <strong>palpite do dia</strong> que faça sentido com as extrações anteriores, como o <strong>resultado da rio ptm</strong>, garantindo que você não jogue apenas na sorte, mas com base em estatística.</p>
         
-        <h2>Por que acompanhar o {kw}?</h2>
-        <p>Apostar sem estratégia é contar apenas com a sorte pura. No entanto, veteranos sabem que o <strong>palpite jogo do bicho de hoje rio de janeiro</strong> deve ser baseado em estatísticas, atrasos e, claro, nas famosas puxadas. Ao verificar o <strong>resultado do jogo do bicho de hoje rio</strong>, você consegue identificar quais grupos estão "quentes" e quais estão há muito tempo sem aparecer, o que chamamos de dezenas viciadas.</p>
+        <p>Muitos jogadores buscam por um <strong>palpite fácil do jogo o bicho do rio de janeiro</strong> logo após as primeiras extrações da manhã. Ao analisar o comportamento das dezenas, conseguimos identificar padrões que auxiliam na escolha de milhares e centenas. Lembre-se que o <strong>resultado do jogo do bicho de hoje rio</strong> serve como termômetro para as extrações da tarde e da noite.</p>
         
-        <p>O <strong>palpite para o jogo do bicho rio de janeiro</strong> que fornecemos aqui leva em conta o cruzamento de dados da Federal e as extrações anteriores. Seja para sábado ou para o meio da semana, ter um <strong>palpite pronto rio de janeiro jogo do bicho</strong> economiza seu tempo e aumenta as chances de sucesso em cercados e milhares diretas.</p>
+        <h2>Dicas de como usar os Palpites</h2>
+        <p>Se você quer um <strong>palpite pronto rio de janeiro jogo do bicho</strong>, o ideal é distribuir suas apostas entre grupos e cercados. A estratégia de usar as puxadas (quando um animal "chama" outro) é muito comum entre veteranos que acompanham o <strong>palpite jogo do bicho hoje rio de janeiro</strong>. Fique atento às dezenas que mais saem na sua banca de preferência.</p>
         
-        <h2>Como usar nosso Palpite Fácil e Rápido</h2>
-        <p>Muitas pessoas buscam por <strong>palpites do jogo do bicho rio de janeiro goias</strong> ou até <strong>palpites do jogo do bicho rio de janeiro sao paulo</strong>, pois os sorteios do Rio servem de base para bancas em todo o Brasil. Nosso sistema gera indicações que valem para as principais modalidades: Grupo, Dezena, Centena e Milhar.</p>
-        
-        <p>Se você quer um <strong>palpite fácil do jogodo bicho o rio de janeiro</strong>, recomendamos focar nos bichos do dia. A matemática do jogo sugere que animais ligados à data atual têm maior probabilidade de saída. Além disso, observar o <strong>palpite jogo do bicho hoje rio de janeiro</strong> ajuda a decidir se vale a pena investir em uma milhar seca ou em um terno de grupo.</p>
-        
-        <h2>Dicas para o Palpite de Hoje Jogo do Bicho Rio de Janeiro</h2>
-        <p>Para quem busca o <strong>palpite do jogo do bicho para hoje rio de janeiro</strong>, aqui vão três dicas de ouro:
-        1. Confira sempre as <strong>puxadas do bicho</strong>: Se deu Águia na PTM, o Burro ou o Coelho podem vir na PT.
-        2. Fique atento às Milhares Viciadas: Algumas combinações teimam em aparecer mais do que outras no Rio.
-        3. Use o <strong>palpite fácil do jogo o bicho do rio de janeiro</strong> que disponibilizamos em nossas tabelas acima, pois eles são atualizados em tempo real conforme as dezenas do dia.</p>
-        
-        <h2>Análise Semântica: O Jogo no Rio de Janeiro</h2>
-        <p>O <strong>palpite jogo do bicho rio de janeiro hoje</strong> é mais do que uma simples aposta; é cultura. Milhares de pessoas buscam por <strong>palpites do bicho do rio de janeiro</strong> logo cedo para planejar suas jogadas. Seja você um seguidor do <strong>palpites do jogo do bicho do magrão rio de janeiro</strong> ou prefira análises baseadas puramente em tabelas, a informação é sua maior aliada.</p>
-        
-        <p>Abaixo, você encontrará a tabela completa de grupos e dezenas. Esta ferramenta é essencial para quem utiliza o <strong>palpite para jogo do bicho rio de janeiro</strong> para montar suas próprias estratégias. Lembre-se: o <strong>palpite jogo do bicho das 14 horas rio de janeiro</strong> pode mudar drasticamente o cenário para a extração da noite (Corujinha).</p>
-        
-        <h2>Conclusão sobre o Palpite do Rio</h2>
-        <p>Não deixe sua aposta ao acaso. Use nosso <strong>palpite jogo do bicho para hoje rio de janeiro</strong> e tenha acesso a uma análise profissional e gratuita. O <strong>palpite fácil do jogo do bicho do rio de janeiro</strong> é atualizado diariamente para garantir que você tenha sempre a melhor informação na palma da sua mão.</p>
+        <p>Abaixo, disponibilizamos a nossa tabela de grupos oficial para consulta rápida. Ela ajuda a conferir as dezenas de cada animal e facilita a montagem do seu <strong>palpite para o jogo do bicho rio de janeiro</strong>.</p>
         '''
 
         return f'''<!DOCTYPE html><html lang="pt-BR"><head>
@@ -140,25 +127,28 @@ def salvar_e_push():
 <section class="section"><div class="container">
     <div style="text-align: center; margin-bottom: 25px;"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU"><img src="images/aguia-posts.webp" style="width: 300px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);"></a></div>
     <h1>{kw}</h1>
+    <p>{intro_text}</p>
     <div style="text-align: center;"><a href="{btn_link}" class="btn-apostar">{btn_text}</a></div>
     {palpites_txt}
-    <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-whats" target="_blank">ENTRAR NO GRUPO DE PALPITES (WHATSAPP)</a>
+    <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-whats" target="_blank">RECEBER PALPITES NO WHATSAPP</a>
     <article>{artigo_seo}</article>
     {grid_bichos}
     <hr><h2>Palpite Federal de Hoje</h2>
-    <p>Nossos palpites também são excelentes para a Extração da Loteria Federal. Confira sempre o <strong>resultado da federal</strong> e utilize nosso <strong>palpite do bicho para hoje</strong> para cercar seus ganhos.</p>
+    <p>Nossos palpites são válidos também para a Loteria Federal de quartas e sábados. Confira o <strong>resultado da federal</strong> e veja se o seu bicho foi sorteado.</p>
 </div></section>
 <footer class="site-footer"><div class="container">
     <div class="footer-title" style="font-size:1.8rem; color:#f6c945; font-weight:bold;">Águia Prime Palpites</div>
     <p style="font-size:0.85rem; color:#888ea1; max-width:700px; margin:20px auto;">Esclarecemos que não temos vínculo com o serviço ou pessoas que operam o Jogo do Bicho. As estatísticas e palpites são para fins de entretenimento e estudo estatístico.</p>
-    <div class="footer-social" style="margin-bottom:30px;">
+    <div class="footer-social" style="display: flex; gap: 20px; justify-content: center; margin-bottom: 30px;">
         <a href="https://www.instagram.com/palpitess_jb" target="_blank"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.6 1.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg></a>
         <a href="https://www.facebook.com/palpitesdobicho" target="_blank"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.5 1.6-1.5h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4v2.2H8v3.2h2.1V22h3.4Z"/></svg></a>
+        <a href="https://www.youtube.com/@Palpitesdo_JogodoBicho" target="_blank"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.1-.4-4.6a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.5.4A3 3 0 0 0 1.4 7.4C1 8.9 1 12 1 12s0 3.1.4 4.6a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.5-.4a3 3 0 0 0 2.1-2.1c.4-1.5.4-4.5.4-4.5ZM9.8 15.5v-7L16 12l-6.2 3.5Z"/></svg></a>
     </div>
     <div class="footer-links" style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:30px;">
         <a href="sobre.html" style="color:#d8dcec; text-decoration:none;">Sobre nós</a>
         <a href="contato.html" style="color:#d8dcec; text-decoration:none;">Contato</a>
         <a href="politica-de-privacidade.html" style="color:#d8dcec; text-decoration:none;">Privacidade</a>
+        <a href="termos-de-uso.html" style="color:#d8dcec; text-decoration:none;">Termos de Uso</a>
     </div>
     <p style="font-size:0.8rem; color:#565d6d; border-top:1px solid rgba(255,255,255,0.05); padding-top:20px;">© 2026 Águia Prime. Todos os direitos reservados.</p>
 </div></footer></body></html>'''
@@ -171,7 +161,7 @@ def salvar_e_push():
 
     os.chdir("/var/www/meusite")
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", f"Full SEO Article Restore {hoje}"])
+    subprocess.run(["git", "commit", "-m", f"Clean SEO and Social Footer {hoje}"])
     subprocess.run(["git", "push", "origin", "main", "--force"])
 
 if __name__ == "__main__":
