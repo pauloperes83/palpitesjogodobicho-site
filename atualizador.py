@@ -83,47 +83,48 @@ def salvar_e_push():
         .numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; text-align: center; }
         .num-card { border: 1px solid #ddd; padding: 10px; border-radius: 8px; background: #fff; }
         .num-card span { display: block; font-weight: bold; font-size: 1.1rem; color: #d4a017; }
-        .btn-apostar { display: inline-block; background: #b8860b; color: white; padding: 18px 40px; border-radius: 10px; text-decoration: none; font-weight: bold; text-transform: uppercase; margin-top: 20px; box-shadow: 0 4px 15px rgba(184,134,11,0.4); }
+        .btn-apostar { display: inline-block; background: #b8860b; color: white; padding: 18px 40px; border-radius: 10px; text-decoration: none; font-weight: bold; text-transform: uppercase; margin-top: 20px; box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4); }
         .btn-whats { display: block; width: fit-content; margin: 30px auto; background: #25d366; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; text-align: center; }
         .site-footer { background-color: #0d1016; border-top: 1px solid rgba(255,255,255,0.08); padding: 50px 0 30px 0; text-align: center; margin-top: 50px; color: #fff; }
-        .footer-social svg { width: 30px; height: 30px; fill: #ffffff; margin: 0 10px; transition: 0.3s; }
+        .footer-social { display: flex; gap: 20px; justify-content: center; margin-bottom: 30px; }
+        .footer-social svg { width: 30px; height: 30px; fill: #ffffff; transition: 0.3s; }
+        .footer-social a:hover svg { fill: #f6c945; }
         @media (max-width: 768px) { .logo img { height: 100px; } nav a { margin: 0 5px; font-size: 12px; } }
     </style>'''
 
     def build_page(title, kw, btn_link, btn_text):
-        intro = f"Você está procurando pelo <strong>{kw}</strong>? Chegou ao lugar certo. O Jogo do Bicho é uma das tradições mais enraizadas no cotidiano fluminense."
-        intro2 = f"Entender as tendências de cada extração é fundamental para quem busca um <strong>palpite fácil do jogo do bicho do rio de janeiro</strong>. Nossa equipe analisa diariamente milhares de resultados para oferecer a você as melhores indicações para PTM, PT, PTV, PTN e Corujinha."
+        intro1 = f"Você está procurando pelo <strong>{kw}</strong>? Chegou ao lugar certo. O Jogo do Bicho é uma das tradições mais enraizadas no cotidiano fluminense."
+        intro2 = f"Entender as tendências de cada extração é fundamental para quem busca um <strong>palpite fácil do jogo do bicho do rio de janeiro</strong>. Nossa equipe analisa diariamente resultados para oferecer as melhores indicações."
 
-        # LINKS INTERNOS DEFINIDOS PELO USUÁRIO
         link_puxadas = '<a href="https://palpitesjogodobicho.com.br/puxadas-do-bicho.html" class="link-seo">puxadas do bicho</a>'
         link_milheres = '<a href="https://palpitesjogodobicho.com.br/milhares-viciadas.html" class="link-seo">Milhares Viciadas</a>'
         link_palpite_dia = '<a href="https://palpitesjogodobicho.com.br/palpite-do-dia.html" class="link-seo">Palpite do Dia</a>'
 
         corpo_texto = f'''
         <h2>Análise Semântica: {kw}</h2>
-        <p>Para obter um bom desempenho nas apostas, é essencial acompanhar o <strong>resultado pt rio</strong> e observar quais bichos estão com maior frequência de saída nos sorteios atuais.</p>
-        <p>Nosso método de análise cruza dados históricos para gerar um <strong>palpite do dia</strong> que faça sentido com as extrações anteriores, como o importante <strong>resultado da rio ptm</strong>.</p>
-        <p>Garantimos que você não jogue apenas na sorte, mas com base em estatística sólida para o seu <strong>{kw}</strong>, aumentando suas chances de acerto em todas as bancas.</p>
+        <p>Para obter um bom desempenho nas apostas, é essencial acompanhar o <strong>resultado pt rio</strong> e observar os bichos frequentes.</p>
+        <p>Nosso método cruza dados históricos para gerar um <strong>palpite do dia</strong> coerente com as extrações anteriores, como o <strong>resultado da rio ptm</strong>.</p>
+        <p>Aumentamos suas chances com base em estatística sólida para o seu <strong>{kw}</strong> em todas as bancas.</p>
         
         <h2>Estratégia para o {kw}</h2>
-        <p>Muitos jogadores buscam por um <strong>palpite fácil do jogo o bicho do rio de janeiro</strong> logo após as primeiras extrações da manhã, visando lucrar nas rodadas seguintes.</p>
-        <p>Ao analisar o comportamento das dezenas, conseguimos identificar padrões que auxiliam na escolha de milhares e centenas viciadas, facilitando o seu <strong>{kw}</strong>.</p>
-        <p>Lembre-se que o <strong>resultado do jogo do bicho de hoje rio</strong> serve como termômetro fundamental para as extrações da tarde e também para a Corujinha da noite.</p>
-        
-        <h2>Dicas para o {kw} e a Federal</h2>
-        <p>A Loteria Federal de quartas e sábados é o momento mais esperado por quem segue o <strong>{kw}</strong>, pois define prêmios maiores em todo o território nacional.</p>
-        <p>Para ter sucesso na Federal, é crucial analisar o <strong>resultado da federal</strong> anterior e cruzar com o nosso <strong>palpite fácil do jogo do bicho do rio de janeiro</strong> atualizado.</p>
-        <p>O sorteio da Federal ocorre pontualmente às 20h, e nossos estudos indicam que as dezenas sugeridas para o <strong>{kw}</strong> possuem altíssima taxa de conversão nessa modalidade.</p>
+        <p>Muitos jogadores buscam por um <strong>palpite fácil do jogo o bicho do rio de janeiro</strong> logo cedo para lucrar nas rodadas seguintes do dia.</p>
+        <p>Ao analisar as dezenas, identificamos padrões que auxiliam na escolha de milhares viciadas, facilitando o seu <strong>{kw}</strong>.</p>
+        <p>Lembre-se que o <strong>resultado do jogo do bicho de hoje rio</strong> serve como termômetro fundamental para as extrações da tarde e Corujinha.</p>
         
         <h2>Como Jogar no Jogo do Bicho</h2>
-        <p>O Jogo do Bicho consiste em apostar em animais que representam grupos de números. Cada bicho possui quatro dezenas específicas que definem o sorteio.</p>
-        <p>Você pode apostar de diversas formas, como no grupo seco, dezenas, centenas ou milhares, sendo que cada modalidade possui um multiplicador de prêmio diferente.</p>
-        <p>Uma excelente forma de planejar sua jogada é consultar o {link_palpite_dia} para ver quais animais estão com maior probabilidade de aparecer no dia de hoje.</p>
+        <p>O Jogo do Bicho consiste em apostar em animais que representam grupos de números. Cada bicho possui quatro dezenas específicas.</p>
+        <p>Você pode apostar no grupo seco, dezenas, centenas ou milhares, sendo que cada modalidade possui um multiplicador de prêmio diferente.</p>
+        <p>Uma excelente forma de planejar sua jogada é consultar o {link_palpite_dia} para ver os animais com maior probabilidade hoje.</p>
 
         <h2>Como ganhar no Jogo do Bicho</h2>
-        <p>Aumentar suas chances envolve o uso de técnicas como o estudo das {link_puxadas}, que indicam quais bichos tendem a sair após uma determinada extração.</p>
-        <p>Além disso, o uso de tabelas de {link_milheres} ajuda a identificar combinações que possuem um histórico de maior frequência nos sorteios do Rio e Goiás.</p>
-        <p>Utilizando o nosso <strong>{kw}</strong>, você combina intuição com dados técnicos, transformando uma aposta comum em uma jogada estratégica e consciente.</p>
+        <p>Aumentar suas chances envolve o uso de técnicas como o estudo das {link_puxadas}, que indicam tendências após uma extração.</p>
+        <p>Além disso, o uso de tabelas de {link_milheres} ajuda a identificar combinações com histórico de maior frequência no Rio e Goiás.</p>
+        <p>Utilizando o nosso <strong>{kw}</strong>, você combina intuição com dados técnicos para uma jogada estratégica e consciente.</p>
+
+        <h2>Dicas para o {kw} e a Federal</h2>
+        <p>A Loteria Federal de quartas e sábados é o momento mais esperado por quem segue o <strong>{kw}</strong>, com prêmios maiores nacionais.</p>
+        <p>Analise o <strong>resultado da federal</strong> anterior e cruze com o nosso <strong>palpite fácil do jogo do bicho do rio de janeiro</strong> atualizado.</p>
+        <p>O sorteio da Federal ocorre às 20h, e os estudos do <strong>{kw}</strong> possuem altíssima taxa de conversão nessa modalidade.</p>
         '''
 
         return f'''<!DOCTYPE html><html lang="pt-BR"><head>
@@ -131,8 +132,7 @@ def salvar_e_push():
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-9Y3FW10LC2');</script>
 <link rel="icon" type="image/png" href="images/favicon.png"><link rel="shortcut icon" href="images/favicon.png">
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{title}</title>
-{css}</head><body>
+<title>{title}</title>{css}</head><body>
 <header><div class="container"><a href="index.html" class="logo"><img src="images/logo-palpites.png"></a></div></header>
 <nav><div class="container">
     <a href="index.html">Início</a><a href="palpite-do-dia.html">Palpite do Dia</a>
@@ -143,29 +143,33 @@ def salvar_e_push():
 <section class="section"><div class="container">
     <div style="text-align: center; margin-bottom: 25px;"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU"><img src="images/aguia-posts.webp" style="width: 300px; border-radius: 8px;"></a></div>
     <h1>{kw}</h1>
-    <p>{intro}</p><p>{intro2}</p>
+    <p>{intro1}</p><p>{intro2}</p>
     <div style="text-align: center;"><a href="{btn_link}" class="btn-apostar">{btn_text}</a></div>
     {palpites_txt}
     <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-whats" target="_blank">RECEBER PALPITES NO WHATSAPP</a>
     {corpo_texto}
     {grid_bichos}
-    <p style="text-align: center; font-weight: bold; margin-top: 30px; font-size: 1.2rem; color: #b8860b;">🍀 Desejamos muita sorte em suas apostas e que os palpites de hoje tragam ótimos prêmios! 🍀</p>
+    <p style="text-align: center; font-weight: bold; margin-top: 30px; font-size: 1.2rem; color: #b8860b;">🍀 Desejamos muita sorte em suas apostas e que os palpites de hoje tragam prêmios! 🍀</p>
 </div></section>
-<footer class="site-footer"><div class="container">
-    <div class="footer-title" style="font-size:1.8rem; color:#f6c945; font-weight:bold;">Palpites Jogo do Bicho</div>
-    <p style="font-size:0.85rem; color:#888ea1; max-width:700px; margin:20px auto; text-align: center;">Esclarecemos que não temos vínculo com o serviço ou pessoas que operam o Jogo do Bicho e que os resultados e estatísticas são meramente informativos.</p>
-    <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 30px;">
-        <a href="https://www.instagram.com/palpitess_jb"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.6 1.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg></a>
-        <a href="https://www.facebook.com/palpitesdobicho"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.5 1.6-1.5h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4v2.2H8v3.2h2.1V22h3.4Z"/></svg></a>
-        <a href="https://www.youtube.com/@Palpitesdo_JogodoBicho"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.1-.4-4.6a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.5.4A3 3 0 0 0 1.4 7.4C1 8.9 1 12 1 12s0 3.1.4 4.6a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.5-.4a3 3 0 0 0 2.1-2.1c.4-1.5.4-4.5.4-4.5ZM9.8 15.5v-7L16 12l-6.2 3.5Z"/></svg></a>
+<footer class="site-footer"><div class="container footer-wrap">
+    <div class="footer-title">Palpites do Jogo do Bicho</div>
+    <p class="footer-warning">Esclarecemos que não temos vínculo com o serviço ou pessoas que operam o Jogo do Bicho e que os resultados e estatísticas são meramente informativos.</p>
+    <div class="footer-social">
+        <a href="https://www.instagram.com/palpitess_jb?igsh=MW5uaTVjb3ZramhiNQ%3D%3D&utm_source=qr" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.6 1.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/palpitesdobicho" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.5 1.6-1.5h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4v2.2H8v3.2h2.1V22h3.4Z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@Palpitesdo_JogodoBicho" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M23 12s0-3.1-.4-4.6a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.5.4A3 3 0 0 0 1.4 7.4C1 8.9 1 12 1 12s0 3.1.4 4.6a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.5-.4a3 3 0 0 0 2.1-2.1c.4-1.5.4-4.5.4-4.5ZM9.8 15.5v-7L16 12l-6.2 3.5Z"/></svg>
+        </a>
     </div>
-    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:30px;">
-        <a href="sobre.html" style="color:#d8dcec; text-decoration:none;">Sobre nós</a>
-        <a href="contato.html" style="color:#d8dcec; text-decoration:none;">Contato</a>
-        <a href="politica-de-privacidade.html" style="color:#d8dcec; text-decoration:none;">Privacidade</a>
-        <a href="termos-de-uso.html" style="color:#d8dcec; text-decoration:none;">Termos de Uso</a>
+    <div class="footer-links">
+        <a href="sobre.html">Sobre nós</a><a href="contato.html">Contato</a>
+        <a href="politica-de-privacidade.html">Privacidade</a><a href="termos-de-uso.html">Termos de Uso</a>
     </div>
-    <p style="font-size:0.8rem; color:#565d6d; border-top:1px solid rgba(255,255,255,0.05); padding-top:20px; text-align: center;">© 2026 Palpites Jogo do Bicho. Todos os direitos reservados.</p>
+    <p class="footer-copy" style="text-align: center;">© 2026 Palpites do Jogo. Todos os direitos reservados.</p>
 </div></footer></body></html>'''
 
     with open("/var/www/meusite/palpite-do-bicho-rj.html", 'w', encoding='utf-8') as f:
@@ -176,7 +180,7 @@ def salvar_e_push():
 
     os.chdir("/var/www/meusite")
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", f"SEO Internal Links Fix {hoje}"])
+    subprocess.run(["git", "commit", "-m", f"Final SEO Content Fix {hoje}"])
     subprocess.run(["git", "push", "origin", "main", "--force"])
 
 if __name__ == "__main__":
