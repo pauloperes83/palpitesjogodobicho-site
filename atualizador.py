@@ -128,7 +128,7 @@ def executar():
     hoje = agora.strftime("%d/%m/%Y")
     dia = agora.day
     palpites_txt = gerar_palpites_html(dia)
-    
+
     grid_bichos = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; margin-top: 20px;">'
     for nome, dados in bichos_oficiais.items():
         grid_bichos += f'<div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">{dados["gr"]}</div><div style="font-size: 2rem;">{dados["e"]}</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">{nome.upper()}</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">{" ".join(dados["dz"])}</div></div>'
@@ -140,13 +140,27 @@ def executar():
 
     if tipo in ["rio", "todos"]:
         kw = f"Palpite do dia do Jogo do Bicho de hoje Rio {hoje}"
-        art = f'''<p>Você está procurando pelo <strong>{kw}</strong>? Chegou ao lugar certo. O Jogo do Bicho é uma das tradições mais enraizadas no cotidiano fluminense.</p><p>Entender as tendências é fundamental para quem busca um <strong>palpite fácil do jogo do bicho do rio de janeiro</strong>. Analisamos resultados diários para as melhores indicações.</p>
-        <div style="text-align: center;"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" class="btn-apostar">🎰 APOSTAR NO RIO</a></div>{palpites_txt}
+        art = f'''<p>Você está procurando pelo <strong>{kw}</strong>? Chegou ao lugar certo. O Jogo do Bicho é uma das tradições mais enraizadas no cotidiano fluminense.</p>
+        <p>Entender as tendências é fundamental para quem busca um <strong>palpite fácil do jogo do bicho do rio de janeiro</strong>. Analisamos resultados diários para as melhores indicações.</p>
+        
+        <div style="text-align: center;"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" class="btn-apostar">🎰 APOSTAR NO RIO</a></div>
+        {palpites_txt}
+        
         <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-whats" target="_blank">RECEBER PALPITES NO WHATSAPP</a>
-        <h2>Análise Semântica: {kw}</h2><p>Acompanhe o <strong>resultado pt rio</strong> e observe quais bichos estão com maior frequência. Nosso método gera um <strong>palpite do dia</strong> coerente com o <strong>resultado da rio ptm</strong>.</p>
-        <h2>Como Jogar e Ganhar no Rio</h2><p>Consulte o {l_pal} para as probabilidades. Estude as {l_pux} e use as tabelas de {l_mil} para identificar combinações frequentes fluminenses.</p>
+        
+        <h2>Análise Semântica e Técnica: Palpite do dia Jogo do Bicho Rio e Federal</h2>
+        <p>A nossa análise semântica vai além da simples intuição. Cruzamos os dados dos sorteios das 11h (PTM), 14h (PT), 16h (PTV) e 18h (PTN) para identificar a <strong>vibração numérica do dia</strong>. Para a Federal, o cálculo é reforçado: analisamos as dezenas que ficaram "atrasadas" no último sorteio de quarta ou sábado, aplicando a regra de probabilidade inversa.</p>
+        <p>Ao analisar o <strong>Palpite da Loteria Federal de hoje</strong>, nosso algoritmo detecta se há uma tendência para bichos do grupo das aves (como Águia e Pavão) ou mamíferos pesados (como Touro e Elefante), baseando-se no ciclo de repetição histórica. Isso garante que o usuário da <strong>Águia Prime</strong> tenha uma análise profissional, transformando sorte em estratégia matemática real.</p>
+
+        <h2>Como Jogar e Ganhar no Rio</h2>
+        <p>Consulte o {l_pal} para as probabilidades. Estude as {l_pux} e use as tabelas de {l_mil} para identificar combinações frequentes fluminenses.</p>
+        
         {grid_bichos}
-        <h2>Dicas para o {kw} e a Federal</h2><p>A Loteria Federal de quartas e sábados é o momento mais esperado por quem segue o <strong>{kw}</strong>. Analise o <strong>resultado da federal</strong> anterior e o sorteio das 20h.</p>'''
+        
+        <h2>Palpite da Loteria Federal de Hoje</h2>
+        <p>Estes palpites foram validados por especialistas e servem também para os <strong>Palpites da Federal de hoje</strong>. A Loteria Federal é o sorteio mais tradicional e seguro, e nossos cálculos utilizam a base de dados oficial para gerar as dezenas e grupos com maior probabilidade de premiação. Não deixe de conferir o <strong>resultado da federal</strong> anterior para ajustar sua estratégia de aposta.</p>
+        <p>Para aumentar suas chances na Federal, nossa análise considera o comportamento das milhares e centenas que mais saíram nos últimos meses. O <strong>Palpite da Loteria Federal de hoje</strong> é gerado através de um sistema de cruzamento de dados que identifica padrões nos sorteios das 19h e das 22h, garantindo que você tenha em mãos os números mais quentes do momento.</p>
+        <p>Lembre-se que o Jogo do Bicho e a Federal possuem tabelas de premiação distintas, mas os bichos seguem a mesma lógica. Se você busca o <strong>palpite do dia</strong> para mudar sua sorte, acompanhe nossas atualizações constantes e utilize nossas tabelas de puxadas para cercar as possibilidades pelos cinco prêmios.</p>'''
         with open("/var/www/meusite/palpite-do-bicho-rj.html", 'w', encoding='utf-8') as f:
             f.write(build_full_page(kw, "https://app.aguiaprime119000.com/pr/y8X6LEBU", "🎰 APOSTAR NO RIO", art, palpites_txt, grid_bichos))
 
@@ -154,7 +168,8 @@ def executar():
         kw = f"Palpite da Look Loterias de hoje Goiás {hoje}"
         art = f'''<p>Procurando pelo melhor <strong>{kw}</strong>? Nossa equipe foca nas tendências exclusivas das loterias de Goiás e Goiânia.</p>
         <p>O <strong>resultado look loterias de hoje</strong> influencia as milhares sugeridas para os horários das <strong>07h, 09h, 11h, 14h, 16h, 18h, 21h e 23h</strong>.</p>
-        <div style="text-align: center;"><a href="https://app.valedasorteloterias.club/pr/g5P71dlw" class="btn-apostar">🎰 APOSTAR NA LOOK</a></div>{palpites_txt}
+        <div style="text-align: center;"><a href="https://app.valedasorteloterias.club/pr/g5P71dlw" class="btn-apostar">🎰 APOSTAR NA LOOK</a></div>
+        {palpites_txt}
         <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-whats" target="_blank">GRUPO LOOK GOIÁS WHATSAPP</a>
         <h2>Estratégia Look: {kw}</h2><p>Observe os atrasos da banca Look. Nosso <strong>palpite da look de hoje</strong> é gerado com dados técnicos e o <strong>resultado da look de ontem</strong>.</p>
         <h2>Como Jogar e Ganhar na Look</h2><p>Consulte o {l_pal} e utilize técnicas de {l_pux} focadas na banca Look e Goiás. As {l_mil} seguem padrões regionais separados do Rio.</p>
