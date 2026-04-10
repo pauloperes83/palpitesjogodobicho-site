@@ -1,0 +1,3 @@
+import os
+from datetime import datetime
+print("Teste do Robô: " + datetime.now().strftime("%d/%m/%Y"))

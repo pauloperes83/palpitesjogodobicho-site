@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palpites do Jogo do Bicho | Estratégias e Resultados Diários</title>
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <style>
+        :root {
+            --primary: #f6c945;
+            --primary-dark: #d4a017;
+            --bg-dark: #121722;
+            --bg-body: #f8f9fa;
+            --bg-white: #ffffff;
+            --text-dark: #1a1d23;
+            --text-gray: #4a5568;
+            --border: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--bg-body); color: var(--text-dark); line-height: 1.6; }
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; position: relative; }
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* HEADER PRETO - TRAVADO */
+        header { background: var(--bg-dark); padding: 20px 0; border-bottom: 4px solid var(--primary); text-align: center; }
+        
+        /* AQUI ESTÁ A CORREÇÃO DA LOGO */
+        .logo img { 
+            width: 150px !important; /* Tamanho fixo para não desconfigurar */
+            height: auto; 
+            display: block; 
+            margin: 0 auto; 
+        }
+        
+        /* NAV */
+        nav { background: var(--bg-dark); padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        nav .nav-links { display: flex; justify-content: center; align-items: center; }
+        nav a { color: #d8dcec; margin: 0 15px; font-weight: 600; font-size: 14px; text-transform: uppercase; }
+        nav a:hover, nav a.active { color: var(--primary); }
+
+        /* BOTÃO HAMBÚRGUER */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; position: absolute; right: 0; top: 50%; transform: translateY(-50%); padding: 10px; }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--primary); margin: 4px 0; transition: 0.4s; }
+
+        /* DROPDOWN */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background: var(--bg-dark); min-width: 180px; box-shadow: 0 8px 16px rgba(0,0,0,0.5); z-index: 1; border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; text-align: left; }
+        .dropdown-content a { color: #d8dcec; padding: 12px 16px; display: block; border-bottom: 1px solid rgba(255,255,255,0.05); text-transform: none; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* CONTEÚDO CLEAN */
+        .hero { padding: 80px 0; text-align: center; background: var(--bg-white); border-bottom: 1px solid var(--border); }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 15px; font-weight: 800; color: var(--text-dark); }
+        .hero h1 span { color: var(--primary-dark); }
+        .hero p { font-size: 1.2rem; color: var(--text-gray); max-width: 700px; margin: 0 auto 30px; }
+
+        .btn { padding: 15px 35px; border-radius: 8px; font-weight: 700; display: inline-block; margin: 10px; text-transform: uppercase; }
+        .btn-primary { background: var(--bg-dark); color: var(--primary); border: 2px solid var(--primary); }
+        .btn-outline { border: 2px solid var(--bg-dark); color: var(--bg-dark); }
+
+        /* CARDS */
+        .features { padding: 60px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: var(--bg-white); padding: 40px 20px; border-radius: 12px; border: 1px solid var(--border); text-align: center; transition: 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card h3 { margin-bottom: 15px; color: var(--text-dark); }
+        .card b { color: var(--primary-dark); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+
+        footer { background: var(--bg-dark); padding: 50px 0; text-align: center; color: #888ea1; }
+        .footer-links { margin-bottom: 25px; }
+        .footer-links a { color: #fff; margin: 0 12px; font-size: 0.9rem; }
+        .footer-copy { font-size: 0.8rem; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
+
+        /* AJUSTES MOBILE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .logo img { width: 110px !important; }
+            .menu-toggle { display: flex; }
+            nav .nav-links { display: none; flex-direction: column; width: 100%; background: var(--bg-dark); padding: 10px 0; }
+            nav.active .nav-links { display: flex; }
+            nav a { padding: 15px; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.05); margin: 0; }
+            .dropdown-content { position: static; width: 100%; box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/logo-palpites.png" alt="Palpites do Jogo do Bicho">
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <nav id="navbar">
+        <div class="container nav-links">
+            <a href="index.html" class="active">Início</a>
+            <a href="palpite-do-dia.html">Palpite do Dia</a>
+            <div class="dropdown">
+                <a href="#" style="cursor: default;">Bancas ▾</a>
+                <div class="dropdown-content">
+                    <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank">Águia Prime</a>
+                    <a href="https://app.valedasorteloterias.club/pr/g5P71dlw" target="_blank">Vale da Sorte</a>
+                </div>
+            </div>
+            <a href="puxadas-do-bicho.html">Puxadas</a>
+            <a href="milhares-viciadas.html">Milhares</a>
+            <a href="https://resultadosdojogo.com/" target="_blank" style="color: var(--primary);">Resultados</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Expert em <span>Palpites do Bicho</span></h1>
+            <p>Sua central de estatísticas, puxadas e milhares viciadas atualizadas diariamente.</p>
+            <a href="palpite-do-dia.html" class="btn btn-primary">PALPITE DE HOJE</a>
+            <a href="https://resultadosdojogo.com/" target="_blank" class="btn btn-outline">RESULTADOS</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="features">
+            <a href="palpite-do-dia.html" class="card">
+                <h3>Palpite do Dia</h3>
+                <p>Milhares e dezenas analisadas para cercar o bicho hoje.</p>
+                <b>VER PALPITES →</b>
+            </a>
+            <a href="puxadas-do-bicho.html" class="card">
+                <h3>Tabela de Puxadas</h3>
+                <p>A lógica dos bichos que se atraem após cada sorteio.</p>
+                <b>VER TABELA →</b>
+            </a>
+            <a href="milhares-viciadas.html" class="card">
+                <h3>Milhares Viciadas</h3>
+                <p>As combinações que mais se repetem na Federal e Rio.</p>
+                <b>CONSULTAR →</b>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="sobre.html">Sobre</a>
+                <a href="contato.html">Contato</a>
+                <a href="politica-de-privacidade.html">Privacidade</a>
+            </div>
+            <p class="footer-copy">© 2026 Palpites do Jogo do Bicho. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
+
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
