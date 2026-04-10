@@ -3,8 +3,6 @@ from datetime import datetime
 import random
 import subprocess
 
-# O TOKEN deve estar configurado no 'git remote set-url' da VPS
-
 bichos_oficiais = {
     "Avestruz": {"gr": "01", "dz": ["01", "02", "03", "04"], "e": "🦩", "puxa": "Vaca, Águia, Galo, Pavão, Peru"},
     "Águia": {"gr": "02", "dz": ["05", "06", "07", "08"], "e": "🦅", "puxa": "Coelho, Avestruz, Galo, Pavão, Peru"},
@@ -80,6 +78,7 @@ def salvar_e_push():
         h1 { font-size: 2.2rem; color: #222; text-align: center; margin-bottom: 25px; }
         h2 { font-size: 1.6rem; color: #b8860b; border-left: 6px solid #f6c945; padding-left: 15px; margin: 35px 0 20px 0; }
         p { margin-bottom: 15px; font-size: 1.1rem; color: #444; text-align: justify; }
+        .link-seo { color: #d4a017; font-weight: bold; text-decoration: underline; }
         .palpite-box { background: #f9f9f9; border: 1px solid #eee; border-radius: 12px; padding: 20px; margin: 25px 0; }
         .numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; text-align: center; }
         .num-card { border: 1px solid #ddd; padding: 10px; border-radius: 8px; background: #fff; }
@@ -94,6 +93,11 @@ def salvar_e_push():
     def build_page(title, kw, btn_link, btn_text):
         intro = f"Você está procurando pelo <strong>{kw}</strong>? Chegou ao lugar certo. O Jogo do Bicho é uma das tradições mais enraizadas no cotidiano fluminense."
         intro2 = f"Entender as tendências de cada extração é fundamental para quem busca um <strong>palpite fácil do jogo do bicho do rio de janeiro</strong>. Nossa equipe analisa diariamente milhares de resultados para oferecer a você as melhores indicações para PTM, PT, PTV, PTN e Corujinha."
+
+        # LINKS INTERNOS DEFINIDOS PELO USUÁRIO
+        link_puxadas = '<a href="https://palpitesjogodobicho.com.br/puxadas-do-bicho.html" class="link-seo">puxadas do bicho</a>'
+        link_milheres = '<a href="https://palpitesjogodobicho.com.br/milhares-viciadas.html" class="link-seo">Milhares Viciadas</a>'
+        link_palpite_dia = '<a href="https://palpitesjogodobicho.com.br/palpite-do-dia.html" class="link-seo">Palpite do Dia</a>'
 
         corpo_texto = f'''
         <h2>Análise Semântica: {kw}</h2>
@@ -110,6 +114,16 @@ def salvar_e_push():
         <p>A Loteria Federal de quartas e sábados é o momento mais esperado por quem segue o <strong>{kw}</strong>, pois define prêmios maiores em todo o território nacional.</p>
         <p>Para ter sucesso na Federal, é crucial analisar o <strong>resultado da federal</strong> anterior e cruzar com o nosso <strong>palpite fácil do jogo do bicho do rio de janeiro</strong> atualizado.</p>
         <p>O sorteio da Federal ocorre pontualmente às 20h, e nossos estudos indicam que as dezenas sugeridas para o <strong>{kw}</strong> possuem altíssima taxa de conversão nessa modalidade.</p>
+        
+        <h2>Como Jogar no Jogo do Bicho</h2>
+        <p>O Jogo do Bicho consiste em apostar em animais que representam grupos de números. Cada bicho possui quatro dezenas específicas que definem o sorteio.</p>
+        <p>Você pode apostar de diversas formas, como no grupo seco, dezenas, centenas ou milhares, sendo que cada modalidade possui um multiplicador de prêmio diferente.</p>
+        <p>Uma excelente forma de planejar sua jogada é consultar o {link_palpite_dia} para ver quais animais estão com maior probabilidade de aparecer no dia de hoje.</p>
+
+        <h2>Como ganhar no Jogo do Bicho</h2>
+        <p>Aumentar suas chances envolve o uso de técnicas como o estudo das {link_puxadas}, que indicam quais bichos tendem a sair após uma determinada extração.</p>
+        <p>Além disso, o uso de tabelas de {link_milheres} ajuda a identificar combinações que possuem um histórico de maior frequência nos sorteios do Rio e Goiás.</p>
+        <p>Utilizando o nosso <strong>{kw}</strong>, você combina intuição com dados técnicos, transformando uma aposta comum em uma jogada estratégica e consciente.</p>
         '''
 
         return f'''<!DOCTYPE html><html lang="pt-BR"><head>
@@ -135,6 +149,7 @@ def salvar_e_push():
     <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-whats" target="_blank">RECEBER PALPITES NO WHATSAPP</a>
     {corpo_texto}
     {grid_bichos}
+    <p style="text-align: center; font-weight: bold; margin-top: 30px; font-size: 1.2rem; color: #b8860b;">🍀 Desejamos muita sorte em suas apostas e que os palpites de hoje tragam ótimos prêmios! 🍀</p>
 </div></section>
 <footer class="site-footer"><div class="container">
     <div class="footer-title" style="font-size:1.8rem; color:#f6c945; font-weight:bold;">Palpites Jogo do Bicho</div>
@@ -161,7 +176,7 @@ def salvar_e_push():
 
     os.chdir("/var/www/meusite")
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", f"Clean Layout Restore {hoje}"])
+    subprocess.run(["git", "commit", "-m", f"SEO Internal Links Fix {hoje}"])
     subprocess.run(["git", "push", "origin", "main", "--force"])
 
 if __name__ == "__main__":
