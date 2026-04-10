@@ -3,11 +3,6 @@ from datetime import datetime, timedelta
 import random
 import subprocess
 
-USUARIO_GITHUB = "pauloperes83"
-TOKEN_GITHUB = "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"
-REPO_NOME = "pauloperes83/palpitesjogodobicho-site"
-URL_AUTENTICADA = f"https://{USUARIO_GITHUB}:{TOKEN_GITHUB}@github.com/{REPO_NOME}.git"
-
 bichos_oficiais = {
     "Avestruz": {"gr": "01", "dz": ["01", "02", "03", "04"], "e": "🦩", "puxa": "Vaca, Águia, Galo, Pavão, Peru"},
     "Águia": {"gr": "02", "dz": ["05", "06", "07", "08"], "e": "🦅", "puxa": "Coelho, Avestruz, Galo, Pavão, Peru"},
@@ -62,7 +57,7 @@ def salvar_e_push():
     hoje_str = agora.strftime("%d/%m/%Y")
     p_html = gerar_palpites_html()
     
-    css = '''<style>body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#333;margin:0;padding:0;line-height:1.8}
+    css = '''<style>body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;margin:0;padding:0;line-height:1.8}
     header{background:#121722;padding:20px 0;border-bottom:3px solid #f6c945;text-align:center}
     .logo img{height:120px;width:auto}
     nav{background:#121722;padding:12px 0;text-align:center;position:sticky;top:0;z-index:1000}
@@ -77,7 +72,6 @@ def salvar_e_push():
     .num-card{border:1px solid #ddd;padding:10px;border-radius:8px;background:#fff}
     .num-card span{display:block;font-weight:700;font-size:1.1rem;color:#d4a017}
     .btn-apostar{display:inline-block;background:#b8860b;color:#fff;padding:18px 40px;border-radius:10px;text-decoration:none;font-weight:700;text-transform:uppercase;margin-top:20px}
-    .btn-whats{display:block;width:fit-content;margin:30px auto;background:#25d366;color:#fff;padding:15px 35px;border-radius:50px;text-decoration:none;font-weight:700;text-align:center}
     .site-footer{background:#0d1016;padding:50px 0;text-align:center;margin-top:50px;color:#fff}</style>'''
     
     header = f'<header><div class="container"><a href="index.html" class="logo"><img src="images/logo-palpites.png"></a></div></header><nav><a href="index.html">Início</a><a href="palpite-do-dia.html">Palpite do Dia</a><a href="https://resultadosdojogo.com/" target="_blank">Resultados</a></nav>'
@@ -90,13 +84,13 @@ def salvar_e_push():
 
     # LOOK
     kw_look = f"Palpite da Look Loterias de hoje Goiás {hoje_str}"
-    html_look = f'<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>{kw_look}</title>{css}</head><body>{header}<section class="section"><div class="container"><h1>{kw_look}</h1><p>Confira o melhor <strong>{kw_look}</strong> para Goiás e Goiânia. Veja também o <a href="https://resultadosdojogo.com/" class="links-seo" target="_blank">resultado look loterias de hoje</a> e Lotece.</p><div style="text-align:center"><a href="https://app.valedasorteloterias.club/pr/g5P71dlw" class="btn-apostar">🎰 APOSTAR NA LOOK</a></div>{p_html}<a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-whats">LOOK LOTERIAS WHATSAPP - GRUPO</a></div></section>{footer}'
+    html_look = f'<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>{kw_look}</title>{css}</head><body>{header}<section class="section"><div class="container"><h1>{kw_look}</h1><p>Confira o melhor <strong>{kw_look}</strong> para Goiás e Goiânia. Veja também o <a href="https://resultadosdojogo.com/" class="links-seo" target="_blank">resultado look loterias de hoje</a> e Lotece.</p><div style="text-align:center"><a href="https://app.valedasorteloterias.club/pr/g5P71dlw" class="btn-apostar">🎰 APOSTAR NA LOOK</a></div>{p_html}</div></section>{footer}'
     with open("/var/www/meusite/palpite-do-bicho-look.html", 'w', encoding='utf-8') as f: f.write(html_look)
 
     os.chdir("/var/www/meusite")
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", f"Restore SEO and Design {hoje_str}"])
-    subprocess.run(["git", "push", URL_AUTENTICADA, "main", "--force"])
+    subprocess.run(["git", "commit", "-m", f"Restore SEO Rio e Look {hoje_str}"])
+    subprocess.run(["git", "push", "origin", "main", "--force"])
 
 if __name__ == "__main__":
     salvar_e_push()
