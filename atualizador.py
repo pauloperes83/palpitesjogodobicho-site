@@ -3,9 +3,6 @@ from datetime import datetime, timedelta
 import random
 import subprocess
 
-# ==========================================
-# CONFIGURAÇÃO GITHUB
-# ==========================================
 USUARIO_GITHUB = "pauloperes83"
 TOKEN_GITHUB = "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"
 REPO_NOME = "pauloperes83/palpitesjogodobicho-site"
@@ -27,7 +24,7 @@ bichos_oficiais = {
     "Galo": {"gr": "13", "dz": ["49", "50", "51", "52"], "e": "🐓", "puxa": "Cachorro, Avestruz, Águia, Pavão, Peru"},
     "Gato": {"gr": "14", "dz": ["53", "54", "55", "56"], "e": "🐈", "puxa": "Cachorro, Leão, Tigre, Cobra"},
     "Jacaré": {"gr": "15", "dz": ["57", "58", "59", "60"], "e": "🐊", "puxa": "Cobra, Porco, Borboleta, Macaco"},
-    "Leão": {"gr": "16", "gr_num": "16", "dz": ["61", "62", "63", "64"], "e": "🦁", "puxa": "Elefante, Gato, Tigre, Urso"},
+    "Leão": {"gr": "16", "dz": ["61", "62", "63", "64"], "e": "🦁", "puxa": "Elefante, Gato, Tigre, Urso"},
     "Macaco": {"gr": "17", "dz": ["65", "66", "67", "68"], "e": "🐒", "puxa": "Cachorro, Cabra, Peru, Jacaré"},
     "Porco": {"gr": "18", "dz": ["69", "70", "71", "72"], "e": "🐷", "puxa": "Cobra, Peru, Jacaré, Cachorro"},
     "Pavão": {"gr": "19", "dz": ["73", "74", "75", "76"], "e": "🦚", "puxa": "Avestruz, Águia, Galo, Peru"},
@@ -39,63 +36,66 @@ bichos_oficiais = {
     "Vaca": {"gr": "25", "dz": ["97", "98", "99", "00"], "e": "🐄", "puxa": "Touro, Avestruz, Carneiro"}
 }
 
-def get_bicho_pela_dezena(dezena):
-    d = int(dezena)
-    if d == 0: d = 100
-    for nome, dados in bichos_oficiais.items():
-        gr = int(dados["gr"])
-        if ((gr * 4) - 3) <= d <= (gr * 4) or (gr == 25 and (d >= 97 or d == 0)): return nome
-    return "Avestruz"
-
-def get_bicho_pelo_grupo(grupo):
-    for nome, dados in bichos_oficiais.items():
-        if int(dados["gr"]) == int(grupo): return nome
-    return "Avestruz"
-
-def gerar_palpites_html(dia):
+def gerar_palpites_html():
     final_bichos = []
-    lista_escolhidos = []
-    def adicionar(n, d):
-        if n not in lista_escolhidos and len(lista_escolhidos) < 6:
-            lista_escolhidos.append(n); final_bichos.append((n, d))
-    
-    b_dia = get_bicho_pelo_grupo(dia)
-    b_dir = get_bicho_pela_dezena(str(dia).zfill(2))
-    dz_esp = str(dia*10) if dia < 10 else str(dia)[::-1].zfill(2)
-    b_esp = get_bicho_pela_dezena(dz_esp)
-    
-    for b in [b_dia, b_dir, b_esp]: adicionar(b, str(dia).zfill(2) if b != b_esp else dz_esp)
-    for b in [b_dia, b_dir, b_esp]:
-        for p in bichos_oficiais[b]["puxa"].split(", "): 
-            adicionar(p, random.choice(bichos_oficiais[p]["dz"]))
-
+    while len(final_bichos) < 6:
+        b = random.choice(list(bichos_oficiais.keys()))
+        dz = random.choice(bichos_oficiais[b]["dz"])
+        if b not in [x[0] for x in final_bichos]:
+            final_bichos.append((b, dz))
     palpites_html = ""
     for n, d in final_bichos:
         info = bichos_oficiais[n]
-        palpites_html += f'<div class="palpite-box"><h3>{info["gr"]} - {n.upper()} {info["e"]}</h3><div class="numbers-grid"><div>Milhar: {random.randint(1,9)}{random.randint(1,9)}{d}</div><div>Centena: {random.randint(1,9)}{d}</div><div>Dezena: {d}</div></div></div>'
+        palpites_html += f'''
+    <div class="palpite-box">
+        <div class="bicho-title"><h3>{info["gr"]} - {n.upper()} {info["e"]}</h3></div>
+        <div class="numbers-grid">
+            <div class="num-card"><label>Milhares</label><span>{random.randint(1,9)}{random.randint(1,9)}{d}</span></div>
+            <div class="num-card"><label>Centenas</label><span>{random.randint(1,9)}{d}</span></div>
+            <div class="num-card"><label>Dezenas</label><span>{d}</span></div>
+        </div>
+    </div>'''
     return palpites_html
 
 def salvar_e_push():
     agora = datetime.now()
     hoje_str = agora.strftime("%d/%m/%Y")
-    dia = agora.day
+    p_html = gerar_palpites_html()
     
-    css = "<style>body{font-family:sans-serif;padding:20px;line-height:1.6}.container{max-width:800px;margin:0 auto}.palpite-box{background:#f4f4f4;padding:15px;margin:15px 0;border-radius:10px;border-left:5px solid #b8860b}.numbers-grid{display:grid;grid-template-columns:1fr 1fr 1fr;font-weight:bold;color:#b8860b}.btn-apostar{display:inline-block;background:#b8860b;color:#fff;padding:15px 30px;text-decoration:none;border-radius:8px;font-weight:bold;margin:10px 0}.btn-whats{display:block;background:#25d366;color:#fff;padding:15px;text-align:center;text-decoration:none;font-weight:bold;border-radius:50px;margin-top:20px}</style>"
-    header = f'<header style="background:#121722;padding:20px;text-align:center"><a href="index.html"><img src="images/logo-palpites.png" height="80"></a></header>'
+    css = '''<style>body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#333;margin:0;padding:0;line-height:1.8}
+    header{background:#121722;padding:20px 0;border-bottom:3px solid #f6c945;text-align:center}
+    .logo img{height:120px;width:auto}
+    nav{background:#121722;padding:12px 0;text-align:center;position:sticky;top:0;z-index:1000}
+    nav a{color:#d8dcec;text-decoration:none;margin:0 15px;font-weight:600;text-transform:uppercase}
+    .container{width:95%;max-width:1000px;margin:0 auto}
+    .section{padding:40px 0}
+    h1{font-size:2.2rem;color:#222;text-align:center;margin-bottom:25px;font-weight:700}
+    h2{font-size:1.6rem;color:#b8860b;border-left:6px solid #f6c945;padding-left:15px;margin:35px 0 20px}
+    .links-seo{color:#d4a017;font-weight:700;text-decoration:underline}
+    .palpite-box{background:#f9f9f9;border:1px solid #eee;border-radius:12px;padding:20px;margin:25px 0}
+    .numbers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:15px;text-align:center}
+    .num-card{border:1px solid #ddd;padding:10px;border-radius:8px;background:#fff}
+    .num-card span{display:block;font-weight:700;font-size:1.1rem;color:#d4a017}
+    .btn-apostar{display:inline-block;background:#b8860b;color:#fff;padding:18px 40px;border-radius:10px;text-decoration:none;font-weight:700;text-transform:uppercase;margin-top:20px}
+    .btn-whats{display:block;width:fit-content;margin:30px auto;background:#25d366;color:#fff;padding:15px 35px;border-radius:50px;text-decoration:none;font-weight:700;text-align:center}
+    .site-footer{background:#0d1016;padding:50px 0;text-align:center;margin-top:50px;color:#fff}</style>'''
+    
+    header = f'<header><div class="container"><a href="index.html" class="logo"><img src="images/logo-palpites.png"></a></div></header><nav><a href="index.html">Início</a><a href="palpite-do-dia.html">Palpite do Dia</a><a href="https://resultadosdojogo.com/" target="_blank">Resultados</a></nav>'
+    footer = '<footer class="site-footer"><div class="container"><h3>Palpites do Jogo do Bicho</h3><p>© 2026 Portal de Palpites.</p></div></footer></body></html>'
 
     # RIO
-    p_rio = gerar_palpites_html(dia)
-    html_rio = f'<html><head><title>Palpite Rio {hoje_str}</title>{css}</head><body>{header}<div class="container"><h1>Palpite Rio {hoje_str}</h1><p>Confira os palpites para PTM, PT, PTV, PTN e Corujinha. Veja o <a href="https://resultadosdojogo.com/">resultado do bicho de hoje rio</a>.</p><div style="text-align:center"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" class="btn-apostar">APOSTAR NO RIO</a></div>{p_rio}</div></body></html>'
-    with open("/var/www/meusite/palpite-do-bicho-rj.html", "w", encoding="utf-8") as f: f.write(html_rio)
+    kw_rio = f"Palpite do dia do Jogo do Bicho de hoje Rio {hoje_str}"
+    html_rio = f'<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>{kw_rio}</title>{css}</head><body>{header}<section class="section"><div class="container"><h1>{kw_rio}</h1><p>Confira o melhor palpite para as extrações do Rio. Veja o <a href="https://resultadosdojogo.com/" class="links-seo" target="_blank">resultado do jogo do bicho de hoje rio</a> para PTM, PT, PTV, PTN e Corujinha.</p><div style="text-align:center"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" class="btn-apostar">🎰 APOSTAR NO RIO</a></div>{p_html}<hr><h2>Palpite Federal</h2><p>Palpites válidos para a Federal de quarta e sábado.</p></div></section>{footer}'
+    with open("/var/www/meusite/palpite-do-bicho-rj.html", 'w', encoding='utf-8') as f: f.write(html_rio)
 
     # LOOK
-    p_look = gerar_palpites_html(dia)
-    html_look = f'<html><head><title>Palpite Look Goiás {hoje_str}</title>{css}</head><body>{header}<div class="container"><h1>Palpite Look Goiás {hoje_str}</h1><p>Palpites para Look e Goiânia. Veja o <a href="https://resultadosdojogo.com/">resultado look loterias de hoje</a>.</p><div style="text-align:center"><a href="https://app.valedasorteloterias.club/pr/g5P71dlw" class="btn-apostar">APOSTAR NA LOOK</a></div>{p_look}<a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-whats">WHATSAPP LOOK GOIÁS</a></div></body></html>'
-    with open("/var/www/meusite/palpite-do-bicho-look.html", "w", encoding="utf-8") as f: f.write(html_look)
+    kw_look = f"Palpite da Look Loterias de hoje Goiás {hoje_str}"
+    html_look = f'<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>{kw_look}</title>{css}</head><body>{header}<section class="section"><div class="container"><h1>{kw_look}</h1><p>Confira o melhor <strong>{kw_look}</strong> para Goiás e Goiânia. Veja também o <a href="https://resultadosdojogo.com/" class="links-seo" target="_blank">resultado look loterias de hoje</a> e Lotece.</p><div style="text-align:center"><a href="https://app.valedasorteloterias.club/pr/g5P71dlw" class="btn-apostar">🎰 APOSTAR NA LOOK</a></div>{p_html}<a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-whats">LOOK LOTERIAS WHATSAPP - GRUPO</a></div></section>{footer}'
+    with open("/var/www/meusite/palpite-do-bicho-look.html", 'w', encoding='utf-8') as f: f.write(html_look)
 
     os.chdir("/var/www/meusite")
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", f"Fix SEO Rio & Look {hoje_str}"])
+    subprocess.run(["git", "commit", "-m", f"Restore SEO and Design {hoje_str}"])
     subprocess.run(["git", "push", URL_AUTENTICADA, "main", "--force"])
 
 if __name__ == "__main__":
