@@ -82,7 +82,7 @@ def salvar_e_push():
         .numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; text-align: center; }
         .num-card { border: 1px solid #ddd; padding: 10px; border-radius: 8px; background: #fff; }
         .num-card span { display: block; font-weight: bold; font-size: 1.1rem; color: #d4a017; }
-        .btn-apostar { display: inline-block; background: #b8860b; color: white; padding: 18px 40px; border-radius: 10px; text-decoration: none; font-weight: bold; text-transform: uppercase; margin-top: 20px; }
+        .btn-apostar { display: inline-block; background: #b8860b; color: white; padding: 18px 40px; border-radius: 10px; text-decoration: none; font-weight: bold; text-transform: uppercase; margin-top: 20px; box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4); }
         .btn-whats { display: block; width: fit-content; margin: 30px auto; background: #25d366; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; text-align: center; }
         .site-footer { background-color: #0d1016; border-top: 1px solid rgba(255,255,255,0.08); padding: 50px 0 30px 0; text-align: center; margin-top: 50px; width: 100%; }
         .footer-wrap { display: flex; flex-direction: column; align-items: center; }
@@ -97,7 +97,6 @@ def salvar_e_push():
         @media (max-width: 768px) { .logo img { height: 100px; } nav a { margin: 0 5px; font-size: 12px; } }
     </style>'''
 
-    # LINKS INTERNOS
     l_pux = '<a href="https://palpitesjogodobicho.com.br/puxadas-do-bicho.html" class="link-seo">puxadas do bicho</a>'
     l_mil = '<a href="https://palpitesjogodobicho.com.br/milhares-viciadas.html" class="link-seo">Milhares Viciadas</a>'
     l_pal = '<a href="https://palpitesjogodobicho.com.br/palpite-do-dia.html" class="link-seo">Palpite do Dia</a>'
@@ -137,7 +136,7 @@ def salvar_e_push():
     <p class="footer-copy" style="text-align: center;">© 2026 Palpites do Jogo. Todos os direitos reservados.</p>
 </div></footer></body></html>'''
 
-    # CONTEÚDO EXCLUSIVO RIO
+    # RIO
     kw_rio = f"Palpite do dia do Jogo do Bicho de hoje Rio {hoje}"
     art_rio = f'''
     <p>Você está procurando pelo <strong>{kw_rio}</strong>? Chegou ao lugar certo. O Jogo do Bicho é uma das tradições mais enraizadas no cotidiano fluminense.</p>
@@ -155,36 +154,37 @@ def salvar_e_push():
     <p>Lembre-se que o <strong>resultado do jogo do bicho de hoje rio</strong> serve como termômetro para as extrações da tarde e Corujinha.</p>
     <h2>Como Jogar e Ganhar no Rio</h2>
     <p>O Jogo do Bicho consiste em apostar em animais. Uma excelente forma de planejar sua jogada é consultar o {l_pal} para ver as probabilidades.</p>
-    <p>Aumentar suas chances envolve o uso de técnicas como o estudo das {l_pux}, que indicam tendências após uma extração.</p>
-    <p>O uso de tabelas de {l_mil} ajuda a identificar combinações com histórico de maior frequência nos sorteios do Rio.</p>
+    <p>Estude técnicas como o das {l_pux}, que indicam tendências após uma extração.</p>
+    <p>O uso de tabelas de {l_mil} ajuda a identificar combinações com histórico de frequência nos sorteios fluminenses.</p>
     {grid_bichos}
     <h2>Dicas para o {kw_rio} e a Federal</h2>
     <p>A Loteria Federal de quartas e sábados é o momento mais esperado por quem segue o <strong>{kw_rio}</strong>, com prêmios nacionais maiores.</p>
-    <p>Analise o <strong>resultado da federal</strong> anterior e cruze com o nosso <strong>palpite fácil do jogo do bicho do rio de janeiro</strong> atualizado.</p>
+    <p>Analise o <strong>resultado da federal</strong> anterior e cruze com o nosso <strong>palpite fácil do jogo do bicho do rio de janeiro</strong> atualizado hoje.</p>
     <p>O sorteio da Federal ocorre às 20h, e os estudos do <strong>{kw_rio}</strong> possuem altíssima taxa de conversão nessa modalidade fluminense.</p>
     '''
 
-    # CONTEÚDO EXCLUSIVO LOOK
+    # LOOK (HORÁRIOS ATUALIZADOS)
     kw_look = f"Palpite da Look Loterias de hoje Goiás {hoje}"
     art_look = f'''
     <p>Procurando pelo melhor <strong>{kw_look}</strong>? Nossa equipe foca nas tendências exclusivas das loterias de Goiás e Goiânia.</p>
-    <p>O <strong>resultado look loterias de hoje</strong> influencia diretamente as milhares que sugerimos para os horários das 11h, 14h, 16h, 18h e 21h.</p>
+    <p>O <strong>resultado look loterias de hoje</strong> influencia diretamente as milhares que sugerimos para os horários das <strong>07h, 09h, 11h, 14h, 16h, 18h, 21h e 23h</strong>.</p>
     <div style="text-align: center;"><a href="https://app.valedasorteloterias.club/pr/g5P71dlw" class="btn-apostar">🎰 APOSTAR NA LOOK</a></div>
     {palpites_txt}
     <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-whats" target="_blank">GRUPO LOOK GOIÁS WHATSAPP</a>
     <h2>Estratégia Look: {kw_look}</h2>
     <p>Para ganhar em Goiás, é preciso observar os atrasos da banca Look. Nosso <strong>palpite da look de hoje</strong> é gerado com base nesses dados técnicos.</p>
     <p>Muitos apostadores consultam o <strong>resultado da look de ontem</strong> para montar seus cercados e ternos de grupo para o dia seguinte.</p>
-    <p>O <strong>{kw_look}</strong> que oferecemos aqui é otimizado para quem busca precisão nas centenas e dezenas do mercado goiano.</p>
-    <h2>Como Ganhar na Look Goiás</h2>
-    <p>Além de acompanhar o {l_pal}, sugerimos que você utilize as técnicas de {l_pux} focadas na banca Look.</p>
-    <p>As {l_mil} da Look costumam repetir padrões diferentes do Rio, por isso nossa análise separa as duas loterias.</p>
+    <p>O <strong>{kw_look}</strong> que oferecemos aqui é otimizado para quem busca precisão nas centenas e dezenas do mercado goiano em todos os horários.</p>
+    <h2>Como Jogar e Ganhar na Look</h2>
+    <p>A Look Loterias possui sorteios frequentes desde as 07h até as 23h. Planeje suas cercas consultando o {l_pal} diariamente.</p>
+    <p>Utilize as técnicas de {l_pux} focadas na banca Look e Goiás para identificar as dezenas que mais se repetem.</p>
+    <p>As {l_mil} da Look costumam seguir padrões regionais, por isso nossa análise separa os palpites de Goiás do Rio.</p>
     {grid_bichos}
     <h2>Conclusão: {kw_look}</h2>
-    <p>Aposte com inteligência usando o nosso <strong>{kw_look}</strong>. Atualizamos as dezenas de hora em hora para acompanhar os sorteios de Goiás.</p>
+    <p>Aposte com inteligência usando o nosso <strong>{kw_look}</strong>. Atualizamos as dezenas constantemente para acompanhar os sorteios de Goiânia.</p>
     '''
 
-    # GRAVAR AS PÁGINAS
+    # GRAVAR
     with open("/var/www/meusite/palpite-do-bicho-rj.html", 'w', encoding='utf-8') as f:
         f.write(build_full_page(kw_rio, "https://app.aguiaprime119000.com/pr/y8X6LEBU", "🎰 APOSTAR NO RIO", art_rio))
     
@@ -193,7 +193,7 @@ def salvar_e_push():
 
     os.chdir("/var/www/meusite")
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", f"Split Content Rio and Look {hoje}"])
+    subprocess.run(["git", "commit", "-m", f"Updated Look Hours {hoje}"])
     subprocess.run(["git", "push", "origin", "main", "--force"])
 
 if __name__ == "__main__":
