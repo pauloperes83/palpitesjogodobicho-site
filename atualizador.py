@@ -148,17 +148,17 @@ def executar():
         
         <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-whats" target="_blank">RECEBER PALPITES NO WHATSAPP</a>
         
-        <h2>Análise Semântica e Técnica</h2>
+        <h2>Análise Semântica e Técnica do {kw}</h2>
         <p>A nossa análise vai além da simples intuição. Cruzamos os dados dos sorteios anteriores para identificar a vibração numérica do dia. Para a Federal, o cálculo é reforçado: analisamos as dezenas que ficaram atrasadas, aplicando a regra de probabilidade inversa.</p>
-        <p>Ao analisar as tendências, nosso algoritmo detecta se há uma propensão para determinados grupos, baseando-se no ciclo de repetição histórica. Isso garante uma análise profissional, transformando sorte em estratégia matemática real.</p>
+        <p>Ao analisar as tendências, nosso algoritmo detecta se há uma propensão para determinados grupos, baseando-se no ciclo de repetição histórica do <strong>{kw}</strong>. Isso garante uma análise profissional, transformando sorte em estratégia matemática real.</p>
 
-        <h2>Como Jogar e Ganhar no Rio</h2>
+        <h2>Como Ganhar no {kw}</h2>
         <p>Consulte o {l_pal} para as probabilidades. Estude as {l_pux} e use as tabelas de {l_mil} para identificar combinações frequentes fluminenses.</p>
         
         {grid_bichos}
         
         <h2>Palpite da Loteria Federal de Hoje</h2>
-        <p>Estes palpites foram validados e servem também para os <strong>Palpites da Federal de hoje</strong>. A Federal é o sorteio mais tradicional e seguro, e nossos cálculos utilizam a base de dados oficial para gerar as dezenas e grupos com maior probabilidade de premiação. Não deixe de conferir o sorteio anterior para ajustar sua estratégia.</p>
+        <p>Estes palpites foram validados e servem também para os <strong>{kw}</strong> e especificamente para os Palpites da Federal de hoje. A Federal é o sorteio mais tradicional e seguro, e nossos cálculos utilizam a base de dados oficial para gerar as dezenas e grupos com maior probabilidade de premiação. Não deixe de conferir o sorteio anterior para ajustar sua estratégia.</p>
         <p>Para aumentar suas chances, nossa análise considera o comportamento das milhares e centenas que mais saíram nos últimos meses. Os números são gerados através de um sistema de cruzamento de dados que identifica padrões, garantindo que você tenha em mãos as opções mais quentes do momento.</p>
         <p>Lembre-se que as tabelas de premiação podem variar, mas os bichos seguem a mesma lógica. Acompanhe nossas atualizações constantes e utilize nossas tabelas de puxadas para cercar as possibilidades pelos cinco prêmios.</p>'''
         with open("/var/www/meusite/palpite-do-bicho-rj.html", 'w', encoding='utf-8') as f:
