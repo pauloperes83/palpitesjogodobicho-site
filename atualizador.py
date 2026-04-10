@@ -134,9 +134,10 @@ def executar():
         grid_bichos += f'<div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">{dados["gr"]}</div><div style="font-size: 2rem;">{dados["e"]}</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">{nome.upper()}</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">{" ".join(dados["dz"])}</div></div>'
     grid_bichos += '</div>'
 
-    l_pux = '<a href="https://palpitesjogodobicho.com.br/puxadas-do-bicho.html" class="link-seo">puxadas do bicho</a>'
+    # LINKS DEFINIDOS PELO USUÁRIO
+    l_pal = '<a href="https://palpitesjogodobicho.com.br/palpite-do-dia.html" class="link-seo">Palpite do dia</a>'
+    l_pux = '<a href="https://palpitesjogodobicho.com.br/puxadas-do-bicho.html" class="link-seo">Puxadas do Bicho</a>'
     l_mil = '<a href="https://palpitesjogodobicho.com.br/milhares-viciadas.html" class="link-seo">Milhares Viciadas</a>'
-    l_pal = '<a href="https://palpitesjogodobicho.com.br/palpite-do-dia.html" class="link-seo">Palpite do Dia</a>'
 
     if tipo in ["rio", "todos"]:
         kw = f"Palpite do dia do Jogo do Bicho de hoje Rio {hoje}"
