@@ -141,16 +141,16 @@ def executar():
     if tipo in ["rio", "todos"]:
         kw = f"Palpite do dia do Jogo do Bicho de hoje Rio {hoje}"
         art = f'''<p>Você está procurando pelo <strong>{kw}</strong>? Chegou ao lugar certo. O Jogo do Bicho é uma das tradições mais enraizadas no cotidiano fluminense.</p>
-        <p>Entender as tendências é fundamental para quem busca um <strong>palpite fácil do jogo do bicho do rio de janeiro</strong>. Analisamos resultados diários para as melhores indicações.</p>
+        <p>Entender as tendências é fundamental para quem busca um palpite fácil. Analisamos resultados diários para as melhores indicações.</p>
         
         <div style="text-align: center;"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" class="btn-apostar">🎰 APOSTAR NO RIO</a></div>
         {palpites_txt}
         
         <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-whats" target="_blank">RECEBER PALPITES NO WHATSAPP</a>
         
-        <h2>Análise Semântica e Técnica: Palpite do dia Jogo do Bicho Rio e Federal</h2>
-        <p>A nossa análise semântica vai além da simples intuição. Cruzamos os dados dos sorteios das 11h (PTM), 14h (PT), 16h (PTV) e 18h (PTN) para identificar a <strong>vibração numérica do dia</strong>. Para a Federal, o cálculo é reforçado: analisamos as dezenas que ficaram "atrasadas" no último sorteio de quarta ou sábado, aplicando a regra de probabilidade inversa.</p>
-        <p>Ao analisar o <strong>Palpite da Loteria Federal de hoje</strong>, nosso algoritmo detecta se há uma tendência para bichos do grupo das aves (como Águia e Pavão) ou mamíferos pesados (como Touro e Elefante), baseando-se no ciclo de repetição histórica. Isso garante que o usuário da <strong>Águia Prime</strong> tenha uma análise profissional, transformando sorte em estratégia matemática real.</p>
+        <h2>Análise Semântica e Técnica</h2>
+        <p>A nossa análise vai além da simples intuição. Cruzamos os dados dos sorteios anteriores para identificar a vibração numérica do dia. Para a Federal, o cálculo é reforçado: analisamos as dezenas que ficaram atrasadas, aplicando a regra de probabilidade inversa.</p>
+        <p>Ao analisar as tendências, nosso algoritmo detecta se há uma propensão para determinados grupos, baseando-se no ciclo de repetição histórica. Isso garante uma análise profissional, transformando sorte em estratégia matemática real.</p>
 
         <h2>Como Jogar e Ganhar no Rio</h2>
         <p>Consulte o {l_pal} para as probabilidades. Estude as {l_pux} e use as tabelas de {l_mil} para identificar combinações frequentes fluminenses.</p>
@@ -158,9 +158,9 @@ def executar():
         {grid_bichos}
         
         <h2>Palpite da Loteria Federal de Hoje</h2>
-        <p>Estes palpites foram validados por especialistas e servem também para os <strong>Palpites da Federal de hoje</strong>. A Loteria Federal é o sorteio mais tradicional e seguro, e nossos cálculos utilizam a base de dados oficial para gerar as dezenas e grupos com maior probabilidade de premiação. Não deixe de conferir o <strong>resultado da federal</strong> anterior para ajustar sua estratégia de aposta.</p>
-        <p>Para aumentar suas chances na Federal, nossa análise considera o comportamento das milhares e centenas que mais saíram nos últimos meses. O <strong>Palpite da Loteria Federal de hoje</strong> é gerado através de um sistema de cruzamento de dados que identifica padrões nos sorteios das 19h e das 22h, garantindo que você tenha em mãos os números mais quentes do momento.</p>
-        <p>Lembre-se que o Jogo do Bicho e a Federal possuem tabelas de premiação distintas, mas os bichos seguem a mesma lógica. Se você busca o <strong>palpite do dia</strong> para mudar sua sorte, acompanhe nossas atualizações constantes e utilize nossas tabelas de puxadas para cercar as possibilidades pelos cinco prêmios.</p>'''
+        <p>Estes palpites foram validados e servem também para os <strong>Palpites da Federal de hoje</strong>. A Federal é o sorteio mais tradicional e seguro, e nossos cálculos utilizam a base de dados oficial para gerar as dezenas e grupos com maior probabilidade de premiação. Não deixe de conferir o sorteio anterior para ajustar sua estratégia.</p>
+        <p>Para aumentar suas chances, nossa análise considera o comportamento das milhares e centenas que mais saíram nos últimos meses. Os números são gerados através de um sistema de cruzamento de dados que identifica padrões, garantindo que você tenha em mãos as opções mais quentes do momento.</p>
+        <p>Lembre-se que as tabelas de premiação podem variar, mas os bichos seguem a mesma lógica. Acompanhe nossas atualizações constantes e utilize nossas tabelas de puxadas para cercar as possibilidades pelos cinco prêmios.</p>'''
         with open("/var/www/meusite/palpite-do-bicho-rj.html", 'w', encoding='utf-8') as f:
             f.write(build_full_page(kw, "https://app.aguiaprime119000.com/pr/y8X6LEBU", "🎰 APOSTAR NO RIO", art, palpites_txt, grid_bichos))
 
