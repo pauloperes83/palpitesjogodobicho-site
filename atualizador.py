@@ -11,7 +11,7 @@ bichos_oficiais = {
     "Borboleta": {"gr": "04", "dz": ["13", "14", "15", "16"], "e": "🦋", "puxa": "Cabra, Elefante, Gato, Leão, Cachorro, Galo"},
     "Cachorro": {"gr": "05", "dz": ["17", "18", "19", "20"], "e": "🐕", "puxa": "Galo, Gato, Camelo, Macaco, Porco, Pavão"},
     "Cabra": {"gr": "06", "dz": ["21", "22", "23", "24"], "e": "🐐", "puxa": "Carneiro, Macaco, Elefante, Touro, Tigre, Urso"},
-    "Carneiro": {"gr": "07", "dz": ["25", "26", "27", "28"], "e": "RAM", "puxa": "Cabra, Coelho, Vaca"},
+    "Carneiro": {"gr": "07", "dz": ["25", "26", "27", "28"], "e": "🐑", "puxa": "Cabra, Coelho, Vaca"},
     "Camelo": {"gr": "08", "dz": ["29", "30", "31", "32"], "e": "🐪", "puxa": "Cachorro, Elefante, Urso"},
     "Cobra": {"gr": "09", "dz": ["33", "34", "35", "36"], "e": "🐍", "puxa": "Jacaré, Porco, Burro, Gato"},
     "Coelho": {"gr": "10", "dz": ["37", "38", "39", "40"], "e": "🐰", "puxa": "Carneiro, Águia, Burro"},
@@ -45,10 +45,28 @@ def gerar_palpites_html(dia):
     b1 = get_bicho_pela_dezena(dz1)
     dz2 = str(dia) + "0" if dia < 10 else str(dia)[::-1].zfill(2)
     b2 = get_bicho_pela_dezena(dz2)
-    px = random.sample(bichos_oficiais[b1]["puxa"].split(", "), 2) + random.sample(bichos_oficiais[b2]["puxa"].split(", "), 2)
-    final = list(dict.fromkeys([(b1, dz1), (b2, dz2)] + [(p, random.choice(bichos_oficiais[p]["dz"])) for p in px]))[:6]
+    
+    # Inicia a lista com os dois bichos base garantindo que não sejam iguais
+    selecionados = []
+    selecionados.append((b1, dz1))
+    if b2 != b1:
+        selecionados.append((b2, dz2))
+    
+    # Pega as puxadas dos dois bichos base
+    puxadas_base = bichos_oficiais[b1]["puxa"].split(", ") + bichos_oficiais[b2]["puxa"].split(", ")
+    # Remove duplicatas mantendo a ordem
+    puxadas_unicas = list(dict.fromkeys(puxadas_base))
+    
+    # Adiciona bichos das puxadas até completar 6, sem repetir bicho já sorteado
+    for p in puxadas_unicas:
+        if len(selecionados) >= 6:
+            break
+        ja_existe = any(item[0] == p for item in selecionados)
+        if not ja_existe:
+            selecionados.append((p, random.choice(bichos_oficiais[p]["dz"])))
+            
     html = ""
-    for n, d in final:
+    for n, d in selecionados:
         info = bichos_oficiais[n]
         m = f"{random.randint(1,9)}{random.randint(0,9)}{d}"
         c = f"{random.randint(1,9)}{d}"
@@ -127,7 +145,6 @@ def build_full_page(kw, artigo_content, palpites_txt, grid_bichos):
 def executar():
     tipo = sys.argv[1] if len(sys.argv) > 1 else "todos"
     
-    # Lógica da Data: Pega amanhã se rodar à noite (após 21h)
     agora = datetime.now()
     if agora.hour >= 21:
         alvo = agora + timedelta(days=1)
@@ -143,7 +160,6 @@ def executar():
         grid_bichos += f'<div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">{dados["gr"]}</div><div style="font-size: 2rem;">{dados["e"]}</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">{nome.upper()}</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">{" ".join(dados["dz"])}</div></div>'
     grid_bichos += '</div>'
 
-    # LINKS PARA SEO
     l_pal = '<a href="https://palpitesjogodobicho.com.br/palpite-do-dia.html" class="link-seo">Palpite do dia</a>'
     l_pux = '<a href="https://palpitesjogodobicho.com.br/puxadas-do-bicho.html" class="link-seo">Puxadas do Bicho</a>'
     l_mil = '<a href="https://palpitesjogodobicho.com.br/milhares-viciadas.html" class="link-seo">Milhares Viciadas</a>'
