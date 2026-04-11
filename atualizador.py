@@ -71,12 +71,11 @@ def build_full_page(kw, artigo_content, palpites_txt, grid_bichos):
         .container { width: 95%; max-width: 1000px; margin: 0 auto; }
         header { background: #121722; padding: 20px 0; border-bottom: 3px solid #f6c945; text-align: center; }
         .header-wrap { display: flex; justify-content: center; align-items: center; position: relative; }
-        .logo img { height: 150px !important; width: auto; display: block; margin: 0 auto; }
+        .logo img { height: 150px; width: auto; display: block; margin: 0 auto; }
         .menu-btn { display: none; background: none; border: none; color: white; font-size: 24px; cursor: pointer; position: absolute; right: 15px; }
         nav { background: #121722; padding: 12px 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
         .nav-links { display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; }
         .nav-links a { color: #d8dcec; text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 15px; text-transform: uppercase; }
-        .nav-links a:hover { color: #f6c945; }
         .section { padding: 40px 0; }
         h1 { font-size: 2.2rem; color: #222; text-align: center; margin-bottom: 25px; }
         h2, h3 { font-size: 1.6rem; color: #b8860b; border-left: 6px solid #f6c945; padding-left: 15px; margin: 35px 0 20px 0; font-weight: bold; }
@@ -97,17 +96,8 @@ def build_full_page(kw, artigo_content, palpites_txt, grid_bichos):
         .footer-social a:hover svg { fill: #f6c945; }
         .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 30px; }
         .footer-links a { color: #d8dcec; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.3s; }
-        .footer-copy { font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; width: 90%; margin: 0 auto; color: #6c757d; text-align: center;}
-        @media (max-width: 768px) { 
-            .logo img { height: 100px !important; margin: 0 auto; } 
-            .menu-btn { display: block; } 
-            .nav-links { display: none; flex-direction: column; width: 100%; padding: 0; } 
-            .nav-links.show { display: flex; } 
-            .nav-links a { margin: 0; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); } 
-            p { text-align: left; } 
-            h1 { font-size: 1.6rem; } 
-            .dropdown-content { position: static; width: 100%; } 
-        }
+        .footer-copy { font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; width: 90%; margin: 0 auto; color: #6c757d; }
+        @media (max-width: 768px) { .logo img { height: 100px; margin: 0 auto; } .menu-btn { display: block; } .nav-links { display: none; flex-direction: column; width: 100%; padding: 0; } .nav-links.show { display: flex; } .nav-links a { margin: 0; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); } p { text-align: left; } h1 { font-size: 1.6rem; } .dropdown-content { position: static; width: 100%; } }
     </style>'''
     js = "<script>function toggleMenu(){document.getElementById('navMenu').classList.toggle('show');}</script>"
     return f'''<!DOCTYPE html><html lang="pt-BR"><head>
@@ -143,7 +133,7 @@ def build_full_page(kw, artigo_content, palpites_txt, grid_bichos):
         <a href="https://www.youtube.com/@Palpitesdo_JogodoBicho" target="_blank"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.1-.4-4.6a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.5.4A3 3 0 0 0 1.4 7.4C1 8.9 1 12 1 12s0 3.1.4 4.6a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.5-.4a3 3 0 0 0 2.1-2.1c.4-1.5.4-4.5.4-4.5ZM9.8 15.5v-7L16 12l-6.2 3.5Z"/></svg></a>
     </div>
     <div class="footer-links"><a href="sobre.html">Sobre nós</a><a href="contato.html">Contato</a><a href="politica-de-privacidade.html">Privacidade</a><a href="termos-de-uso.html">Termos de Uso</a></div>
-    <p class="footer-copy">© 2026 Palpites do Jogo. Todos os direitos reservados.</p>
+    <p class="footer-copy" style="text-align: center;">© 2026 Palpites do Jogo. Todos os direitos reservados.</p>
 </div></footer>{js}</body></html>'''
 
 def executar():
@@ -180,7 +170,7 @@ def executar():
     with open("/var/www/meusite/palpite-do-bicho-look.html", 'w', encoding='utf-8') as f:
         f.write(build_full_page(kw_look, art_look, palpites_txt, grid_bichos))
 
-    # NACIONAL
+    # NACIONAL (TEXTO SEO PRESERVADO)
     kw_nac = f"Palpite do Bicho Nacional de Hoje {hoje}"
     art_nac = f'''
         <p>Se você está procurando o mais assertivo <strong>{kw_nac}</strong>, chegou ao portal que entende a dinâmica dessa banca. A Loterias Nacional é conhecida por sua pontualidade e pela grande quantidade de extrações diárias, o que exige uma análise muito mais rápida e precisa.</p>
