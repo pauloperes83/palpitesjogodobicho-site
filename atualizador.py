@@ -46,23 +46,16 @@ def gerar_palpites_html(dia):
     dz2 = str(dia) + "0" if dia < 10 else str(dia)[::-1].zfill(2)
     b2 = get_bicho_pela_dezena(dz2)
     
-    # Inicia a lista com os dois bichos base garantindo que não sejam iguais
     selecionados = []
     selecionados.append((b1, dz1))
-    if b2 != b1:
-        selecionados.append((b2, dz2))
+    if b2 != b1: selecionados.append((b2, dz2))
     
-    # Pega as puxadas dos dois bichos base
     puxadas_base = bichos_oficiais[b1]["puxa"].split(", ") + bichos_oficiais[b2]["puxa"].split(", ")
-    # Remove duplicatas mantendo a ordem
     puxadas_unicas = list(dict.fromkeys(puxadas_base))
     
-    # Adiciona bichos das puxadas até completar 6, sem repetir bicho já sorteado
     for p in puxadas_unicas:
-        if len(selecionados) >= 6:
-            break
-        ja_existe = any(item[0] == p for item in selecionados)
-        if not ja_existe:
+        if len(selecionados) >= 6: break
+        if not any(item[0] == p for item in selecionados):
             selecionados.append((p, random.choice(bichos_oficiais[p]["dz"])))
             
     html = ""
@@ -80,10 +73,13 @@ def build_full_page(kw, artigo_content, palpites_txt, grid_bichos):
         .dropdown:hover .dropdown-content { display: block; }
         body { font-family: 'Segoe UI', Arial, sans-serif; background: #ffffff; color: #333; margin: 0; padding: 0; line-height: 1.8; }
         .container { width: 95%; max-width: 1000px; margin: 0 auto; }
-        header { background: #121722; padding: 20px 0; border-bottom: 3px solid #f6c945; text-align: center; }
-        .logo img { height: 150px; width: auto; }
-        nav { background: #121722; padding: 12px 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        nav a { color: #d8dcec; text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 15px; text-transform: uppercase; }
+        header { background: #121722; padding: 15px 0; border-bottom: 3px solid #f6c945; }
+        .header-wrap { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 120px; width: auto; }
+        .menu-btn { display: none; background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+        nav { background: #121722; padding: 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .nav-links { display: flex; justify-content: center; list-style: none; margin: 0; padding: 12px 0; }
+        .nav-links a { color: #d8dcec; text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 15px; text-transform: uppercase; }
         .section { padding: 40px 0; }
         h1 { font-size: 2.2rem; color: #222; text-align: center; margin-bottom: 25px; }
         h2 { font-size: 1.6rem; color: #b8860b; border-left: 6px solid #f6c945; padding-left: 15px; margin: 35px 0 20px 0; }
@@ -96,17 +92,20 @@ def build_full_page(kw, artigo_content, palpites_txt, grid_bichos):
         .btn-apostar { display: inline-block; background: #b8860b; color: white; padding: 18px 40px; border-radius: 10px; text-decoration: none; font-weight: bold; text-transform: uppercase; margin-top: 20px; }
         .btn-whats { display: block; width: fit-content; margin: 30px auto; background: #25d366; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; text-align: center; }
         .site-footer { background-color: #0d1016; border-top: 1px solid rgba(255,255,255,0.08); padding: 50px 0 30px 0; text-align: center; margin-top: 50px; width: 100%; }
-        .footer-wrap { display: flex; flex-direction: column; align-items: center; }
-        .footer-title { font-size: 1.8rem; color: #f6c945; margin-bottom: 15px; font-weight: bold; }
-        .footer-warning { font-size: 0.85rem; color: #888ea1; max-width: 700px; margin: 0 auto 30px auto; line-height: 1.6; text-align: center; }
-        .footer-social { display: flex; gap: 20px; margin-bottom: 30px; justify-content: center; }
-        .footer-social svg { width: 30px; height: 30px; fill: #ffffff; transition: fill 0.3s; }
-        .footer-social a:hover svg { fill: #f6c945; }
-        .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 30px; }
-        .footer-links a { color: #d8dcec; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.3s; }
         .footer-copy { font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; width: 90%; margin: 0 auto; color: #6c757d; }
-        @media (max-width: 768px) { .logo img { height: 100px; } nav a { margin: 0 5px; font-size: 12px; } }
+        @media (max-width: 768px) { 
+            .logo img { height: 80px; } 
+            .menu-btn { display: block; margin-right: 15px; }
+            .nav-links { display: none; flex-direction: column; padding: 0; }
+            .nav-links.show { display: flex; }
+            .nav-links a { margin: 0; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            p { text-align: left; } /* CORREÇÃO DOS ESPAÇOS NO CELULAR */
+            h1 { font-size: 1.6rem; }
+            .dropdown-content { position: static; width: 100%; }
+        }
     </style>'''
+    
+    js = "<script>function toggleMenu(){document.getElementById('navMenu').classList.toggle('show');}</script>"
     
     return f'''<!DOCTYPE html><html lang="pt-BR"><head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9Y3FW10LC2"></script>
@@ -114,12 +113,17 @@ def build_full_page(kw, artigo_content, palpites_txt, grid_bichos):
 <link rel="icon" type="image/png" href="images/favicon.png"><link rel="shortcut icon" href="images/favicon.png">
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{kw}</title>{css}</head><body>
-<header><div class="container"><a href="index.html" class="logo"><img src="images/logo-palpites.png"></a></div></header>
+<header><div class="container header-wrap">
+    <a href="index.html" class="logo"><img src="images/logo-palpites.png"></a>
+    <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+</div></header>
 <nav><div class="container">
-    <a href="index.html">Início</a><a href="palpite-do-dia.html">Palpite do Dia</a>
-    <div class="dropdown" style="display: inline-block; position: relative;"><a href="#" style="cursor: default; margin-right: 15px;">Bancas ▾</a>
-    <div class="dropdown-content"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank">Águia Prime</a><a href="https://app.valedasorteloterias.club/pr/g5P71dlw" target="_blank">Vale da Sorte</a></div></div>
-    <a href="puxadas-do-bicho.html">Puxadas</a><a href="milhares-viciadas.html">Milhares</a><a href="https://resultadosdojogo.com/" target="_blank" style="color: #f6c945;">Resultados</a>
+    <div class="nav-links" id="navMenu">
+        <a href="index.html">Início</a><a href="palpite-do-dia.html">Palpite do Dia</a>
+        <div class="dropdown" style="display: inline-block;"><a href="#" style="cursor: default;">Bancas ▾</a>
+        <div class="dropdown-content"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank">Águia Prime</a><a href="https://app.valedasorteloterias.club/pr/g5P71dlw" target="_blank">Vale da Sorte</a></div></div>
+        <a href="puxadas-do-bicho.html">Puxadas</a><a href="milhares-viciadas.html">Milhares</a><a href="https://resultadosdojogo.com/" target="_blank" style="color: #f6c945;">Resultados</a>
+    </div>
 </div></nav>
 <section class="section"><div class="container">
     <div style="text-align: center; margin-bottom: 25px;"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU"><img src="images/aguia-posts.webp" style="width: 300px; border-radius: 8px;"></a></div>
@@ -127,30 +131,16 @@ def build_full_page(kw, artigo_content, palpites_txt, grid_bichos):
     {artigo_content}
     <p style="text-align: center; font-weight: bold; margin-top: 30px; font-size: 1.2rem; color: #b8860b;">🍀 Desejamos muita sorte em suas apostas e que os palpites de hoje tragam prêmios! 🍀</p>
 </div></section>
-<footer class="site-footer"><div class="container footer-wrap">
-    <div class="footer-title">Palpites do Jogo do Bicho</div>
-    <p class="footer-warning">Esclarecemos que não temos vínculo com o serviço ou pessoas que operam o Jogo do Bicho e que os resultados e estatísticas são meramente informativos.</p>
-    <div class="footer-social">
-        <a href="https://www.instagram.com/palpitess_jb?igsh=MW5uaTVjb3ZramhiNQ%3D%3D&utm_source=qr" target="_blank"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.6 1.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg></a>
-        <a href="https://www.facebook.com/palpitesdobicho" target="_blank"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.5 1.6-1.5h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4v2.2H8v3.2h2.1V22h3.4Z"/></svg></a>
-        <a href="https://www.youtube.com/@Palpitesdo_JogodoBicho" target="_blank"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.1-.4-4.6a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.5.4A3 3 0 0 0 1.4 7.4C1 8.9 1 12 1 12s0 3.1.4 4.6a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.5-.4a3 3 0 0 0 2.1-2.1c.4-1.5.4-4.5.4-4.5ZM9.8 15.5v-7L16 12l-6.2 3.5Z"/></svg></a>
-    </div>
-    <div class="footer-links">
-        <a href="sobre.html">Sobre nós</a><a href="contato.html">Contato</a>
-        <a href="politica-de-privacidade.html">Privacidade</a><a href="termos-de-uso.html">Termos de Uso</a>
-    </div>
-    <p class="footer-copy" style="text-align: center;">© 2026 Palpites do Jogo. Todos os direitos reservados.</p>
-</div></footer></body></html>'''
+<footer class="site-footer"><div class="container">
+    <div style="font-size: 1.8rem; color: #f6c945; margin-bottom: 15px; font-weight: bold;">Palpites do Jogo do Bicho</div>
+    <p style="font-size: 0.85rem; color: #888ea1; line-height: 1.6;">Informativo meramente estatístico sem vínculo com o sorteio oficial.</p>
+    <p class="footer-copy">© 2026 Palpites do Jogo. Todos os direitos reservados.</p>
+</div></footer>{js}</body></html>'''
 
 def executar():
     tipo = sys.argv[1] if len(sys.argv) > 1 else "todos"
-    
     agora = datetime.now()
-    if agora.hour >= 21:
-        alvo = agora + timedelta(days=1)
-    else:
-        alvo = agora
-        
+    alvo = agora + timedelta(days=1) if agora.hour >= 21 else agora
     hoje = alvo.strftime("%d/%m/%Y")
     dia_num = alvo.day
     palpites_txt = gerar_palpites_html(dia_num)
@@ -193,8 +183,8 @@ def executar():
         <p>Não é só o grupo que chama atenção no Jogo do Bicho do Rio. As buscas por dezena, centena e milhar também são muito fortes. Quem procura <strong>{kw}</strong> geralmente quer sugestões completas. Ou seja, não apenas o bicho, mas também números que possam ser aproveitados no jogo.</p>
 
         <h2>Como usar o {kw} de forma estratégica</h2>
-        <p>O ideal é usar o <strong>{kw}</strong> como apoio na sua análise. Muitos jogadores observam tendências antes de definir se vão no grupo, dezena, centena ou milhar. Outra prática comum é comparar o palpite com o histórico recente da banca Rio.</p>
-        <p>Isso ajuda a perceber quais combinações estão mais comentadas no momento. Também vale acompanhar os horários tradicionais do Rio, como PTM, PT, PTV, PTN e Corujinha. Esses horários fazem parte da rotina de quem acompanha os resultados diariamente.</p>
+        <p>O ideal é usar o <strong>{kw}</strong> como apoio na sua análise. Muitos jogadores observam tendências antes de definir se vão no grupo, dezena, centena ou milhar. Outra prática comum é comparar o palpite com o histórico recente da banca Rio. Isso ajuda a perceber quais combinações estão mais comentadas no momento.</p>
+        <p>Também vale acompanhar os horários tradicionais do Rio, como PTM, PT, PTV, PTN e Corujinha. Esses horários fazem parte da rotina de quem acompanha os resultados diariamente.</p>
         <p>Aprenda usar as {l_mil} e {l_pux} para jogar, pois com elas suas chances de ganhar no jogo do bicho aumentam.</p>
 
         <h2>Resultado do Rio e histórico recente no Jogo do Bicho</h2>
