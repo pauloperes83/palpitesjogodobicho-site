@@ -78,7 +78,7 @@ def build_full_page(kw, artigo_content, palpites_txt, grid_bichos):
         .nav-links a { color: #d8dcec; text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 15px; text-transform: uppercase; }
         .section { padding: 40px 0; }
         h1 { font-size: 2.2rem; color: #222; text-align: center; margin-bottom: 25px; }
-        h2 { font-size: 1.6rem; color: #b8860b; border-left: 6px solid #f6c945; padding-left: 15px; margin: 35px 0 20px 0; }
+        h2, h3 { font-size: 1.6rem; color: #b8860b; border-left: 6px solid #f6c945; padding-left: 15px; margin: 35px 0 20px 0; font-weight: bold; }
         p { margin-bottom: 15px; font-size: 1.1rem; color: #444; text-align: justify; }
         .link-seo { color: #d4a017; font-weight: bold; text-decoration: underline; }
         .palpite-box { background: #f9f9f9; border: 1px solid #eee; border-radius: 12px; padding: 20px; margin: 25px 0; }
@@ -150,70 +150,35 @@ def executar():
     l_pux = '<a href="https://palpitesjogodobicho.com.br/puxadas-do-bicho.html" class="link-seo">Puxadas do Bicho</a>'
     l_mil = '<a href="https://palpitesjogodobicho.com.br/milhares-viciadas.html" class="link-seo">Milhares Viciadas</a>'
 
-    # GERA O RIO
+    # RIO
     kw_rio = f"Palpite do dia do Jogo do Bicho de hoje Rio {hoje}"
     art_rio = f'''<p>Se você busca <strong>{kw_rio}</strong>, aqui vai encontrar um conteúdo focado apenas na banca do Rio.</p>
-    <p>Reunimos análises, grupos que chamam atenção e combinações muito procuradas por quem acompanha os sorteios do dia.</p>
-    <p>O objetivo é trazer um texto direto, organizado e fácil de ler. Tudo com foco em <strong>{kw_rio}</strong>, sem misturar outras loterias.</p>
     <div style="text-align: center;"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" class="btn-apostar">🎰 APOSTAR AGORA</a></div>
     {palpites_txt}
     <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-whats" target="_blank">RECEBER PALPITES NO WHATSAPP</a>
-    <h2>{kw_rio} com foco na banca Rio</h2>
-    <p>Quem pesquisa {l_pal} quer encontrar uma base para analisar melhor os jogos do dia.</p>
-    <p>Por isso, o foco aqui está nas combinações mais observadas dentro da rotina da banca Rio. O Jogo do Bicho do Rio movimenta buscas diárias por grupos, dezenas, centenas e milhares.</p>
-    <p>Muitos jogadores acompanham os resultados anteriores para tentar identificar repetições, atrasos e padrões.</p>
-    <p>Esse comportamento faz crescer ainda mais a procura por <strong>{kw_rio}</strong>. Principalmente entre quem gosta de montar jogos com mais atenção aos detalhes.</p>
-    <h2>Por que o termo {kw_rio} é tão buscado</h2>
-    <p>A expressão <strong>{kw_rio}</strong> é muito forte porque une data, local e intenção de busca. Quem digita isso normalmente quer um conteúdo exato, atualizado e voltado só para o Rio.</p>
-    <p>Além disso, muitas pessoas também procuram por termos relacionados como palpite do Rio, resultado do Rio, grupo do dia e milhar do dia.</p>
-    <p>Essas variações ajudam a reforçar o tema principal da página. Outro ponto importante é que o público costuma buscar conteúdos rápidos e objetivos.</p>
-    <p>Por isso, textos com boa escaneabilidade tendem a funcionar melhor para esse tipo de palavra-chave.</p>
-    <h2>{kw_rio} e análise dos grupos mais observados</h2>
-    <p>Dentro da rotina do Jogo do Bicho do Rio, alguns grupos sempre despertam mais atenção. Isso acontece porque certos bichos se tornam populares entre os apostadores em diferentes períodos.</p>
-    <p>Ao montar um conteúdo sobre <strong>{kw_rio}</strong>, vale destacar os grupos mais lembrados.</p>
-    <p>Entre eles, geralmente aparecem os bichos que costumam ser bastante comentados no dia.</p>
-    <h3>Grupos populares no Jogo do Bicho do Rio</h3>
-    <p>Os grupos populares costumam receber mais atenção de quem acompanha palpites diariamente. Muita gente observa o histórico recente para decidir em qual grupo apostar.</p>
-    <p>Também é comum relacionar grupos com sonhos, datas especiais e repetições de resultados passados. Esses fatores aumentam ainda mais o interesse por determinados bichos ao longo do dia.</p>
-    <h3>Dezenas, centenas e milhares mais procuradas</h3>
-    <p>Não é só o grupo que chama atenção no Jogo do Bicho do Rio. As buscas por dezena, centena e milhar também são muito fortes.</p>
-    <p>Quem procura <strong>{kw_rio}</strong> geralmente quer sugestões completas. Ou seja, não apenas o bicho, mas também números que possam ser aproveitados no jogo.</p>
-    <h2>Como usar o {kw_rio} de forma estratégica</h2>
-    <p>O ideal é usar o <strong>{kw_rio}</strong> como apoio na sua análise. Muitos jogadores observam tendências antes de definir se vão no grupo, dezena, centena ou milhar.</p>
-    <p>Outra prática comum é comparar o palpite com o histórico recente da banca Rio. Isso ajuda a perceber quais combinações estão mais comentadas no momento.</p>
-    <p>Também vale acompanhar os horários tradicionais do Rio, como PTM, PT, PTV, PTN e Corujinha. Esses horários fazem parte da rotina de quem acompanha os resultados diariamente.</p>
-    <p>Aprenda usar as {l_mil} e {l_pux} para jogar, pois com elas suas chances de ganhar no jogo do bicho aumentam.</p>
-    <h2>Resultado do Rio e histórico recente no Jogo do Bicho</h2>
-    <p>As buscas por resultado do Rio costumam caminhar junto com a procura por palpites. Afinal, muita gente usa os últimos resultados como base para montar os jogos do dia.</p>
-    <p>Por isso, conteúdos sobre <strong>{kw_rio}</strong> ficam mais fortes quando conversam com esse interesse. O leitor quer palpite, mas também quer contexto.</p>
-    <h3>A importância de observar o histórico</h3>
-    <p>Observar o histórico é uma forma de tentar enxergar padrões dentro da banca Rio. Embora não exista garantia de resultado, essa análise faz parte da rotina de muitos jogadores.</p>
-    <p>Há quem prefira observar grupos atrasados. Outros gostam mais de seguir bichos que vêm aparecendo com frequência recente.</p>
-    <h2>Palpite do Bicho Loteria Federal de Hoje</h2>
-    <p>Se você procura <strong>Palpite do Bicho Loteria Federal de Hoje</strong>, aqui encontra um conteúdo direto e fácil de acompanhar.</p>
-    <p>A proposta é trazer um texto curto, objetivo e pensado para quem busca essa palavra-chave no Google. A busca por Palpite do Bicho Loteria Federal de Hoje cresce entre quem gosta de acompanhar a Federal e consultar referências antes do sorteio.</p>
-    <h2>Tabela dos bichos e significado dos sonhos no Rio</h2>
-    {grid_bichos}
-    <p>Outro ponto muito buscado por quem procura <strong>{kw_rio}</strong> é a tabela dos bichos. Ela ajuda a relacionar grupo, animal e numeração dentro do jogo.</p>
-    <p>O significado dos sonhos também aparece bastante nesse universo. Muitos jogadores gostam de transformar sonhos em palpites para o dia.</p>
-    <p>Isso aumenta a relevância de conteúdos que trabalham o tema de forma completa. Especialmente quando o foco está totalmente na banca do Rio.</p>'''
+    {grid_bichos}'''
     with open("/var/www/meusite/palpite-do-bicho-rj.html", 'w', encoding='utf-8') as f:
         f.write(build_full_page(kw_rio, art_rio, palpites_txt, grid_bichos))
 
-    # GERA A LOOK
+    # LOOK
     kw_look = f"Palpite da Look Loterias de hoje Goiás {hoje}"
-    art_look = f'''<p>Procurando pelo melhor <strong>{kw_look}</strong>? Nossa equipe foca nas tendências exclusivas das loterias de Goiás e Goiânia.</p>
-    <p>O <strong>resultado look loterias de hoje</strong> influencia as milhares sugeridas para os horários das <strong>07h, 09h, 11h, 14h, 16h, 18h, 21h e 23h</strong>.</p>
+    art_look = f'''<p>Confira o melhor <strong>{kw_look}</strong>, focado nas tendências exclusivas das loterias de Goiás e Goiânia.</p>
     <div style="text-align: center;"><a href="https://app.valedasorteloterias.club/pr/g5P71dlw" class="btn-apostar">🎰 APOSTAR NA LOOK</a></div>
     {palpites_txt}
-    <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-whats" target="_blank">GRUPO LOOK GOIÁS WHATSAPP</a>
-    <h2>Estratégia Look: {kw_look}</h2>
-    <p>Observe os atrasos da banca Look. Nosso <strong>palpite da look de hoje</strong> é gerado com dados técnicos e o <strong>resultado da look de ontem</strong>.</p>
-    <h2>Como Jogar e Ganhar na Look</h2>
-    <p>Consulte o {l_pal} e utilize técnicas de {l_pux} focadas na banca Look e Goiás. As {l_mil} seguem padrões regionais separados do Rio.</p>
     {grid_bichos}'''
     with open("/var/www/meusite/palpite-do-bicho-look.html", 'w', encoding='utf-8') as f:
         f.write(build_full_page(kw_look, art_look, palpites_txt, grid_bichos))
+
+    # NACIONAL
+    kw_nac = f"Palpite do Bicho Nacional de Hoje {hoje}"
+    art_nac = f'''<p>Se você está procurando o mais assertivo <strong>{kw_nac}</strong>, chegou ao portal que entende a dinâmica dessa banca.</p>
+    <div style="text-align: center;"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" class="btn-apostar">🎰 APOSTAR NA NACIONAL</a></div>
+    {palpites_txt}
+    <h2>Estratégia Nacional: {kw_nac}</h2>
+    <p>A estratégia para o <strong>{kw_nac}</strong> baseia-se no estudo dos ciclos de grupos. Como essa banca possui muitos sorteios, os animais tendem a aparecer em ondas.</p>
+    {grid_bichos}'''
+    with open("/var/www/meusite/palpite-do-bicho-nacional.html", 'w', encoding='utf-8') as f:
+        f.write(build_full_page(kw_nac, art_nac, palpites_txt, grid_bichos))
 
     os.chdir("/var/www/meusite")
     subprocess.run(["git", "add", "."])
