@@ -74,12 +74,12 @@ def build_full_page(kw, artigo_content, palpites_txt, grid_bichos):
         .dropdown:hover .dropdown-content { display: block; }
         body { font-family: 'Segoe UI', Arial, sans-serif; background: #ffffff; color: #333; margin: 0; padding: 0; line-height: 1.8; }
         .container { width: 95%; max-width: 1000px; margin: 0 auto; }
-        header { background: #121722; padding: 20px 0; border-bottom: 3px solid #f6c945; }
-        .header-wrap { display: flex; justify-content: space-between; align-items: center; position: relative;}
-        .logo img { height: 120px; width: auto; margin-left: auto; margin-right: auto; display: block;} /* LOGO CENTRALIZADA DESKTOP */
-        .menu-btn { display: none; background: none; border: none; color: white; font-size: 24px; cursor: pointer; position: absolute; right: 15px; top: 50%; transform: translateY(-50%);} /* MENU HAMBURGUER MOBILE */
-        nav { background: #121722; padding: 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .nav-links { display: flex; justify-content: center; list-style: none; margin: 0; padding: 12px 0; }
+        header { background: #121722; padding: 20px 0; border-bottom: 3px solid #f6c945; text-align: center; }
+        .header-wrap { display: flex; justify-content: center; align-items: center; position: relative; }
+        .logo img { height: 150px; width: auto; display: block; margin: 0 auto; }
+        .menu-btn { display: none; background: none; border: none; color: white; font-size: 24px; cursor: pointer; position: absolute; right: 15px; }
+        nav { background: #121722; padding: 12px 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .nav-links { display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; }
         .nav-links a { color: #d8dcec; text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 15px; text-transform: uppercase; }
         .section { padding: 40px 0; }
         h1 { font-size: 2.2rem; color: #222; text-align: center; margin-bottom: 25px; }
@@ -103,12 +103,12 @@ def build_full_page(kw, artigo_content, palpites_txt, grid_bichos):
         .footer-links a { color: #d8dcec; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.3s; }
         .footer-copy { font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; width: 90%; margin: 0 auto; color: #6c757d; }
         @media (max-width: 768px) { 
-            .logo img { height: 80px; margin-left: auto; margin-right: auto;} /* LOGO CENTRALIZADA MOBILE */
+            .logo img { height: 100px; margin: 0 auto; } 
             .menu-btn { display: block; }
-            .nav-links { display: none; flex-direction: column; padding: 0; }
+            .nav-links { display: none; flex-direction: column; width: 100%; padding: 0; }
             .nav-links.show { display: flex; }
             .nav-links a { margin: 0; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-            p { text-align: left; } /* CORREÇÃO DOS ESPAÇOS NO CELULAR */
+            p { text-align: left; }
             h1 { font-size: 1.6rem; }
             .dropdown-content { position: static; width: 100%; }
         }
@@ -163,7 +163,6 @@ def executar():
     dia_num = alvo.day
     palpites_txt = gerar_palpites_html(dia_num)
 
-    # GRID DE BICHOS COM O EMOJI🐑 NO LUGAR DE "RAM"
     grid_bichos = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; margin-top: 20px;">'
     for nome, dados in bichos_oficiais.items():
         grid_bichos += f'<div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">{dados["gr"]}</div><div style="font-size: 2rem;">{dados["e"]}</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">{nome.upper()}</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">{" ".join(dados["dz"])}</div></div>'
@@ -226,14 +225,12 @@ def executar():
 
         <h2>Palpite do Bicho Loteria Federal de Hoje</h2>
         <p>Se você procura <strong>Palpite do Bicho Loteria Federal de Hoje</strong>, aqui encontra um conteúdo direto e fácil de acompanhar.</p>
-        <p>A proposta é trazer um texto curto, objetivo e pensado para quem busca essa palavra-chave no Google.</p>
-        <p>A busca por Palpite do Bicho Loteria Federal de Hoje cresce entre quem gosta de acompanhar a Federal e consultar referências antes do sorteio.</p>
-        <p>Por isso, este conteúdo foi criado com foco total em Palpite do Bicho Loteria Federal de Hoje.</p>
+        <p>A proposta é trazer um texto curto, objetivo e pensado para quem busca essa palavra-chave no Google. A busca por Palpite do Bicho Loteria Federal de Hoje cresce entre quem gosta de acompanhar a Federal e consultar referências antes do sorteio.</p>
 
         <h2>Tabela dos bichos e significado dos sonhos no Rio</h2>
         {grid_bichos}
         <p>Outro ponto muito buscado por quem procura <strong>{kw}</strong> é a tabela dos bichos. Ela ajuda a relacionar grupo, animal e numeração dentro do jogo.</p>
-        <p>O significado dos sonhos também aparece bastante nesse universo. Muitos jogadores gostam de transformar sonhos in palpites para o dia.</p>
+        <p>O significado dos sonhos também aparece bastante nesse universo. Muitos jogadores gostam de transformar sonhos em palpites para o dia.</p>
         <p>Isso aumenta a relevância de conteúdos que trabalham o tema de forma completa. Especialmente quando o foco está totalmente na banca do Rio.</p>'''
         with open("/var/www/meusite/palpite-do-bicho-rj.html", 'w', encoding='utf-8') as f:
             f.write(build_full_page(kw, art, palpites_txt, grid_bichos))
