@@ -71,11 +71,12 @@ def build_full_page(kw, artigo_content, palpites_txt, grid_bichos):
         .container { width: 95%; max-width: 1000px; margin: 0 auto; }
         header { background: #121722; padding: 20px 0; border-bottom: 3px solid #f6c945; text-align: center; }
         .header-wrap { display: flex; justify-content: center; align-items: center; position: relative; }
-        .logo img { height: 150px; width: auto; display: block; margin: 0 auto; }
+        .logo img { height: 150px !important; width: auto; display: block; margin: 0 auto; }
         .menu-btn { display: none; background: none; border: none; color: white; font-size: 24px; cursor: pointer; position: absolute; right: 15px; }
         nav { background: #121722; padding: 12px 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
         .nav-links { display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; }
         .nav-links a { color: #d8dcec; text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 15px; text-transform: uppercase; }
+        .nav-links a:hover { color: #f6c945; }
         .section { padding: 40px 0; }
         h1 { font-size: 2.2rem; color: #222; text-align: center; margin-bottom: 25px; }
         h2, h3 { font-size: 1.6rem; color: #b8860b; border-left: 6px solid #f6c945; padding-left: 15px; margin: 35px 0 20px 0; font-weight: bold; }
@@ -96,8 +97,17 @@ def build_full_page(kw, artigo_content, palpites_txt, grid_bichos):
         .footer-social a:hover svg { fill: #f6c945; }
         .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 30px; }
         .footer-links a { color: #d8dcec; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.3s; }
-        .footer-copy { font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; width: 90%; margin: 0 auto; color: #6c757d; }
-        @media (max-width: 768px) { .logo img { height: 100px; margin: 0 auto; } .menu-btn { display: block; } .nav-links { display: none; flex-direction: column; width: 100%; padding: 0; } .nav-links.show { display: flex; } .nav-links a { margin: 0; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); } p { text-align: left; } h1 { font-size: 1.6rem; } .dropdown-content { position: static; width: 100%; } }
+        .footer-copy { font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; width: 90%; margin: 0 auto; color: #6c757d; text-align: center;}
+        @media (max-width: 768px) { 
+            .logo img { height: 100px !important; margin: 0 auto; } 
+            .menu-btn { display: block; } 
+            .nav-links { display: none; flex-direction: column; width: 100%; padding: 0; } 
+            .nav-links.show { display: flex; } 
+            .nav-links a { margin: 0; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); } 
+            p { text-align: left; } 
+            h1 { font-size: 1.6rem; } 
+            .dropdown-content { position: static; width: 100%; } 
+        }
     </style>'''
     js = "<script>function toggleMenu(){document.getElementById('navMenu').classList.toggle('show');}</script>"
     return f'''<!DOCTYPE html><html lang="pt-BR"><head>
@@ -107,12 +117,12 @@ def build_full_page(kw, artigo_content, palpites_txt, grid_bichos):
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{kw}</title>{css}</head><body>
 <header><div class="container header-wrap">
-    <a href="index.html" class="logo"><img src="images/logo-palpites.png"></a>
+    <a href="https://palpitesjogodobicho.com.br/" class="logo"><img src="images/logo-palpites.png"></a>
     <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
 </div></header>
-<nav><div class="container">
-    <div class="nav-links" id="navMenu">
-        <a href="index.html">Início</a><a href="palpite-do-dia.html">Palpite do Dia</a>
+<nav id="navMenu"><div class="container">
+    <div class="nav-links">
+        <a href="https://palpitesjogodobicho.com.br/">Início</a><a href="palpite-do-dia.html">Palpite do Dia</a>
         <div class="dropdown" style="display: inline-block; position: relative;"><a href="#" style="cursor: default; margin-right: 15px;">Bancas ▾</a>
         <div class="dropdown-content"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank">Águia Prime</a><a href="https://app.valedasorteloterias.club/pr/g5P71dlw" target="_blank">Vale da Sorte</a></div></div>
         <a href="puxadas-do-bicho.html">Puxadas</a><a href="milhares-viciadas.html">Milhares</a><a href="https://resultadosdojogo.com/" target="_blank" style="color: #f6c945;">Resultados</a>
@@ -129,11 +139,11 @@ def build_full_page(kw, artigo_content, palpites_txt, grid_bichos):
     <p class="footer-warning">Esclarecemos que não temos vínculo com o serviço ou pessoas que operam o Jogo do Bicho e que os resultados e estatísticas são meramente informativos.</p>
     <div class="footer-social">
         <a href="https://www.instagram.com/palpitess_jb?igsh=MW5uaTVjb3ZramhiNQ%3D%3D&utm_source=qr" target="_blank"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.6 1.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg></a>
-        <a href="https://www.facebook.com/palpitesdobicho" target="_blank"><svg viewBox="0 0 24 24"><path d="M13.5 22-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.5 1.6-1.5h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4v2.2H8v3.2h2.1V22h3.4Z"/></svg></a>
+        <a href="https://www.facebook.com/palpitesdobicho" target="_blank"><svg viewBox="0 0 24 24"><path d="M13.5 22.1V15.6h2.2l.3-2.5h-2.5v-1.6c0-.7.2-1.2 1.2-1.2h1.3V8.1c-.2 0-1-.1-1.9-.1-1.9 0-3.2 1.1-3.2 3.3v1.8H8.8v2.5h2.1v6.5h2.6z"/></svg></a>
         <a href="https://www.youtube.com/@Palpitesdo_JogodoBicho" target="_blank"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.1-.4-4.6a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.5.4A3 3 0 0 0 1.4 7.4C1 8.9 1 12 1 12s0 3.1.4 4.6a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.5-.4a3 3 0 0 0 2.1-2.1c.4-1.5.4-4.5.4-4.5ZM9.8 15.5v-7L16 12l-6.2 3.5Z"/></svg></a>
     </div>
     <div class="footer-links"><a href="sobre.html">Sobre nós</a><a href="contato.html">Contato</a><a href="politica-de-privacidade.html">Privacidade</a><a href="termos-de-uso.html">Termos de Uso</a></div>
-    <p class="footer-copy" style="text-align: center;">© 2026 Palpites do Jogo. Todos os direitos reservados.</p>
+    <p class="footer-copy">© 2026 Palpites do Jogo. Todos os direitos reservados.</p>
 </div></footer>{js}</body></html>'''
 
 def executar():
@@ -142,13 +152,14 @@ def executar():
     hoje = alvo.strftime("%d/%m/%Y")
     dia_num = alvo.day
     palpites_txt = gerar_palpites_html(dia_num)
+    
     grid_bichos = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; margin-top: 20px;">'
     for nome, dados in bichos_oficiais.items():
         grid_bichos += f'<div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">{dados["gr"]}</div><div style="font-size: 2rem;">{dados["e"]}</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">{nome.upper()}</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">{" ".join(dados["dz"])}</div></div>'
     grid_bichos += '</div>'
-    l_pal = '<a href="https://palpitesjogodobicho.com.br/palpite-do-dia.html" class="link-seo">Palpite do dia</a>'
-    l_pux = '<a href="https://palpitesjogodobicho.com.br/puxadas-do-bicho.html" class="link-seo">Puxadas do Bicho</a>'
-    l_mil = '<a href="https://palpitesjogodobicho.com.br/milhares-viciadas.html" class="link-seo">Milhares Viciadas</a>'
+
+    l_pux = '<a href="https://palpitesjogodobicho.com.br/puxadas-do-bicho.html" class="link-seo">puxadas do bicho</a>'
+    l_mil = '<a href="https://palpitesjogodobicho.com.br/milhares-viciadas.html" class="link-seo">milhares viciadas</a>'
 
     # RIO
     kw_rio = f"Palpite do dia do Jogo do Bicho de hoje Rio {hoje}"
@@ -171,12 +182,32 @@ def executar():
 
     # NACIONAL
     kw_nac = f"Palpite do Bicho Nacional de Hoje {hoje}"
-    art_nac = f'''<p>Se você está procurando o mais assertivo <strong>{kw_nac}</strong>, chegou ao portal que entende a dinâmica dessa banca.</p>
-    <div style="text-align: center;"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" class="btn-apostar">🎰 APOSTAR NA NACIONAL</a></div>
-    {palpites_txt}
-    <h2>Estratégia Nacional: {kw_nac}</h2>
-    <p>A estratégia para o <strong>{kw_nac}</strong> baseia-se no estudo dos ciclos de grupos. Como essa banca possui muitos sorteios, os animais tendem a aparecer em ondas.</p>
-    {grid_bichos}'''
+    art_nac = f'''
+        <p>Se você está procurando o mais assertivo <strong>{kw_nac}</strong>, chegou ao portal que entende a dinâmica dessa banca. A Loterias Nacional é conhecida por sua pontualidade e pela grande quantidade de extrações diárias, o que exige uma análise muito mais rápida e precisa.</p>
+        <p>Para ter sucesso com o <strong>{kw_nac}</strong>, é necessário monitorar o fluxo de resultados desde as primeiras horas da manhã. Diferente de outras bancas, a Nacional costuma seguir tendências de dezenas que se repetem ao longo dos horários de 02h, 08h, 10h, 12h, 15h, 17h, 21h e 22h.</p>
+        <div style="text-align: center;"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" class="btn-apostar">🎰 APOSTAR NA NACIONAL ONLINE</a></div>
+        {palpites_txt}
+        <h2>Como Ganhar com o Palpite do Bicho Nacional de Hoje {hoje}</h2>
+        <p>A estratégia para o <strong>{kw_nac}</strong> baseia-se no estudo dos ciclos de grupos. Como essa banca possui muitos sorteios, os animais tendem a aparecer em "ondas". Nossa equipe identifica qual bicho está iniciando seu ciclo de subida para entregar uma sugestão fundamentada.</p>
+        <p>Utilizamos ferramentas estatísticas de última geração para gerar o seu <strong>{kw_nac}</strong>, focando não apenas no bicho seco (na cabeça), mas também em cercar o jogo com centenas e {l_mil} que possuem histórico de premiação na banca Nacional.</p>
+        <h2>Milhares e Puxadas para a Nacional</h2>
+        <p>Muitos apostadores buscam o <strong>{kw_nac}</strong> focando nas {l_pux}. Se um animal como o Jacaré sai no sorteio das 12h, existe uma probabilidade matemática de ele "puxar" a Cobra ou o Porco para as extrações seguintes da tarde.</p>
+        <h2>Estratégia de Operação: Palpite do Bicho Nacional de Hoje {hoje}</h2>
+        <p>Ter o <strong>Palpite do Bicho da Nacional</strong> é ter uma ferramenta poderosa de lucro. No entanto, o segredo dos veteranos é a gestão de banca. Na Nacional, devido à rotatividade, o ideal é trabalhar com apostas progressivas moderadas.</p>
+        <p>Se o seu <strong>{kw_nac}</strong> indicar o Galo, e ele não aparecer na extração das 10h, a probabilidade dele "estourar" nas 15h ou 17h aumenta drasticamente. Manter a disciplina no jogo escolhido é o que separa o ganhador do perdedor.</p>
+        <h2>A Força da Nacional no Jogo do Bicho</h2>
+        <p>A banca Nacional ganhou o Brasil pela facilidade de acesso e rapidez nos pagamentos. Ao utilizar o nosso <strong>{kw_nac}</strong>, você entra no jogo com a mesma vantagem de um bicheiro experiente, jogando com dados e não apenas com a sorte.</p>
+        <h2>Vantagens de Consultar o Nosso Palpite da Nacional</h2>
+        <p>Ao escolher o nosso <strong>{kw_nac}</strong>, você tem precisão cirúrgica e suporte estatístico. Acompanhar o <strong>Palpite do Bicho da Nacional de Hoje</strong> diariamente fará com que você entenda os padrões do jogo, tornando-se um mestre na arte de cercar os resultados.</p>
+        <div style="text-align: center; margin-top: 30px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+            <a href="https://palpitesjogodobicho.com.br/palpite-do-bicho-rj.html" style="background: #121722; color: #f6c945; padding: 18px 40px; border-radius: 10px; text-decoration: none; font-weight: bold; text-transform: uppercase; width: fit-content; border: 2px solid #f6c945;">
+                PALPITES RIO
+            </a>
+            <a href="https://palpitesjogodobicho.com.br/palpite-do-bicho-look.html" style="background: #121722; color: #f6c945; padding: 18px 40px; border-radius: 10px; text-decoration: none; font-weight: bold; text-transform: uppercase; width: fit-content; border: 2px solid #f6c945;">
+                PALPITES LOOK
+            </a>
+        </div>
+    '''
     with open("/var/www/meusite/palpite-do-bicho-nacional.html", 'w', encoding='utf-8') as f:
         f.write(build_full_page(kw_nac, art_nac, palpites_txt, grid_bichos))
 
