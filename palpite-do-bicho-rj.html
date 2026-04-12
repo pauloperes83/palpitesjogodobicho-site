@@ -13,13 +13,16 @@
         .dropdown:hover .dropdown-content { display: block; }
         body { font-family: 'Segoe UI', Arial, sans-serif; background: #ffffff; color: #333; margin: 0; padding: 0; line-height: 1.8; }
         .container { width: 95%; max-width: 1000px; margin: 0 auto; }
-        header { background: #121722; padding: 10px 0; border-bottom: 3px solid #f6c945; }
-        .header-wrap { display: flex; justify-content: space-between; align-items: center; padding: 0 15px; }
+        
+        header { background: #121722; padding: 15px 0; border-bottom: 3px solid #f6c945; }
+        .header-wrap { display: flex; justify-content: center; align-items: center; position: relative; }
         .logo img { height: 80px; width: auto; display: block; }
-        .menu-btn { display: none; background: none; border: none; color: white; font-size: 20px; cursor: pointer; }
+        .menu-btn { display: none; background: none; border: none; color: white; font-size: 20px; cursor: pointer; position: absolute; right: 15px; }
+        
         nav { background: #121722; padding: 12px 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
         .nav-links { display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; }
         .nav-links a { color: #d8dcec; text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 15px; text-transform: uppercase; }
+        
         .section { padding: 40px 0; }
         h1 { font-size: 2.2rem; color: #222; text-align: center; margin-bottom: 25px; }
         h2, h3 { font-size: 1.6rem; color: #b8860b; border-left: 6px solid #f6c945; padding-left: 15px; margin: 35px 0 20px 0; font-weight: bold; }
@@ -30,6 +33,7 @@
         .num-card { border: 1px solid #ddd; padding: 10px; border-radius: 8px; background: #fff; }
         .num-card span { display: block; font-weight: bold; font-size: 1.1rem; color: #d4a017; }
         .btn-apostar { display: inline-block; background: #b8860b; color: white; padding: 18px 40px; border-radius: 10px; text-decoration: none; font-weight: bold; text-transform: uppercase; margin-top: 20px; }
+        
         .site-footer { background-color: #0d1016; border-top: 1px solid rgba(255,255,255,0.08); padding: 50px 0 30px 0; text-align: center; margin-top: 50px; width: 100%; }
         .footer-wrap { display: flex; flex-direction: column; align-items: center; }
         .footer-title { font-size: 1.8rem; color: #f6c945; margin-bottom: 15px; font-weight: bold; }
@@ -40,13 +44,16 @@
         .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 30px; }
         .footer-links a { color: #d8dcec; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.3s; }
         .footer-copy { font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; width: 90%; margin: 0 auto; color: #6c757d; }
+
         @media (max-width: 768px) { 
+            .header-wrap { justify-content: flex-start; padding: 0 15px; }
             .menu-btn { display: block; } 
             .nav-links { display: none; flex-direction: column; width: 100%; padding: 0; } 
             .nav-links.show { display: flex; } 
             .nav-links a { margin: 0; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); } 
             .logo img { height: 60px; }
             h1 { font-size: 1.6rem; } 
+            p { text-align: left; }
         }
     </style>
 </head>
@@ -164,7 +171,7 @@
     <div class="container footer-wrap">
       <div class="footer-title">Palpites do Jogo do Bicho</div>
       <p class="footer-warning">Esclarecemos que não temos vínculo com o serviço ou pessoas que operam o Jogo do Bicho e que os resultados e estatísticas são meramente informativos.</p>
-            <div class="footer-social">
+      <div class="footer-social">
         <a href="https://www.instagram.com/palpitess_jb?igsh=MW5uaTVjb3ZramhiNQ%3D%3D&utm_source=qr" target="_blank">
             <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.6 1.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg>
         </a>
@@ -184,6 +191,12 @@
       <p class="footer-copy" style="text-align: center;">© 2026 Palpites do Jogo. Todos os direitos reservados.</p>
     </div>
 </footer>
-<script>function toggleMenu(){document.getElementById('navMenu').classList.toggle('show');}</script>
+
+<script>
+function toggleMenu() {
+    var x = document.querySelector(".nav-links");
+    x.classList.toggle("show");
+}
+</script>
 </body>
 </html>
