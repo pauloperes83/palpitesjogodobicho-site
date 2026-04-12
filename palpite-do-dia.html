@@ -1,166 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9Y3FW10LC2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-9Y3FW10LC2');
-    </script>
-
     <meta charset="UTF-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palpite do dia do Jogo do Bicho de hoje (09/04/2026) | LOOK e RIO</title>
-    <meta name="description" content="Confira o melhor palpite do dia do Jogo do Bicho de hoje (09/04/2026). Sugestões de milhares viciadas e dezenas para LOOK e RIO.">
-    
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="shortcut icon" href="images/favicon.png">
-
+    <title>Palpite do Dia Jogo do Bicho - Atualizado Hoje</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-    /* Estilo do Menu Dropdown */
-        .dropdown-content { 
-            display: none; 
-            position: absolute; 
-            background-color: #121722; 
-            min-width: 160px; 
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.5); 
-            z-index: 99; 
-            border: 1px solid rgba(255,255,255,0.1);
-            text-align: left;
-        }
-        .dropdown-content a { 
-            margin: 0 !important; 
-            padding: 12px 16px !important; 
-            display: block !important; 
-            font-size: 14px !important;
-        }
-        .dropdown:hover .dropdown-content { display: block; }
-        body { font-family: Arial, Helvetica, sans-serif; background: #ffffff; color: #333; margin: 0; padding: 0; line-height: 1.8; text-align: justify; }
-        .container { width: 90%; max-width: 850px; margin: 0 auto; }
+        :root { --ouro: #f6c945; --preto: #121722; --cinza: #f4f7f6; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--cinza); margin: 0; color: #333; }
+        header { background: var(--preto); padding: 20px 0; text-align: center; border-bottom: 5px solid var(--ouro); }
+        .container { width: 95%; max-width: 800px; margin: 0 auto; padding: 20px; }
         
-        /* ALTERAÇÃO CABEÇALHO PRETO */
-        header { background: #121722; padding: 20px 0; border-bottom: 3px solid #f6c945; text-align: center; }
-        .logo img { height: 150px; width: auto; display: block; margin: 0 auto; }
+        /* Card de Palpite Principal */
+        .card-palpite {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 20px 0;
+            text-align: center;
+            border-top: 8px solid var(--ouro);
+        }
+        .data-destaque { color: #e63946; font-weight: bold; font-size: 1.2rem; }
         
-        /* NAV ESTILO DARK */
-        nav { background: #121722; padding: 12px 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        nav a { color: #d8dcec; text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 15px; text-transform: uppercase; transition: 0.2s ease; }
-        nav a:hover { color: #f6c945; }
+        /* Estilo dos Grupos/Dezenas */
+        .palpites-txt { font-size: 1.1rem; line-height: 1.8; color: #121722; margin: 20px 0; }
+        
+        .btn-apostar {
+            display: inline-block;
+            background: var(--preto);
+            color: var(--ouro);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+        .btn-apostar:hover { transform: scale(1.05); background: #000; }
 
-        .section { padding: 40px 0; }
-        h1 { font-size: 1.8rem; text-align: center; margin-bottom: 25px; font-weight: 700; color: #121212; }
-        h2 { font-size: 1.6rem; border-left: 6px solid #f6c945; padding-left: 15px; margin: 35px 0 20px 0; font-weight: 700; color: #222; }
-        p { margin-bottom: 22px; font-size: 1.1rem; color: #444; }
-        .links-seo { color: #d4a017; font-weight: bold; text-decoration: underline; }
-        .palpite-box { background: #f9f9f9; border: 1px solid #eee; border-radius: 12px; padding: 20px; margin: 25px 0; }
-        .bicho-title { display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #f6c945; padding-bottom: 8px; margin-bottom: 15px; }
-        .numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; text-align: center; }
-        .num-card { border: 1px solid #ddd; padding: 10px; border-radius: 8px; background: #fff; }
-        .num-card span { display: block; font-weight: bold; font-size: 1.1rem; color: #d4a017; margin-top: 5px; }
-        .num-card label { font-size: 0.7rem; color: #888; text-transform: uppercase; font-weight: bold; }
-        .btn-whats { display: block; width: fit-content; margin: 30px auto; background: #25d366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); text-align: center; }
-        .site-footer { background-color: #0d1016; border-top: 1px solid rgba(255,255,255,0.08); padding: 50px 0 30px 0; text-align: center; margin-top: 50px; }
-        .footer-wrap { display: flex; flex-direction: column; align-items: center; }
-        .footer-title { font-size: 1.8rem; color: #f6c945; margin-bottom: 15px; font-weight: bold; }
-        .footer-warning { font-size: 0.85rem; color: #888ea1; max-width: 700px; margin: 0 auto 30px auto; line-height: 1.6; }
-        .footer-social { display: flex; gap: 20px; margin-bottom: 30px; justify-content: center; }
-        .footer-social svg { width: 30px; height: 30px; fill: #ffffff; transition: fill 0.3s, transform 0.3s; }
-        .footer-social a:hover svg { fill: #f6c945; transform: translateY(-3px); }
-        .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 30px; }
-        .footer-links a { color: #d8dcec; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.3s; }
-        .footer-links a:hover { color: #f6c945; }
-        .footer-copy { font-size: 0.8rem; color: #565d6d; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; width: 90%; margin: 0 auto; }
+        /* Área de SEO */
+        .seo-section { background: #fff; padding: 30px; border-radius: 15px; margin-top: 30px; line-height: 1.8; }
+        .seo-section h2 { color: var(--preto); border-left: 5px solid var(--ouro); padding-left: 15px; }
+
+        footer { background: var(--preto); color: #888; padding: 30px 0; text-align: center; margin-top: 50px; }
     </style>
 </head>
 <body>
-<header><div class="container logo"><a href="index.html"><img src="images/logo-palpites.png" alt="Palpites"></a></div></header>
-<nav>
-    <div class="container">
-        <a href="index.html">Início</a>
-        <a href="palpite-do-dia.html">Palpite do Dia</a>
+
+<header>
+    <a href="index.html"><img src="images/logo-palpites.png" alt="Logo" style="width: 140px;"></a>
+</header>
+
+<main class="container">
+    <div class="card-palpite">
+        <h1>Palpite do Dia - Jogo do Bicho</h1>
+        <p class="data-destaque">Atualizado para: 12/04/2026 </p>
         
-        <div class="dropdown" style="display: inline-block; position: relative;">
-            <a href="#" style="cursor: default; margin-right: 15px;">Bancas ▾</a>
-            <div class="dropdown-content">
-                <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank">Águia Prime</a>
-                <a href="https://app.valedasorteloterias.club/pr/g5P71dlw" target="_blank">Vale da Sorte</a>
+        <div class="palpites-txt">
+            <p>Confira as indicações dos nossos especialistas baseadas nas puxadas mais fortes e milhares viciadas para todos os sorteios de hoje.</p>
             </div>
-        </div>
 
-        <a href="puxadas-do-bicho.html">Puxadas</a>
-        <a href="milhares-viciadas.html">Milhares</a>
+        <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" class="btn-apostar">🎰 JOGAR NA ÁGUIA PRIME</a>
+    </div>
+
+    <section class="seo-section">
+        <h2>Como são calculados os palpites?</h2>
+        <p>Nossos palpites são gerados através de um algoritmo que analisa as últimas extrações da <strong>Rio, Look e Nacional</strong>. Utilizamos a técnica da cruz do dia e a soma das dezenas para identificar os bichos que estão "atrasados" e com maior probabilidade de aparecer no primeiro prêmio.</p>
         
-        <a href="https://resultadosdojogo.com/" target="_blank" style="color: #f6c945; margin-left: 15px;">Resultados</a>
-    </div>
-</nav>
+        <h3>Dicas para aumentar suas chances</h3>
+        <p>Ao utilizar nossos palpites, lembre-se de sempre cercar pelos cinco ou sete prêmios para garantir maior segurança na sua aposta. O jogo do bicho é uma tradição brasileira e, com os estudos certos, você fica um passo à frente da sorte.</p>
+    </section>
+</main>
 
-<section class="section"><div class="container">
-    <div style="text-align: center; margin-bottom: 25px;">
-        <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank">
-            <img src="images/aguia-posts.webp" alt="Banca Águia Prime" style="width: 300px; height: 250px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); object-fit: cover;">
-        </a>
-    </div>
-    
-    <h1>Palpite do dia do Jogo do Bicho de hoje (09/04/2026)</h1>
-    <p>Se você procura o <strong>palpite do dia do Jogo do Bicho de hoje 09/04/2026</strong> para as extrações da Look, Rio ou Nacional, acompanhe nossa análise diária. Antes de apostar, <a href="https://resultadosdojogo.com/" class="links-seo" target="_blank">veja o resultado do jogo do bicho de hoje</a>.</p>
-
-    <div style="text-align: center; margin: 10px 0 30px 0;">
-        <a href="https://app.valedasorteloterias.club/pr/g5P71dlw" 
-           target="_blank" 
-           style="display: inline-block; background: #b8860b; color: white; padding: 18px 40px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4); text-transform: uppercase;">
-           🎰 APOSTAR AGORA
-        </a>
-    </div>
-
-    <div class="palpite-box"><div class="bicho-title"><h3>21 - TOURO 🐂</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhares</label><span>0981 - 0984</span></div><div class="num-card"><label>Centenas</label><span>481 - 584</span></div><div class="num-card"><label>Dezenas</label><span>81 - 84</span></div></div></div>
-    <div class="palpite-box"><div class="bicho-title"><h3>22 - TIGRE 🐅</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhares</label><span>0985 - 0988</span></div><div class="num-card"><label>Centenas</label><span>885 - 988</span></div><div class="num-card"><label>Dezenas</label><span>85 - 88</span></div></div></div>
-    <div class="palpite-box"><div class="bicho-title"><h3>14 - GATO 🐈</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhares</label><span>0953 - 0956</span></div><div class="num-card"><label>Centenas</label><span>553 - 656</span></div><div class="num-card"><label>Dezenas</label><span>53 - 56</span></div></div></div>
-    
-    <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-whats" target="_blank">RECEBER PALPITES NO WHATSAPP</a>
-
-    <div class="palpite-box"><div class="bicho-title"><h3>01 - AVESTRUZ 🦩</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhares</label><span>0901 - 0904</span></div><div class="num-card"><label>Centenas</label><span>601 - 704</span></div><div class="num-card"><label>Dezenas</label><span>01 - 04</span></div></div></div>
-    <div class="palpite-box"><div class="bicho-title"><h3>05 - CACHORRO 🐕</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhares</label><span>0917 - 0920</span></div><div class="num-card"><label>Centenas</label><span>217 - 320</span></div><div class="num-card"><label>Dezenas</label><span>17 - 20</span></div></div></div>
-    <div class="palpite-box"><div class="bicho-title"><h3>15 - JACARÉ 🐊</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhares</label><span>0957 - 0960</span></div><div class="num-card"><label>Centenas</label><span>657 - 760</span></div><div class="num-card"><label>Dezenas</label><span>57 - 60</span></div></div></div>
-
-    <hr>
-
-    <h2>Palpite do dia do Jogo do Bicho de hoje 09/04/2026</h2>
-    <p>O <strong>palpite do dia do Jogo do Bicho de hoje 09/04/2026</strong> é uma ferramenta essencial para quem deseja cercar os grupos com inteligência. Muitos jogadores baseiam suas escolhas nas <a href="puxadas-do-bicho.html" class="links-seo">Puxadas do Bicho</a> ou na famosa tabela de <a href="milhares-viciadas.html" class="links-seo">Milhares Viciadas</a> para aumentar as chances de acerto.</p>
-
-    <h2>Como jogar no Jogo do Bicho com estratégia?</h2>
-    <p>Para aprender <strong>como jogar no Jogo do Bicho</strong> e ter resultados consistentes, o primeiro passo é entender as modalidades. O <strong>palpite do dia do Jogo do Bicho de hoje 09/04/2026</strong> facilita essa escolha, oferecendo as opções que mais possuem probabilidade de aparecer no "Deu no Poste".</p>
-    
-    <p style="text-align:center; font-style: italic; color: #888;">Post atualizado em: 09/04/2026 às 21:15.</p>
-</div></section>
-
-<footer class="site-footer">
-  <div class="container footer-wrap">
-    <div class="footer-title">Palpites do Jogo do Bicho</div>
-    <p class="footer-warning">Esclarecemos que não temos vínculo com o serviço ou pessoas que operam o Jogo do Bicho e que os resultados e estatísticas são meramente informativos.</p>
-    
-    <div class="footer-social">
-      <a href="https://www.instagram.com/palpitess_jb?igsh=MW5uaTVjb3ZramhiNQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.6 1.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg>
-      </a>
-      <a href="https://www.facebook.com/palpitesdobicho" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.5 1.6-1.5h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4v2.2H8v3.2h2.1V22h3.4Z"/></svg>
-      </a>
-      <a href="https://www.youtube.com/@Palpitesdo_JogodoBicho" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24"><path d="M23 12s0-3.1-.4-4.6a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.5.4A3 3 0 0 0 1.4 7.4C1 8.9 1 12 1 12s0 3.1.4 4.6a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.5-.4a3 3 0 0 0 2.1-2.1c.4-1.5.4-4.5.4-4.5ZM9.8 15.5v-7L16 12l-6.2 3.5Z"/></svg>
-      </a>
-    </div>
-
-    <div class="footer-links">
-      <a href="sobre.html">Sobre nós</a>
-      <a href="contato.html">Contato</a>
-      <a href="politica-de-privacidade.html">Privacidade</a>
-      <a href="termos-de-uso.html">Termos de Uso</a>
-    </div>
-
-    <p class="footer-copy">© 2026 Palpites do Jogo. Todos os direitos reservados.</p>
-  </div>
+<footer>
+    <p>&copy; 2026 Palpites do Jogo do Bicho - Especialistas em Resultados</p>
 </footer>
+
 </body>
 </html>
