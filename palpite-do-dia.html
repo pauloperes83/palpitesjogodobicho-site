@@ -3,166 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palpite do Dia Jogo do Bicho | Especialistas</title>
+    <title>Palpites do Jogo do Bicho | Portal Oficial Águia Prime</title>
+    <meta name="description" content="A maior central de palpites do Brasil. Rio, Look, Nacional, Bahia e muito mais. Confira puxadas e milhares viciadas atualizadas.">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ESTILOS GERAIS - Respeitando o design 'Top' da Index */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #f4f7f6; 
-            color: #333; 
-            line-height: 1.6;
-        }
+        :root { --ouro: #f6c945; --ouro-dark: #b8860b; --preto: #121722; --preto-light: #1c2435; --branco: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; }
 
-        /* CABEÇALHO PRETO COM LOGO - Igual à Index recuperada */
-        header {
-            background-color: #121722;
-            padding: 15px 0;
-            text-align: center;
-            border-bottom: 5px solid #f6c945;
-        }
-        header img {
-            width: 150px;
-        }
+        /* HEADER & MENU */
+        header { background: var(--preto); border-bottom: 4px solid var(--ouro); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+        .logo img { width: 140px; display: block; }
+        
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav ul li a { color: var(--branco); text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; }
+        nav ul li a:hover { color: var(--ouro); }
 
-        .container {
-            width: 95%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
+        /* HERO SECTION */
+        .hero { background: var(--preto); color: var(--branco); padding: 60px 20px; text-align: center; }
+        .hero h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 10px; color: var(--ouro); }
+        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
 
-        /* CARD DE PALPITES - Design Limpo e Elegante */
-        .palpite-destaque {
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            padding: 40px;
-            margin-bottom: 40px;
-            border-top: 8px solid #f6c945;
-            text-align: center;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
 
-        .palpite-destaque h1 {
-            color: #121722;
-            font-weight: 800;
-            font-size: 2.3rem;
-            margin-bottom: 10px;
-        }
+        /* GRID DE BANCAS */
+        .section-title { text-align: center; font-size: 2rem; font-weight: 800; margin-bottom: 30px; position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--ouro); margin: 10px auto; }
 
-        .data-atualizada {
-            font-weight: bold;
-            color: #e63946; /* Cor de alerta/foco */
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-        }
+        .grid-bancas { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .card-banca { background: var(--preto); border: 2px solid var(--ouro); border-radius: 15px; padding: 30px 15px; text-align: center; text-decoration: none; transition: 0.4s; display: flex; flex-direction: column; align-items: center; }
+        .card-banca:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(246, 201, 69, 0.2); background: var(--preto-light); }
+        .card-banca i { font-size: 2.5rem; color: var(--ouro); margin-bottom: 15px; }
+        .card-banca span { color: var(--branco); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
 
-        /* Área onde o robô vai escrever - Com Tipografia Dourada */
-        .conteudo-palpite {
-            font-size: 1.2rem;
-            color: #121722;
-            margin-bottom: 30px;
-        }
-        .conteudo-palpite strong {
-            color: #b8860b; /* Dourado escuro para contraste */
-        }
+        /* BANNER CONVERSÃO */
+        .banner-prime { background: linear-gradient(135deg, var(--ouro-dark) 0%, var(--ouro) 100%); padding: 50px 20px; border-radius: 20px; text-align: center; margin: 40px 0; box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+        .banner-prime h2 { font-size: 2rem; font-weight: 900; color: var(--preto); margin-bottom: 15px; }
+        .btn-vip { display: inline-block; background: var(--preto); color: var(--ouro); padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: 800; text-transform: uppercase; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .btn-vip:hover { transform: scale(1.05); background: #000; }
 
-        /* BOTÃO DE JOGAR - Estilo Pílula Preto/Dourado */
-        .btn-apostar-prime {
-            display: inline-block;
-            background-color: #121722;
-            color: #f6c945;
-            padding: 18px 45px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .btn-apostar-prime:hover {
-            transform: translateY(-3px) scale(1.02);
-            background-color: #000;
-            box-shadow: 0 8px 20px rgba(246, 201, 69, 0.3);
-        }
-        .btn-apostar-prime i { margin-right: 10px; }
+        /* FERRAMENTAS */
+        .grid-ferramentas { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card-tool { background: var(--branco); border-radius: 15px; padding: 35px; text-decoration: none; border: 1px solid #ddd; transition: 0.3s; display: flex; align-items: center; gap: 20px; }
+        .card-tool:hover { border-color: var(--ouro); transform: translateX(10px); box-shadow: 5px 5px 15px rgba(0,0,0,0.05); }
+        .card-tool i { font-size: 2.2rem; color: var(--preto); }
+        .card-tool h3 { color: var(--preto); font-size: 1.2rem; margin-bottom: 5px; }
+        .card-tool p { color: #666; font-size: 0.9rem; }
 
-        /* SEÇÃO DE SEO - Protegida e bem formatada */
-        .seo-blindado {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        .seo-blindado h2 {
-            color: #121722;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            border-left: 5px solid #f6c945;
-            padding-left: 15px;
-        }
-        .seo-blindado p {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 15px;
-        }
+        /* FOOTER */
+        footer { background: var(--preto); color: #888; padding: 60px 20px 20px; margin-top: 60px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; padding-bottom: 40px; }
+        .footer-box h4 { color: var(--ouro); margin-bottom: 20px; text-transform: uppercase; }
+        .footer-box ul { list-style: none; }
+        .footer-box ul li { margin-bottom: 10px; }
+        .footer-box ul li a { color: #888; text-decoration: none; transition: 0.3s; }
+        .footer-box ul li a:hover { color: var(--branco); }
+        .social-icons { display: flex; gap: 15px; font-size: 1.5rem; margin-top: 15px; }
+        .social-icons a { color: var(--ouro); transition: 0.3s; }
+        .social-icons a:hover { color: var(--branco); transform: scale(1.1); }
+        .copy { text-align: center; border-top: 1px solid #333; padding-top: 20px; font-size: 0.8rem; }
 
-        /* RODAPÉ SIMPLES */
-        footer {
-            background-color: #121722;
-            color: #888;
-            padding: 30px 0;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        /* Ajustes Celular */
-        @media (max-width: 600px) {
-            .palpite-destaque { padding: 30px 20px; }
-            .palpite-destaque h1 { font-size: 1.8rem; }
-            .conteudo-palpite { font-size: 1.1rem; }
-            .btn-apostar-prime { padding: 15px 30px; font-size: 0.9rem; }
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero h1 { font-size: 2rem; }
+            .grid-bancas { grid-template-columns: repeat(2, 1fr); gap: 10px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <a href="index.html"><img src="images/logo-palpites.png" alt="Logo Palpites"></a>
+<header>
+    <div class="nav-container">
+        <div class="logo"><a href="index.html"><img src="images/logo-palpites.png" alt="Logo"></a></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="palpite-do-dia.html">Palpite Hoje</a></li>
+                <li><a href="puxadas-do-bicho.html">Puxadas</a></li>
+                <li><a href="milhares-viciadas.html">Milhares</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Especialistas em Palpites do Bicho</h1>
+    <p>Resultados, estatísticas e as melhores puxadas para você cercar o bicho hoje com inteligência.</p>
+</section>
+
+<main class="container">
+    <h2 class="section-title">Escolha sua Loteria</h2>
+    <div class="grid-bancas">
+        <a href="palpite-do-bicho-rj.html" class="card-banca"><i class="fa-solid fa-location-dot"></i><span>Rio de Janeiro</span></a>
+        <a href="palpite-do-bicho-look.html" class="card-banca"><i class="fa-solid fa-magnifying-glass-chart"></i><span>Look Goiás</span></a>
+        <a href="palpite-do-bicho-nacional.html" class="card-banca"><i class="fa-solid fa-earth-americas"></i><span>Nacional</span></a>
+        <a href="palpite-do-bicho-sp.html" class="card-banca"><i class="fa-solid fa-city"></i><span>São Paulo</span></a>
+        <a href="palpite-do-bicho-bahia.html" class="card-banca"><i class="fa-solid fa-clover"></i><span>Paratodos Bahia</span></a>
+        <a href="palpite-do-bicho-maluca.html" class="card-banca"><i class="fa-solid fa-bolt"></i><span>Maluca Bahia</span></a>
+        <a href="palpite-do-bicho-caminho.html" class="card-banca"><i class="fa-solid fa-route"></i><span>Caminho Sorte</span></a>
+        <a href="palpite-do-bicho-lotep.html" class="card-banca"><i class="fa-solid fa-medal"></i><span>Lotep Paraíba</span></a>
+        <a href="palpite-do-bicho-lotece.html" class="card-banca"><i class="fa-solid fa-sun"></i><span>Lotece Ceará</span></a>
+    </div>
+
+    <div class="banner-prime">
+        <h2>🚀 BÔNUS EXCLUSIVO ÁGUIA PRIME</h2>
+        <p>A melhor banca online do Brasil com saque rápido via PIX.</p>
+        <br>
+        <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" class="btn-vip">CADASTRAR AGORA</a>
+    </div>
+
+    <h2 class="section-title">Estudos e Ferramentas</h2>
+    <div class="grid-ferramentas">
+        <a href="puxadas-do-bicho.html" class="card-tool">
+            <i class="fa-solid fa-arrows-spin"></i>
+            <div>
+                <h3>Tabela de Puxadas</h3>
+                <p>Veja qual bicho puxa o outro após o sorteio.</p>
+            </div>
+        </a>
+        <a href="milhares-viciadas.html" class="card-tool">
+            <i class="fa-solid fa-bullseye"></i>
+            <div>
+                <h3>Milhares Viciadas</h3>
+                <p>As dezenas que mais saíram nos últimos 30 dias.</p>
+            </div>
+        </a>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-box">
+            <h4>Sobre Nós</h4>
+            <p>O maior portal de estatísticas do jogo do bicho. Informação gratuita e palpites baseados em dados.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-telegram"></i></a>
+            </div>
         </div>
-    </header>
-
-    <main class="container">
-        
-        <div class="palpite-destaque">
-            <h1>Palpite do Dia Jogo do Bicho</h1>
-            <p class="data-atualizada">Atualizado hoje para: 12/04/2026 </p>
-            
-            <div class="conteudo-palpite">
-                <p>Aqui nossos especialistas analisam as <strong>melhores puxadas</strong> e milhares viciadas para garantir o seu palpite certeiro de hoje. Não perca as combinações mais fortes para todos os sorteios!</p>
-                </div>
-
-            <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" class="btn-apostar-prime">
-                <i class="fa-solid fa-slot-machine"></i> JOGAR NA ÁGUIA PRIME
-            </a>
+        <div class="footer-box">
+            <h4>Bancas Populares</h4>
+            <ul>
+                <li><a href="#">Rio de Janeiro</a></li>
+                <li><a href="#">Look Goiás</a></li>
+                <li><a href="#">Nacional</a></li>
+            </ul>
         </div>
-
-        <section class="seo-blindado">
-            <h2>Como usar o Palpite do Dia?</h2>
-            <p>Os palpites gerados aqui são baseados em estatísticas das últimas extrações da <strong>Rio, Look e Nacional</strong>. Nós analisamos os bichos "atrasados" e os que têm maior puxada após o resultado de ontem.</p>
-            <p>Lembre-se de cercar pelos cinco prêmios para aumentar suas chances e jogar sempre com responsabilidade. O jogo do bicho é uma tradição e, com os palpites certos, você joga de forma mais estratégica.</p>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Palpites do Jogo do Bicho - Especialistas em Estatísticas</p>
+        <div class="footer-box">
+            <h4>Links Úteis</h4>
+            <ul>
+                <li><a href="politica-de-privacidade.html">Privacidade</a></li>
+                <li><a href="termos-de-uso.html">Termos</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
         </div>
-    </footer>
+    </div>
+    <div class="copy">
+        <p>&copy; 2026 Palpites do Jogo do Bicho - Proibido para menores de 18 anos.</p>
+    </div>
+</footer>
 
 </body>
 </html>
