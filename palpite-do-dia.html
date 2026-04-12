@@ -3,83 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palpite do Dia Jogo do Bicho | Portal Oficial</title>
+    <title>Palpite do Dia - Portal Palpites do Bicho</title>
+    <meta name="description" content="Confira o palpite do dia para o Jogo do Bicho. Milhares, centenas e grupos atualizados para as principais loterias.">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        :root { --ouro: #f6c945; --preto: #121722; --fundo: #f4f7f6; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--fundo); }
+        :root { --ouro: #f6c945; --preto: #121722; --fundo: #f0f2f5; --texto: #333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        
+        body { background-color: var(--fundo); color: var(--texto); line-height: 1.6; }
 
-        /* MENU TOPO - VITRINE */
+        /* MENU SUPERIOR ESTILO PORTAL */
         header { background: var(--preto); border-bottom: 4px solid var(--ouro); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
-        .logo img { width: 130px; }
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav ul li a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .logo img { width: 140px; display: block; }
+        
+        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
+        nav ul li a { color: #fff; text-decoration: none; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
         nav ul li a:hover { color: var(--ouro); }
+        
+        /* O BOTÃO PORTAL NO MENU */
+        .btn-portal { background: var(--ouro); color: var(--preto) !important; padding: 8px 15px; border-radius: 5px; }
+        .btn-portal:hover { background: #fff !important; }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .main-container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
 
-        /* O CARD "TOP" QUE VOCÊ GOSTOU (image_174741.png) */
-        .card-principal {
+        /* CARD DE PALPITE - O DESIGN QUE VOCÊ GOSTOU */
+        .card-palpite {
             background: #fff;
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            padding: 50px 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            padding: 40px;
             text-align: center;
             border-top: 10px solid var(--ouro);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
-        .card-principal h1 { font-size: 2.5rem; color: var(--preto); font-weight: 800; margin-bottom: 15px; }
-        .data-tag { color: #e63946; font-weight: 800; font-size: 1.2rem; margin-bottom: 25px; display: block; }
-        
-        .texto-intro { font-size: 1.15rem; color: #555; max-width: 650px; margin: 0 auto 30px auto; line-height: 1.6; }
+        .card-palpite h1 { font-size: 2.4rem; color: var(--preto); font-weight: 800; margin-bottom: 10px; }
+        .data-badge { display: inline-block; background: #ff4757; color: #fff; padding: 5px 15px; border-radius: 50px; font-weight: bold; font-size: 0.9rem; margin-bottom: 25px; }
 
-        /* ÁREA DE INJEÇÃO DOS PALPITES */
-        .box-palpites-dinamicos {
+        /* ÁREA DINÂMICA (ROBÔ) */
+        .palpites-conteudo {
             background: #fdfdfd;
             border: 2px dashed #ddd;
             border-radius: 15px;
-            padding: 25px;
-            margin: 30px 0;
-            font-size: 1.3rem;
+            padding: 30px;
+            margin: 20px 0;
+            font-size: 1.4rem;
             color: var(--preto);
         }
+        .palpites-conteudo strong { color: #b8860b; }
 
-        /* BOTÃO ÁGUIA PRIME - O TOQUE FINAL */
-        .btn-jogar {
+        /* BOTÃO DE CONVERSÃO */
+        .btn-cta {
             display: inline-block;
             background: var(--preto);
             color: var(--ouro);
-            padding: 20px 50px;
+            padding: 20px 45px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 800;
+            font-weight: 900;
             text-transform: uppercase;
             font-size: 1.1rem;
+            margin-top: 20px;
             transition: 0.3s;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
-        .btn-jogar:hover { transform: scale(1.05); background: #000; box-shadow: 0 10px 25px rgba(246, 201, 69, 0.3); }
+        .btn-cta:hover { transform: translateY(-5px); background: #000; box-shadow: 0 15px 25px rgba(246, 201, 69, 0.3); }
 
-        /* SEO E CONTEÚDO ABAIXO DO CARD */
-        .seo-box { background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); line-height: 1.8; }
-        .seo-box h2 { color: var(--preto); font-size: 1.8rem; margin-bottom: 15px; border-left: 6px solid var(--ouro); padding-left: 15px; }
-        .seo-box p { color: #666; margin-bottom: 20px; }
+        /* SEÇÃO DE SEO */
+        .seo-content { background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .seo-content h2 { color: var(--preto); margin-bottom: 15px; font-size: 1.8rem; border-left: 6px solid var(--ouro); padding-left: 15px; }
+        .seo-content p { color: #555; margin-bottom: 20px; font-size: 1.05rem; }
 
-        /* RODAPÉ PORTAL */
-        footer { background: var(--preto); color: #888; padding: 50px 20px 20px; margin-top: 60px; text-align: center; }
-        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
-        .footer-links a { color: #888; text-decoration: none; font-size: 0.9rem; }
-        .footer-links a:hover { color: #fff; }
-        .social-links { font-size: 1.5rem; margin-bottom: 30px; }
-        .social-links a { color: var(--ouro); margin: 0 10px; transition: 0.3s; }
-        .social-links a:hover { transform: translateY(-5px); color: #fff; }
+        /* RODAPÉ COMPLETO */
+        footer { background: var(--preto); color: #fff; padding: 60px 20px 30px; margin-top: 60px; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-box h3 { color: var(--ouro); margin-bottom: 20px; text-transform: uppercase; font-size: 1.1rem; }
+        .footer-box ul { list-style: none; }
+        .footer-box ul li { margin-bottom: 10px; }
+        .footer-box ul li a { color: #bbb; text-decoration: none; transition: 0.3s; }
+        .footer-box ul li a:hover { color: #fff; }
 
-        @media (max-width: 600px) {
-            .card-principal h1 { font-size: 1.8rem; }
+        .social-links { display: flex; gap: 20px; margin-top: 20px; }
+        .social-links a { color: var(--ouro); font-size: 1.8rem; transition: 0.3s; }
+        .social-links a:hover { transform: scale(1.2); color: #fff; }
+
+        .copyright { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #333; color: #666; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
             nav { display: none; }
+            .card-palpite h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -87,11 +102,13 @@
 
 <header>
     <div class="nav-container">
-        <div class="logo"><a href="index.html"><img src="images/logo-palpites.png" alt="Logo"></a></div>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo-palpites.png" alt="Portal Palpites"></a>
+        </div>
         <nav>
             <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="palpite-do-dia.html" style="color: var(--ouro);">Palpite do Dia</a></li>
+                <li><a href="index.html" class="btn-portal">PORTAL</a></li>
+                <li><a href="palpite-do-dia.html">Palpite do Dia</a></li>
                 <li><a href="puxadas-do-bicho.html">Puxadas</a></li>
                 <li><a href="milhares-viciadas.html">Milhares</a></li>
                 <li><a href="contato.html">Contato</a></li>
@@ -100,45 +117,62 @@
     </div>
 </header>
 
-<main class="container">
-    <div class="card-principal">
-        <h1>Palpite do Dia - Jogo do Bicho</h1>
-        <span class="data-tag">Atualizado para: 12/04/2026 </span>
-        
-        <p class="texto-intro">
-            Confira as indicações dos nossos especialistas baseadas nas puxadas mais fortes e milhares viciadas para todos os sorteios de hoje.
-        </p>
+<main class="main-container">
+    <article class="card-palpite">
+        <h1>Palpite do Dia Jogo do Bicho</h1>
+        <div class="data-badge">
+            <i class="fa-solid fa-calendar-days"></i> 12/04/2026 </div>
 
-        <div class="box-palpites-dinamicos">
-            <p><strong>GRUPOS:</strong> 18 (Porco) e 22 (Tigre)</p>
-            <p><strong>MILHARES:</strong> 5669 - 1288 - 0972</p>
+        <p style="color: #666; margin-bottom: 20px;">Nossos analistas prepararam as melhores combinações baseadas nas estatísticas de hoje.</p>
+
+        <div class="palpites-conteudo">
+            <p><strong>GRUPOS:</strong> 04 (Borboleta) | 17 (Macaco)</p>
+            <p><strong>MILHARES:</strong> 1213 | 4567 | 8901</p>
             </div>
 
-        <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" class="btn-jogar">
-            <i class="fa-solid fa-dice"></i> JOGAR NA ÁGUIA PRIME
+        <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" class="btn-cta">
+            <i class="fa-solid fa-bolt"></i> APOSTAR NA ÁGUIA PRIME
         </a>
-    </div>
+    </article>
 
-    <section class="seo-box">
-        <h2>Como aproveitar o palpite de hoje?</h2>
-        <p>Nossa equipe analisa as tendências da <strong>Rio, Look e Nacional</strong> para filtrar as milhares que estão "quentes". Para aumentar suas chances, recomendamos sempre cercar do 1º ao 5º prêmio.</p>
-        <p>Utilize também nossa ferramenta de puxadas para complementar sua estratégia e ver quais bichos estão atraindo as dezenas que saíram no último sorteio.</p>
+    <section class="seo-content">
+        <h2>Como usar nossos palpites?</h2>
+        <p>Para ganhar no jogo do bicho, é essencial utilizar a matemática a seu favor. O <strong>Portal Palpites do Bicho</strong> utiliza algoritmos que cruzam os resultados da Rio e Look para encontrar as milhares mais prováveis.</p>
+        <p>Recomendamos sempre que você faça suas apostas cercadas do 1º ao 5º prêmio, garantindo assim que qualquer uma das milhares sorteadas te traga o retorno esperado.</p>
     </section>
 </main>
 
 <footer>
-    <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="sobre.html">Sobre Nós</a>
-        <a href="politica-de-privacidade.html">Privacidade</a>
-        <a href="contato.html">Contato</a>
+    <div class="footer-grid">
+        <div class="footer-box">
+            <h3>Sobre o Portal</h3>
+            <p>Sua maior fonte de dados, estatísticas e palpites para o Jogo do Bicho no Brasil. Informação grátis com qualidade premium.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-telegram"></i></a>
+            </div>
+        </div>
+        <div class="footer-box">
+            <h3>Loterias</h3>
+            <ul>
+                <li><a href="palpite-do-bicho-rj.html">Rio de Janeiro</a></li>
+                <li><a href="palpite-do-bicho-look.html">Look Goiás</a></li>
+                <li><a href="palpite-do-bicho-nacional.html">Nacional</a></li>
+            </ul>
+        </div>
+        <div class="footer-box">
+            <h3>Links Rápidos</h3>
+            <ul>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="politica-de-privacidade.html">Privacidade</a></li>
+            </ul>
+        </div>
     </div>
-    <div class="social-links">
-        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-telegram"></i></a>
+    <div class="copyright">
+        <p>&copy; 2026 Portal Palpites do Bicho - Proibido para menores de 18 anos.</p>
     </div>
-    <p>&copy; 2026 Palpites do Jogo do Bicho - Sua central de sorte.</p>
 </footer>
 
 </body>
