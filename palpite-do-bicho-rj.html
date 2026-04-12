@@ -11,35 +11,42 @@
         .dropdown-content { display: none; position: absolute; background-color: #121722; min-width: 160px; box-shadow: 0px 8px 16px rgba(0,0,0,0.5); z-index: 99; border: 1px solid rgba(255,255,255,0.1); text-align: left; }
         .dropdown-content a { margin: 0 !important; padding: 12px 16px !important; display: block !important; font-size: 14px !important; }
         .dropdown:hover .dropdown-content { display: block; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background: #ffffff; color: #333; margin: 0; padding: 0; line-height: 1.6; }
-        .container { width: 92%; max-width: 1000px; margin: 0 auto; }
-        header { background: #121722; padding: 15px 0; border-bottom: 3px solid #f6c945; }
-        .header-wrap { display: flex; justify-content: space-between; align-items: center; position: relative; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #ffffff; color: #333; margin: 0; padding: 0; line-height: 1.8; }
+        .container { width: 95%; max-width: 1000px; margin: 0 auto; }
+        header { background: #121722; padding: 10px 0; border-bottom: 3px solid #f6c945; }
+        .header-wrap { display: flex; justify-content: space-between; align-items: center; padding: 0 15px; }
         .logo img { height: 80px; width: auto; display: block; }
-        .menu-btn { background: none; border: none; color: white; font-size: 20px; cursor: pointer; padding: 10px; }
-        nav { background: #121722; display: block; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .nav-links { display: flex; justify-content: center; list-style: none; margin: 0; padding: 10px 0; }
-        .nav-links a { color: #d8dcec; text-decoration: none; margin: 0 12px; font-weight: 600; font-size: 14px; text-transform: uppercase; }
-        .section { padding: 30px 0; }
-        h1 { font-size: 1.8rem; color: #222; text-align: center; margin-bottom: 20px; }
-        h2, h3 { font-size: 1.4rem; color: #b8860b; border-left: 5px solid #f6c945; padding-left: 12px; margin: 25px 0 15px 0; font-weight: bold; }
-        p { margin-bottom: 12px; font-size: 1.05rem; color: #444; text-align: left; }
+        .menu-btn { display: none; background: none; border: none; color: white; font-size: 20px; cursor: pointer; }
+        nav { background: #121722; padding: 12px 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .nav-links { display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; }
+        .nav-links a { color: #d8dcec; text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 15px; text-transform: uppercase; }
+        .section { padding: 40px 0; }
+        h1 { font-size: 2.2rem; color: #222; text-align: center; margin-bottom: 25px; }
+        h2, h3 { font-size: 1.6rem; color: #b8860b; border-left: 6px solid #f6c945; padding-left: 15px; margin: 35px 0 20px 0; font-weight: bold; }
+        p { margin-bottom: 15px; font-size: 1.1rem; color: #444; text-align: justify; }
         .link-seo { color: #d4a017; font-weight: bold; text-decoration: underline; }
-        .palpite-box { background: #f9f9f9; border: 1px solid #eee; border-radius: 12px; padding: 15px; margin: 20px 0; }
-        .numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; text-align: center; }
-        .num-card { border: 1px solid #ddd; padding: 8px; border-radius: 8px; background: #fff; }
+        .palpite-box { background: #f9f9f9; border: 1px solid #eee; border-radius: 12px; padding: 20px; margin: 25px 0; }
+        .numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; text-align: center; }
+        .num-card { border: 1px solid #ddd; padding: 10px; border-radius: 8px; background: #fff; }
         .num-card span { display: block; font-weight: bold; font-size: 1.1rem; color: #d4a017; }
-        .btn-apostar { display: inline-block; background: #b8860b; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; text-transform: uppercase; margin-top: 15px; }
-        .site-footer { background-color: #0d1016; padding: 40px 0 20px 0; text-align: center; margin-top: 40px; }
-        .footer-social svg { width: 25px; height: 25px; fill: white; margin: 0 10px; }
-        .footer-links { margin: 15px 0; }
-        .footer-links a { color: #fff; margin: 0 8px; text-decoration: none; font-size: 0.85rem; }
+        .btn-apostar { display: inline-block; background: #b8860b; color: white; padding: 18px 40px; border-radius: 10px; text-decoration: none; font-weight: bold; text-transform: uppercase; margin-top: 20px; }
+        .site-footer { background-color: #0d1016; border-top: 1px solid rgba(255,255,255,0.08); padding: 50px 0 30px 0; text-align: center; margin-top: 50px; width: 100%; }
+        .footer-wrap { display: flex; flex-direction: column; align-items: center; }
+        .footer-title { font-size: 1.8rem; color: #f6c945; margin-bottom: 15px; font-weight: bold; }
+        .footer-warning { font-size: 0.85rem; color: #888ea1; max-width: 700px; margin: 0 auto 30px auto; line-height: 1.6; text-align: center; }
+        .footer-social { display: flex; gap: 20px; margin-bottom: 30px; justify-content: center; }
+        .footer-social svg { width: 30px; height: 30px; fill: #ffffff; transition: fill 0.3s; }
+        .footer-social a:hover svg { fill: #f6c945; }
+        .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 30px; }
+        .footer-links a { color: #d8dcec; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.3s; }
+        .footer-copy { font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; width: 90%; margin: 0 auto; color: #6c757d; }
         @media (max-width: 768px) { 
-            .nav-links { display: none; flex-direction: column; text-align: center; } 
-            .nav-links.show { display: flex; }
-            .nav-links a { padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); margin: 0; }
-            h1 { font-size: 1.5rem; }
+            .menu-btn { display: block; } 
+            .nav-links { display: none; flex-direction: column; width: 100%; padding: 0; } 
+            .nav-links.show { display: flex; } 
+            .nav-links a { margin: 0; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); } 
             .logo img { height: 60px; }
+            h1 { font-size: 1.6rem; } 
         }
     </style>
 </head>
@@ -55,80 +62,128 @@
 <nav id="navMenu">
     <div class="container">
         <div class="nav-links">
-            <a href="index.html">Início</a>
-            <a href="palpite-do-dia.html">Palpite do Dia</a>
-            <a href="puxadas-do-bicho.html">Puxadas</a>
-            <a href="milhares-viciadas.html">Milhares</a>
+            <a href="index.html">Início</a><a href="palpite-do-dia.html">Palpite do Dia</a>
+            <div class="dropdown" style="display: inline-block; position: relative;"><a href="#" style="cursor: default; margin-right: 15px;">Bancas ▾</a>
+            <div class="dropdown-content"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank">Águia Prime</a></div></div>
+            <a href="puxadas-do-bicho.html">Puxadas</a><a href="milhares-viciadas.html">Milhares</a>
             <a href="https://resultadosdojogo.com/" target="_blank" style="color: #f6c945;">Resultados</a>
         </div>
     </div>
 </nav>
 
-<section class="section">
-    <div class="container">
-        <div style="text-align: center; margin-bottom: 20px;">
-            <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU"><img src="images/aguia-posts.webp" style="width: 280px; border-radius: 8px;"></a>
-        </div>
-        
-        <h1>Palpite do dia do Jogo do Bicho de hoje Rio 12/04/2026</h1>
+<section class="section"><div class="container">
+    <div style="text-align: center; margin-bottom: 25px;"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU"><img src="images/aguia-posts.webp" style="width: 300px; border-radius: 8px;"></a></div>
+    
+    <h1>Palpite do dia do Jogo do Bicho de hoje Rio 12/04/2026</h1>
 
-        <p>Encontrar o <strong>Palpite do dia do Jogo do Bicho de hoje Rio 12/04/2026</strong> é a prioridade de quem deseja encerrar o final de semana com prêmios.</p>
-        <p>O Rio de Janeiro é o coração do jogo, e os sorteios de domingo possuem uma mística especial com as extrações PTM, PT, PTV e Coruja.</p>
+    <p>Encontrar o <strong>Palpite do dia do Jogo do Bicho de hoje Rio 12/04/2026</strong> é a prioridade de todo apostador que deseja encerrar o final de semana com chave de ouro.</p>
+    
+    <p>O Rio de Janeiro é o coração do Jogo do Bicho no Brasil, e os sorteios de domingo possuem uma mística especial.</p>
+    
+    <p>Com extrações que movimentam milhares de pessoas, como a PTM, PT, PTV, CORUJA e o tradicional sorteio da FEDERAL, a análise precisa ser muito mais refinada para superar a banca.</p>
 
-        <div style="text-align: center;"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" class="btn-apostar">🎰 APOSTAR NO RIO ONLINE</a></div>
+    <div style="text-align: center;"><a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" class="btn-apostar">🎰 APOSTAR NO RIO ONLINE</a></div>
 
-        <div class="palpite-box"><div class="bicho-title"><h3>12 - ELEFANTE 🐘</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhar</label><span>4548</span></div><div class="num-card"><label>Centena</label><span>548</span></div><div class="num-card"><label>Dezena</label><span>48</span></div></div></div>
-        <div class="palpite-box"><div class="bicho-title"><h3>03 - BURRO 🫏</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhar</label><span>8312</span></div><div class="num-card"><label>Centena</label><span>312</span></div><div class="num-card"><label>Dezena</label><span>12</span></div></div></div>
-        <div class="palpite-box"><div class="bicho-title"><h3>06 - CABRA 🐐</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhar</label><span>4821</span></div><div class="num-card"><label>Centena</label><span>821</span></div><div class="num-card"><label>Dezena</label><span>21</span></div></div></div>
-        <div class="palpite-box"><div class="bicho-title"><h3>11 - CAVALO 🐎</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhar</label><span>2843</span></div><div class="num-card"><label>Centena</label><span>143</span></div><div class="num-card"><label>Dezena</label><span>43</span></div></div></div>
-        <div class="palpite-box"><div class="bicho-title"><h3>07 - CARNEIRO 🐏</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhar</label><span>3428</span></div><div class="num-card"><label>Centena</label><span>428</span></div><div class="num-card"><label>Dezena</label><span>28</span></div></div></div>
-        <div class="palpite-box"><div class="bicho-title"><h3>17 - MACACO 🐒</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhar</label><span>6768</span></div><div class="num-card"><label>Centena</label><span>768</span></div><div class="num-card"><label>Dezena</label><span>68</span></div></div></div>
-        <h2>Como usar o Resultado do Rio para ajustar seu jogo</h2>
-        <p>Acompanhar o resultado do Rio em tempo real é o que separa o apostador comum do profissional. No domingo os horários podem variar.</p>
-        <p>Se a dezena 04 saiu no segundo prêmio, é um aviso de que o grupo do Avestruz está pronto para subir na próxima extração do dia.</p>
-        <p>O <strong>Palpite do dia do Jogo do Bicho de hoje Rio</strong> é uma bússola. Use também ferramentas de <a href="puxadas-do-bicho.html" class="link-seo">puxadas</a> para conferir as afinidades.</p>
+    <div class="palpite-box"><div class="bicho-title"><h3>12 - ELEFANTE 🐘</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhar</label><span>4548</span></div><div class="num-card"><label>Centena</label><span>548</span></div><div class="num-card"><label>Dezena</label><span>48</span></div></div></div>
+    <div class="palpite-box"><div class="bicho-title"><h3>03 - BURRO 🫏</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhar</label><span>8312</span></div><div class="num-card"><label>Centena</label><span>312</span></div><div class="num-card"><label>Dezena</label><span>12</span></div></div></div>
+    <div class="palpite-box"><div class="bicho-title"><h3>06 - CABRA 🐐</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhar</label><span>4821</span></div><div class="num-card"><label>Centena</label><span>821</span></div><div class="num-card"><label>Dezena</label><span>21</span></div></div></div>
+    <div class="palpite-box"><div class="bicho-title"><h3>11 - CAVALO 🐎</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhar</label><span>2843</span></div><div class="num-card"><label>Centena</label><span>143</span></div><div class="num-card"><label>Dezena</label><span>43</span></div></div></div>
+    <div class="palpite-box"><div class="bicho-title"><h3>07 - CARNEIRO 🐏</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhar</label><span>3428</span></div><div class="num-card"><label>Centena</label><span>428</span></div><div class="num-card"><label>Dezena</label><span>28</span></div></div></div>
+    <div class="palpite-box"><div class="bicho-title"><h3>17 - MACACO 🐒</h3></div><div class="numbers-grid"><div class="num-card"><label>Milhar</label><span>6768</span></div><div class="num-card"><label>Centena</label><span>768</span></div><div class="num-card"><label>Dezena</label><span>68</span></div></div></div>
+    <h2>Como usar o Resultado do Rio de hoje para ajustar seu jogo</h2>
+    <p>Acompanhar o resultado do Rio em tempo real é o que separa o apostador comum do profissional.</p>
+    
+    <p>No domingo, os horários podem sofrer variações, por isso, estar conectado ao portal para conferir o <strong>resultado do Rio de hoje</strong> assim que ele sai é crucial.</p>
+    
+    <p>Se você percebe que a dezena 04 saiu no segundo prêmio, isso é um "aviso" de que o grupo do Avestruz está cercado e pronto para subir.</p>
+    
+    <p>O <strong>Palpite do dia do Jogo do Bicho de hoje Rio 12/04/2026</strong> não deve ser visto como uma verdade absoluta, mas como uma bússola baseada em probabilidade.</p>
+    
+    <p>O uso de ferramentas de <a href="puxadas-do-bicho.html" class="link-seo">puxadas</a> é indispensável.</p>
 
-        <h2>Dicas de Ouro</h2>
-        <p><strong>Duque de Dezena Combinado:</strong> Use as dezenas do nosso <a href="palpite-do-dia.html" class="link-seo">Palpite do Dia</a> (12 e 21) e combine com sua dezena da sorte para forrar o bolso.</p>
-        <p>A sorte está lançada. Estude nossas <a href="milhares-viciadas.html" class="link-seo">milhares</a>, confira o resultado e jogue com inteligência.</p>
+    <h2>Palpite do dia do Jogo do Bicho de hoje Rio 12/04/2026: Dicas de Ouro</h2>
+    <p><strong>Duque de Dezena Combinado:</strong> Use as dezenas do nosso <a href="https://palpitesjogodobicho.com.br/palpite-do-dia.html" class="link-seo">Palpite do Dia</a> (12 e 21) e combine com sua dezena da sorte.</p>
+    
+    <p>O prêmio do Duque é excelente para quem quer forrar o bolso antes do almoço de domingo.</p>
 
-        <h2 style="text-align: center;">Tabela do Jogo do Bicho</h2>
-        <p>Para apostar com precisão, utilize a tabela do jogo do bicho e aprenda os números de cada bicho para o palpite do Rio.</p>
+    <p>A sorte está lançada. Estude nossas <a href="milhares-viciadas.html" class="link-seo">milhares</a>, confira o resultado do Rio de hoje e lembre-se:</p>
+    
+    <p>Informação correta é o caminho mais curto para o prêmio.</p>
+    
+    <p><strong>Atenção às Puxadas de Penas:</strong> No dia 12, animais que voam ou possuem penas ganham destaque. Isso reforça a indicação do Pavão em nossa lista.</p>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 8px; margin-top: 20px;">
-            <div style="border: 1px solid #ddd; border-radius: 8px; padding: 8px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.8rem;">01</div><div style="font-size: 1.5rem;">🦩</div><div style="font-weight: bold; font-size: 0.7rem;">AVESTRUZ</div><div style="font-size: 0.7rem; color: #d4a017;">01-04</div></div>
-            </div>
+    <h2>A Importância do Palpite do Rio</h2>
+    <p>Ter acesso a um <strong>palpite do dia do jogo do bicho de hoje rio</strong> de qualidade economiza seu tempo e protege seu dinheiro.</p>
+    
+    <p>Uma boa sorte no seu <strong>Palpite do dia do Jogo do Bicho de hoje Rio 12/04/2026</strong>.</p>
 
-        <div style="text-align: center; margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
-            <a href="palpite-do-bicho-look.html" style="background: #121722; color: #f6c945; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; border: 2px solid #f6c945; font-size: 0.8rem;">PALPITES LOOK</a>
-            <a href="palpite-do-bicho-nacional.html" style="background: #121722; color: #f6c945; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; border: 2px solid #f6c945; font-size: 0.8rem;">PALPITES NACIONAL</a>
-        </div>
+    <h2 style="text-align: center;">Tabela do Jogo do Bicho</h2>
+    <p>Para apostar no palpite do dia de hoje, você precisa utilizar estratégias como a tabela do jogo do bicho e aprender qual os números certo de cada bicho.</p>
+    
+    <p>Para o palpite de hoje do RIO, ela é muito importante, veja abaixo:</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; margin-top: 20px;">
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">01</div><div style="font-size: 2rem;">🦩</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">AVESTRUZ</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">01 02 03 04</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">02</div><div style="font-size: 2rem;">🦅</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">ÁGUIA</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">05 06 07 08</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">03</div><div style="font-size: 2rem;">🫏</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">BURRO</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">09 10 11 12</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">04</div><div style="font-size: 2rem;">🦋</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">BORBOLETA</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">13 14 15 16</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">05</div><div style="font-size: 2rem;">🐕</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">CACHORRO</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">17 18 19 20</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">06</div><div style="font-size: 2rem;">🐐</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">CABRA</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">21 22 23 24</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">07</div><div style="font-size: 2rem;">🐑</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">CARNEIRO</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">25 26 27 28</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">08</div><div style="font-size: 2rem;">🐪</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">CAMELO</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">29 30 31 32</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">09</div><div style="font-size: 2rem;">🐍</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">COBRA</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">33 34 35 36</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">10</div><div style="font-size: 2rem;">🐰</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">COELHO</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">37 38 39 40</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">11</div><div style="font-size: 2rem;">🐎</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">CAVALO</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">41 42 43 44</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">12</div><div style="font-size: 2rem;">🐘</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">ELEFANTE</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">45 46 47 48</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">13</div><div style="font-size: 2rem;">🐓</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">GALO</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">49 50 51 52</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">14</div><div style="font-size: 2rem;">🐈</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">GATO</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">53 54 55 56</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">15</div><div style="font-size: 2rem;">🐊</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">JACARÉ</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">57 58 59 60</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">16</div><div style="font-size: 2rem;">🦁</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">LEÃO</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">61 62 63 64</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">17</div><div style="font-size: 2rem;">🐒</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">MACACO</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">65 66 67 68</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">18</div><div style="font-size: 2rem;">🐷</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">PORCO</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">69 70 71 72</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">19</div><div style="font-size: 2rem;">🦚</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">PAVÃO</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">73 74 75 76</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">20</div><div style="font-size: 2rem;">🦃</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">PERU</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">77 78 79 80</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">21</div><div style="font-size: 2rem;">🐂</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">TOURO</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">81 82 83 84</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">22</div><div style="font-size: 2rem;">🐅</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">TIGRE</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">85 86 87 88</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">23</div><div style="font-size: 2rem;">🐻</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">URSO</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">89 90 91 92</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">24</div><div style="font-size: 2rem;">🦌</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">VEADO</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">93 94 95 96</div></div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 10px; text-align: center; background: #fff;"><div style="font-weight: bold; font-size: 0.9rem; color: #121722; margin-bottom: 5px;">25</div><div style="font-size: 2rem;">🐄</div><div style="font-weight: bold; font-size: 0.8rem; margin: 5px 0;">VACA</div><div style="font-size: 0.75rem; color: #d4a017; font-weight: bold;">97 98 99 00</div></div>
     </div>
-</section>
+
+    <div style="text-align: center; margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <a href="palpite-do-bicho-look.html" style="background: #121722; color: #f6c945; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold; border: 2px solid #f6c945;">PALPITES LOOK</a>
+        <a href="palpite-do-bicho-nacional.html" style="background: #121722; color: #f6c945; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold; border: 2px solid #f6c945;">PALPITES NACIONAL</a>
+        <a href="palpite-do-bicho-sp.html" style="background: #121722; color: #f6c945; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold; border: 2px solid #f6c945;">PALPITES SP</a>
+        <a href="palpite-do-bicho-bahia.html" style="background: #121722; color: #f6c945; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold; border: 2px solid #f6c945;">PALPITES BAHIA</a>
+    </div>
+
+    <p style="text-align: center; font-weight: bold; margin-top: 30px; font-size: 1.2rem; color: #b8860b;">🍀 Desejamos muita sorte e prêmios no Rio hoje! 🍀</p>
+</div></section>
 
 <footer class="site-footer">
     <div class="container footer-wrap">
-        <div class="footer-title">Palpites do Jogo do Bicho</div>
-        <p class="footer-warning" style="font-size: 0.75rem;">Informativo sobre estatísticas. Não possuímos vínculo com apostas.</p>
-        <div class="footer-social">
-            <a href="#"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.6 1.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg></a>
-        </div>
-        <div class="footer-links">
-            <a href="sobre.html">Sobre</a><a href="contato.html">Contato</a>
-        </div>
-        <p style="color: #666; font-size: 0.7rem; margin-top: 20px;">© 2026 Todos os direitos reservados.</p>
+      <div class="footer-title">Palpites do Jogo do Bicho</div>
+      <p class="footer-warning">Esclarecemos que não temos vínculo com o serviço ou pessoas que operam o Jogo do Bicho e que os resultados e estatísticas são meramente informativos.</p>
+            <div class="footer-social">
+        <a href="https://www.instagram.com/palpitess_jb?igsh=MW5uaTVjb3ZramhiNQ%3D%3D&utm_source=qr" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.6 1.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/palpitesdobicho" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.5 1.6-1.5h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4v2.2H8v3.2h2.1V22h3.4Z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@Palpitesdo_JogodoBicho" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M23 12s0-3.1-.4-4.6a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.5.4A3 3 0 0 0 1.4 7.4C1 8.9 1 12 1 12s0 3.1.4 4.6a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.5-.4a3 3 0 0 0 2.1-2.1c.4-1.5.4-4.5.4-4.5ZM9.8 15.5v-7L16 12l-6.2 3.5Z"/></svg>
+        </a>
+      </div>
+      <div class="footer-links">
+        <a href="sobre.html">Sobre nós</a>
+        <a href="contato.html">Contato</a>
+        <a href="politica-de-privacidade.html">Privacidade</a>
+        <a href="termos-de-uso.html">Termos de Uso</a>
+      </div>
+      <p class="footer-copy" style="text-align: center;">© 2026 Palpites do Jogo. Todos os direitos reservados.</p>
     </div>
 </footer>
-
-<script>
-    function toggleMenu() {
-        var x = document.getElementById("navMenu").getElementsByClassName("nav-links")[0];
-        if (x.style.display === "flex") {
-            x.style.display = "none";
-        } else {
-            x.style.display = "flex";
-        }
-    }
-</script>
+<script>function toggleMenu(){document.getElementById('navMenu').classList.toggle('show');}</script>
 </body>
 </html>
