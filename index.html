@@ -1,229 +1,92 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palpites do Jogo do Bicho | Portal Águia Prime</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    .portal-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+        margin: 30px 0;
+    }
+    .portal-card {
+        background: #121722;
+        border: 2px solid #f6c945;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: transform 0.2s;
+    }
+    .portal-card:hover {
+        transform: translateY(-5px);
+        background: #1c2435;
+    }
+    .portal-card i {
+        font-size: 2rem;
+        color: #f6c945;
+        margin-bottom: 10px;
+        display: block;
+    }
+    .portal-card span {
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+    .banner-vip {
+        background: linear-gradient(135deg, #b8860b 0%, #f6c945 100%);
+        color: #121722;
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        margin: 20px 0;
+        font-weight: bold;
+    }
+</style>
 
-    <style>
-        /* CSS BLINDADO - PARA FORÇAR O LAYOUT NOVO */
-        :root {
-            --ouro: #f6c945;
-            --preto: #121722;
-            --corpo: #f4f7f6;
-        }
+<div class="container">
+    <h1>Portal Palpites do Jogo do Bicho</h1>
+    <p style="text-align: center;">Selecione a sua banca favorita e confira os palpites atualizados para hoje!</p>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: var(--corpo) !important; 
-            color: #333;
-            line-height: 1.6;
-        }
+    <div class="portal-grid">
+        <a href="palpite-do-bicho-rj.html" class="portal-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Rio de Janeiro</span>
+        </a>
+        <a href="palpite-do-bicho-look.html" class="portal-card">
+            <i class="fas fa-search"></i>
+            <span>Look Goiás</span>
+        </a>
+        <a href="palpite-do-bicho-nacional.html" class="portal-card">
+            <i class="fas fa-flag"></i>
+            <span>Nacional</span>
+        </a>
+        <a href="palpite-do-bicho-sp.html" class="portal-card">
+            <i class="fas fa-city"></i>
+            <span>São Paulo</span>
+        </a>
+        <a href="palpite-do-bicho-lotep.html" class="portal-card">
+            <i class="fas fa-star"></i>
+            <span>Lotep Paraíba</span>
+        </a>
+        <a href="palpite-do-bicho-lotece.html" class="portal-card">
+            <i class="fas fa-sun"></i>
+            <span>Lotece Ceará</span>
+        </a>
+    </div>
 
-        header {
-            background-color: var(--preto) !important;
-            padding: 20px 0;
-            text-align: center;
-            border-bottom: 5px solid var(--ouro);
-        }
+    <div class="banner-vip">
+        <h3>🚀 JOGUE COM O MELHOR BÔNUS DO BRASIL</h3>
+        <p>Cadastre-se na Águia Prime e receba bônus exclusivos no seu primeiro depósito!</p>
+        <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" class="btn-apostar" style="background:#121722; margin-top:10px;">CADASTRAR AGORA</a>
+    </div>
 
-        .container {
-            width: 95%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .titulo-portal {
-            text-align: center;
-            font-size: 2.2rem;
-            color: var(--preto);
-            margin-top: 20px;
-            font-weight: 800;
-        }
-
-        .subtitulo-portal {
-            text-align: center;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        /* GRID DAS BANCAS */
-        .portal-grid {
-            display: grid !important;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
-            gap: 20px !important;
-            margin-bottom: 50px !important;
-        }
-
-        .portal-card {
-            background-color: var(--preto) !important;
-            border: 2px solid var(--ouro) !important;
-            border-radius: 15px !important;
-            padding: 30px 15px !important;
-            text-decoration: none !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: center !important;
-            transition: transform 0.3s, box-shadow 0.3s !important;
-            min-height: 160px !important;
-        }
-
-        .portal-card:hover {
-            transform: translateY(-8px) !important;
-            box-shadow: 0 10px 20px rgba(246, 201, 69, 0.3) !important;
-            background-color: #1c2435 !important;
-        }
-
-        .portal-card i {
-            color: var(--ouro) !important;
-            font-size: 2.8rem !important;
-            margin-bottom: 15px !important;
-        }
-
-        .portal-card span {
-            color: #ffffff !important;
-            font-weight: 800 !important;
-            text-transform: uppercase !important;
-            font-size: 0.85rem !important;
-            letter-spacing: 1px !important;
-            text-align: center !important;
-        }
-
-        /* BANNER VIP */
-        .banner-vip {
-            background: linear-gradient(135deg, #b8860b 0%, #f6c945 100%) !important;
-            border-radius: 20px !important;
-            padding: 40px 20px !important;
-            text-align: center !important;
-            margin: 40px 0 !important;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
-        }
-
-        .banner-vip h2 {
-            color: var(--preto) !important;
-            font-size: 1.8rem !important;
-            margin-bottom: 10px !important;
-            font-weight: 900 !important;
-        }
-
-        .btn-prime {
-            display: inline-block !important;
-            background-color: var(--preto) !important;
-            color: var(--ouro) !important;
-            padding: 15px 40px !important;
-            border-radius: 50px !important;
-            text-decoration: none !important;
-            font-weight: 800 !important;
-            text-transform: uppercase !important;
-            margin-top: 20px !important;
-            transition: 0.3s !important;
-        }
-
-        .btn-prime:hover {
-            transform: scale(1.05) !important;
-            background-color: #000 !important;
-        }
-
-        /* RODAPÉ */
-        footer {
-            background-color: var(--preto);
-            color: #888;
-            padding: 40px 0;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        /* CELULAR */
-        @media (max-width: 600px) {
-            .portal-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 12px !important;
-            }
-            .titulo-portal { font-size: 1.6rem; }
-            .portal-card { min-height: 130px; padding: 20px 10px !important; }
-            .portal-card i { font-size: 2rem !important; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="container">
-            <img src="images/logo-palpites.png" alt="Logo Palpites" style="width: 150px;">
-        </div>
-    </header>
-
-    <main class="container">
-        <h1 class="titulo-portal">Portal Palpites do Jogo do Bicho</h1>
-        <p class="subtitulo-portal">Sua central completa de palpites e estatísticas atualizados diariamente.</p>
-
-        <div class="portal-grid">
-            <a href="palpite-do-bicho-rj.html" class="portal-card">
-                <i class="fa-solid fa-location-dot"></i>
-                <span>Rio de Janeiro</span>
-            </a>
-            <a href="palpite-do-bicho-look.html" class="portal-card">
-                <i class="fa-solid fa-magnifying-glass-chart"></i>
-                <span>Look Goiás</span>
-            </a>
-            <a href="palpite-do-bicho-nacional.html" class="portal-card">
-                <i class="fa-solid fa-earth-americas"></i>
-                <span>Nacional</span>
-            </a>
-            <a href="palpite-do-bicho-sp.html" class="portal-card">
-                <i class="fa-solid fa-city"></i>
-                <span>São Paulo</span>
-            </a>
-            <a href="palpite-do-bicho-paratodos.html" class="portal-card">
-                <i class="fa-solid fa-clover"></i>
-                <span>Paratodos Bahia</span>
-            </a>
-            <a href="palpite-do-bicho-maluca.html" class="portal-card">
-                <i class="fa-solid fa-bolt"></i>
-                <span>Maluca Bahia</span>
-            </a>
-            <a href="palpite-do-bicho-caminho.html" class="portal-card">
-                <i class="fa-solid fa-route"></i>
-                <span>Caminho da Sorte</span>
-            </a>
-            <a href="palpite-do-bicho-lotep.html" class="portal-card">
-                <i class="fa-solid fa-medal"></i>
-                <span>Lotep Paraíba</span>
-            </a>
-            <a href="palpite-do-bicho-lotece.html" class="portal-card">
-                <i class="fa-solid fa-sun"></i>
-                <span>Lotece Ceará</span>
-            </a>
-        </div>
-
-        <div class="banner-vip">
-            <h2>🚀 JOGUE COM O MELHOR BÔNUS DO BRASIL</h2>
-            <p style="color: #121722; font-weight: 600;">Cadastre-se na Águia Prime e garanta bônus no seu primeiro depósito!</p>
-            <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" class="btn-prime">CADASTRAR NA ÁGUIA PRIME</a>
-        </div>
-
-        <h2 style="text-align: center; margin: 40px 0 20px; font-weight: 800;">Estudos & Ferramentas</h2>
-        <div class="portal-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;">
-            <a href="puxadas-do-bicho.html" class="portal-card" style="background-color: #fff !important; border-color: #ddd !important;">
-                <i class="fa-solid fa-arrows-spin" style="color: var(--preto) !important;"></i>
-                <span style="color: var(--preto) !important;">Puxadas do Bicho</span>
-            </a>
-            <a href="milhares-viciadas.html" class="portal-card" style="background-color: #fff !important; border-color: #ddd !important;">
-                <i class="fa-solid fa-bullseye" style="color: var(--preto) !important;"></i>
-                <span style="color: var(--preto) !important;">Milhares Viciadas</span>
-            </a>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Palpites do Jogo do Bicho - Todos os direitos reservados.</p>
-    </footer>
-
-</body>
-</html>
+    <h2>Ferramentas e Estudos</h2>
+    <div class="portal-grid">
+        <a href="puxadas-do-bicho.html" class="portal-card" style="border-color: #eee; background: #f9f9f9;">
+            <i class="fas fa-random" style="color: #333;"></i>
+            <span style="color: #333;">Puxadas</span>
+        </a>
+        <a href="milhares-viciadas.html" class="portal-card" style="border-color: #eee; background: #f9f9f9;">
+            <i class="fas fa-bullseye" style="color: #333;"></i>
+            <span style="color: #333;">Milhares</span>
+        </a>
+    </div>
+</div>
