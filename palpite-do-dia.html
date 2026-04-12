@@ -3,80 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palpite do Dia Jogo do Bicho - Atualizado Hoje</title>
+    <title>Palpite do Dia Jogo do Bicho | Especialistas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        :root { --ouro: #f6c945; --preto: #121722; --cinza: #f4f7f6; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: var(--cinza); margin: 0; color: #333; }
-        header { background: var(--preto); padding: 20px 0; text-align: center; border-bottom: 5px solid var(--ouro); }
-        .container { width: 95%; max-width: 800px; margin: 0 auto; padding: 20px; }
-        
-        /* Card de Palpite Principal */
-        .card-palpite {
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            padding: 30px;
-            margin: 20px 0;
-            text-align: center;
-            border-top: 8px solid var(--ouro);
+        /* ESTILOS GERAIS - Respeitando o design 'Top' da Index */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f4f7f6; 
+            color: #333; 
+            line-height: 1.6;
         }
-        .data-destaque { color: #e63946; font-weight: bold; font-size: 1.2rem; }
-        
-        /* Estilo dos Grupos/Dezenas */
-        .palpites-txt { font-size: 1.1rem; line-height: 1.8; color: #121722; margin: 20px 0; }
-        
-        .btn-apostar {
+
+        /* CABEÇALHO PRETO COM LOGO - Igual à Index recuperada */
+        header {
+            background-color: #121722;
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 5px solid #f6c945;
+        }
+        header img {
+            width: 150px;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* CARD DE PALPITES - Design Limpo e Elegante */
+        .palpite-destaque {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-top: 8px solid #f6c945;
+            text-align: center;
+        }
+
+        .palpite-destaque h1 {
+            color: #121722;
+            font-weight: 800;
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+        }
+
+        .data-atualizada {
+            font-weight: bold;
+            color: #e63946; /* Cor de alerta/foco */
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        /* Área onde o robô vai escrever - Com Tipografia Dourada */
+        .conteudo-palpite {
+            font-size: 1.2rem;
+            color: #121722;
+            margin-bottom: 30px;
+        }
+        .conteudo-palpite strong {
+            color: #b8860b; /* Dourado escuro para contraste */
+        }
+
+        /* BOTÃO DE JOGAR - Estilo Pílula Preto/Dourado */
+        .btn-apostar-prime {
             display: inline-block;
-            background: var(--preto);
-            color: var(--ouro);
-            padding: 18px 40px;
+            background-color: #121722;
+            color: #f6c945;
+            padding: 18px 45px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 800;
+            font-weight: bold;
             text-transform: uppercase;
-            margin: 20px 0;
+            letter-spacing: 1px;
             transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        .btn-apostar:hover { transform: scale(1.05); background: #000; }
+        .btn-apostar-prime:hover {
+            transform: translateY(-3px) scale(1.02);
+            background-color: #000;
+            box-shadow: 0 8px 20px rgba(246, 201, 69, 0.3);
+        }
+        .btn-apostar-prime i { margin-right: 10px; }
 
-        /* Área de SEO */
-        .seo-section { background: #fff; padding: 30px; border-radius: 15px; margin-top: 30px; line-height: 1.8; }
-        .seo-section h2 { color: var(--preto); border-left: 5px solid var(--ouro); padding-left: 15px; }
+        /* SEÇÃO DE SEO - Protegida e bem formatada */
+        .seo-blindado {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .seo-blindado h2 {
+            color: #121722;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            border-left: 5px solid #f6c945;
+            padding-left: 15px;
+        }
+        .seo-blindado p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
 
-        footer { background: var(--preto); color: #888; padding: 30px 0; text-align: center; margin-top: 50px; }
+        /* RODAPÉ SIMPLES */
+        footer {
+            background-color: #121722;
+            color: #888;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Ajustes Celular */
+        @media (max-width: 600px) {
+            .palpite-destaque { padding: 30px 20px; }
+            .palpite-destaque h1 { font-size: 1.8rem; }
+            .conteudo-palpite { font-size: 1.1rem; }
+            .btn-apostar-prime { padding: 15px 30px; font-size: 0.9rem; }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <a href="index.html"><img src="images/logo-palpites.png" alt="Logo" style="width: 140px;"></a>
-</header>
+    <header>
+        <div class="container">
+            <a href="index.html"><img src="images/logo-palpites.png" alt="Logo Palpites"></a>
+        </div>
+    </header>
 
-<main class="container">
-    <div class="card-palpite">
-        <h1>Palpite do Dia - Jogo do Bicho</h1>
-        <p class="data-destaque">Atualizado para: 12/04/2026 </p>
+    <main class="container">
         
-        <div class="palpites-txt">
-            <p>Confira as indicações dos nossos especialistas baseadas nas puxadas mais fortes e milhares viciadas para todos os sorteios de hoje.</p>
-            </div>
+        <div class="palpite-destaque">
+            <h1>Palpite do Dia Jogo do Bicho</h1>
+            <p class="data-atualizada">Atualizado hoje para: 12/04/2026 </p>
+            
+            <div class="conteudo-palpite">
+                <p>Aqui nossos especialistas analisam as <strong>melhores puxadas</strong> e milhares viciadas para garantir o seu palpite certeiro de hoje. Não perca as combinações mais fortes para todos os sorteios!</p>
+                </div>
 
-        <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" class="btn-apostar">🎰 JOGAR NA ÁGUIA PRIME</a>
-    </div>
+            <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" class="btn-apostar-prime">
+                <i class="fa-solid fa-slot-machine"></i> JOGAR NA ÁGUIA PRIME
+            </a>
+        </div>
 
-    <section class="seo-section">
-        <h2>Como são calculados os palpites?</h2>
-        <p>Nossos palpites são gerados através de um algoritmo que analisa as últimas extrações da <strong>Rio, Look e Nacional</strong>. Utilizamos a técnica da cruz do dia e a soma das dezenas para identificar os bichos que estão "atrasados" e com maior probabilidade de aparecer no primeiro prêmio.</p>
-        
-        <h3>Dicas para aumentar suas chances</h3>
-        <p>Ao utilizar nossos palpites, lembre-se de sempre cercar pelos cinco ou sete prêmios para garantir maior segurança na sua aposta. O jogo do bicho é uma tradição brasileira e, com os estudos certos, você fica um passo à frente da sorte.</p>
-    </section>
-</main>
+        <section class="seo-blindado">
+            <h2>Como usar o Palpite do Dia?</h2>
+            <p>Os palpites gerados aqui são baseados em estatísticas das últimas extrações da <strong>Rio, Look e Nacional</strong>. Nós analisamos os bichos "atrasados" e os que têm maior puxada após o resultado de ontem.</p>
+            <p>Lembre-se de cercar pelos cinco prêmios para aumentar suas chances e jogar sempre com responsabilidade. O jogo do bicho é uma tradição e, com os palpites certos, você joga de forma mais estratégica.</p>
+        </section>
+    </main>
 
-<footer>
-    <p>&copy; 2026 Palpites do Jogo do Bicho - Especialistas em Resultados</p>
-</footer>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Palpites do Jogo do Bicho - Especialistas em Estatísticas</p>
+        </div>
+    </footer>
 
 </body>
 </html>
