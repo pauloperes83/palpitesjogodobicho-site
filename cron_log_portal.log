@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/var/www/meusite/robo_portal.py", line 73, in <module>
+    partes = conteudo.split(CHAVE)
+             ^^^^^^^^^^^^^^^^^^^^^
+ValueError: empty separator

@@ -4,8 +4,8 @@ import re
 import os
 
 # CONFIGURAÇÕES
-ARQUIVO_HTML = "/var/www/meusite/palpite-do-bicho-rj.html"
-CHAVE =  "<!--MARCA_AQUI-->"
+ARQUIVO_HTML = "/var/www/meusite/palpite-do-bicho-look.html"
+CHAVE = "<!--MARCA_AQUI-->"
 
 # Tabela Oficial
 TABELA_BICHOS = {
@@ -33,19 +33,19 @@ def gerar_milhar(grupo, dezena_especifica=None):
         dezena = random.choice(TABELA_BICHOS[grupo]["dezenas"])
     return f"{random.randint(10, 99)}{dezena:02d}"
 
-# --- LÓGICA DE HORÁRIO DINÂMICO (RIO) ---
+# --- LÓGICA DE HORÁRIO PARA A LOOK ---
 agora = datetime.datetime.now()
 data_alvo = agora.date()
 
-# Se rodar a partir das 21h, vira para o dia seguinte
+# Se rodar depois das 21h, calcula os palpites para AMANHÃ
 if agora.hour >= 21:
     data_alvo = data_alvo + datetime.timedelta(days=1)
 
 data_str = data_alvo.strftime("%d/%m/%Y")
 dia_num = data_alvo.day
-# ----------------------------------------
+# -------------------------------------
 
-# 1. Bicho do Grupo do Dia
+# 1. Bicho do Grupo do Dia (Baseado na data_alvo)
 bicho_dia_grupo = dia_num if dia_num <= 25 else (dia_num - 25)
 
 # 2. Bicho da Dezena do Dia
@@ -110,6 +110,8 @@ if os.path.exists(ARQUIVO_HTML):
             f.write(novo_html)
 
         os.system(f"cd /var/www/meusite && git add {ARQUIVO_HTML}")
-        os.system(f'cd /var/www/meusite && git commit -m "Auto Update RIO {data_str}"')
+        os.system(f'cd /var/www/meusite && git commit -m "Auto Update LOOK {data_str}"')
         os.system("cd /var/www/meusite && git push origin main -f")
-        print(f"✅ SUCESSO RIO! Palpites para {data_str} atualizados.")
+        print(f"✅ SUCESSO LOOK! Palpites para {data_str} enviados.")
+    else:
+        print(f"❌ ERRO: Marcas {CHAVE} não encontradas no HTML da Look!")

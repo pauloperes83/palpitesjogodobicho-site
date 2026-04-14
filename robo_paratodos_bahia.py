@@ -4,8 +4,8 @@ import re
 import os
 
 # CONFIGURAÇÕES
-ARQUIVO_HTML = "/var/www/meusite/palpite-do-bicho-rj.html"
-CHAVE =  "<!--MARCA_AQUI-->"
+ARQUIVO_HTML = "/var/www/meusite/palpite-do-bicho-paratodos-bahia.html"
+CHAVE = "<!--MARCA_AQUI-->"
 
 # Tabela Oficial
 TABELA_BICHOS = {
@@ -24,66 +24,56 @@ TABELA_BICHOS = {
     25: {"nome": "VACA", "dezenas": [97, 98, 99, 0]}
 }
 
-PUXADAS_PADRAO = [11, 7, 17, 1, 19, 25]
-
-def gerar_milhar(grupo, dezena_especifica=None):
-    if dezena_especifica is not None:
-        dezena = dezena_especifica
-    else:
-        dezena = random.choice(TABELA_BICHOS[grupo]["dezenas"])
+def gerar_milhar(grupo):
+    dezena = random.choice(TABELA_BICHOS[grupo]["dezenas"])
     return f"{random.randint(10, 99)}{dezena:02d}"
 
-# --- LÓGICA DE HORÁRIO DINÂMICO (RIO) ---
+# --- LÓGICA DE HORÁRIO E CALENDÁRIO ---
 agora = datetime.datetime.now()
 data_alvo = agora.date()
 
-# Se rodar a partir das 21h, vira para o dia seguinte
+# Gatilho às 21h igual aos outros da Bahia
 if agora.hour >= 21:
     data_alvo = data_alvo + datetime.timedelta(days=1)
 
 data_str = data_alvo.strftime("%d/%m/%Y")
 dia_num = data_alvo.day
-# ----------------------------------------
 
-# 1. Bicho do Grupo do Dia
-bicho_dia_grupo = dia_num if dia_num <= 25 else (dia_num - 25)
+dias_com_feira = {
+    0: "segunda-feira", 1: "terça-feira", 2: "quarta-feira",
+    3: "quinta-feira", 4: "sexta-feira", 5: "sábado", 6: "domingo"
+}
+dias_sem_feira = {
+    0: "segunda", 1: "terça", 2: "quarta",
+    3: "quinta", 4: "sexta", 5: "sábado", 6: "domingo"
+}
 
-# 2. Bicho da Dezena do Dia
-bicho_dezena_dia = 1
-for grupo, dados in TABELA_BICHOS.items():
-    if dia_num in dados["dezenas"]:
-        bicho_dezena_dia = grupo
-        break
+nome_com_feira = dias_com_feira[data_alvo.weekday()]
+nome_sem_feira = dias_sem_feira[data_alvo.weekday()]
 
-# 3. Bicho da Invertida
-inverso_str = str(dia_num).zfill(2)[::-1]
-dezena_inversa = int(inverso_str)
-bicho_inverso = 1
-for grupo, dados in TABELA_BICHOS.items():
-    if dezena_inversa in dados["dezenas"]:
-        bicho_inverso = grupo
-        break
+# --- ESTRATÉGIA PARATODOS: GRUPOS VIZINHOS + SEO ---
+bicho_dia = dia_num if dia_num <= 25 else (dia_num - 25)
 
-# Lista de bichos para o site (sem repetir)
+# Vizinhos de tabela (Cerca quem vem antes e depois)
+vizinho_antes = bicho_dia - 1 if bicho_dia > 1 else 25
+vizinho_depois = bicho_dia + 1 if bicho_dia < 25 else 1
+
+# Lista baseada na estratégia + bicho do SEO (Camelo 08 e Peru 20)
 bichos_finais = []
-for b in [bicho_dia_grupo, bicho_dezena_dia, bicho_inverso]:
+for b in [bicho_dia, vizinho_antes, vizinho_depois, 8, 20]:
     if b not in bichos_finais:
         bichos_finais.append(b)
 
-for p in PUXADAS_PADRAO:
-    if p not in bichos_finais and len(bichos_finais) < 6:
-        bichos_finais.append(p)
+# Preenche com aleatório se faltar para chegar em 6
+while len(bichos_finais) < 6:
+    r = random.randint(1, 25)
+    if r not in bichos_finais:
+        bichos_finais.append(r)
 
 # Gerar HTML
 html_cards = "\n" + CHAVE + "\n"
 for num in bichos_finais:
-    if num == bicho_dezena_dia and dia_num in TABELA_BICHOS[num]["dezenas"]:
-        m = gerar_milhar(num, dezena_especifica=dia_num)
-    elif num == bicho_inverso and dezena_inversa in TABELA_BICHOS[num]["dezenas"]:
-        m = gerar_milhar(num, dezena_especifica=dezena_inversa)
-    else:
-        m = gerar_milhar(num)
-
+    m = gerar_milhar(num)
     nome_bicho = TABELA_BICHOS[num]["nome"]
     html_cards += f'''    <div class="palpite-box">
         <div class="bicho-title"><h3>{num:02d} - {nome_bicho}</h3></div>
@@ -95,13 +85,20 @@ for num in bichos_finais:
     </div>\n'''
 html_cards += CHAVE + "\n"
 
-# Salvar e enviar ao GitHub
+# --- GRAVAÇÃO E GITHUB ---
 if os.path.exists(ARQUIVO_HTML):
     os.system("git config --global --add safe.directory /var/www/meusite")
     with open(ARQUIVO_HTML, "r", encoding="utf-8") as f:
         conteudo = f.read()
 
     conteudo = re.sub(r"\d{2}/\d{2}/\d{4}", data_str, conteudo)
+
+    # Atualiza dias COM e SEM "-feira"
+    regex_com = r"(segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|sábado|domingo)"
+    conteudo = re.sub(regex_com, nome_com_feira, conteudo, flags=re.IGNORECASE)
+
+    regex_sem = r"(?<!-)(segunda|terça|quarta|quinta|sexta)(?!-feira)"
+    conteudo = re.sub(regex_sem, nome_sem_feira, conteudo, flags=re.IGNORECASE)
 
     partes = conteudo.split(CHAVE)
     if len(partes) >= 3:
@@ -110,6 +107,6 @@ if os.path.exists(ARQUIVO_HTML):
             f.write(novo_html)
 
         os.system(f"cd /var/www/meusite && git add {ARQUIVO_HTML}")
-        os.system(f'cd /var/www/meusite && git commit -m "Auto Update RIO {data_str}"')
+        os.system(f'cd /var/www/meusite && git commit -m "Auto Update Paratodos {data_str}"')
         os.system("cd /var/www/meusite && git push origin main -f")
-        print(f"✅ SUCESSO RIO! Palpites para {data_str} atualizados.")
+        print(f"✅ SUCESSO PARATODOS! Atualizado para {nome_com_feira} ({data_str}).")

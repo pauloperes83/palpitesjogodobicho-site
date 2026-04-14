@@ -1,0 +1,47 @@
+❌ ERRO: Marcas <!--MARCA_AQUI--> não encontradas no HTML!
+--- Iniciando Processo Nacional para: /var/www/meusite/palpite-do-bicho-nacional.html ---
+DEBUG: Encontrei a marca <!--MARCA_AQUI--> -> 0 vezes no arquivo.
+❌ ERRO CRÍTICO: O robô esperava 2 marcas, mas encontrou 0.
+Certifique-se que no HTML do GitHub existam duas marcas EXATAMENTE assim: <!--MARCA_AQUI-->
+--- Iniciando Processo Nacional para: /var/www/meusite/palpite-do-bicho-nacional.html ---
+DEBUG: Encontrei a marca <!--MARCA_AQUI--> -> 1 vezes no arquivo.
+❌ ERRO CRÍTICO: O robô esperava 2 marcas, mas encontrou 1.
+Certifique-se que no HTML do GitHub existam duas marcas EXATAMENTE assim: <!--MARCA_AQUI-->
+[main 1b907d7] Auto Update Nacional 13/04/2026
+ 1 file changed, 58 insertions(+), 8 deletions(-)
+To https://github.com/pauloperes83/palpitesjogodobicho-site.git
+   db1e64c..1b907d7  main -> main
+--- Iniciando Processo Nacional para: /var/www/meusite/palpite-do-bicho-nacional.html ---
+DEBUG: Encontrei a marca <!--MARCA_AQUI--> -> 2 vezes no arquivo.
+Gravando no arquivo e enviando ao GitHub...
+✅ SUCESSO NACIONAL! Palpites para 13/04/2026 enviados.
+Traceback (most recent call last):
+  File "/var/www/meusite/robo_nacional.py", line 81, in <module>
+    if os.path.exists(ARQUIVO_HTML):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen genericpath>", line 19, in exists
+TypeError: stat: path should be string, bytes, os.PathLike or integer, not list
+Traceback (most recent call last):
+  File "/var/www/meusite/robo_nacional.py", line 84, in <module>
+    partes = conteudo.split(CHAVE)
+             ^^^^^^^^^^^^^^^^^^^^^
+ValueError: empty separator
+Traceback (most recent call last):
+  File "/var/www/meusite/robo_nacional.py", line 84, in <module>
+    partes = conteudo.split(CHAVE)
+             ^^^^^^^^^^^^^^^^^^^^^
+ValueError: empty separator
+[main ef942ba] Auto Update Nacional 13/04/2026
+ 1 file changed, 19 insertions(+), 17 deletions(-)
+To https://github.com/pauloperes83/palpitesjogodobicho-site.git
+   d627157..ef942ba  main -> main
+--- Iniciando Processo Nacional para: /var/www/meusite/palpite-do-bicho-nacional.html ---
+DEBUG: Encontrei a marca <!--MARCA_AQUI--> -> 2 vezes no arquivo.
+✅ SUCESSO NACIONAL! Palpites para 13/04/2026 enviados.
+[main ca6b649] Auto Update Nacional 14/04/2026
+ 1 file changed, 32 insertions(+), 30 deletions(-)
+To https://github.com/pauloperes83/palpitesjogodobicho-site.git
+   ef942ba..ca6b649  main -> main
+--- Iniciando Processo Nacional para: /var/www/meusite/palpite-do-bicho-nacional.html ---
+DEBUG: Encontrei a marca <!--MARCA_AQUI--> -> 2 vezes no arquivo.
+✅ SUCESSO NACIONAL! Palpites para 14/04/2026 enviados.

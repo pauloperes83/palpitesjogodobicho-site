@@ -3,11 +3,10 @@ import random
 import re
 import os
 
-# CONFIGURAÇÕES
-ARQUIVO_HTML = "/var/www/meusite/palpite-do-bicho-rj.html"
-CHAVE =  "<!--MARCA_AQUI-->"
+# --- CONFIGURAÇÕES ---
+ARQUIVO_HTML = "/var/www/meusite/palpite-do-dia.html"
+CHAVE = ""
 
-# Tabela Oficial
 TABELA_BICHOS = {
     1: {"nome": "AVESTRUZ", "dezenas": [1, 2, 3, 4]}, 2: {"nome": "ÁGUIA", "dezenas": [5, 6, 7, 8]},
     3: {"nome": "BURRO", "dezenas": [9, 10, 11, 12]}, 4: {"nome": "BORBOLETA", "dezenas": [13, 14, 15, 16]},
@@ -24,66 +23,29 @@ TABELA_BICHOS = {
     25: {"nome": "VACA", "dezenas": [97, 98, 99, 0]}
 }
 
-PUXADAS_PADRAO = [11, 7, 17, 1, 19, 25]
-
-def gerar_milhar(grupo, dezena_especifica=None):
-    if dezena_especifica is not None:
-        dezena = dezena_especifica
-    else:
-        dezena = random.choice(TABELA_BICHOS[grupo]["dezenas"])
+def gerar_milhar(grupo):
+    dezena = random.choice(TABELA_BICHOS[grupo]["dezenas"])
     return f"{random.randint(10, 99)}{dezena:02d}"
 
-# --- LÓGICA DE HORÁRIO DINÂMICO (RIO) ---
 agora = datetime.datetime.now()
 data_alvo = agora.date()
-
-# Se rodar a partir das 21h, vira para o dia seguinte
 if agora.hour >= 21:
     data_alvo = data_alvo + datetime.timedelta(days=1)
 
 data_str = data_alvo.strftime("%d/%m/%Y")
-dia_num = data_alvo.day
-# ----------------------------------------
+dias_pt = {0: "segunda-feira", 1: "terça-feira", 2: "quarta-feira", 3: "quinta-feira", 4: "sexta-feira", 5: "sábado", 6: "domingo"}
+nome_dia_novo = dias_pt[data_alvo.weekday()]
 
-# 1. Bicho do Grupo do Dia
-bicho_dia_grupo = dia_num if dia_num <= 25 else (dia_num - 25)
+# Bichos Focados no Portal (SEO forte)
+bichos_finais = [2, 19, 21] # Águia, Pavão, Touro
+while len(bichos_finais) < 6:
+    r = random.randint(1, 25)
+    if r not in bichos_finais:
+        bichos_finais.append(r)
 
-# 2. Bicho da Dezena do Dia
-bicho_dezena_dia = 1
-for grupo, dados in TABELA_BICHOS.items():
-    if dia_num in dados["dezenas"]:
-        bicho_dezena_dia = grupo
-        break
-
-# 3. Bicho da Invertida
-inverso_str = str(dia_num).zfill(2)[::-1]
-dezena_inversa = int(inverso_str)
-bicho_inverso = 1
-for grupo, dados in TABELA_BICHOS.items():
-    if dezena_inversa in dados["dezenas"]:
-        bicho_inverso = grupo
-        break
-
-# Lista de bichos para o site (sem repetir)
-bichos_finais = []
-for b in [bicho_dia_grupo, bicho_dezena_dia, bicho_inverso]:
-    if b not in bichos_finais:
-        bichos_finais.append(b)
-
-for p in PUXADAS_PADRAO:
-    if p not in bichos_finais and len(bichos_finais) < 6:
-        bichos_finais.append(p)
-
-# Gerar HTML
 html_cards = "\n" + CHAVE + "\n"
 for num in bichos_finais:
-    if num == bicho_dezena_dia and dia_num in TABELA_BICHOS[num]["dezenas"]:
-        m = gerar_milhar(num, dezena_especifica=dia_num)
-    elif num == bicho_inverso and dezena_inversa in TABELA_BICHOS[num]["dezenas"]:
-        m = gerar_milhar(num, dezena_especifica=dezena_inversa)
-    else:
-        m = gerar_milhar(num)
-
+    m = gerar_milhar(num)
     nome_bicho = TABELA_BICHOS[num]["nome"]
     html_cards += f'''    <div class="palpite-box">
         <div class="bicho-title"><h3>{num:02d} - {nome_bicho}</h3></div>
@@ -95,21 +57,32 @@ for num in bichos_finais:
     </div>\n'''
 html_cards += CHAVE + "\n"
 
-# Salvar e enviar ao GitHub
+# --- GRAVAÇÃO ---
 if os.path.exists(ARQUIVO_HTML):
     os.system("git config --global --add safe.directory /var/www/meusite")
     with open(ARQUIVO_HTML, "r", encoding="utf-8") as f:
         conteudo = f.read()
 
+    # Atualiza data e dia
     conteudo = re.sub(r"\d{2}/\d{2}/\d{4}", data_str, conteudo)
+    regex_dias = r"(segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|sábado|domingo)"
+    conteudo = re.sub(regex_dias, nome_dia_novo, conteudo, flags=re.IGNORECASE)
 
-    partes = conteudo.split(CHAVE)
-    if len(partes) >= 3:
-        novo_html = partes[0] + html_cards + partes[2]
-        with open(ARQUIVO_HTML, "w", encoding="utf-8") as f:
-            f.write(novo_html)
+    # Verifica a Chave
+    if CHAVE in conteudo:
+        partes = conteudo.split(CHAVE)
+        if len(partes) >= 3:
+            novo_html = partes[0] + html_cards + partes[2]
+            with open(ARQUIVO_HTML, "w", encoding="utf-8") as f:
+                f.write(novo_html)
 
-        os.system(f"cd /var/www/meusite && git add {ARQUIVO_HTML}")
-        os.system(f'cd /var/www/meusite && git commit -m "Auto Update RIO {data_str}"')
-        os.system("cd /var/www/meusite && git push origin main -f")
-        print(f"✅ SUCESSO RIO! Palpites para {data_str} atualizados.")
+            os.system(f"cd /var/www/meusite && git add {ARQUIVO_HTML}")
+            os.system(f'cd /var/www/meusite && git commit -m "Update Portal Principal {data_str}"')
+            os.system("cd /var/www/meusite && git push origin main -f")
+            print(f"✅ PORTAL ATUALIZADO COM SUCESSO!")
+        else:
+            print("❌ ERRO: Marcas de início/fim da CHAVE não encontradas corretamente.")
+    else:
+        print(f"❌ ERRO: A chave {CHAVE} não existe no arquivo HTML.")
+else:
+    print(f"❌ ERRO: O arquivo {ARQUIVO_HTML} não foi encontrado.")
