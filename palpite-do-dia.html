@@ -3,84 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palpite do Dia - Promotor Paulo Peres</title>
+    <title>Super Portal - Palpite do Dia Jogo do Bicho</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --ouro: #f6c945; --preto: #0f141e; --fundo: #f4f7f6; --branco: #ffffff; --vermelho: #ff4757; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--fundo); color: #2c3e50; }
+        header { background: var(--preto); border-bottom: 4px solid var(--ouro); padding: 15px; position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        nav ul { display: flex; list-style: none; gap: 15px; }
+        nav ul li a { color: #fff; text-decoration: none; font-weight: bold; font-size: 0.8rem; }
+        .main-container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+        .card-hero { background: var(--branco); border-radius: 30px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); margin-bottom: 40px; }
+        .hero-header { background: var(--preto); color: #fff; padding: 40px 20px; text-align: center; }
+        .hero-header h1 { color: var(--ouro); font-size: 2rem; }
+        .data-tag { background: var(--vermelho); color: #fff; padding: 5px 15px; border-radius: 50px; font-weight: bold; }
+        .palpites-container { padding: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; background: #fafafa; }
+        .palpite-card { background: #fff; border-radius: 20px; padding: 20px; border: 1px solid #eee; text-align: center; transition: 0.3s; }
+        .bicho-icon { font-size: 3rem; display: block; }
+        .lucky-numbers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; }
+        .num-item { background: #f4f7f6; padding: 8px; border-radius: 10px; }
+        .num-item label { font-size: 0.6rem; color: #888; display: block; }
+        .math-study { background: var(--preto); color: var(--ouro); padding: 20px; margin: 20px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .btn-premium { display: block; background: var(--ouro); color: var(--preto); padding: 15px; text-align: center; text-decoration: none; font-weight: 900; margin: 20px; border-radius: 50px; }
+        .grid-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-top: 20px; }
+        .link-box { background: #fff; padding: 15px; border-radius: 15px; text-align: center; text-decoration: none; color: var(--preto); font-weight: bold; border: 1px solid #eee; }
+        footer { background: var(--preto); color: #fff; padding: 40px 20px; text-align: center; margin-top: 50px; }
+    </style>
 </head>
-<body style="background:#f4f7f6; font-family: sans-serif; margin:0;">
+<body>
+<header>
+    <div class="nav-container">
+        <div class="logo"><img src="images/logo-palpites.png" alt="Logo" style="width:120px;"></div>
+        <nav><ul><li><a href="index.html">PORTAL</a></li><li><a href="palpite-do-dia.html">Palpite do Dia</a></li><li><a href="puxadas-do-bicho.html">Puxadas</a></li></ul></nav>
+    </div>
+</header>
+<main class="main-container">
     <article class="card-hero">
         <!--MARCA_AQUI-->
-    <style>
-        .hero-header { background: #0f141e; color: #fff; padding: 40px 20px; text-align: center; border-radius: 20px 20px 0 0; }
-        .hero-header h1 { font-size: 2rem; color: #f6c945; margin-bottom: 10px; }
-        .data-tag { background: #ff4757; color: #fff; padding: 5px 15px; border-radius: 50px; font-weight: bold; font-size: 0.9rem; }
-        .palpites-container { padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; background: #fafafa; }
-        .palpite-card { background: #fff; border-radius: 15px; padding: 20px; border: 1px solid #eee; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .bicho-icon { font-size: 3.5rem; display: block; margin-bottom: 5px; }
-        .bicho-name h3 { font-size: 1.4rem; color: #0f141e; text-transform: uppercase; margin-bottom: 15px; }
-        .lucky-numbers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-        .num-item { background: #f4f7f6; padding: 10px; border-radius: 10px; border: 1px solid #eee; }
-        .num-item label { font-size: 0.6rem; color: #888; display: block; text-transform: uppercase; font-weight: bold; }
-        .num-item strong { font-size: 1.1rem; color: #0f141e; }
-        .math-study { background: #1c222d; color: #f6c945; padding: 20px; margin: 20px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; border-left: 5px solid #f6c945; }
-        .math-result { font-size: 1.6rem; font-weight: 900; }
-        .btn-premium { display: block; background: #f6c945; color: #0f141e; padding: 18px; text-align: center; text-decoration: none; font-weight: 900; margin: 20px; border-radius: 50px; border: 2px solid #0f141e; font-size: 1.1rem; }
-    </style>
-
-    <div class="hero-header">
-        <span class="data-tag">HOJE: 14/04/2026</span>
-        <h1>Palpites de Elite Promotor Paulo Peres</h1>
-        <p>Análise matemática baseada nos últimos 1.000 sorteios</p>
-    </div>
-    <div class="palpites-container">
-            <div class="palpite-card">
-                <span class="bicho-icon">🐐</span>
-                <div class="bicho-name"><span>GRUPO 06</span><h3>CABRA</h3></div>
-                <div class="lucky-numbers">
-                    <div class="num-item"><label>Milhar</label><strong>9838</strong></div>
-                    <div class="num-item"><label>Centena</label><strong>838</strong></div>
-                    <div class="num-item"><label>Dezena</label><strong>38</strong></div>
-                </div>
-            </div>
-            <div class="palpite-card">
-                <span class="bicho-icon">🐒</span>
-                <div class="bicho-name"><span>GRUPO 17</span><h3>MACACO</h3></div>
-                <div class="lucky-numbers">
-                    <div class="num-item"><label>Milhar</label><strong>7587</strong></div>
-                    <div class="num-item"><label>Centena</label><strong>587</strong></div>
-                    <div class="num-item"><label>Dezena</label><strong>87</strong></div>
-                </div>
-            </div>
-            <div class="palpite-card">
-                <span class="bicho-icon">🦋</span>
-                <div class="bicho-name"><span>GRUPO 04</span><h3>BORBOLETA</h3></div>
-                <div class="lucky-numbers">
-                    <div class="num-item"><label>Milhar</label><strong>9321</strong></div>
-                    <div class="num-item"><label>Centena</label><strong>321</strong></div>
-                    <div class="num-item"><label>Dezena</label><strong>21</strong></div>
-                </div>
-            </div>
-            <div class="palpite-card">
-                <span class="bicho-icon">🐅</span>
-                <div class="bicho-name"><span>GRUPO 22</span><h3>TIGRE</h3></div>
-                <div class="lucky-numbers">
-                    <div class="num-item"><label>Milhar</label><strong>9101</strong></div>
-                    <div class="num-item"><label>Centena</label><strong>101</strong></div>
-                    <div class="num-item"><label>Dezena</label><strong>01</strong></div>
-                </div>
-            </div>
-    </div>
-    <div class="math-study">
-        <div class="math-text">
-            <h4>Estudo de Soma Mística</h4>
-            <p>Cruzamento: 1293 + 5337</p>
+        <div class="hero-header">
+            <span class="data-tag">HOJE: 14/04/2026</span>
+            <h1>Palpites de Elite Promotor Paulo Peres</h1>
+            <p>Análise matemática baseada nos últimos 1.000 sorteios</p>
         </div>
-        <div class="math-result">MILHAR: 6630</div>
-    </div>
-    <div class="cta-container">
-        <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" class="btn-premium">
-            APOSTAR NA ÁGUIA PRIME
-        </a>
-    </div>
+        <div class="palpites-container">
+            <div class="palpite-card">
+                <span class="bicho-icon">🦚</span>
+                <div class="bicho-name"><span>GRUPO 19</span><h3>PAVÃO</h3></div>
+                <div class="lucky-numbers">
+                    <div class="num-item"><label>Milhar</label><strong>0973</strong></div>
+                    <div class="num-item"><label>Centena</label><strong>973</strong></div>
+                    <div class="num-item"><label>Dezena</label><strong>73</strong></div>
+                </div>
+            </div>
+            <div class="palpite-card">
+                <span class="bicho-icon">🐓</span>
+                <div class="bicho-name"><span>GRUPO 13</span><h3>GALO</h3></div>
+                <div class="lucky-numbers">
+                    <div class="num-item"><label>Milhar</label><strong>1050</strong></div>
+                    <div class="num-item"><label>Centena</label><strong>050</strong></div>
+                    <div class="num-item"><label>Dezena</label><strong>50</strong></div>
+                </div>
+            </div>
+            <div class="palpite-card">
+                <span class="bicho-icon">🦃</span>
+                <div class="bicho-name"><span>GRUPO 20</span><h3>PERU</h3></div>
+                <div class="lucky-numbers">
+                    <div class="num-item"><label>Milhar</label><strong>2877</strong></div>
+                    <div class="num-item"><label>Centena</label><strong>877</strong></div>
+                    <div class="num-item"><label>Dezena</label><strong>77</strong></div>
+                </div>
+            </div>
+            <div class="palpite-card">
+                <span class="bicho-icon">🫏</span>
+                <div class="bicho-name"><span>GRUPO 03</span><h3>BURRO</h3></div>
+                <div class="lucky-numbers">
+                    <div class="num-item"><label>Milhar</label><strong>6712</strong></div>
+                    <div class="num-item"><label>Centena</label><strong>712</strong></div>
+                    <div class="num-item"><label>Dezena</label><strong>12</strong></div>
+                </div>
+            </div>
+        </div>
+        <div class="math-study">
+            <div class="math-text">
+                <h4>Estudo de Soma Mística</h4>
+                <p>Cruzamento: 7105 + 7800 → <strong>Data: 14/04/2026</strong></p>
+            </div>
+            <div class="math-result">MILHAR: 4905</div>
+        </div>
+        <div class="cta-container">
+            <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" class="btn-premium">
+                APOSTAR NA ÁGUIA PRIME
+            </a>
+        </div>
 <!--MARCA_AQUI-->
     </article>
+    <h2>Palpites por Loteria</h2>
+    <div class="grid-links">
+        <a href="palpite-do-bicho-rj.html" class="link-box">RIO DE JANEIRO</a>
+        <a href="palpite-do-bicho-look.html" class="link-box">LOOK GOIÁS</a>
+        <a href="palpite-do-bicho-nacional.html" class="link-box">NACIONAL</a>
+        <a href="palpite-do-bicho-lotece-ceara.html" class="link-box">LOTECE CEARÁ</a>
+    </div>
+</main>
+<footer>
+    <p>&copy; 2026 Portal Palpites do Bicho. Tecnologia Promotor Paulo Peres.</p>
+</footer>
 </body>
 </html>
