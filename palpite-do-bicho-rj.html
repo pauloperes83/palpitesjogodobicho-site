@@ -102,56 +102,58 @@
 
 
 
+
 <!--MARCA_AQUI-->
     <div class="palpite-box">
         <div class="bicho-title"><h3>14 - GATO</h3></div>
         <div class="numbers-grid">
-            <div class="num-card"><label>Milhar</label><span>5453</span></div>
-            <div class="num-card"><label>Centena</label><span>453</span></div>
-            <div class="num-card"><label>Dezena</label><span>53</span></div>
+            <div class="num-card"><label>Milhar</label><span>3954</span></div>
+            <div class="num-card"><label>Centena</label><span>954</span></div>
+            <div class="num-card"><label>Dezena</label><span>54</span></div>
         </div>
     </div>
     <div class="palpite-box">
         <div class="bicho-title"><h3>04 - BORBOLETA</h3></div>
         <div class="numbers-grid">
-            <div class="num-card"><label>Milhar</label><span>9014</span></div>
-            <div class="num-card"><label>Centena</label><span>014</span></div>
+            <div class="num-card"><label>Milhar</label><span>7314</span></div>
+            <div class="num-card"><label>Centena</label><span>314</span></div>
             <div class="num-card"><label>Dezena</label><span>14</span></div>
         </div>
     </div>
     <div class="palpite-box">
         <div class="bicho-title"><h3>11 - CAVALO</h3></div>
         <div class="numbers-grid">
-            <div class="num-card"><label>Milhar</label><span>4741</span></div>
-            <div class="num-card"><label>Centena</label><span>741</span></div>
+            <div class="num-card"><label>Milhar</label><span>3841</span></div>
+            <div class="num-card"><label>Centena</label><span>841</span></div>
             <div class="num-card"><label>Dezena</label><span>41</span></div>
         </div>
     </div>
     <div class="palpite-box">
         <div class="bicho-title"><h3>07 - CARNEIRO</h3></div>
         <div class="numbers-grid">
-            <div class="num-card"><label>Milhar</label><span>3228</span></div>
-            <div class="num-card"><label>Centena</label><span>228</span></div>
-            <div class="num-card"><label>Dezena</label><span>28</span></div>
+            <div class="num-card"><label>Milhar</label><span>6826</span></div>
+            <div class="num-card"><label>Centena</label><span>826</span></div>
+            <div class="num-card"><label>Dezena</label><span>26</span></div>
         </div>
     </div>
     <div class="palpite-box">
         <div class="bicho-title"><h3>17 - MACACO</h3></div>
         <div class="numbers-grid">
-            <div class="num-card"><label>Milhar</label><span>8966</span></div>
-            <div class="num-card"><label>Centena</label><span>966</span></div>
+            <div class="num-card"><label>Milhar</label><span>7066</span></div>
+            <div class="num-card"><label>Centena</label><span>066</span></div>
             <div class="num-card"><label>Dezena</label><span>66</span></div>
         </div>
     </div>
     <div class="palpite-box">
         <div class="bicho-title"><h3>01 - AVESTRUZ</h3></div>
         <div class="numbers-grid">
-            <div class="num-card"><label>Milhar</label><span>1004</span></div>
-            <div class="num-card"><label>Centena</label><span>004</span></div>
-            <div class="num-card"><label>Dezena</label><span>04</span></div>
+            <div class="num-card"><label>Milhar</label><span>6403</span></div>
+            <div class="num-card"><label>Centena</label><span>403</span></div>
+            <div class="num-card"><label>Dezena</label><span>03</span></div>
         </div>
     </div>
 <!--MARCA_AQUI-->
+
 
 
 
@@ -264,6 +266,26 @@ function toggleMenu() {
     var x = document.querySelector(".nav-links");
     x.classList.toggle("show");
 }
+</script>
+
+<div id="cookie-banner" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 600px; background: #121722; color: #fff; padding: 20px; border-radius: 15px; border: 2px solid #f6c945; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 10000; text-align: center;">
+    <p style="margin-bottom: 15px; font-size: 14px; line-height: 1.5;">
+        🍪 Utilizamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa Política de Privacidade.
+    </p>
+    <button onclick="acceptCookies()" style="background: #f6c945; color: #121722; border: none; padding: 10px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; text-transform: uppercase;">
+        Aceitar e Fechar
+    </button>
+</div>
+<script>
+    function acceptCookies() {
+        localStorage.setItem('cookiesAceitos', 'true');
+        document.getElementById('cookie-banner').style.display = 'none';
+    }
+    window.onload = function() {
+        if (!localStorage.getItem('cookiesAceitos')) {
+            document.getElementById('cookie-banner').style.display = 'block';
+        }
+    };
 </script>
 </body>
 </html>
