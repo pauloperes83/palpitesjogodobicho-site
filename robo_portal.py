@@ -5,7 +5,7 @@ import os
 
 # --- CONFIGURAÇÕES ---
 ARQUIVO_HTML = "/var/www/meusite/palpite-do-dia.html"
-CHAVE = ""
+CHAVE = "<!--MARCA_AQUI-->"
 
 TABELA_BICHOS = {
     1: {"nome": "AVESTRUZ", "dezenas": [1, 2, 3, 4]}, 2: {"nome": "ÁGUIA", "dezenas": [5, 6, 7, 8]},
