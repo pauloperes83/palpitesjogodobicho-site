@@ -1,91 +1,64 @@
-import datetime
-import random
-import re
-import os
 
-# --- CONFIGURAÇÕES ---
-ARQUIVO_HTML = "/var/www/meusite/palpite-do-dia.html"
-CHAVE = "<!--MARCA_AQUI-->"
-
-TABELA_BICHOS = {
-    1: {"n": "AVESTRUZ", "e": "🦩"}, 2: {"n": "ÁGUIA", "e": "🦅"}, 3: {"n": "BURRO", "e": "🫏"},
-    4: {"n": "BORBOLETA", "e": "🦋"}, 5: {"n": "CACHORRO", "e": "🐕"}, 6: {"n": "CABRA", "e": "🐐"},
-    7: {"n": "CARNEIRO", "e": "🐑"}, 8: {"n": "CAMELO", "e": "🐪"}, 9: {"n": "COBRA", "e": "🐍"},
-    10: {"n": "COELHO", "e": "🐰"}, 11: {"n": "CAVALO", "e": "🐎"}, 12: {"n": "ELEFANTE", "e": "🐘"},
-    13: {"n": "GALO", "e": "🐓"}, 14: {"n": "GATO", "e": "🐈"}, 15: {"n": "JACARÉ", "e": "🐊"},
-    16: {"n": "LEÃO", "e": "🦁"}, 17: {"n": "MACACO", "e": "🐒"}, 18: {"n": "PORCO", "e": "🐷"},
-    19: {"n": "PAVÃO", "e": "🦚"}, 20: {"n": "PERU", "e": "🦃"}, 21: {"n": "TOURO", "e": "🐂"},
-    22: {"n": "TIGRE", "e": "🐅"}, 23: {"n": "URSO", "e": "🐻"}, 24: {"n": "VEADO", "e": "🦌"},
-    25: {"n": "VACA", "e": "🐄"}
-}
-
-def gerar_m():
-    return f"{random.randint(10, 99)}{random.randint(0, 99):02d}"
-
-agora = datetime.datetime.now()
-data_alvo = agora.date()
-if agora.hour >= 21: data_alvo = data_alvo + datetime.timedelta(days=1)
-data_str = data_alvo.strftime("%d/%m/%Y")
-
-# --- CONSTRUÇÃO DO CONTEÚDO PREMIUM ---
-html = f'''{CHAVE}
         <div class="hero-header">
-            <span class="data-tag">HOJE: {data_str}</span>
+            <span class="data-tag">HOJE: 14/04/2026</span>
             <h1>Palpites de Elite Promotor Paulo Peres</h1>
             <p>Análise matemática baseada nos últimos 1.000 sorteios</p>
         </div>
-
-        <div class="palpites-container">'''
-
-bichos = random.sample(list(TABELA_BICHOS.keys()), 4)
-for b in bichos:
-    m = gerar_m()
-    info = TABELA_BICHOS[b]
-    html += f'''
+        <div class="palpites-container">
             <div class="palpite-card">
                 <div class="bicho-info">
-                    <div class="bicho-icon">{info['e']}</div>
-                    <div class="bicho-name"><span>GRUPO {b:02d}</span><h3>{info['n']}</h3></div>
+                    <div class="bicho-icon">🐕</div>
+                    <div class="bicho-name"><span>GRUPO 05</span><h3>CACHORRO</h3></div>
                 </div>
                 <div class="lucky-numbers">
-                    <div class="num-item"><label>Milhar</label><strong>{m}</strong></div>
-                    <div class="num-item"><label>Centena</label><strong>{m[1:]}</strong></div>
-                    <div class="num-item"><label>Dezena</label><strong>{m[2:]}</strong></div>
+                    <div class="num-item"><label>Milhar</label><strong>1487</strong></div>
+                    <div class="num-item"><label>Centena</label><strong>487</strong></div>
+                    <div class="num-item"><label>Dezena</label><strong>87</strong></div>
                 </div>
-            </div>'''
-
-n1, n2 = random.randint(1000, 9999), random.randint(1000, 9999)
-soma_m = f"{(n1 + n2) % 10000:04d}"
-
-html += f'''
+            </div>
+            <div class="palpite-card">
+                <div class="bicho-info">
+                    <div class="bicho-icon">🦁</div>
+                    <div class="bicho-name"><span>GRUPO 16</span><h3>LEÃO</h3></div>
+                </div>
+                <div class="lucky-numbers">
+                    <div class="num-item"><label>Milhar</label><strong>2991</strong></div>
+                    <div class="num-item"><label>Centena</label><strong>991</strong></div>
+                    <div class="num-item"><label>Dezena</label><strong>91</strong></div>
+                </div>
+            </div>
+            <div class="palpite-card">
+                <div class="bicho-info">
+                    <div class="bicho-icon">🐊</div>
+                    <div class="bicho-name"><span>GRUPO 15</span><h3>JACARÉ</h3></div>
+                </div>
+                <div class="lucky-numbers">
+                    <div class="num-item"><label>Milhar</label><strong>4583</strong></div>
+                    <div class="num-item"><label>Centena</label><strong>583</strong></div>
+                    <div class="num-item"><label>Dezena</label><strong>83</strong></div>
+                </div>
+            </div>
+            <div class="palpite-card">
+                <div class="bicho-info">
+                    <div class="bicho-icon">🦋</div>
+                    <div class="bicho-name"><span>GRUPO 04</span><h3>BORBOLETA</h3></div>
+                </div>
+                <div class="lucky-numbers">
+                    <div class="num-item"><label>Milhar</label><strong>4185</strong></div>
+                    <div class="num-item"><label>Centena</label><strong>185</strong></div>
+                    <div class="num-item"><label>Dezena</label><strong>85</strong></div>
+                </div>
+            </div>
         </div>
         <div class="math-study">
             <div class="math-text">
                 <h4><i class="fa-solid fa-flask"></i> Estudo de Soma Mística</h4>
-                <p>Cruzamento: {n1} + {n2} → <strong>Data: {data_str}</strong></p>
+                <p>Cruzamento: 4132 + 8218 → <strong>Data: 14/04/2026</strong></p>
             </div>
-            <div class="math-result">MILHAR: {soma_m}</div>
+            <div class="math-result">MILHAR: 2350</div>
         </div>
         <div class="cta-container">
             <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" class="btn-premium">
                 <i class="fa-solid fa-crown"></i> APOSTAR NA ÁGUIA PRIME
             </a>
         </div>
-{CHAVE}'''
-
-# --- GRAVAÇÃO E PUSH ---
-if os.path.exists(ARQUIVO_HTML):
-    with open(ARQUIVO_HTML, "r", encoding="utf-8") as f:
-        conteudo = f.read()
-    
-    if CHAVE in conteudo:
-        partes = conteudo.split(CHAVE)
-        if len(partes) >= 3:
-            novo_html = partes[0] + html + partes[2]
-            with open(ARQUIVO_HTML, "w", encoding="utf-8") as f:
-                f.write(novo_html)
-            
-            os.system(f"cd /var/www/meusite && git add {ARQUIVO_HTML}")
-            os.system(f'cd /var/www/meusite && git commit -m "Auto Update Premium {data_str}"')
-            os.system("cd /var/www/meusite && git push origin main -f")
-            print("✅ SUCESSO: Portal do Paulo Peres atualizado!")
