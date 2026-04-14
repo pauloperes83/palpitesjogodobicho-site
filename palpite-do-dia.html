@@ -1,263 +1,91 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palpite do Dia - Portal Palpites do Bicho</title>
-    <meta name="description" content="Confira o palpite do dia para o Jogo do Bicho. Milhares, centenas e grupos atuali>
+import datetime
+import random
+import re
+import os
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+# --- CONFIGURAÇÕES ---
+ARQUIVO_HTML = "/var/www/meusite/palpite-do-dia.html"
+CHAVE = "<!--MARCA_AQUI-->"
 
-    <style>
-        :root { --ouro: #f6c945; --ouro-escuro: #d4a017; --preto: #121722; --fundo: #f0f2f5; --texto: #333; --branco: #>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+TABELA_BICHOS = {
+    1: {"n": "AVESTRUZ", "e": "🦩"}, 2: {"n": "ÁGUIA", "e": "🦅"}, 3: {"n": "BURRO", "e": "🫏"},
+    4: {"n": "BORBOLETA", "e": "🦋"}, 5: {"n": "CACHORRO", "e": "🐕"}, 6: {"n": "CABRA", "e": "🐐"},
+    7: {"n": "CARNEIRO", "e": "🐑"}, 8: {"n": "CAMELO", "e": "🐪"}, 9: {"n": "COBRA", "e": "🐍"},
+    10: {"n": "COELHO", "e": "🐰"}, 11: {"n": "CAVALO", "e": "🐎"}, 12: {"n": "ELEFANTE", "e": "🐘"},
+    13: {"n": "GALO", "e": "🐓"}, 14: {"n": "GATO", "e": "🐈"}, 15: {"n": "JACARÉ", "e": "🐊"},
+    16: {"n": "LEÃO", "e": "🦁"}, 17: {"n": "MACACO", "e": "🐒"}, 18: {"n": "PORCO", "e": "🐷"},
+    19: {"n": "PAVÃO", "e": "🦚"}, 20: {"n": "PERU", "e": "🦃"}, 21: {"n": "TOURO", "e": "🐂"},
+    22: {"n": "TIGRE", "e": "🐅"}, 23: {"n": "URSO", "e": "🐻"}, 24: {"n": "VEADO", "e": "🦌"},
+    25: {"n": "VACA", "e": "🐄"}
+}
 
-        body { background-color: var(--fundo); color: var(--texto); line-height: 1.6; }
+def gerar_m():
+    return f"{random.randint(10, 99)}{random.randint(0, 99):02d}"
 
-        /* HEADER & NAV */
-        header { background: var(--preto); border-bottom: 4px solid var(--ouro); position: sticky; top: 0; z-index: 100>
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items:>
-        .logo img { width: 140px; display: block; }
+agora = datetime.datetime.now()
+data_alvo = agora.date()
+if agora.hour >= 21: data_alvo = data_alvo + datetime.timedelta(days=1)
+data_str = data_alvo.strftime("%d/%m/%Y")
 
-        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
-        nav ul li a { color: #fff; text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercas>
-        nav ul li a:hover { color: var(--ouro); }
-        .btn-portal { background: var(--ouro); color: var(--preto) !important; padding: 8px 15px; border-radius: 5px; }
-.main-container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
-
-/* CARD PRINCIPAL */
-        .card-palpite {
-            background: var(--branco);
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            padding: 40px;
-            text-align: center;
-            border-top: 10px solid var(--ouro);
-            margin-bottom: 40px;
-        }
-        .card-palpite h1 { font-size: 2.5rem; color: var(--preto); font-weight: 800; margin-bottom: 10px; }
-        .data-badge { display: inline-block; background: #ff4757; color: #fff; padding: 6px 20px; border-radius: 50px; >
-
-        /* AREA DO ROBO (IA DESIGN) */
-        .palpites-destaque {
-            background: #fff9e6;
-            border: 2px dashed var(--ouro-escuro);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 20px 0;
-            text-align: center;
-        }
- /* GRID DE LOTERIAS */
-        .section-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 25px; text-align: center; color: var(--pre>
-        .lottery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-b>
-        .lottery-link {
- background: var(--preto); color: var(--ouro); padding: 15px; border-radius: 10px; text-decoration: none;
-            text-align: center; font-weight: bold; transition: 0.3s; border: 1px solid transparent;
-        }
-        .lottery-link:hover { background: var(--ouro); color: var(--preto); transform: translateY(-3px); }
-
-        /* FERRAMENTAS */
-        .tools-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
-        .tool-card { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); bo>
-        .tool-card i { font-size: 2.5rem; color: var(--ouro-escuro); margin-bottom: 15px; }
-        .tool-card h3 { font-size: 1.4rem; margin-bottom: 10px; }
-        .tool-card p { font-size: 0.95rem; color: #666; margin-bottom: 15px; }
-        .btn-tool { display: inline-block; padding: 10px 20px; background: var(--preto); color: #fff; text-decoration: >
-        .btn-tool:hover { background: var(--ouro); color: var(--preto); }
-
-        /* CANAL YOUTUBE */
-        .youtube-banner {
-            background: #ff0000; color: #fff; padding: 30px; border-radius: 20px; text-align: center;
-            margin-bottom: 50px; box-shadow: 0 10px 30px rgba(255,0,0,0.2);
-        }
-        .youtube-banner h2 { margin-bottom: 10px; }
-        .btn-yt {
-            display: inline-block; background: #fff; color: #ff0000; padding: 12px 30px;
-     border-radius: 50px; text-decoration: none; font-weight: 900; margin-top: 15px; transition: 0.3s;
-        }
-        .btn-yt:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(255,255,255,0.4); }
-/* BOTÃO CTA */
-        .btn-cta {
-            display: inline-block; background: var(--preto); color: var(--ouro); padding: 20px 45px;
-            border-radius: 50px; text-decoration: none; font-weight: 900; text-transform: uppercase;
-            font-size: 1.1rem; margin-top: 20px; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        .btn-cta:hover { transform: translateY(-5px); background: #000; box-shadow: 0 15px 25px rgba(246, 201, 69, 0.3)>
-
-        /* FOOTER */
-        footer { background: var(--preto); color: #fff; padding: 60px 20px 30px; margin-top: 60px; border-top: 5px soli>
-        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax>
-        .footer-box h3 { color: var(--ouro); margin-bottom: 25px; text-transform: uppercase; font-size: 1.1rem; letter->
-        .footer-box p { color: #bbb; font-size: 0.9rem; }
-        .footer-box ul { list-style: none; }
-        .footer-box ul li { margin-bottom: 12px; border-bottom: 1px solid #222; padding-bottom: 5px; }
-        .footer-box ul li a { color: #ccc; text-decoration: none; transition: 0.3s; font-size: 0.9rem; }
-        .footer-box ul li a:hover { color: var(--ouro); padding-left: 10px; }
-        .social-links { display: flex; gap: 15px; margin-top: 20px; }
-        .social-links a { background: #222; width: 45px; height: 45px; display: flex; align-items: center; justify-cont>
-        .social-links a:hover { background: var(--ouro); color: var(--preto); }
-        .copyright { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #222; color: #666; >
-@media (max-width: 768px) {
-            .tools-container { grid-template-columns: 1fr; }
-            .card-palpite h1 { font-size: 1.8rem; }
-            nav { display: none; }
-        }
- </style>
-</head>
-<body>
-
-<header>
-    <div class="nav-container">
-        <div class="logo">
-            <a href="index.html"><img src="images/logo-palpites.png" alt="Portal Palpites"></a>
+# --- CONSTRUÇÃO DO CONTEÚDO PREMIUM ---
+html = f'''{CHAVE}
+        <div class="hero-header">
+            <span class="data-tag">HOJE: {data_str}</span>
+            <h1>Palpites de Elite Promotor Paulo Peres</h1>
+            <p>Análise matemática baseada nos últimos 1.000 sorteios</p>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="btn-portal">PORTAL</a></li>
-                <li><a href="palpite-do-dia.html">Palpite do Dia</a></li>
-                <li><a href="puxadas-do-bicho.html">Puxadas</a></li>
-                <li><a href="milhares-viciadas.html">Milhares</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<main class="main-container">
-    <article class="card-palpite">
-        <h1>Palpite do Dia Jogo do Bicho</h1>
-        <div class="data-badge"><i class="fa-solid fa-calendar-days"></i> 14/04/2026</div>
 
-        <div class="palpites-destaque">
+        <div class="palpites-container">'''
 
-<!--MARCA_AQUI-->
-    <div class="palpite-box">
-        <div class="bicho-title"><h3>02 - ÁGUIA</h3></div>
-        <div class="numbers-grid">
-            <div class="num-card"><label>Milhar</label><span>6007</span></div>
-            <div class="num-card"><label>Centena</label><span>007</span></div>
-            <div class="num-card"><label>Dezena</label><span>07</span></div>
-        </div>
-    </div>
-    <div class="palpite-box">
-        <div class="bicho-title"><h3>19 - PAVÃO</h3></div>
-        <div class="numbers-grid">
-            <div class="num-card"><label>Milhar</label><span>1876</span></div>
-            <div class="num-card"><label>Centena</label><span>876</span></div>
-            <div class="num-card"><label>Dezena</label><span>76</span></div>
-        </div>
-    </div>
-    <div class="palpite-box">
-        <div class="bicho-title"><h3>21 - TOURO</h3></div>
-        <div class="numbers-grid">
-            <div class="num-card"><label>Milhar</label><span>5881</span></div>
-            <div class="num-card"><label>Centena</label><span>881</span></div>
-            <div class="num-card"><label>Dezena</label><span>81</span></div>
-        </div>
-    </div>
-    <div class="palpite-box">
-        <div class="bicho-title"><h3>23 - URSO</h3></div>
-        <div class="numbers-grid">
-            <div class="num-card"><label>Milhar</label><span>7089</span></div>
-            <div class="num-card"><label>Centena</label><span>089</span></div>
-            <div class="num-card"><label>Dezena</label><span>89</span></div>
-        </div>
-    </div>
-    <div class="palpite-box">
-        <div class="bicho-title"><h3>09 - COBRA</h3></div>
-        <div class="numbers-grid">
-            <div class="num-card"><label>Milhar</label><span>1135</span></div>
-            <div class="num-card"><label>Centena</label><span>135</span></div>
-            <div class="num-card"><label>Dezena</label><span>35</span></div>
-        </div>
-    </div>
-    <div class="palpite-box">
-        <div class="bicho-title"><h3>11 - CAVALO</h3></div>
-        <div class="numbers-grid">
-            <div class="num-card"><label>Milhar</label><span>7541</span></div>
-            <div class="num-card"><label>Centena</label><span>541</span></div>
-            <div class="num-card"><label>Dezena</label><span>41</span></div>
-        </div>
-    </div>
-<!--MARCA_AQUI-->
+bichos = random.sample(list(TABELA_BICHOS.keys()), 4)
+for b in bichos:
+    m = gerar_m()
+    info = TABELA_BICHOS[b]
+    html += f'''
+            <div class="palpite-card">
+                <div class="bicho-info">
+                    <div class="bicho-icon">{info['e']}</div>
+                    <div class="bicho-name"><span>GRUPO {b:02d}</span><h3>{info['n']}</h3></div>
+                </div>
+                <div class="lucky-numbers">
+                    <div class="num-item"><label>Milhar</label><strong>{m}</strong></div>
+                    <div class="num-item"><label>Centena</label><strong>{m[1:]}</strong></div>
+                    <div class="num-item"><label>Dezena</label><strong>{m[2:]}</strong></div>
+                </div>
+            </div>'''
 
+n1, n2 = random.randint(1000, 9999), random.randint(1000, 9999)
+soma_m = f"{(n1 + n2) % 10000:04d}"
 
-</div>
-<a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" class="btn-cta">
-            <i class="fa-solid fa-bolt"></i> JOGAR AGORA NA ÁGUIA PRIME
-        </a>
-    </article>
-
-    <h2 class="section-title">Palpites por Loteria</h2>
-    <div class="lottery-grid">
-        <a href="palpite-do-bicho-rj.html" class="lottery-link">RIO DE JANEIRO</a>
- <a href="palpite-do-bicho-sp.html" class="lottery-link">SÃO PAULO</a>
-        <a href="palpite-do-bicho-look.html" class="lottery-link">LOOK GOIÁS</a>
-        <a href="palpite-do-bicho-nacional.html" class="lottery-link">NACIONAL</a>
-        <a href="palpite-do-bicho-lotece-ceara.html" class="lottery-link">LOTECE CEARÁ</a>
-        <a href="palpite-do-bicho-lotep.html" class="lottery-link">LOTEP PARAÍBA</a>
-        <a href="palpite-do-bicho-maluca-bahia.html" class="lottery-link">MALUCA BAHIA</a>
-        <a href="palpite-do-bicho-paratodos-bahia.html" class="lottery-link">PARATODOS</a>
-        <a href="palpite-do-bicho-caminho-da-sorte.html" class="lottery-link">CAMINHO DA SORTE</a>
-    </div>
-
-    <section class="youtube-banner">
-        <i class="fa-brands fa-youtube" style="font-size: 4rem; margin-bottom: 10px;"></i>
-        <h2>Acompanhe ao Vivo no YouTube!</h2>
-        <p>Inscreva-se no nosso canal para receber palpites diários e resultados em tempo real.</p>
-        <a href="https://www.youtube.com/@Palpitesdo_JogodoBicho" target="_blank" class="btn-yt">INSCREVER-SE AGORA</a>
-    </section>
-
-    <h2 class="section-title">Ferramentas de Mestre</h2>
-<div class="tools-container">
-        <div class="tool-card">
-            <i class="fa-solid fa-sync"></i>
-            <h3>Puxadas do Bicho</h3>
-            <p>Descubra qual bicho "puxa" o outro baseado nos últimos sorteios e aumente suas chances.</p>
-            <a href="puxadas-do-bicho.html" class="btn-tool">VER PUXADAS</a>
+html += f'''
         </div>
-        <div class="tool-card">
-<i class="fa-solid fa-list-ol"></i>
-            <h3>Milhares Viciadas</h3>
-            <p>Lista das milhares que mais saem em cada loteria. Estatística pura a seu favor.</p>
-            <a href="milhares-viciadas.html" class="btn-tool">VER MILHARES</a>
-        </div>
-    </div>
-</main>
-
-<footer>
-    <div class="footer-grid">
-        <div class="footer-box">
-            <h3>Sobre o Portal</h3>
-            <p>O Portal Palpites do Bicho é a maior autoridade em estatísticas e previsões matemáticas para loterias al>
-            <div class="social-links">
-                <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" target="_blank"><i class="fa-brands fa-whats>
-                <a href="https://www.instagram.com/palpitess_jb?igsh=MW5uaTVjb3ZramhiNQ%3D%3D&utm_source=qr" target="_b>
-                <a href="https://www.youtube.com/@Palpitesdo_JogodoBicho" target="_blank"><i class="fa-brands fa-youtub>
+        <div class="math-study">
+            <div class="math-text">
+                <h4><i class="fa-solid fa-flask"></i> Estudo de Soma Mística</h4>
+                <p>Cruzamento: {n1} + {n2} → <strong>Data: {data_str}</strong></p>
             </div>
-</div>
-        <div class="footer-box">
-            <h3>Principais Palpites</h3>
-            <ul>
-                <li><a href="palpite-do-bicho-rj.html">Palpite do Dia Rio de Janeiro</a></li>
-                <li><a href="palpite-do-bicho-look.html">Palpite Look Goiás</a></li>
-                <li><a href="palpite-do-bicho-lotece-ceara.html">Lotece Ceará</a></li>
-                <li><a href="palpite-do-bicho-nacional.html">Loterias Nacional</a></li>
-</ul>
+            <div class="math-result">MILHAR: {soma_m}</div>
         </div>
-        <div class="footer-box">
-            <h3>Navegação</h3>
-            <ul>
-                <li><a href="index.html">Página Inicial</a></li>
-                <li><a href="puxadas-do-bicho.html">Tabela de Puxadas</a></li>
-                <li><a href="milhares-viciadas.html">Milhares Viciadas</a></li>
-                <li><a href="contato.html">Fale Conosco</a></li>
-            </ul>
+        <div class="cta-container">
+            <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" class="btn-premium">
+                <i class="fa-solid fa-crown"></i> APOSTAR NA ÁGUIA PRIME
+            </a>
         </div>
-    </div>
-    <div class="copyright">
-        <p>&copy; 2026 Portal Palpites do Bicho - Inteligência em Loterias. Proibido para menores de 18 anos.</p>
-    </div>
-</footer>
+{CHAVE}'''
 
-</body>
-</html>
+# --- GRAVAÇÃO E PUSH ---
+if os.path.exists(ARQUIVO_HTML):
+    with open(ARQUIVO_HTML, "r", encoding="utf-8") as f:
+        conteudo = f.read()
+    
+    if CHAVE in conteudo:
+        partes = conteudo.split(CHAVE)
+        if len(partes) >= 3:
+            novo_html = partes[0] + html + partes[2]
+            with open(ARQUIVO_HTML, "w", encoding="utf-8") as f:
+                f.write(novo_html)
+            
+            os.system(f"cd /var/www/meusite && git add {ARQUIVO_HTML}")
+            os.system(f'cd /var/www/meusite && git commit -m "Auto Update Premium {data_str}"')
+            os.system("cd /var/www/meusite && git push origin main -f")
+            print("✅ SUCESSO: Portal do Paulo Peres atualizado!")
