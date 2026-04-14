@@ -4,97 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palpite do Dia - Portal Palpites do Bicho</title>
-    <meta name="description" content="Confira o palpite do dia para o Jogo do Bicho. Milhares, centenas e grupos atualizados para as principais loterias.">
+    <meta name="description" content="Confira o palpite do dia para o Jogo do Bicho. Milhares, centenas e grupos atualizados para Rio, Look, Lotece, Lotep e muito mais.">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root { --ouro: #f6c945; --preto: #121722; --fundo: #f0f2f5; --texto: #333; }
+        :root { --ouro: #f6c945; --ouro-escuro: #d4a017; --preto: #121722; --fundo: #f0f2f5; --texto: #333; --branco: #ffffff; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
         
         body { background-color: var(--fundo); color: var(--texto); line-height: 1.6; }
 
-        /* MENU SUPERIOR ESTILO PORTAL */
+        /* HEADER & NAV */
         header { background: var(--preto); border-bottom: 4px solid var(--ouro); position: sticky; top: 0; z-index: 1000; }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
         .logo img { width: 140px; display: block; }
         
-        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
-        nav ul li a { color: #fff; text-decoration: none; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+        nav ul li a { color: #fff; text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
         nav ul li a:hover { color: var(--ouro); }
-        
-        /* O BOTÃO PORTAL NO MENU */
         .btn-portal { background: var(--ouro); color: var(--preto) !important; padding: 8px 15px; border-radius: 5px; }
-        .btn-portal:hover { background: #fff !important; }
 
-        .main-container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .main-container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
 
-        /* CARD DE PALPITE - O DESIGN QUE VOCÊ GOSTOU */
+        /* CARD PRINCIPAL */
         .card-palpite {
-            background: #fff;
+            background: var(--branco);
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.1);
             padding: 40px;
             text-align: center;
             border-top: 10px solid var(--ouro);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
+        .card-palpite h1 { font-size: 2.5rem; color: var(--preto); font-weight: 800; margin-bottom: 10px; }
+        .data-badge { display: inline-block; background: #ff4757; color: #fff; padding: 6px 20px; border-radius: 50px; font-weight: bold; font-size: 1rem; margin-bottom: 25px; }
 
-        .card-palpite h1 { font-size: 2.4rem; color: var(--preto); font-weight: 800; margin-bottom: 10px; }
-        .data-badge { display: inline-block; background: #ff4757; color: #fff; padding: 5px 15px; border-radius: 50px; font-weight: bold; font-size: 0.9rem; margin-bottom: 25px; }
-
-        /* ÁREA DINÂMICA (ROBÔ) */
-        .palpites-conteudo {
-            background: #fdfdfd;
-            border: 2px dashed #ddd;
+        /* AREA DO ROBO (Mantenha as marcas para o robô funcionar aqui também se quiser) */
+        .palpites-destaque {
+            background: #fff9e6;
+            border: 2px dashed var(--ouro-escuro);
             border-radius: 15px;
             padding: 30px;
             margin: 20px 0;
-            font-size: 1.4rem;
-            color: var(--preto);
+            font-size: 1.5rem;
+            font-weight: bold;
         }
-        .palpites-conteudo strong { color: #b8860b; }
 
-        /* BOTÃO DE CONVERSÃO */
+        /* GRID DE LOTERIAS - O DIFERENCIAL */
+        .section-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 25px; text-align: center; color: var(--preto); text-transform: uppercase; }
+        .lottery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 50px; }
+        .lottery-link { 
+            background: var(--preto); color: var(--ouro); padding: 15px; border-radius: 10px; text-decoration: none; 
+            text-align: center; font-weight: bold; transition: 0.3s; border: 1px solid transparent;
+        }
+        .lottery-link:hover { background: var(--ouro); color: var(--preto); transform: translateY(-3px); }
+
+        /* FERRAMENTAS TOP DAS GALÁXIAS */
+        .tools-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
+        .tool-card { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-bottom: 5px solid var(--ouro); }
+        .tool-card i { font-size: 2.5rem; color: var(--ouro-escuro); margin-bottom: 15px; }
+        .tool-card h3 { font-size: 1.4rem; margin-bottom: 10px; }
+        .tool-card p { font-size: 0.95rem; color: #666; margin-bottom: 15px; }
+        .btn-tool { display: inline-block; padding: 10px 20px; background: var(--preto); color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .btn-tool:hover { background: var(--ouro); color: var(--preto); }
+
+        /* CANAL YOUTUBE */
+        .youtube-banner { 
+            background: #ff0000; color: #fff; padding: 30px; border-radius: 20px; text-align: center; 
+            margin-bottom: 50px; box-shadow: 0 10px 30px rgba(255,0,0,0.2);
+        }
+        .youtube-banner h2 { margin-bottom: 10px; }
+        .btn-yt { 
+            display: inline-block; background: #fff; color: #ff0000; padding: 12px 30px; 
+            border-radius: 50px; text-decoration: none; font-weight: 900; margin-top: 15px; transition: 0.3s;
+        }
+        .btn-yt:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(255,255,255,0.4); }
+
+        /* BOTÃO CTA */
         .btn-cta {
-            display: inline-block;
-            background: var(--preto);
-            color: var(--ouro);
-            padding: 20px 45px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            margin-top: 20px;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            display: inline-block; background: var(--preto); color: var(--ouro); padding: 20px 45px;
+            border-radius: 50px; text-decoration: none; font-weight: 900; text-transform: uppercase;
+            font-size: 1.1rem; margin-top: 20px; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         .btn-cta:hover { transform: translateY(-5px); background: #000; box-shadow: 0 15px 25px rgba(246, 201, 69, 0.3); }
 
-        /* SEÇÃO DE SEO */
-        .seo-content { background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .seo-content h2 { color: var(--preto); margin-bottom: 15px; font-size: 1.8rem; border-left: 6px solid var(--ouro); padding-left: 15px; }
-        .seo-content p { color: #555; margin-bottom: 20px; font-size: 1.05rem; }
-
-        /* RODAPÉ COMPLETO */
-        footer { background: var(--preto); color: #fff; padding: 60px 20px 30px; margin-top: 60px; }
-        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
-        .footer-box h3 { color: var(--ouro); margin-bottom: 20px; text-transform: uppercase; font-size: 1.1rem; }
+        /* FOOTER */
+        footer { background: var(--preto); color: #fff; padding: 60px 20px 30px; margin-top: 60px; border-top: 5px solid var(--ouro); }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-box h3 { color: var(--ouro); margin-bottom: 25px; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 1px; }
+        .footer-box p { color: #bbb; font-size: 0.9rem; }
         .footer-box ul { list-style: none; }
-        .footer-box ul li { margin-bottom: 10px; }
-        .footer-box ul li a { color: #bbb; text-decoration: none; transition: 0.3s; }
-        .footer-box ul li a:hover { color: #fff; }
-
-        .social-links { display: flex; gap: 20px; margin-top: 20px; }
-        .social-links a { color: var(--ouro); font-size: 1.8rem; transition: 0.3s; }
-        .social-links a:hover { transform: scale(1.2); color: #fff; }
-
-        .copyright { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #333; color: #666; font-size: 0.85rem; }
+        .footer-box ul li { margin-bottom: 12px; border-bottom: 1px solid #222; padding-bottom: 5px; }
+        .footer-box ul li a { color: #ccc; text-decoration: none; transition: 0.3s; font-size: 0.9rem; }
+        .footer-box ul li a:hover { color: var(--ouro); padding-left: 10px; }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links a { background: #222; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--ouro); font-size: 1.2rem; transition: 0.3s; }
+        .social-links a:hover { background: var(--ouro); color: var(--preto); }
+        .copyright { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #222; color: #666; font-size: 0.8rem; }
 
         @media (max-width: 768px) {
-            nav { display: none; }
+            .tools-container { grid-template-columns: 1fr; }
             .card-palpite h1 { font-size: 1.8rem; }
+            nav { display: none; }
         }
     </style>
 </head>
@@ -120,58 +131,86 @@
 <main class="main-container">
     <article class="card-palpite">
         <h1>Palpite do Dia Jogo do Bicho</h1>
-        <div class="data-badge">
-            <i class="fa-solid fa-calendar-days"></i> 12/04/2026 </div>
+        <div class="data-badge"><i class="fa-solid fa-calendar-days"></i> 14/04/2026</div>
 
-        <p style="color: #666; margin-bottom: 20px;">Nossos analistas prepararam as melhores combinações baseadas nas estatísticas de hoje.</p>
-
-        <div class="palpites-conteudo">
-            <p><strong>GRUPOS:</strong> 04 (Borboleta) | 17 (Macaco)</p>
-            <p><strong>MILHARES:</strong> 1213 | 4567 | 8901</p>
+        <div class="palpites-destaque">
+            <p style="color: #555; font-size: 1.1rem; font-weight: normal;">Os palpites estão sendo processados pelo robô...</p>
             </div>
 
         <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" class="btn-cta">
-            <i class="fa-solid fa-bolt"></i> APOSTAR NA ÁGUIA PRIME
+            <i class="fa-solid fa-bolt"></i> JOGAR AGORA NA ÁGUIA PRIME
         </a>
     </article>
 
-    <section class="seo-content">
-        <h2>Como usar nossos palpites?</h2>
-        <p>Para ganhar no jogo do bicho, é essencial utilizar a matemática a seu favor. O <strong>Portal Palpites do Bicho</strong> utiliza algoritmos que cruzam os resultados da Rio e Look para encontrar as milhares mais prováveis.</p>
-        <p>Recomendamos sempre que você faça suas apostas cercadas do 1º ao 5º prêmio, garantindo assim que qualquer uma das milhares sorteadas te traga o retorno esperado.</p>
+    <h2 class="section-title">Palpites por Loteria</h2>
+    <div class="lottery-grid">
+        <a href="palpite-do-bicho-rj.html" class="lottery-link">RIO DE JANEIRO</a>
+        <a href="palpite-do-bicho-sp.html" class="lottery-link">SÃO PAULO</a>
+        <a href="palpite-do-bicho-look.html" class="lottery-link">LOOK GOIÁS</a>
+        <a href="palpite-do-bicho-nacional.html" class="lottery-link">NACIONAL</a>
+        <a href="palpite-do-bicho-lotece-ceara.html" class="lottery-link">LOTECE CEARÁ</a>
+        <a href="palpite-do-bicho-lotep.html" class="lottery-link">LOTEP PARAÍBA</a>
+        <a href="palpite-do-bicho-maluca-bahia.html" class="lottery-link">MALUCA BAHIA</a>
+        <a href="palpite-do-bicho-paratodos-bahia.html" class="lottery-link">PARATODOS</a>
+        <a href="palpite-do-bicho-caminho-da-sorte.html" class="lottery-link">CAMINHO DA SORTE</a>
+    </div>
+
+    <section class="youtube-banner">
+        <i class="fa-brands fa-youtube" style="font-size: 4rem; margin-bottom: 10px;"></i>
+        <h2>Acompanhe ao Vivo no YouTube!</h2>
+        <p>Inscreva-se no nosso canal para receber palpites diários e resultados em tempo real.</p>
+        <a href="https://www.youtube.com/@Palpitesdo_JogodoBicho" target="_blank" class="btn-yt">INSCREVER-SE AGORA</a>
     </section>
+
+    <h2 class="section-title">Ferramentas de Mestre</h2>
+    <div class="tools-container">
+        <div class="tool-card">
+            <i class="fa-solid fa-sync"></i>
+            <h3>Puxadas do Bicho</h3>
+            <p>Descubra qual bicho "puxa" o outro baseado nos últimos sorteios e aumente suas chances.</p>
+            <a href="puxadas-do-bicho.html" class="btn-tool">VER PUXADAS</a>
+        </div>
+        <div class="tool-card">
+            <i class="fa-solid fa-list-ol"></i>
+            <h3>Milhares Viciadas</h3>
+            <p>Lista das milhares que mais saem em cada loteria. Estatística pura a seu favor.</p>
+            <a href="milhares-viciadas.html" class="btn-tool">VER MILHARES</a>
+        </div>
+    </div>
 </main>
 
 <footer>
     <div class="footer-grid">
         <div class="footer-box">
             <h3>Sobre o Portal</h3>
-            <p>Sua maior fonte de dados, estatísticas e palpites para o Jogo do Bicho no Brasil. Informação grátis com qualidade premium.</p>
+            <p>O Portal Palpites do Bicho é a maior autoridade em estatísticas e previsões matemáticas para loterias alternativas no Brasil. Nosso sistema utiliza algoritmos avançados para gerar combinações com alta probabilidade de acerto.</p>
             <div class="social-links">
                 <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://www.youtube.com/@Palpitesdo_JogodoBicho" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             </div>
         </div>
         <div class="footer-box">
-            <h3>Loterias</h3>
+            <h3>Principais Palpites</h3>
             <ul>
-                <li><a href="palpite-do-bicho-rj.html">Rio de Janeiro</a></li>
-                <li><a href="palpite-do-bicho-look.html">Look Goiás</a></li>
-                <li><a href="palpite-do-bicho-nacional.html">Nacional</a></li>
+                <li><a href="palpite-do-bicho-rj.html">Palpite do Dia Rio de Janeiro</a></li>
+                <li><a href="palpite-do-bicho-look.html">Palpite Look Goiás</a></li>
+                <li><a href="palpite-do-bicho-lotece-ceara.html">Lotece Ceará</a></li>
+                <li><a href="palpite-do-bicho-nacional.html">Loterias Nacional</a></li>
             </ul>
         </div>
         <div class="footer-box">
-            <h3>Links Rápidos</h3>
+            <h3>Navegação</h3>
             <ul>
-                <li><a href="sobre.html">Sobre Nós</a></li>
-                <li><a href="contato.html">Contato</a></li>
-                <li><a href="politica-de-privacidade.html">Privacidade</a></li>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="puxadas-do-bicho.html">Tabela de Puxadas</a></li>
+                <li><a href="milhares-viciadas.html">Milhares Viciadas</a></li>
+                <li><a href="contato.html">Fale Conosco</a></li>
             </ul>
         </div>
     </div>
     <div class="copyright">
-        <p>&copy; 2026 Portal Palpites do Bicho - Proibido para menores de 18 anos.</p>
+        <p>&copy; 2026 Portal Palpites do Bicho - Inteligência em Loterias. Proibido para menores de 18 anos.</p>
     </div>
 </footer>
 
