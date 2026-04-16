@@ -6,7 +6,7 @@ from config_portal import COOKIES_HTML
 from git_safe import enviar_pro_github
 
 # CONFIGURAÇÕES
-ARQUIVO_HTML = "/var/www/meusite/teste_cookie.html"
+ARQUIVO_HTML = "/var/www/meusite/palpite-do-bicho-lotece-ceara.html"
 CHAVE = "<!--MARCA_AQUI-->"
 
 # Tabela Oficial

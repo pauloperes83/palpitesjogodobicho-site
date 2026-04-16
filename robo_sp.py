@@ -2,6 +2,7 @@ import datetime
 import random
 import re
 import os
+from config_portal import COOKIES_HTML
 from git_safe import enviar_pro_github
 
 # CONFIGURAÇÕES
@@ -75,13 +76,18 @@ if os.path.exists(ARQUIVO_HTML):
 
     conteudo = re.sub(r"\d{2}/\d{2}/\d{4}", data_str, conteudo)
     partes = conteudo.split(CHAVE)
-
     if len(partes) >= 3:
         novo_html = partes[0] + html_cards + partes[2]
+
+        # Injeta o banner de cookies (Alinhado dentro do IF)
+        if "cookie-banner" not in novo_html:
+            novo_html = novo_html.replace("</body>", COOKIES_HTML + "</body>")
+
+        # Salva o arquivo oficial (Alinhado dentro do IF)
         with open(ARQUIVO_HTML, "w", encoding="utf-8") as f:
             f.write(novo_html)
 
-        enviar_pro_github(data_str, "São Paulo")
-        print(f"✅ SUCESSO SP! Soma Base 9 enviada para {data_str}")
-    else:
-        print(f"❌ ERRO: Marcas {CHAVE} não encontradas em SP!")
+        # Envia para o GitHub com os 3 argumentos (Alinhado dentro do IF)
+        enviar_pro_github(ARQUIVO_HTML, data_str, "São Paulo")
+
+        print(f"✅ SUCESSO SÃO PAULO! Cookies e Blindagem ativos ({data_str}).")

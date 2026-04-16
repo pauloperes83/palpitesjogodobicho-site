@@ -2,6 +2,7 @@ import datetime
 import random
 import re
 import os
+from config_portal import COOKIES_HTML
 from git_safe import enviar_pro_github
 
 # CONFIGURAÇÕES
@@ -94,15 +95,18 @@ if os.path.exists(ARQUIVO_HTML):
     conteudo = re.sub(r"\(\d{2} e \d{2}\)", texto_dezenas_novo, conteudo)
 
     partes = conteudo.split(CHAVE)
-
     if len(partes) >= 3:
         novo_html = partes[0] + html_cards + partes[2]
+
+        # Injeta o banner de cookies (Alinhado dentro do IF)
+        if "cookie-banner" not in novo_html:
+            novo_html = novo_html.replace("</body>", COOKIES_HTML + "</body>")
+
+        # Salva o arquivo oficial (Alinhado dentro do IF)
         with open(ARQUIVO_HTML, "w", encoding="utf-8") as f:
             f.write(novo_html)
 
-        enviar_pro_github(data_str, "Nacional")
-        print(f"✅ SUCESSO NACIONAL! Palpites para {data_str} enviados.")
-    else:
-        print(f"❌ ERRO CRÍTICO: O robô esperava 2 marcas, mas encontrou {contagem}.")
-else:
-    print(f"❌ ERRO: O arquivo {ARQUIVO_HTML} não foi encontrado!")
+        # Envia para o GitHub com os 3 argumentos (Alinhado dentro do IF)
+        enviar_pro_github(ARQUIVO_HTML, data_str, "Nacional")
+
+        print(f"✅ SUCESSO NACIONAL! Cookies e Blindagem ativos ({data_str}).")

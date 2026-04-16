@@ -2,6 +2,7 @@ import datetime
 import random
 import re
 import os
+from config_portal import COOKIES_HTML
 from git_safe import enviar_pro_github
 
 # CONFIGURAÇÕES
@@ -107,10 +108,16 @@ if os.path.exists(ARQUIVO_HTML):
     partes = conteudo.split(CHAVE)
     if len(partes) >= 3:
         novo_html = partes[0] + html_cards + partes[2]
+
+        # --- AQUI ENTRA O BANNER ---
+        if "cookie-banner" not in novo_html:
+            novo_html = novo_html.replace("</body>", COOKIES_HTML + "</body>")
+
+        # Salva o arquivo oficial
         with open(ARQUIVO_HTML, "w", encoding="utf-8") as f:
             f.write(novo_html)
 
-        enviar_pro_github(data_str, "Look Goiás")
-        print(f"✅ SUCESSO LOOK! Palpites para {data_str} enviados.")
-    else:
-        print(f"❌ ERRO: Marcas {CHAVE} não encontradas no HTML da Look!")
+        # --- AQUI ENTRA A SEGURANÇA (3 Argumentos) ---
+        enviar_pro_github(ARQUIVO_HTML, data_str, "Look Goiás")
+
+        print(f"✅ SUCESSO LOOK! Cookies e Blindagem ativos ({data_str}).")
