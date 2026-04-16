@@ -2,6 +2,7 @@ import datetime
 import random
 import re
 import os
+from config_portal import COOKIES_HTML
 from git_safe import enviar_pro_github
 
 # CONFIGURAÇÕES
@@ -95,8 +96,16 @@ if os.path.exists(ARQUIVO_HTML):
     partes = conteudo.split(CHAVE)
     if len(partes) >= 3:
         novo_html = partes[0] + html_cards + partes[2]
+
+        # Injeta o banner de cookies (alinhado com 4 espaços)
+        if "cookie-banner" not in novo_html:
+            novo_html = novo_html.replace("</body>", COOKIES_HTML + "</body>")
+
+        # Salva o arquivo oficial
         with open(ARQUIVO_HTML, "w", encoding="utf-8") as f:
             f.write(novo_html)
 
-        enviar_pro_github(data_str, "Maluca Bahia")
-        print(f"✅ SUCESSO BAHIA! Atualizado para {nome_com_feira} ({data_str}).")
+        # Envia para o GitHub (3 argumentos: Arquivo, Data, Nome)
+        enviar_pro_github(ARQUIVO_HTML, data_str, "Maluca Bahia")
+
+        print(f"✅ SUCESSO MALUCA BAHIA! Cookies e Blindagem ativos.")
