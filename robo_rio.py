@@ -2,10 +2,12 @@ import datetime
 import random
 import re
 import os
+from config_portal import COOKIES_HTML  # <--- SEU NOVO IMPORT AQUI
+from git_safe import enviar_pro_github
 
 # CONFIGURAÇÕES
 ARQUIVO_HTML = "/var/www/meusite/palpite-do-bicho-rj.html"
-CHAVE =  "<!--MARCA_AQUI-->"
+CHAVE = "<!--MARCA_AQUI-->"
 
 # Tabela Oficial
 TABELA_BICHOS = {
@@ -37,25 +39,20 @@ def gerar_milhar(grupo, dezena_especifica=None):
 agora = datetime.datetime.now()
 data_alvo = agora.date()
 
-# Se rodar a partir das 21h, vira para o dia seguinte
 if agora.hour >= 21:
     data_alvo = data_alvo + datetime.timedelta(days=1)
 
 data_str = data_alvo.strftime("%d/%m/%Y")
 dia_num = data_alvo.day
-# ----------------------------------------
 
-# 1. Bicho do Grupo do Dia
+# Bichos Finais
 bicho_dia_grupo = dia_num if dia_num <= 25 else (dia_num - 25)
-
-# 2. Bicho da Dezena do Dia
 bicho_dezena_dia = 1
 for grupo, dados in TABELA_BICHOS.items():
     if dia_num in dados["dezenas"]:
         bicho_dezena_dia = grupo
         break
 
-# 3. Bicho da Invertida
 inverso_str = str(dia_num).zfill(2)[::-1]
 dezena_inversa = int(inverso_str)
 bicho_inverso = 1
@@ -64,7 +61,6 @@ for grupo, dados in TABELA_BICHOS.items():
         bicho_inverso = grupo
         break
 
-# Lista de bichos para o site (sem repetir)
 bichos_finais = []
 for b in [bicho_dia_grupo, bicho_dezena_dia, bicho_inverso]:
     if b not in bichos_finais:
@@ -74,7 +70,7 @@ for p in PUXADAS_PADRAO:
     if p not in bichos_finais and len(bichos_finais) < 6:
         bichos_finais.append(p)
 
-# Gerar HTML
+# Gerar HTML Cards
 html_cards = "\n" + CHAVE + "\n"
 for num in bichos_finais:
     if num == bicho_dezena_dia and dia_num in TABELA_BICHOS[num]["dezenas"]:
@@ -95,7 +91,7 @@ for num in bichos_finais:
     </div>\n'''
 html_cards += CHAVE + "\n"
 
-# Salvar e enviar ao GitHub
+# Salvar e enviar ao GitHub com Injeção de Cookies
 if os.path.exists(ARQUIVO_HTML):
     os.system("git config --global --add safe.directory /var/www/meusite")
     with open(ARQUIVO_HTML, "r", encoding="utf-8") as f:
@@ -106,10 +102,14 @@ if os.path.exists(ARQUIVO_HTML):
     partes = conteudo.split(CHAVE)
     if len(partes) >= 3:
         novo_html = partes[0] + html_cards + partes[2]
+
+        # --- AQUI ESTÁ O AJUSTE DOS COOKIES ---
+        # Verificamos se o cookie já existe para não duplicar, senão injetamos antes do </body>
+        if "cookie-banner" not in novo_html:
+            novo_html = novo_html.replace("</body>", COOKIES_HTML + "</body>")
+
         with open(ARQUIVO_HTML, "w", encoding="utf-8") as f:
             f.write(novo_html)
 
-        os.system(f"cd /var/www/meusite && git add {ARQUIVO_HTML}")
-        os.system(f'cd /var/www/meusite && git commit -m "Auto Update RIO {data_str}"')
-        os.system("cd /var/www/meusite && git push origin main -f")
-        print(f"✅ SUCESSO RIO! Palpites para {data_str} atualizados.")
+        enviar_pro_github(data_str, "Rio")
+        print(f"✅ SUCESSO RIO! Palpites para {data_str} e Cookies atualizados.")

@@ -2,9 +2,11 @@ import datetime
 import random
 import re
 import os
+from config_portal import COOKIES_HTML
+from git_safe import enviar_pro_github
 
 # CONFIGURAÇÕES
-ARQUIVO_HTML = "/var/www/meusite/palpite-do-bicho-lotece-ceara.html"
+ARQUIVO_HTML = "/var/www/meusite/teste_cookie.html"
 CHAVE = "<!--MARCA_AQUI-->"
 
 # Tabela Oficial
@@ -32,7 +34,7 @@ def gerar_milhar(grupo):
 agora = datetime.datetime.now()
 data_alvo = agora.date()
 
-if agora.hour >= 21:
+if agora.hour >= 19:
     data_alvo = data_alvo + datetime.timedelta(days=1)
 
 data_str = data_alvo.strftime("%d/%m/%Y")
@@ -86,10 +88,16 @@ if os.path.exists(ARQUIVO_HTML):
     partes = conteudo.split(CHAVE)
     if len(partes) >= 3:
         novo_html = partes[0] + html_cards + partes[2]
+
+        # Injeta o banner de cookies (Alinhado dentro do IF)
+        if "cookie-banner" not in novo_html:
+            novo_html = novo_html.replace("</body>", COOKIES_HTML + "</body>")
+
+        # Salva o arquivo (Alinhado dentro do IF)
         with open(ARQUIVO_HTML, "w", encoding="utf-8") as f:
             f.write(novo_html)
 
-        os.system(f"cd /var/www/meusite && git add {ARQUIVO_HTML}")
-        os.system(f'cd /var/www/meusite && git commit -m "Auto Update Lotece {data_str}"')
-        os.system("cd /var/www/meusite && git push origin main -f")
+        # Envia para o GitHub (Alinhado dentro do IF)
+        enviar_pro_github(ARQUIVO_HTML, data_str, "Lotece")
+
         print(f"✅ SUCESSO LOTECE! Atualizado para {nome_com_feira} ({data_str}).")

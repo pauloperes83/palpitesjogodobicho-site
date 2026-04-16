@@ -2,6 +2,7 @@ import datetime
 import random
 import re
 import os
+from git_safe import enviar_pro_github
 
 # CONFIGURAÇÕES
 ARQUIVO_HTML = "/var/www/meusite/palpite-do-bicho-lotep.html"
@@ -35,7 +36,7 @@ def gerar_milhar_lotep(grupo):
 agora = datetime.datetime.now()
 data_alvo = agora.date()
 
-if agora.hour >= 21:
+if agora.hour >= 19:
     data_alvo = data_alvo + datetime.timedelta(days=1)
 
 data_str = data_alvo.strftime("%d/%m/%Y")
@@ -92,7 +93,5 @@ if os.path.exists(ARQUIVO_HTML):
         with open(ARQUIVO_HTML, "w", encoding="utf-8") as f:
             f.write(novo_html)
 
-        os.system(f"cd /var/www/meusite && git add {ARQUIVO_HTML}")
-        os.system(f'cd /var/www/meusite && git commit -m "Auto Update Lotep {data_str}"')
-        os.system("cd /var/www/meusite && git push origin main -f")
+        enviar_pro_github(data_str, "Lotep")
         print(f"✅ SUCESSO LOTEP! Atualizado para {nome_com_feira} ({data_str}).")

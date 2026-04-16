@@ -2,6 +2,7 @@ import datetime
 import random
 import re
 import os
+from git_safe import enviar_pro_github
 
 # CONFIGURAÇÕES
 ARQUIVO_HTML = "/var/www/meusite/palpite-do-bicho-look.html"
@@ -109,9 +110,7 @@ if os.path.exists(ARQUIVO_HTML):
         with open(ARQUIVO_HTML, "w", encoding="utf-8") as f:
             f.write(novo_html)
 
-        os.system(f"cd /var/www/meusite && git add {ARQUIVO_HTML}")
-        os.system(f'cd /var/www/meusite && git commit -m "Auto Update LOOK {data_str}"')
-        os.system("cd /var/www/meusite && git push origin main -f")
+        enviar_pro_github(data_str, "Look Goiás")
         print(f"✅ SUCESSO LOOK! Palpites para {data_str} enviados.")
     else:
         print(f"❌ ERRO: Marcas {CHAVE} não encontradas no HTML da Look!")

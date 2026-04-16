@@ -2,6 +2,7 @@ import datetime
 import random
 import re
 import os
+from git_safe import enviar_pro_github
 
 # CONFIGURAÇÕES
 ARQUIVO_HTML = "/var/www/meusite/palpite-do-bicho-nacional.html"
@@ -99,9 +100,7 @@ if os.path.exists(ARQUIVO_HTML):
         with open(ARQUIVO_HTML, "w", encoding="utf-8") as f:
             f.write(novo_html)
 
-        os.system(f"cd /var/www/meusite && git add {ARQUIVO_HTML}")
-        os.system(f'cd /var/www/meusite && git commit -m "Auto Update Nacional {data_str}"')
-        os.system("cd /var/www/meusite && git push origin main -f")
+        enviar_pro_github(data_str, "Nacional")
         print(f"✅ SUCESSO NACIONAL! Palpites para {data_str} enviados.")
     else:
         print(f"❌ ERRO CRÍTICO: O robô esperava 2 marcas, mas encontrou {contagem}.")
