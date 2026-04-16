@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Livro dos Sonhos do Jogo do Bicho de A a Z | Significados, Grupos e Milhares</title>
+  
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="shortcut icon" href="images/favicon.png">
+    
   <meta
     name="description"
     content="Consulte o Livro dos Sonhos do Jogo do Bicho de A a Z. Veja significados, bicho, grupo, palpite principal e milhares sugeridas para jogar."
@@ -1263,13 +1267,18 @@
     }
 
     function buildWhatsText(dream) {
-      return `Livro dos Sonhos - ${dream.nome}
-Bicho: ${dream.bicho}
-Grupo: ${dream.grupo}
-Palpite principal: ${dream.palpite}
-Milhares: ${dream.milhares.join(", ")}
-Significado: ${dream.significado}`;
-    }
+  return `*Livro dos Sonhos - ${dream.nome}*
+
+*Bicho:* ${dream.bicho}
+*Grupo:* ${dream.grupo}
+*Palpite principal:* ${dream.palpite}
+*Milhares:* ${dream.milhares.join(", ")}
+
+*Significado:* ${dream.significado}
+
+Veja no site:
+${window.location.href}`;
+}
 
     searchInput.addEventListener("input", (e) => {
   currentSearch = e.target.value;
