@@ -1,219 +1,988 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Palpites do Bicho | A sua Vitrine da Sorte</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Palpites do Jogo do Bicho | Portal com Palpite do Dia, Sonhos, Puxadas e Resultados</title>
 
-    <style>
-        :root { --ouro: #f6c945; --preto: #121722; --cinza-claro: #f4f7f6; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        
-        body { background-color: var(--cinza-claro) !important; color: #333; }
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="shortcut icon" href="images/favicon.png">
 
-        /* HEADER ESTILO PORTAL PROFISSIONAL */
-        header { 
-            background: var(--preto) !important; 
-            border-bottom: 4px solid var(--ouro) !important; 
-            padding: 15px 0; 
-            position: sticky; 
-            top: 0; 
-            z-index: 9999; 
-        }
-        .nav-container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 0 20px; 
-        }
-        .logo img { width: 140px; }
-        
-        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
-        nav ul li a { 
-            color: #fff !important; 
-            text-decoration: none; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            font-size: 0.85rem; 
-        }
-        /* O Botão PORTAL em destaque que você pediu */
-        .btn-portal-menu { 
-            background: var(--ouro) !important; 
-            color: var(--preto) !important; 
-            padding: 8px 15px !important; 
-            border-radius: 5px !important; 
-        }
+  <meta name="description" content="Portal com Palpite do Dia, Livro dos Sonhos, Puxadas do Bicho, Milhares Viciadas e acesso rápido aos resultados do Jogo do Bicho." />
+  <meta name="keywords" content="jogo do bicho, palpite do dia, livro dos sonhos, puxadas do bicho, milhares viciadas, resultados do jogo do bicho" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="Palpites do Jogo do Bicho" />
 
-        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; text-align: center; }
-        
-        h1 { font-size: 2.5rem; font-weight: 900; color: var(--preto); margin-bottom: 10px; }
-        .subtitle { color: #666; margin-bottom: 40px; font-size: 1.1rem; }
+  <meta property="og:title" content="Palpites do Jogo do Bicho | Portal Completo" />
+  <meta property="og:description" content="Acesse palpites, sonhos, puxadas, milhares viciadas e resultados atualizados em um só lugar." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/logo-palpites.png" />
+  <meta property="og:locale" content="pt_BR" />
 
-        /* GRID DAS BANCAS - AGORA COM TODAS AS OPÇÕES */
-        .portal-grid {
-            display: grid !important;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
-            gap: 20px !important;
-            margin: 30px 0 !important;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        .portal-card {
-            background: var(--preto) !important;
-            border: 2px solid var(--ouro) !important;
-            border-radius: 15px !important;
-            padding: 25px 15px !important;
-            text-decoration: none !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            transition: 0.3s !important;
-        }
-        .portal-card:hover { transform: translateY(-8px) !important; background: #1c2435 !important; }
-        
-        .portal-card i { font-size: 2.5rem !important; color: var(--ouro) !important; margin-bottom: 12px !important; }
-        .portal-card span { color: #fff !important; font-weight: 800 !important; text-transform: uppercase; font-size: 0.85rem !important; }
+  <style>
+    :root{
+      --bg:#f4f6fa;
+      --card:#ffffff;
+      --dark:#121722;
+      --dark-2:#1d2635;
+      --dark-3:#243046;
+      --gold:#e1b22c;
+      --gold-2:#f6c945;
+      --text:#1f2733;
+      --muted:#667285;
+      --border:#e5e9f1;
+      --shadow:0 16px 34px rgba(18,23,34,0.09);
+      --radius:22px;
+    }
 
-        /* BANNER ÁGUIA PRIME */
-        .banner-vip {
-            background: linear-gradient(135deg, #b8860b 0%, #f6c945 100%) !important;
-            color: var(--preto) !important;
-            padding: 40px 20px !important;
-            border-radius: 20px !important;
-            margin: 40px 0 !important;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
-        }
-        .btn-apostar-home {
-            display: inline-block !important;
-            background: var(--preto) !important;
-            color: var(--ouro) !important;
-            padding: 15px 40px !important;
-            border-radius: 50px !important;
-            text-decoration: none !important;
-            font-weight: 900 !important;
-            margin-top: 20px !important;
-            text-transform: uppercase !important;
-        }
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-        /* FERRAMENTAS */
-        .grid-util {
-            display: grid !important;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-            gap: 20px !important;
-            margin-bottom: 50px !important;
-        }
-        .card-util {
-            background: #fff !important;
-            border: 1px solid #ddd !important;
-            padding: 30px !important;
-            border-radius: 15px !important;
-            text-decoration: none !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-        }
-        .card-util:hover { border-color: var(--ouro) !important; }
-        .card-util i { font-size: 2rem !important; color: var(--preto) !important; margin-bottom: 10px !important; }
-        .card-util h3 { color: var(--preto) !important; font-weight: 800 !important; }
+    html{
+      scroll-behavior:smooth;
+    }
 
-        /* FOOTER COM REDES SOCIAIS */
-        footer { background: var(--preto) !important; color: #888 !important; padding: 50px 20px 20px !important; margin-top: 60px !important; }
-        .social-icons { font-size: 1.8rem !important; margin-bottom: 20px !important; }
-        .social-icons a { color: var(--ouro) !important; margin: 0 15px !important; text-decoration: none !important; }
-        .footer-links a { color: #888 !important; text-decoration: none !important; margin: 0 10px !important; font-size: 0.9rem !important; }
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
 
-        @media (max-width: 600px) {
-            .portal-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
-            nav { display: none !important; }
-        }
-    </style>
+    a{
+      text-decoration:none;
+      color:inherit;
+      transition:.22s;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:min(1180px,94%);
+      margin:0 auto;
+    }
+
+    .top-strip{
+      background:#0b1018;
+      color:var(--gold-2);
+      font-size:.84rem;
+      font-weight:700;
+      text-align:center;
+      padding:8px 12px;
+      letter-spacing:.2px;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:linear-gradient(135deg,var(--dark),var(--dark-2));
+      border-bottom:2px solid var(--gold-2);
+      box-shadow:0 10px 28px rgba(0,0,0,0.14);
+    }
+
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+      flex-wrap:wrap;
+    }
+
+    .logo img{
+      height:82px;
+      width:auto;
+    }
+
+    .menu-btn{
+      display:none;
+      background:none;
+      border:none;
+      color:#fff;
+      font-size:1.5rem;
+      cursor:pointer;
+    }
+
+    nav{
+      padding-bottom:14px;
+    }
+
+    .nav-links{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a,
+    .dropdown-toggle{
+      color:#eef3fb;
+      padding:10px 14px;
+      border-radius:12px;
+      font-size:.92rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.3px;
+    }
+
+    .nav-links a:hover,
+    .dropdown-toggle:hover{
+      background:rgba(255,255,255,.06);
+      color:var(--gold-2);
+    }
+
+    .dropdown{
+      position:relative;
+    }
+
+    .dropdown-content{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      min-width:220px;
+      background:#141c29;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 16px 34px rgba(0,0,0,.22);
+      z-index:30;
+    }
+
+    .dropdown-content a{
+      display:block;
+      padding:13px 16px;
+      text-transform:none;
+      font-size:.94rem;
+      color:#dfe6f2;
+    }
+
+    .dropdown-content a:hover{
+      background:rgba(255,255,255,.04);
+      color:var(--gold-2);
+    }
+
+    .dropdown:hover .dropdown-content{
+      display:block;
+    }
+
+    .hero{
+      padding:34px 0 26px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .hero-main{
+      background:linear-gradient(135deg,#121722 0%, #243046 100%);
+      color:#fff;
+      border-radius:28px;
+      padding:34px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-main::after{
+      content:"";
+      position:absolute;
+      right:-70px;
+      top:-70px;
+      width:260px;
+      height:260px;
+      background:radial-gradient(circle, rgba(246,201,69,.18) 0%, rgba(246,201,69,0) 72%);
+      pointer-events:none;
+    }
+
+    .hero-badge{
+      display:inline-block;
+      background:rgba(246,201,69,.14);
+      color:var(--gold-2);
+      border:1px solid rgba(246,201,69,.24);
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:.84rem;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    .hero h1{
+      font-size:clamp(2rem,4vw,3.2rem);
+      line-height:1.08;
+      margin-bottom:16px;
+      max-width:760px;
+    }
+
+    .hero p{
+      color:#d6deea;
+      font-size:1rem;
+      max-width:760px;
+      margin-bottom:22px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:24px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:15px 22px;
+      border-radius:14px;
+      font-weight:800;
+      font-size:.94rem;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--gold-2),var(--gold));
+      color:#1f1f1f;
+      box-shadow:0 10px 24px rgba(246,201,69,.24);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .stat-card{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:18px;
+      padding:18px 14px;
+      text-align:center;
+    }
+
+    .stat-card strong{
+      display:block;
+      color:var(--gold-2);
+      font-size:1.24rem;
+      margin-bottom:4px;
+    }
+
+    .stat-card span{
+      color:#d4dceb;
+      font-size:.9rem;
+    }
+
+    .hero-side{
+      display:grid;
+      gap:18px;
+    }
+
+    .side-card{
+      background:#fff;
+      border-radius:24px;
+      padding:22px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--border);
+    }
+
+    .side-card h3{
+      font-size:1.18rem;
+      color:var(--dark);
+      margin-bottom:10px;
+    }
+
+    .side-card p{
+      color:var(--muted);
+      margin-bottom:14px;
+      font-size:.96rem;
+    }
+
+    .mini-links{
+      display:grid;
+      gap:10px;
+    }
+
+    .mini-link{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:14px 16px;
+      border-radius:16px;
+      background:#f8fafc;
+      border:1px solid var(--border);
+      font-weight:700;
+      color:#243046;
+    }
+
+    .mini-link:hover{
+      border-color:#efcf68;
+      transform:translateY(-1px);
+    }
+
+    .section{
+      padding:24px 0;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+
+    .section-head h2{
+      font-size:1.7rem;
+      color:var(--dark);
+      line-height:1.15;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      max-width:760px;
+    }
+
+    .portal-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .portal-card{
+      background:#fff;
+      border-radius:24px;
+      padding:24px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .portal-card::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:5px;
+      background:linear-gradient(90deg,var(--gold-2),var(--gold));
+    }
+
+    .portal-card .icon{
+      width:58px;
+      height:58px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:16px;
+      background:#121722;
+      color:var(--gold-2);
+      font-size:1.35rem;
+      margin-bottom:16px;
+    }
+
+    .portal-card h3{
+      font-size:1.15rem;
+      margin-bottom:10px;
+      color:var(--dark);
+    }
+
+    .portal-card p{
+      color:var(--muted);
+      font-size:.95rem;
+      margin-bottom:16px;
+    }
+
+    .portal-card a{
+      font-weight:800;
+      color:#b07f00;
+    }
+
+    .portal-card a:hover{
+      color:#8d6500;
+    }
+
+    .highlight-band{
+      background:linear-gradient(135deg,#121722,#1f2a3d);
+      border-radius:28px;
+      padding:30px;
+      color:#fff;
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:20px;
+      align-items:center;
+    }
+
+    .highlight-band h2{
+      font-size:1.8rem;
+      margin-bottom:8px;
+    }
+
+    .highlight-band p{
+      color:#d5deea;
+      max-width:800px;
+    }
+
+    .lottery-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .lottery-link{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:18px;
+      font-weight:800;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      color:#1f2733;
+    }
+
+    .lottery-link:hover{
+      transform:translateY(-2px);
+      border-color:#efcf68;
+    }
+
+    .content-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+    }
+
+    .content-box{
+      background:#fff;
+      border-radius:22px;
+      padding:24px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+    }
+
+    .content-box h3{
+      font-size:1.24rem;
+      margin-bottom:12px;
+      color:var(--dark);
+    }
+
+    .content-box p{
+      color:#516072;
+      margin-bottom:12px;
+    }
+
+    .bullet-list{
+      display:grid;
+      gap:10px;
+      margin-top:8px;
+    }
+
+    .bullet-item{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color:#516072;
+    }
+
+    .bullet-item i{
+      color:#c79200;
+      margin-top:4px;
+    }
+
+    .site-footer{
+      background:#0d1119;
+      border-top:1px solid rgba(255,255,255,.08);
+      padding:56px 0 30px;
+      margin-top:46px;
+    }
+
+    .footer-title{
+      font-size:1.8rem;
+      color:var(--gold-2);
+      margin-bottom:14px;
+      font-weight:800;
+      text-align:center;
+    }
+
+    .footer-desc{
+      color:#98a4b9;
+      max-width:760px;
+      margin:0 auto 28px auto;
+      text-align:center;
+      font-size:.94rem;
+    }
+
+    .footer-social{
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      margin-bottom:24px;
+      flex-wrap:wrap;
+    }
+
+    .footer-social a{
+      width:48px;
+      height:48px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .footer-social a:hover{
+      transform:translateY(-2px);
+      border-color:rgba(246,201,69,.35);
+    }
+
+    .footer-social svg{
+      width:22px;
+      height:22px;
+      fill:#fff;
+    }
+
+    .footer-links{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+      margin-bottom:22px;
+    }
+
+    .footer-links a{
+      color:#d3dbea;
+      font-size:.94rem;
+    }
+
+    .footer-links a:hover{
+      color:var(--gold-2);
+    }
+
+    .footer-copy{
+      border-top:1px solid rgba(255,255,255,.06);
+      padding-top:18px;
+      text-align:center;
+      font-size:.82rem;
+      color:#748095;
+    }
+
+    #cookie-banner{
+      display:none;
+      position:fixed;
+      bottom:20px;
+      left:50%;
+      transform:translateX(-50%);
+      width:92%;
+      max-width:430px;
+      background:#1c222e;
+      color:#fff;
+      padding:20px;
+      border-radius:16px;
+      box-shadow:0 16px 36px rgba(0,0,0,.35);
+      z-index:9999;
+      text-align:center;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    #cookie-banner p{
+      font-size:.93rem;
+      color:#d9e1ee;
+      margin-bottom:14px;
+    }
+
+    .cookie-actions{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .cookie-btn{
+      border:none;
+      border-radius:12px;
+      padding:11px 14px;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .cookie-btn.accept{
+      background:linear-gradient(135deg,var(--gold-2),var(--gold));
+      color:#1f1f1f;
+    }
+
+    .cookie-btn.reject{
+      background:#2a3445;
+      color:#fff;
+    }
+
+    @media (max-width: 1000px){
+      .hero-grid,
+      .portal-grid,
+      .lottery-grid,
+      .content-grid,
+      .highlight-band{
+        grid-template-columns:1fr;
+      }
+
+      .hero-stats{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 768px){
+      .logo img{
+        height:70px;
+      }
+
+      .menu-btn{
+        display:block;
+      }
+
+      nav{
+        padding-top:0;
+      }
+
+      .nav-links{
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        gap:8px;
+        padding-top:12px;
+      }
+
+      .nav-links.show{
+        display:flex;
+      }
+
+      .dropdown-content{
+        position:static;
+        display:block;
+        margin-top:8px;
+        box-shadow:none;
+      }
+
+      .dropdown:hover .dropdown-content{
+        display:block;
+      }
+
+      .hero-main,
+      .side-card,
+      .portal-card,
+      .content-box,
+      .highlight-band{
+        border-radius:20px;
+      }
+
+      .hero-main{
+        padding:26px 18px;
+      }
+
+      .hero-actions .btn{
+        width:100%;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <div class="nav-container">
-        <div class="logo"><a href="index.html"><img src="images/logo-palpites.png" alt="Logo"></a></div>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="btn-portal-menu">PORTAL</a></li>
-                <li><a href="palpite-do-dia.html">Palpite do Dia</a></li>
-                <li><a href="puxadas-do-bicho.html">Puxadas</a></li>
-                <li><a href="milhares-viciadas.html">Milhares</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+  <div class="top-strip">
+    Portal com Palpite do Dia, Livro dos Sonhos, Puxadas, Milhares Viciadas e Resultados
+  </div>
 
-<main class="container">
-    <h1>Portal Palpites do Bicho</h1>
-    <p class="subtitle">A maior central de estatísticas e palpites. Selecione sua loteria:</p>
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo-palpites.png" alt="Palpites do Jogo do Bicho">
+      </a>
 
-    <div class="portal-grid">
-        <a href="palpite-do-bicho-rj.html" class="portal-card">
-            <i class="fas fa-location-dot"></i><span>Rio de Janeiro</span>
-        </a>
-        <a href="palpite-do-bicho-look.html" class="portal-card">
-            <i class="fas fa-magnifying-glass-chart"></i><span>Look Goiás</span>
-        </a>
-        <a href="palpite-do-bicho-nacional.html" class="portal-card">
-            <i class="fas fa-earth-americas"></i><span>Nacional</span>
-        </a>
-        <a href="palpite-do-bicho-sp.html" class="portal-card">
-            <i class="fas fa-city"></i><span>São Paulo</span>
-        </a>
-        <a href="palpite-do-bicho-bahia.html" class="portal-card">
-            <i class="fas fa-clover"></i><span>Paratodos Bahia</span>
-        </a>
-        <a href="palpite-do-bicho-maluca.html" class="portal-card">
-            <i class="fas fa-bolt"></i><span>Maluca Bahia</span>
-        </a>
-        <a href="palpite-do-bicho-caminho.html" class="portal-card">
-            <i class="fas fa-route"></i><span>Caminho Sorte</span>
-        </a>
-        <a href="palpite-do-bicho-lotep.html" class="portal-card">
-            <i class="fas fa-medal"></i><span>Lotep Paraíba</span>
-        </a>
-        <a href="palpite-do-bicho-lotece-ceara.html" class="portal-card">
-            <i class="fas fa-sun"></i><span>Lotece Ceará</span>
-        </a>
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menu">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
 
-    <div class="banner-vip">
-        <h2>🚀 JOGUE COM O MELHOR BÔNUS DO BRASIL</h2>
-        <p>Cadastre-se na Águia Prime e receba bônus exclusivos no seu primeiro depósito!</p>
-        <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" class="btn-apostar-home">CADASTRAR AGORA</a>
-    </div>
+    <nav>
+      <div class="container">
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Início</a>
+          <a href="palpite-do-dia.html">Palpite do Dia</a>
 
-    <h2 style="margin-bottom: 30px;">Ferramentas & Estudos</h2>
-    <div class="grid-util">
-        <a href="puxadas-do-bicho.html" class="card-util">
-            <i class="fas fa-arrows-spin"></i>
-            <h3>Puxadas do Bicho</h3>
-        </a>
-        <a href="milhares-viciadas.html" class="card-util">
-            <i class="fas fa-bullseye"></i>
-            <h3>Milhares Viciadas</h3>
-        </a>
-    </div>
-</main>
+          <div class="dropdown">
+            <a href="#" class="dropdown-toggle">Bancas ▾</a>
+            <div class="dropdown-content">
+              <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" rel="noopener noreferrer">Águia Prime</a>
+              <a href="https://app.valedasorteloterias.club/pr/g5P71dlw" target="_blank" rel="noopener noreferrer">Vale da Sorte</a>
+            </div>
+          </div>
 
-<footer>
-    <div class="social-icons">
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-telegram"></i></a>
+          <a href="puxadas-do-bicho.html">Puxadas</a>
+          <a href="milhares-viciadas.html">Milhares</a>
+          <a href="sonhos.html">Livro dos Sonhos</a>
+          <a href="https://resultadosdojogo.com/" target="_blank" rel="noopener noreferrer" style="color:#f6c945;">Resultados</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-main">
+        <span class="hero-badge">Portal completo do Jogo do Bicho</span>
+        <h1>Palpites, sonhos, puxadas, milhares viciadas e resultados em um só lugar</h1>
+        <p>
+          A página inicial do portal foi organizada para facilitar sua navegação e destacar os conteúdos mais procurados,
+          com acesso rápido ao <strong>Palpite do Dia</strong>, <strong>Livro dos Sonhos</strong>,
+          <strong>Puxadas do Bicho</strong>, <strong>Milhares Viciadas</strong> e aos
+          <strong>resultados atualizados</strong>.
+        </p>
+
+        <div class="hero-actions">
+          <a href="palpite-do-dia.html" class="btn btn-primary">
+            <i class="fas fa-fire"></i> Ver Palpite do Dia
+          </a>
+          <a href="sonhos.html" class="btn btn-secondary">
+            <i class="fas fa-moon"></i> Livro dos Sonhos
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <strong>Palpites</strong>
+            <span>Conteúdo rápido e organizado</span>
+          </div>
+          <div class="stat-card">
+            <strong>Sonhos</strong>
+            <span>Pesquisa de A a Z</span>
+          </div>
+          <div class="stat-card">
+            <strong>Resultados</strong>
+            <span>Acesso rápido por banca</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="side-card">
+          <h3>Acesso rápido</h3>
+          <p>Entre nas áreas mais buscadas do portal e encontre o que precisa com muito mais facilidade.</p>
+          <div class="mini-links">
+            <a class="mini-link" href="palpite-do-dia.html">Palpite do Dia <i class="fas fa-arrow-right"></i></a>
+            <a class="mini-link" href="sonhos.html">Livro dos Sonhos <i class="fas fa-arrow-right"></i></a>
+            <a class="mini-link" href="puxadas-do-bicho.html">Puxadas do Bicho <i class="fas fa-arrow-right"></i></a>
+            <a class="mini-link" href="milhares-viciadas.html">Milhares Viciadas <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="side-card">
+          <h3>Bancas recomendadas</h3>
+          <p>Escolha uma das opções para acessar a plataforma e acompanhar seus jogos com mais praticidade.</p>
+          <div class="mini-links">
+            <a class="mini-link" href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" rel="noopener noreferrer">Águia Prime <i class="fas fa-up-right-from-square"></i></a>
+            <a class="mini-link" href="https://app.valedasorteloterias.club/pr/g5P71dlw" target="_blank" rel="noopener noreferrer">Vale da Sorte <i class="fas fa-up-right-from-square"></i></a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="footer-links">
-        <a href="index.html">Início</a> | 
-        <a href="politica-de-privacidade.html">Privacidade</a> | 
-        <a href="termos-de-uso.html">Termos</a>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Principais áreas do portal</h2>
+        <p>Uma página inicial mais forte precisa destacar bem os caminhos mais importantes do site. Aqui está tudo mais claro, bonito e profissional.</p>
+      </div>
+
+      <div class="portal-grid">
+        <div class="portal-card">
+          <div class="icon"><i class="fas fa-bolt"></i></div>
+          <h3>Palpite do Dia</h3>
+          <p>Veja sugestões organizadas por loteria, com destaque para as buscas mais quentes do dia.</p>
+          <a href="palpite-do-dia.html">Acessar página →</a>
+        </div>
+
+        <div class="portal-card">
+          <div class="icon"><i class="fas fa-moon"></i></div>
+          <h3>Livro dos Sonhos</h3>
+          <p>Pesquise significados de A a Z e consulte bicho, grupo e milhares relacionadas ao sonho.</p>
+          <a href="sonhos.html">Consultar sonhos →</a>
+        </div>
+
+        <div class="portal-card">
+          <div class="icon"><i class="fas fa-table"></i></div>
+          <h3>Puxadas do Bicho</h3>
+          <p>Consulte relações e combinações que ajudam a navegar melhor entre grupos e interpretações.</p>
+          <a href="puxadas-do-bicho.html">Ver puxadas →</a>
+        </div>
+
+        <div class="portal-card">
+          <div class="icon"><i class="fas fa-hashtag"></i></div>
+          <h3>Milhares Viciadas</h3>
+          <p>Uma área prática para quem gosta de acompanhar números comentados e pesquisas recorrentes.</p>
+          <a href="milhares-viciadas.html">Explorar milhares →</a>
+        </div>
+      </div>
     </div>
-    <p style="margin-top: 20px; font-size: 0.8rem;">&copy; 2026 Palpites do Jogo do Bicho - Todos os direitos reservados.</p>
-</footer>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="highlight-band">
+        <div>
+          <h2>Quer ir direto para os resultados atualizados?</h2>
+          <p>Acesse a página de resultados e acompanhe os sorteios em tempo real com mais rapidez.</p>
+        </div>
+        <a href="https://resultadosdojogo.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <i class="fas fa-chart-line"></i> Ver Resultados
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Palpite do Dia por loteria</h2>
+        <p>Escolha a loteria desejada e navegue para páginas específicas do portal.</p>
+      </div>
+
+      <div class="lottery-grid">
+        <a href="palpite-do-bicho-rj.html" class="lottery-link">RIO DE JANEIRO (RJ) <i class="fas fa-arrow-right"></i></a>
+        <a href="palpite-do-bicho-look.html" class="lottery-link">LOOK GOIÁS <i class="fas fa-arrow-right"></i></a>
+        <a href="palpite-do-bicho-nacional.html" class="lottery-link">NACIONAL <i class="fas fa-arrow-right"></i></a>
+        <a href="palpite-do-bicho-lotece-ceara.html" class="lottery-link">LOTECE CEARÁ <i class="fas fa-arrow-right"></i></a>
+        <a href="palpite-do-bicho-lotep.html" class="lottery-link">LOTEP PARAÍBA <i class="fas fa-arrow-right"></i></a>
+        <a href="palpite-do-bicho-sp.html" class="lottery-link">SÃO PAULO (SP) <i class="fas fa-arrow-right"></i></a>
+        <a href="palpite-do-bicho-paratodos-bahia.html" class="lottery-link">PARATODOS BAHIA <i class="fas fa-arrow-right"></i></a>
+        <a href="palpite-do-bicho-maluca-bahia.html" class="lottery-link">MALUCA BAHIA <i class="fas fa-arrow-right"></i></a>
+        <a href="palpite-do-bicho-caminho-da-sorte.html" class="lottery-link">CAMINHO DA SORTE <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-grid">
+      <div class="content-box">
+        <h3>Um portal mais profissional desde a página inicial</h3>
+        <p>
+          A home precisa causar impacto logo de cara. Por isso, esta versão foi pensada para funcionar como uma
+          verdadeira página inicial de portal, valorizando os links certos, melhorando o visual e distribuindo os
+          acessos de forma mais estratégica.
+        </p>
+        <p>
+          Aqui o visitante entende rapidamente onde clicar, encontra os conteúdos principais sem esforço e percebe que
+          o site está mais organizado, moderno e confiável.
+        </p>
+      </div>
+
+      <div class="content-box">
+        <h3>O que ficou melhor nesta versão</h3>
+        <div class="bullet-list">
+          <div class="bullet-item"><i class="fas fa-check-circle"></i><span>Favicon no lugar certo</span></div>
+          <div class="bullet-item"><i class="fas fa-check-circle"></i><span>Rodapé bonito e completo</span></div>
+          <div class="bullet-item"><i class="fas fa-check-circle"></i><span>Banner de cookies corrigido</span></div>
+          <div class="bullet-item"><i class="fas fa-check-circle"></i><span>Visual diferente da página Palpite do Dia</span></div>
+          <div class="bullet-item"><i class="fas fa-check-circle"></i><span>Layout mais forte no desktop e no celular</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-title">Palpites do Jogo do Bicho</div>
+
+      <p class="footer-desc">
+        Esclarecemos que não temos vínculo com operadores do Jogo do Bicho. Os conteúdos, estatísticas e materiais publicados neste portal possuem caráter informativo.
+      </p>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/palpitess_jb" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.6 1.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg>
+        </a>
+
+        <a href="https://www.facebook.com/palpitesdobicho" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.5 1.6-1.5h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4v2.2H8v3.2h2.1V22h3.4Z"/></svg>
+        </a>
+
+        <a href="https://www.youtube.com/@Palpitesdo_JogodoBicho" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23 12s0-3.1-.4-4.6a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.5.4A3 3 0 0 0 1.4 7.4C1 8.9 1 12 1 12s0 3.1.4 4.6a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.5-.4a3 3 0 0 0 2.1-2.1c.4-1.5.4-4.5.4-4.5ZM9.8 15.5v-7L16 12l-6.2 3.5Z"/></svg>
+        </a>
+      </div>
+
+      <div class="footer-links">
+        <a href="sobre.html">Sobre nós</a>
+        <a href="contato.html">Contato</a>
+        <a href="politica-de-privacidade.html">Privacidade</a>
+        <a href="termos-de-uso.html">Termos de Uso</a>
+      </div>
+
+      <div class="footer-copy">
+        © 2026 Palpites do Jogo. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <div id="cookie-banner">
+    <p>
+      Este site utiliza cookies para melhorar sua experiência de navegação. Ao continuar, você concorda com nossa política de uso.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn accept" onclick="acceptCookies()">Aceitar</button>
+      <button class="cookie-btn reject" onclick="closeCookies()">Fechar</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+
+    function acceptCookies() {
+      localStorage.setItem("cookiesAccepted", "true");
+      document.getElementById("cookie-banner").style.display = "none";
+    }
+
+    function closeCookies() {
+      document.getElementById("cookie-banner").style.display = "none";
+    }
+
+    window.addEventListener("load", function () {
+      const accepted = localStorage.getItem("cookiesAccepted");
+      if (!accepted) {
+        document.getElementById("cookie-banner").style.display = "block";
+      }
+    });
+  </script>
 
 </body>
 </html>
