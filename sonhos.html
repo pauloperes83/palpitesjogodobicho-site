@@ -737,7 +737,7 @@
   <section class="hero">
     <div class="container">
       <div class="hero-card">
-        <span class="hero-badge">Versão premium em HTML para GitHub Pages</span>
+        
         <h1>Livro dos Sonhos do Jogo do Bicho de A a Z com milhares, grupos e compartilhamento</h1>
         <p>
           Pesquise sonhos, navegue pelas letras, clique no significado desejado e veja uma sugestão editorial com
@@ -748,10 +748,10 @@
         <div class="search-row">
           <div class="search-box">
             <input
-              type="text"
-              id="searchInput"
-              placeholder="Digite um sonho, por exemplo: abelha, amigo, dinheiro, cobra, igreja..."
-            />
+  type="text"
+  id="searchInput"
+  placeholder="Digite um sonho e pressione Enter, por exemplo: abelha, amigo, dinheiro..."
+/>
           </div>
           <div class="search-help">
             Clique em qualquer sonho para abrir os detalhes
@@ -1272,9 +1272,21 @@ Significado: ${dream.significado}`;
     }
 
     searchInput.addEventListener("input", (e) => {
-      currentSearch = e.target.value;
-      renderDreams();
-    });
+  currentSearch = e.target.value;
+  renderDreams();
+});
+
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+
+    const results = getFilteredDreams();
+
+    if (results.length > 0) {
+      openDreamModal(results[0]);
+    }
+  }
+});
 
     closeModal.addEventListener("click", closeDreamModal);
 
