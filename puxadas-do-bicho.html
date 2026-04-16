@@ -1,193 +1,939 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9Y3FW10LC2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9Y3FW10LC2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9Y3FW10LC2');
+  </script>
 
-  gtag('config', 'G-9Y3FW10LC2');
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="shortcut icon" href="images/favicon.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puxadas do Bicho: Tabela Completa e Atualizada | Jogo do Bicho</title>
-    <meta name="description" content="Confira a tabela completa de puxadas do bicho. Aprenda qual bicho puxa qual e melhore seus palpites para o Jogo do Bicho hoje.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Estilo do Menu Dropdown */
-                  .dropdown-content { 
-                      display: none; 
-                      position: absolute; 
-                      background-color: #121722; 
-                      min-width: 160px; 
-                      box-shadow: 0px 8px 16px rgba(0,0,0,0.5); 
-                      z-index: 99; 
-                      border: 1px solid rgba(255,255,255,0.1);
-                      text-align: left;
-                  }
-                  .dropdown-content a { 
-                      margin: 0 !important; 
-                      padding: 12px 16px !important; 
-                      display: block !important; 
-                      font-size: 14px !important;
-                  }
-                  .dropdown:hover .dropdown-content { display: block; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background: #ffffff; color: #333; margin: 0; padding: 0; line-height: 1.8; }
-        .container { width: 95%; max-width: 1000px; margin: 0 auto; }
-        
-        header { background: #121722; padding: 20px 0; border-bottom: 3px solid #f6c945; text-align: center; }
-        .logo img { height: 150px; width: auto; }
-        
-        nav { background: #121722; padding: 12px 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        nav a { color: #d8dcec; text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 15px; text-transform: uppercase; transition: 0.2s ease; }
-        nav a:hover { color: #f6c945; }
-        
-        .section { padding: 40px 0; }
-        h1 { font-size: 2.2rem; color: #222; text-align: center; margin-bottom: 25px; }
-        h2 { font-size: 1.6rem; color: #b8860b; border-left: 6px solid #f6c945; padding-left: 15px; margin: 35px 0 20px 0; }
-        p { margin-bottom: 20px; font-size: 1.1rem; color: #444; text-align: justify; }
-        strong { color: #000; }
-        .link-seo { color: #d4a017; font-weight: bold; text-decoration: underline; }
-        
-        .puxadas-table { width: 100%; border-collapse: collapse; margin: 30px 0; font-size: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .puxadas-table thead { background: #f6c945; color: #000; }
-        .puxadas-table th, .puxadas-table td { padding: 15px; border: 1px solid #eee; text-align: left; }
-        .puxadas-table tr:nth-child(even) { background: #fafafa; }
-        .bicho-name { font-weight: bold; color: #d4a017; font-size: 1.1rem; }
+  <title>Puxadas do Bicho: Tabela Completa, Como Funciona e Como Usar no Jogo do Bicho</title>
+  <meta name="description" content="Confira a tabela completa de puxadas do bicho e entenda como usar as puxadas no Jogo do Bicho para montar palpites, cercados e combinações mais estratégicas.">
+  <meta name="keywords" content="puxadas do bicho, tabela de puxadas do bicho, jogo do bicho, qual bicho puxa qual, palpites do jogo do bicho, cercados do bicho">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="Palpites do Jogo do Bicho">
 
-        .btn-call { display: block; width: fit-content; margin: 30px auto; background: #25d366; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; text-align: center; box-shadow: 0 4px 15px rgba(37,211,102,0.3); }
+  <meta property="og:title" content="Puxadas do Bicho: Tabela Completa e Atualizada">
+  <meta property="og:description" content="Veja qual bicho puxa qual no Jogo do Bicho e consulte a tabela completa de puxadas do bicho.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/logo-palpites.png">
+  <meta property="og:locale" content="pt_BR">
 
-        .site-footer { background-color: #0d1016; border-top: 1px solid rgba(255,255,255,0.08); padding: 50px 0 30px 0; text-align: center; margin-top: 50px; width: 100%; }
-        .footer-wrap { display: flex; flex-direction: column; align-items: center; }
-        .footer-title { font-size: 1.8rem; color: #f6c945; margin-bottom: 15px; font-weight: bold; }
-        .footer-warning { font-size: 0.85rem; color: #888ea1; max-width: 700px; margin: 0 auto 30px auto; line-height: 1.6; text-align: center; }
-        .footer-social { display: flex; gap: 20px; margin-bottom: 30px; justify-content: center; }
-        .footer-social svg { width: 30px; height: 30px; fill: #ffffff; transition: fill 0.3s; }
-        .footer-social a:hover svg { fill: #f6c945; }
-        .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 30px; }
-        .footer-links a { color: #d8dcec; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: color 0.3s; }
-        .footer-links a:hover { color: #f6c945; }
-        .footer-copy { font-size: 0.8rem; color: #565d6d; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; width: 90%; margin: 0 auto; color: #6c757d; }
-    </style>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --bg:#f4f6fa;
+      --card:#ffffff;
+      --dark:#121722;
+      --dark-2:#1d2635;
+      --gold:#e1b22c;
+      --gold-2:#f6c945;
+      --text:#202733;
+      --muted:#667285;
+      --border:#e6eaf2;
+      --shadow:0 14px 34px rgba(18,23,34,0.09);
+      --radius:22px;
+      --green:#25d366;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+      transition:.22s;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:min(1180px,94%);
+      margin:0 auto;
+    }
+
+    .top-strip{
+      background:#0b1018;
+      color:var(--gold-2);
+      font-size:.84rem;
+      font-weight:700;
+      text-align:center;
+      padding:8px 12px;
+      letter-spacing:.2px;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:linear-gradient(135deg,var(--dark),var(--dark-2));
+      border-bottom:2px solid var(--gold-2);
+      box-shadow:0 10px 28px rgba(0,0,0,0.14);
+    }
+
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+      flex-wrap:wrap;
+    }
+
+    .logo img{
+      height:82px;
+      width:auto;
+    }
+
+    .menu-btn{
+      display:none;
+      background:none;
+      border:none;
+      color:#fff;
+      font-size:1.5rem;
+      cursor:pointer;
+    }
+
+    nav{
+      padding-bottom:14px;
+    }
+
+    .nav-links{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a,
+    .dropdown-toggle{
+      color:#eef3fb;
+      padding:10px 14px;
+      border-radius:12px;
+      font-size:.92rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.3px;
+    }
+
+    .nav-links a:hover,
+    .dropdown-toggle:hover{
+      background:rgba(255,255,255,.06);
+      color:var(--gold-2);
+    }
+
+    .dropdown{
+      position:relative;
+    }
+
+    .dropdown-content{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      min-width:220px;
+      background:#141c29;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 16px 34px rgba(0,0,0,.22);
+      z-index:30;
+    }
+
+    .dropdown-content a{
+      display:block;
+      padding:13px 16px;
+      text-transform:none;
+      font-size:.94rem;
+      color:#dfe6f2;
+    }
+
+    .dropdown-content a:hover{
+      background:rgba(255,255,255,.04);
+      color:var(--gold-2);
+    }
+
+    .dropdown:hover .dropdown-content{
+      display:block;
+    }
+
+    .hero{
+      padding:34px 0 24px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .hero-main{
+      background:linear-gradient(135deg,#121722 0%, #243046 100%);
+      color:#fff;
+      border-radius:28px;
+      padding:34px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-main::after{
+      content:"";
+      position:absolute;
+      right:-70px;
+      top:-70px;
+      width:260px;
+      height:260px;
+      background:radial-gradient(circle, rgba(246,201,69,.18) 0%, rgba(246,201,69,0) 72%);
+      pointer-events:none;
+    }
+
+    .hero-badge{
+      display:inline-block;
+      background:rgba(246,201,69,.14);
+      color:var(--gold-2);
+      border:1px solid rgba(246,201,69,.24);
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:.84rem;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    .hero h1{
+      font-size:clamp(2rem,4vw,3rem);
+      line-height:1.08;
+      margin-bottom:16px;
+      max-width:760px;
+    }
+
+    .hero p{
+      color:#d6deea;
+      font-size:1rem;
+      max-width:760px;
+      margin-bottom:22px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:24px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:15px 22px;
+      border-radius:14px;
+      font-weight:800;
+      font-size:.94rem;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--gold-2),var(--gold));
+      color:#1f1f1f;
+      box-shadow:0 10px 24px rgba(246,201,69,.24);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .btn-whats{
+      background:var(--green);
+      color:#fff;
+      box-shadow:0 10px 24px rgba(37,211,102,.22);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .point-card{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:18px;
+      padding:18px 14px;
+      text-align:center;
+    }
+
+    .point-card strong{
+      display:block;
+      color:var(--gold-2);
+      font-size:1.14rem;
+      margin-bottom:4px;
+    }
+
+    .point-card span{
+      color:#d4dceb;
+      font-size:.9rem;
+    }
+
+    .hero-side{
+      display:grid;
+      gap:18px;
+    }
+
+    .side-card{
+      background:#fff;
+      border-radius:24px;
+      padding:22px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--border);
+    }
+
+    .side-card h3{
+      font-size:1.18rem;
+      color:var(--dark);
+      margin-bottom:10px;
+    }
+
+    .side-card p{
+      color:var(--muted);
+      margin-bottom:14px;
+      font-size:.96rem;
+    }
+
+    .promo-image{
+      width:100%;
+      max-width:300px;
+      border-radius:16px;
+      box-shadow:0 10px 22px rgba(0,0,0,.08);
+      margin:0 auto 14px auto;
+    }
+
+    .mini-links{
+      display:grid;
+      gap:10px;
+    }
+
+    .mini-link{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:14px 16px;
+      border-radius:16px;
+      background:#f8fafc;
+      border:1px solid var(--border);
+      font-weight:700;
+      color:#243046;
+    }
+
+    .mini-link:hover{
+      border-color:#efcf68;
+      transform:translateY(-1px);
+    }
+
+    .section{
+      padding:24px 0;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+
+    .section-head h2{
+      font-size:1.7rem;
+      color:var(--dark);
+      line-height:1.15;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      max-width:760px;
+    }
+
+    .content-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:18px;
+    }
+
+    .content-box{
+      background:#fff;
+      border-radius:22px;
+      padding:24px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+    }
+
+    .content-box h2,
+    .content-box h3{
+      font-size:1.24rem;
+      margin-bottom:12px;
+      color:var(--dark);
+    }
+
+    .content-box p{
+      color:#516072;
+      margin-bottom:12px;
+    }
+
+    .bullet-list{
+      display:grid;
+      gap:10px;
+      margin-top:8px;
+    }
+
+    .bullet-item{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color:#516072;
+    }
+
+    .bullet-item i{
+      color:#c79200;
+      margin-top:4px;
+    }
+
+    .table-wrap{
+      background:#fff;
+      border-radius:24px;
+      padding:20px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .table-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+
+    .table-top h2{
+      font-size:1.5rem;
+      color:var(--dark);
+    }
+
+    .table-top p{
+      color:var(--muted);
+      max-width:760px;
+    }
+
+    .puxadas-table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:1rem;
+      overflow:hidden;
+      border-radius:18px;
+    }
+
+    .puxadas-table thead{
+      background:linear-gradient(135deg,var(--gold-2),var(--gold));
+      color:#151515;
+    }
+
+    .puxadas-table th,
+    .puxadas-table td{
+      padding:16px;
+      border:1px solid #eef1f6;
+      text-align:left;
+      vertical-align:top;
+    }
+
+    .puxadas-table tbody tr:nth-child(even){
+      background:#fbfcfe;
+    }
+
+    .puxadas-table tbody tr:hover{
+      background:#fff9e6;
+    }
+
+    .bicho-name{
+      font-weight:800;
+      color:#b07f00;
+      font-size:1.03rem;
+    }
+
+    .highlight-band{
+      background:linear-gradient(135deg,#121722,#1f2a3d);
+      border-radius:28px;
+      padding:30px;
+      color:#fff;
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:20px;
+      align-items:center;
+    }
+
+    .highlight-band h2{
+      font-size:1.8rem;
+      margin-bottom:8px;
+    }
+
+    .highlight-band p{
+      color:#d5deea;
+      max-width:800px;
+    }
+
+    .link-seo{
+      color:#b07f00;
+      font-weight:800;
+      text-decoration:none;
+      border-bottom:1px dashed rgba(176,127,0,.45);
+    }
+
+    .link-seo:hover{
+      color:#8e6600;
+    }
+
+    .site-footer{
+      background:#0d1119;
+      border-top:1px solid rgba(255,255,255,.08);
+      padding:56px 0 30px;
+      margin-top:46px;
+    }
+
+    .footer-title{
+      font-size:1.8rem;
+      color:var(--gold-2);
+      margin-bottom:14px;
+      font-weight:800;
+      text-align:center;
+    }
+
+    .footer-desc{
+      color:#98a4b9;
+      max-width:760px;
+      margin:0 auto 28px auto;
+      text-align:center;
+      font-size:.94rem;
+    }
+
+    .footer-social{
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      margin-bottom:24px;
+      flex-wrap:wrap;
+    }
+
+    .footer-social a{
+      width:48px;
+      height:48px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .footer-social a:hover{
+      transform:translateY(-2px);
+      border-color:rgba(246,201,69,.35);
+    }
+
+    .footer-social svg{
+      width:22px;
+      height:22px;
+      fill:#fff;
+    }
+
+    .footer-links{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+      margin-bottom:22px;
+    }
+
+    .footer-links a{
+      color:#d3dbea;
+      font-size:.94rem;
+    }
+
+    .footer-links a:hover{
+      color:var(--gold-2);
+    }
+
+    .footer-copy{
+      border-top:1px solid rgba(255,255,255,.06);
+      padding-top:18px;
+      text-align:center;
+      font-size:.82rem;
+      color:#748095;
+    }
+
+    @media (max-width: 1000px){
+      .hero-grid,
+      .content-grid,
+      .highlight-band{
+        grid-template-columns:1fr;
+      }
+
+      .hero-points{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 768px){
+      .logo img{
+        height:70px;
+      }
+
+      .menu-btn{
+        display:block;
+      }
+
+      nav{
+        padding-top:0;
+      }
+
+      .nav-links{
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        gap:8px;
+        padding-top:12px;
+      }
+
+      .nav-links.show{
+        display:flex;
+      }
+
+      .dropdown-content{
+        position:static;
+        display:block;
+        margin-top:8px;
+        box-shadow:none;
+      }
+
+      .dropdown:hover .dropdown-content{
+        display:block;
+      }
+
+      .hero-main,
+      .side-card,
+      .content-box,
+      .table-wrap,
+      .highlight-band{
+        border-radius:20px;
+      }
+
+      .hero-main{
+        padding:26px 18px;
+      }
+
+      .hero-actions .btn{
+        width:100%;
+      }
+
+      .puxadas-table{
+        font-size:.93rem;
+      }
+
+      .puxadas-table th,
+      .puxadas-table td{
+        padding:12px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9Y3FW10LC2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <div class="top-strip">
+    Tabela de puxadas do bicho, palpites, milhares viciadas e resultados atualizados
+  </div>
 
-  gtag('config', 'G-9Y3FW10LC2');
-</script>
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo-palpites.png" alt="Palpites Jogo do Bicho">
+      </a>
 
-    <div class="container">
-        <a href="index.html" class="logo">
-            <img src="images/logo-palpites.png" alt="Palpites Jogo do Bicho">
-        </a>
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menu">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
-</header>
 
-<nav>
-              <div class="container">
-                  <a href="index.html">Início</a>
-                  <a href="palpite-do-dia.html">Palpite do Dia</a>
-                  
-                  <div class="dropdown" style="display: inline-block; position: relative;">
-                      <a href="#" style="cursor: default; margin-right: 15px;">Bancas ▾</a>
-                      <div class="dropdown-content">
-                          <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank">Águia Prime</a>
-                          <a href="https://app.valedasorteloterias.club/pr/g5P71dlw" target="_blank">Vale da Sorte</a>
-                      </div>
-                  </div>
+    <nav>
+      <div class="container">
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Início</a>
+          <a href="palpite-do-dia.html">Palpite do Dia</a>
 
-                  <a href="puxadas-do-bicho.html">Puxadas</a>
-                  <a href="milhares-viciadas.html">Milhares</a>
-                  
-                  <a href="https://resultadosdojogo.com/" target="_blank" style="color: #f6c945; margin-left: 15px;">Resultados</a>
-              </div>
-          </nav>
+          <div class="dropdown">
+            <a href="#" class="dropdown-toggle">Bancas ▾</a>
+            <div class="dropdown-content">
+              <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" rel="noopener noreferrer">Águia Prime</a>
+              <a href="https://app.valedasorteloterias.club/pr/g5P71dlw" target="_blank" rel="noopener noreferrer">Vale da Sorte</a>
+            </div>
+          </div>
 
-<section class="section">
-    <div class="container">
-        <div style="text-align: center; margin-bottom: 25px;">
-            <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank">
-                <img src="images/aguia-posts.webp" alt="Banca Águia Prime" style="width: 300px; height: 250px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); object-fit: cover;">
-            </a>
+          <a href="puxadas-do-bicho.html">Puxadas</a>
+          <a href="milhares-viciadas.html">Milhares</a>
+          <a href="sonhos.html">Livro dos Sonhos</a>
+          <a href="https://resultadosdojogo.com/" target="_blank" rel="noopener noreferrer" style="color:#f6c945;">Resultados</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-main">
+        <span class="hero-badge">Tabela de puxadas do Jogo do Bicho</span>
+        <h1>Puxadas do Bicho: tabela completa, como funciona e como usar melhor nos seus palpites</h1>
+        <p>
+          Entender as <strong>puxadas do bicho</strong> é uma das formas mais populares de montar cercados e combinações
+          no <strong>Jogo do Bicho</strong>. Nesta página, você consulta a tabela completa de puxadas e aprende como usar
+          essas relações entre os animais para montar palpites mais estratégicos.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#tabela-puxadas" class="btn btn-primary">
+            <i class="fas fa-table"></i> Ver Tabela Completa
+          </a>
+          <a href="milhares-viciadas.html" class="btn btn-secondary">
+            <i class="fas fa-hashtag"></i> Milhares Viciadas
+          </a>
+          <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn btn-whats" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> Grupo de Palpites
+          </a>
         </div>
 
-        <h1>Puxadas do Bicho: Tabela completa do Jogo do Bicho</h1>
-        
-        <p>Entender as <strong>puxadas do bicho</strong> é um dos segredos dos jogadores veteranos. No famoso "deu no poste", as puxadas funcionam como uma tendência: quando um bicho sai, ele costuma "trazer" ou "puxar" outros animais nos sorteios seguintes.</p>
+        <div class="hero-points">
+          <div class="point-card">
+            <strong>Tabela completa</strong>
+            <span>Consulte qual bicho puxa qual</span>
+          </div>
+          <div class="point-card">
+            <strong>Uso prático</strong>
+            <span>Ajuda a montar cercados</span>
+          </div>
+          <div class="point-card">
+            <strong>SEO forte</strong>
+            <span>Conteúdo mais útil e organizado</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="side-card">
+          <img src="images/aguia-posts.webp" alt="Banca Águia Prime" class="promo-image">
+          <h3>Acesse uma banca recomendada</h3>
+          <p>Use uma das opções recomendadas do portal para acompanhar seus jogos com mais praticidade.</p>
+          <a href="https://app.aguiaprime119000.com/pr/y8X6LEBU" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;">
+            <i class="fas fa-up-right-from-square"></i> Ir para Águia Prime
+          </a>
+        </div>
+
+        <div class="side-card">
+          <h3>Links úteis desta página</h3>
+          <p>Navegue rapidamente para outras áreas estratégicas do portal.</p>
+          <div class="mini-links">
+            <a class="mini-link" href="palpite-do-dia.html">Palpite do Dia <i class="fas fa-arrow-right"></i></a>
+            <a class="mini-link" href="milhares-viciadas.html">Milhares Viciadas <i class="fas fa-arrow-right"></i></a>
+            <a class="mini-link" href="sonhos.html">Livro dos Sonhos <i class="fas fa-arrow-right"></i></a>
+            <a class="mini-link" href="https://resultadosdojogo.com/" target="_blank" rel="noopener noreferrer">Resultados <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-grid">
+      <div class="content-box">
+        <h2>O que são as puxadas do bicho?</h2>
+        <p>
+          As <strong>puxadas do bicho</strong> são relações tradicionais usadas por muitos jogadores para observar quais
+          animais costumam aparecer como “companhia” de outros bichos em análises e leituras populares do jogo.
+        </p>
+        <p>
+          Em termos práticos, quando um animal sai, muita gente passa a considerar também os bichos que ele
+          costuma “puxar”, ampliando as combinações para cercados, grupos e milhares.
+        </p>
+        <p>
+          Por isso, consultar uma boa <strong>tabela de puxadas do bicho</strong> é uma forma rápida de organizar
+          palpites e explorar novas combinações dentro da lógica usada por jogadores mais experientes.
+        </p>
+      </div>
+
+      <div class="content-box">
+        <h3>Como usar a tabela no dia a dia</h3>
+        <div class="bullet-list">
+          <div class="bullet-item"><i class="fas fa-check-circle"></i><span>Veja qual bicho saiu ou está em destaque</span></div>
+          <div class="bullet-item"><i class="fas fa-check-circle"></i><span>Consulte quais animais ele costuma puxar</span></div>
+          <div class="bullet-item"><i class="fas fa-check-circle"></i><span>Monte cercados e combinações com mais lógica</span></div>
+          <div class="bullet-item"><i class="fas fa-check-circle"></i><span>Cruze a leitura com milhares viciadas</span></div>
+          <div class="bullet-item"><i class="fas fa-check-circle"></i><span>Use junto com o Palpite do Dia para reforçar a análise</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tabela-puxadas">
+    <div class="container">
+      <div class="table-wrap">
+        <div class="table-top">
+          <h2>Tabela completa de puxadas do bicho</h2>
+          <p>Confira abaixo a relação entre o bicho que saiu e os animais que costumam ser associados a ele nas puxadas.</p>
+        </div>
 
         <table class="puxadas-table">
-            <thead>
-                <tr>
-                    <th>Bicho que Saiu</th>
-                    <th>Ele Puxa (Palpites Fortes)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td><span class="bicho-name">01 – Avestruz</span></td><td>Vaca, Águia, Galo, Pavão, Peru</td></tr>
-                <tr><td><span class="bicho-name">02 – Águia</span></td><td>Coelho, Avestruz, Galo, Pavão, Peru</td></tr>
-                <tr><td><span class="bicho-name">03 – Burro</span></td><td>Cavalo, Elefante, Touro, Veado, Coelho, Cobra</td></tr>
-                <tr><td><span class="bicho-name">04 – Borboleta</span></td><td>Cabra, Elefante, Gato, Leão, Cachorro, Galo</td></tr>
-                <tr><td><span class="bicho-name">05 – Cachorro</span></td><td>Galo, Gato, Camelo, Macaco, Porco, Pavão</td></tr>
-                <tr><td><span class="bicho-name">06 – Cabra</span></td><td>Carneiro, Macaco, Elefante, Touro, Tigre, Urso</td></tr>
-                <tr><td><span class="bicho-name">07 – Carneiro</span></td><td>Cabra, Coelho, Vaca</td></tr>
-                <tr><td><span class="bicho-name">08 – Camelo</span></td><td>Cachorro, Elefante, Urso</td></tr>
-                <tr><td><span class="bicho-name">09 – Cobra</span></td><td>Jacaré, Porco, Burro, Gato</td></tr>
-                <tr><td><span class="bicho-name">10 – Coelho</span></td><td>Carneiro, Águia, Burro</td></tr>
-                <tr><td><span class="bicho-name">11 – Cavalo</span></td><td>Burro, Cabra, Touro</td></tr>
-                <tr><td><span class="bicho-name">12 – Elefante</span></td><td>Cabra, Urso, Tigre, Leão, Burro</td></tr>
-                <tr><td><span class="bicho-name">13 – Galo</span></td><td>Cachorro, Avestruz, Águia, Pavão, Peru</td></tr>
-                <tr><td><span class="bicho-name">14 – Gato</span></td><td>Cachorro, Leão, Tigre, Cobra</td></tr>
-                <tr><td><span class="bicho-name">15 – Jacaré</span></td><td>Cobra, Porco, Borboleta, Macaco</td></tr>
-                <tr><td><span class="bicho-name">16 – Leão</span></td><td>Elefante, Gato, Tigre, Urso</td></tr>
-                <tr><td><span class="bicho-name">17 – Macaco</span></td><td>Cachorro, Cabra, Peru, Jacaré</td></tr>
-                <tr><td><span class="bicho-name">18 – Porco</span></td><td>Cobra, Peru, Jacaré, Cachorro</td></tr>
-                <tr><td><span class="bicho-name">19 – Pavão</span></td><td>Avestruz, Águia, Galo, Peru</td></tr>
-                <tr><td><span class="bicho-name">20 – Peru</span></td><td>Avestruz, Águia, Galo, Pavão, Veado</td></tr>
-                <tr><td><span class="bicho-name">21 – Touro</span></td><td>Vaca, Burro, Cabra</td></tr>
-                <tr><td><span class="bicho-name">22 – Tigre</span></td><td>Gato, Leão, Cabra</td></tr>
-                <tr><td><span class="bicho-name">23 – Urso</span></td><td>Leão, Elefante, Camelo, Cabra</td></tr>
-                <tr><td><span class="bicho-name">24 – Veado</span></td><td>Peru, Burro, Cabra</td></tr>
-                <tr><td><span class="bicho-name">25 – Vaca</span></td><td>Touro, Avestruz, Carneiro</td></tr>
-            </tbody>
+          <thead>
+            <tr>
+              <th>Bicho que Saiu</th>
+              <th>Ele Puxa (Palpites Fortes)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="bicho-name">01 – Avestruz</span></td><td>Vaca, Águia, Galo, Pavão, Peru</td></tr>
+            <tr><td><span class="bicho-name">02 – Águia</span></td><td>Coelho, Avestruz, Galo, Pavão, Peru</td></tr>
+            <tr><td><span class="bicho-name">03 – Burro</span></td><td>Cavalo, Elefante, Touro, Veado, Coelho, Cobra</td></tr>
+            <tr><td><span class="bicho-name">04 – Borboleta</span></td><td>Cabra, Elefante, Gato, Leão, Cachorro, Galo</td></tr>
+            <tr><td><span class="bicho-name">05 – Cachorro</span></td><td>Galo, Gato, Camelo, Macaco, Porco, Pavão</td></tr>
+            <tr><td><span class="bicho-name">06 – Cabra</span></td><td>Carneiro, Macaco, Elefante, Touro, Tigre, Urso</td></tr>
+            <tr><td><span class="bicho-name">07 – Carneiro</span></td><td>Cabra, Coelho, Vaca</td></tr>
+            <tr><td><span class="bicho-name">08 – Camelo</span></td><td>Cachorro, Elefante, Urso</td></tr>
+            <tr><td><span class="bicho-name">09 – Cobra</span></td><td>Jacaré, Porco, Burro, Gato</td></tr>
+            <tr><td><span class="bicho-name">10 – Coelho</span></td><td>Carneiro, Águia, Burro</td></tr>
+            <tr><td><span class="bicho-name">11 – Cavalo</span></td><td>Burro, Cabra, Touro</td></tr>
+            <tr><td><span class="bicho-name">12 – Elefante</span></td><td>Cabra, Urso, Tigre, Leão, Burro</td></tr>
+            <tr><td><span class="bicho-name">13 – Galo</span></td><td>Cachorro, Avestruz, Águia, Pavão, Peru</td></tr>
+            <tr><td><span class="bicho-name">14 – Gato</span></td><td>Cachorro, Leão, Tigre, Cobra</td></tr>
+            <tr><td><span class="bicho-name">15 – Jacaré</span></td><td>Cobra, Porco, Borboleta, Macaco</td></tr>
+            <tr><td><span class="bicho-name">16 – Leão</span></td><td>Elefante, Gato, Tigre, Urso</td></tr>
+            <tr><td><span class="bicho-name">17 – Macaco</span></td><td>Cachorro, Cabra, Peru, Jacaré</td></tr>
+            <tr><td><span class="bicho-name">18 – Porco</span></td><td>Cobra, Peru, Jacaré, Cachorro</td></tr>
+            <tr><td><span class="bicho-name">19 – Pavão</span></td><td>Avestruz, Águia, Galo, Peru</td></tr>
+            <tr><td><span class="bicho-name">20 – Peru</span></td><td>Avestruz, Águia, Galo, Pavão, Veado</td></tr>
+            <tr><td><span class="bicho-name">21 – Touro</span></td><td>Vaca, Burro, Cabra</td></tr>
+            <tr><td><span class="bicho-name">22 – Tigre</span></td><td>Gato, Leão, Cabra</td></tr>
+            <tr><td><span class="bicho-name">23 – Urso</span></td><td>Leão, Elefante, Camelo, Cabra</td></tr>
+            <tr><td><span class="bicho-name">24 – Veado</span></td><td>Peru, Burro, Cabra</td></tr>
+            <tr><td><span class="bicho-name">25 – Vaca</span></td><td>Touro, Avestruz, Carneiro</td></tr>
+          </tbody>
         </table>
-
-        <p>Para aumentar ainda mais as suas chances, confira a nossa tabela completa de <a href="milhares-viciadas.html" class="link-seo">Milhares Viciadas</a>.</p>
-        
-        <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn-call" target="_blank">ENTRAR NO GRUPO DE PALPITES NO WHATSAPP</a>
-
-        <h2>Por que as Puxadas do Jogo do Bicho funcionam?</h2>
-        <p>Embora o jogo seja de sorte, as puxadas são baseadas em estatística. Ao observar padrões, você consegue montar cercados e milhares mais inteligentes.</p>
-
-        <p>Aproveite e confira também nossa página de <a href="palpite-do-dia.html" class="link-seo">Palpite do Dia</a>!</p>
+      </div>
     </div>
-</section>
+  </section>
 
-<footer class="site-footer">
-    <div class="container footer-wrap">
+  <section class="section">
+    <div class="container">
+      <div class="highlight-band">
+        <div>
+          <h2>Quer reforçar sua análise com outras páginas do portal?</h2>
+          <p>
+            Combine a leitura das puxadas com a página de <a href="milhares-viciadas.html" class="link-seo">Milhares Viciadas</a>
+            e com o <a href="palpite-do-dia.html" class="link-seo">Palpite do Dia</a> para ampliar suas combinações.
+          </p>
+        </div>
+        <a href="https://chat.whatsapp.com/HyYz0zMD1ovAaWeY99Jfpi" class="btn btn-whats" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp"></i> Entrar no Grupo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-grid">
+      <div class="content-box">
+        <h3>Por que as puxadas do bicho são tão procuradas?</h3>
+        <p>
+          Porque elas ajudam a transformar uma leitura isolada em uma análise mais ampla. Em vez de olhar apenas
+          para um único animal, o jogador passa a considerar também os bichos relacionados a ele.
+        </p>
+        <p>
+          Isso é muito usado para montar cercados, listas de apoio e palpites mais abertos, especialmente por quem
+          gosta de observar padrões tradicionais do <strong>Jogo do Bicho</strong>.
+        </p>
+        <p>
+          Mesmo sendo um jogo associado à sorte, páginas como esta continuam muito procuradas porque organizam
+          de forma clara uma lógica que muitos jogadores usam há bastante tempo.
+        </p>
+      </div>
+
+      <div class="content-box">
+        <h3>Como melhorar seus palpites com as puxadas</h3>
+        <div class="bullet-list">
+          <div class="bullet-item"><i class="fas fa-check-circle"></i><span>Comece pelo bicho principal em destaque</span></div>
+          <div class="bullet-item"><i class="fas fa-check-circle"></i><span>Abra o jogo para os animais puxados</span></div>
+          <div class="bullet-item"><i class="fas fa-check-circle"></i><span>Crie combinações com grupos próximos</span></div>
+          <div class="bullet-item"><i class="fas fa-check-circle"></i><span>Cruze com dezenas e milhares relacionadas</span></div>
+          <div class="bullet-item"><i class="fas fa-check-circle"></i><span>Use também sonhos e resultados recentes para complementar a leitura</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
       <div class="footer-title">Palpites do Jogo do Bicho</div>
-      <p class="footer-warning">Esclarecemos que não temos vínculo com o serviço ou pessoas que operam o Jogo do Bicho e que os resultados e estatísticas são meramente informativos.</p>
-      
+
+      <p class="footer-desc">
+        Esclarecemos que não temos vínculo com operadores do Jogo do Bicho. Os conteúdos, estatísticas e materiais publicados neste portal possuem caráter informativo.
+      </p>
+
       <div class="footer-social">
-        <a href="https://www.instagram.com/palpitess_jb?igsh=MW5uaTVjb3ZramhiNQ%3D%3D&utm_source=qr" target="_blank">
-            <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.6 1.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg>
+        <a href="https://www.instagram.com/palpitess_jb?igsh=MW5uaTVjb3ZramhiNQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.6 1.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg>
         </a>
-        <a href="https://www.facebook.com/palpitesdobicho" target="_blank">
-            <svg viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.5 1.6-1.5h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4v2.2H8v3.2h2.1V22h3.4Z"/></svg>
+
+        <a href="https://www.facebook.com/palpitesdobicho" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.5 1.6-1.5h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4v2.2H8v3.2h2.1V22h3.4Z"/></svg>
         </a>
-        <a href="https://www.youtube.com/@Palpitesdo_JogodoBicho" target="_blank">
-            <svg viewBox="0 0 24 24"><path d="M23 12s0-3.1-.4-4.6a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.5.4A3 3 0 0 0 1.4 7.4C1 8.9 1 12 1 12s0 3.1.4 4.6a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.5-.4a3 3 0 0 0 2.1-2.1c.4-1.5.4-4.5.4-4.5ZM9.8 15.5v-7L16 12l-6.2 3.5Z"/></svg>
+
+        <a href="https://www.youtube.com/@Palpitesdo_JogodoBicho" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23 12s0-3.1-.4-4.6a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.5.4A3 3 0 0 0 1.4 7.4C1 8.9 1 12 1 12s0 3.1.4 4.6a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.5-.4a3 3 0 0 0 2.1-2.1c.4-1.5.4-4.5.4-4.5ZM9.8 15.5v-7L16 12l-6.2 3.5Z"/></svg>
         </a>
       </div>
 
@@ -198,9 +944,16 @@
         <a href="termos-de-uso.html">Termos de Uso</a>
       </div>
 
-      <p class="footer-copy" style="text-align: center;">© 2026 Palpites do Jogo. Todos os direitos reservados.</p>
+      <div class="footer-copy">
+        © 2026 Palpites do Jogo. Todos os direitos reservados.
+      </div>
     </div>
-</footer>
+  </footer>
 
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
 </body>
 </html>
