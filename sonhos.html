@@ -1072,32 +1072,32 @@
     ];
 
     const animals = [
-      { grupo:"01", animal:"Avestruz" },
-      { grupo:"02", animal:"Águia" },
-      { grupo:"03", animal:"Burro" },
-      { grupo:"04", animal:"Borboleta" },
-      { grupo:"05", animal:"Cachorro" },
-      { grupo:"06", animal:"Cabra" },
-      { grupo:"07", animal:"Carneiro" },
-      { grupo:"08", animal:"Camelo" },
-      { grupo:"09", animal:"Cobra" },
-      { grupo:"10", animal:"Coelho" },
-      { grupo:"11", animal:"Cavalo" },
-      { grupo:"12", animal:"Elefante" },
-      { grupo:"13", animal:"Galo" },
-      { grupo:"14", animal:"Gato" },
-      { grupo:"15", animal:"Jacaré" },
-      { grupo:"16", animal:"Leão" },
-      { grupo:"17", animal:"Macaco" },
-      { grupo:"18", animal:"Porco" },
-      { grupo:"19", animal:"Pavão" },
-      { grupo:"20", animal:"Peru" },
-      { grupo:"21", animal:"Touro" },
-      { grupo:"22", animal:"Tigre" },
-      { grupo:"23", animal:"Urso" },
-      { grupo:"24", animal:"Veado" },
-      { grupo:"25", animal:"Vaca" }
-    ];
+  { grupo:"01", animal:"Avestruz", dezenas:"01, 02, 03, 04" },
+  { grupo:"02", animal:"Águia", dezenas:"05, 06, 07, 08" },
+  { grupo:"03", animal:"Burro", dezenas:"09, 10, 11, 12" },
+  { grupo:"04", animal:"Borboleta", dezenas:"13, 14, 15, 16" },
+  { grupo:"05", animal:"Cachorro", dezenas:"17, 18, 19, 20" },
+  { grupo:"06", animal:"Cabra", dezenas:"21, 22, 23, 24" },
+  { grupo:"07", animal:"Carneiro", dezenas:"25, 26, 27, 28" },
+  { grupo:"08", animal:"Camelo", dezenas:"29, 30, 31, 32" },
+  { grupo:"09", animal:"Cobra", dezenas:"33, 34, 35, 36" },
+  { grupo:"10", animal:"Coelho", dezenas:"37, 38, 39, 40" },
+  { grupo:"11", animal:"Cavalo", dezenas:"41, 42, 43, 44" },
+  { grupo:"12", animal:"Elefante", dezenas:"45, 46, 47, 48" },
+  { grupo:"13", animal:"Galo", dezenas:"49, 50, 51, 52" },
+  { grupo:"14", animal:"Gato", dezenas:"53, 54, 55, 56" },
+  { grupo:"15", animal:"Jacaré", dezenas:"57, 58, 59, 60" },
+  { grupo:"16", animal:"Leão", dezenas:"61, 62, 63, 64" },
+  { grupo:"17", animal:"Macaco", dezenas:"65, 66, 67, 68" },
+  { grupo:"18", animal:"Porco", dezenas:"69, 70, 71, 72" },
+  { grupo:"19", animal:"Pavão", dezenas:"73, 74, 75, 76" },
+  { grupo:"20", animal:"Peru", dezenas:"77, 78, 79, 80" },
+  { grupo:"21", animal:"Touro", dezenas:"81, 82, 83, 84" },
+  { grupo:"22", animal:"Tigre", dezenas:"85, 86, 87, 88" },
+  { grupo:"23", animal:"Urso", dezenas:"89, 90, 91, 92" },
+  { grupo:"24", animal:"Veado", dezenas:"93, 94, 95, 96" },
+  { grupo:"25", animal:"Vaca", dezenas:"97, 98, 99, 00" }
+];
 
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     let currentLetter = "A";
@@ -1178,7 +1178,7 @@
         card.innerHTML = `
   <small>Grupo ${item.grupo}</small>
   <strong>${item.animal}</strong>
-  <span>Consulte o grupo ${item.grupo}</span>
+  <span>Dezenas: ${item.dezenas}</span>
 `;
         animalsGrid.appendChild(card);
       });
