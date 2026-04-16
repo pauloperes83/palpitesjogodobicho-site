@@ -950,37 +950,16 @@
     </div>
   </footer>
 
-  <div id="cookie-banner">
-    <p>
-      Este site utiliza cookies para melhorar sua experiência de navegação. Ao continuar, você concorda com nossa política de uso.
-    </p>
-    <div class="cookie-actions">
-      <button class="cookie-btn accept" onclick="acceptCookies()">Aceitar</button>
-      <button class="cookie-btn reject" onclick="closeCookies()">Fechar</button>
-    </div>
-  </div>
+  
 
-  <script>
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("show");
-    }
 
-    function acceptCookies() {
-      localStorage.setItem("cookiesAccepted", "true");
-      document.getElementById("cookie-banner").style.display = "none";
-    }
 
-    function closeCookies() {
-      document.getElementById("cookie-banner").style.display = "none";
-    }
 
-    window.addEventListener("load", function () {
-      const accepted = localStorage.getItem("cookiesAccepted");
-      if (!accepted) {
-        document.getElementById("cookie-banner").style.display = "block";
-      }
-    });
-  </script>
+
+
+
+
+
 
 
 
