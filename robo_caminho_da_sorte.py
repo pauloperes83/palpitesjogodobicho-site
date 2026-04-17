@@ -97,5 +97,5 @@ if os.path.exists(ARQUIVO_HTML):
         with open(ARQUIVO_HTML, "w", encoding="utf-8") as f:
             f.write(novo_html)
 
-        enviar_pro_github(data_str, "Caminho da Sorte")
+        enviar_pro_github(data_str, "Caminho da Sorte", "Atualização")
         print(f"✅ SUCESSO! Atualizado para {nome_com_feira} ({data_str}).")
