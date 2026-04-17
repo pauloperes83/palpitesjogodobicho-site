@@ -111,5 +111,5 @@ if os.path.exists(ARQUIVO_HTML):
         with open(ARQUIVO_HTML, "w", encoding="utf-8") as f:
             f.write(novo_html)
 
-        enviar_pro_github(data_str, "Rio")
+        enviar_pro_github(data_str, "Rio", "Atualização")
         print(f"✅ SUCESSO RIO! Palpites para {data_str} e Cookies atualizados.")
