@@ -18,3 +18,7 @@ To https://github.com/pauloperes83/palpitesjogodobicho-site.git
 To https://github.com/pauloperes83/palpitesjogodobicho-site.git
    a97e623..f0bb182  main -> main
 ✅ SUCESSO! Atualizado para quinta-feira (16/04/2026).
+Traceback (most recent call last):
+  File "/var/www/meusite/robo_caminho_da_sorte.py", line 100, in <module>
+    enviar_pro_github(data_str, "Caminho da Sorte")
+TypeError: enviar_pro_github() missing 1 required positional argument: 'loteria_nome'
