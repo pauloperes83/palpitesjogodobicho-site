@@ -367,5 +367,27 @@ src="https://www.facebook.com/tr?id=959824649790101&ev=PageView&noscript=1"/>
       Abrir Águia Prime agora
     </a>
   </div>
+  <script>
+  // Função para passar o rastreio do Facebook para os botões da página
+  (function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const src = urlParams.get('src');
+
+    if (src) {
+      // Busca todos os links que vão para a banca
+      const links = document.querySelectorAll('a[href*="aguiaprime119000.com"]');
+      
+      links.forEach(link => {
+        let currentHref = link.getAttribute('href');
+        // Adiciona o SRC ao link final
+        if (currentHref.includes('?')) {
+          link.setAttribute('href', currentHref + '&src=' + src);
+        } else {
+          link.setAttribute('href', currentHref + '?src=' + src);
+        }
+      });
+    }
+  })();
+</script>
 </body>
 </html>
