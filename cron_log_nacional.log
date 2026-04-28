@@ -210,3 +210,12 @@ Updating 81458da..f6f07c1
 Fast-forward
  aguiaprime.html | 41 +++++++++++++++++++++++++++++------------
  1 file changed, 29 insertions(+), 12 deletions(-)
+[main 33281a9] Auto Update Nacional 28/04/2026 Safe Mode
+ 3 files changed, 46 insertions(+), 30 deletions(-)
+To https://github.com/pauloperes83/palpitesjogodobicho-site.git
+   f6f07c1..33281a9  main -> main
+--- Iniciando Processo Nacional para: /var/www/meusite/palpite-do-bicho-nacional.html ---
+DEBUG: Encontrei a marca <!--MARCA_AQUI--> -> 2 vezes no arquivo.
+🛡️ Iniciando Blindagem para Nacional...
+✅ Nacional finalizado com sucesso e páginas preservadas!
+✅ SUCESSO NACIONAL! Cookies e Blindagem ativos (28/04/2026).
