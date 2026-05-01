@@ -134,6 +134,7 @@
       font-weight:900;
       text-transform:uppercase;
       margin:20px 0 12px;
+      cursor:pointer;
     }
 
     .cta-gold{
@@ -362,9 +363,8 @@
       <a
         class="cta cta-gold"
         href="https://app.aguiaprime119000.com/pr/ePmazyKA"
-        target="_blank"
+        data-button="topo"
         rel="noopener noreferrer"
-        onclick="fbq('track', 'Lead', {content_name: 'Clique Botao App Topo'}); fbq('trackCustom', 'CliqueApp'); fbq('trackCustom', 'CliqueAppTopo');"
       >
         🎁 Cadastrar e ativar bônus
       </a>
@@ -413,9 +413,8 @@
       <a
         class="cta cta-green"
         href="https://app.aguiaprime119000.com/pr/ePmazyKA"
-        target="_blank"
+        data-button="meio"
         rel="noopener noreferrer"
-        onclick="fbq('track', 'Lead', {content_name: 'Clique Botao App Meio'}); fbq('trackCustom', 'CliqueApp'); fbq('trackCustom', 'CliqueAppMeio');"
       >
         ⚡ Entrar agora pelo app
       </a>
@@ -477,25 +476,56 @@
   </main>
 
   <script>
-    // Mantém o parâmetro SRC nos links finais, caso você use rastreamento na URL do anúncio.
-    (function() {
+    const appBaseUrl = 'https://app.aguiaprime119000.com/pr/ePmazyKA';
+
+    function buildAppUrl(buttonName) {
       const urlParams = new URLSearchParams(window.location.search);
       const src = urlParams.get('src');
 
-      if (src) {
-        const links = document.querySelectorAll('a[href*="aguiaprime119000.com"]');
+      const finalUrl = new URL(appBaseUrl);
+      finalUrl.searchParams.set('src', src ? src : buttonName);
+      finalUrl.searchParams.set('botao', buttonName);
 
-        links.forEach(link => {
-          let currentHref = link.getAttribute('href');
+      return finalUrl.toString();
+    }
 
-          if (currentHref.includes('?')) {
-            link.setAttribute('href', currentHref + '&src=' + encodeURIComponent(src));
-          } else {
-            link.setAttribute('href', currentHref + '?src=' + encodeURIComponent(src));
-          }
+    function trackAppClick(event, buttonName) {
+      event.preventDefault();
+
+      const finalUrl = buildAppUrl(buttonName);
+
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: buttonName === 'topo' ? 'Clique Botao App Topo' : 'Clique Botao App Meio',
+          button_position: buttonName
         });
+
+        fbq('trackCustom', 'CliqueApp', {
+          button_position: buttonName
+        });
+
+        if (buttonName === 'topo') {
+          fbq('trackCustom', 'CliqueAppTopo');
+        } else {
+          fbq('trackCustom', 'CliqueAppMeio');
+        }
       }
-    })();
+
+      setTimeout(function() {
+        window.open(finalUrl, '_blank', 'noopener,noreferrer');
+      }, 350);
+    }
+
+    document.querySelectorAll('a[data-button]').forEach(function(button) {
+      const buttonName = button.getAttribute('data-button');
+
+      button.setAttribute('href', buildAppUrl(buttonName));
+      button.setAttribute('target', '_blank');
+
+      button.addEventListener('click', function(event) {
+        trackAppClick(event, buttonName);
+      });
+    });
   </script>
 </body>
 </html>
