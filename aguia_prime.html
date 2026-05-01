@@ -10,6 +10,27 @@
     gtag('config', 'G-9Y3FW10LC2');
   </script>
 
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '2230282527782740');
+  fbq('track', 'PageView');
+  </script>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2230282527782740&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="shortcut icon" href="images/favicon.png">
 
@@ -17,7 +38,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Águia Prime | Aplicativo Rápido e Seguro</title>
-  <meta name="description" content="Águia Prime: aplicativo rápido e seguro, bônus todos os dias, grupo VIP gratuito e saque de até R$50 mil por dia.">
+  <meta name="description" content="Águia Prime: aplicativo rápido e seguro, bônus todos os dias e saque de até R$50 mil por dia.">
   <meta name="robots" content="index, follow">
 
   <style>
@@ -99,6 +120,42 @@
       margin-bottom:22px;
     }
 
+    .cta{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      width:100%;
+      color:#050505;
+      text-decoration:none;
+      padding:20px 16px;
+      border-radius:999px;
+      font-size:20px;
+      font-weight:900;
+      text-transform:uppercase;
+      margin:20px 0 12px;
+    }
+
+    .cta-gold{
+      background:linear-gradient(180deg,#fff1a8,#facc15,#d97706);
+      box-shadow:0 0 32px rgba(250,204,21,.75);
+      animation:pulseGold 1.45s infinite;
+    }
+
+    .cta-green{
+      background:linear-gradient(180deg,#22c55e,#16a34a,#128c3a);
+      color:#fff;
+      box-shadow:0 0 32px rgba(34,197,94,.72);
+      animation:pulseGreen 1.55s infinite;
+    }
+
+    .support-text{
+      margin-top:10px;
+      font-size:14px;
+      color:#cbd5e1;
+      line-height:1.6;
+    }
+
     .palpites-box{
       margin:18px 0;
       padding:16px;
@@ -125,58 +182,6 @@
       font-size:12px;
       color:#cbd5e1;
       margin-top:8px;
-    }
-
-    .cta{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      width:100%;
-      color:#050505;
-      text-decoration:none;
-      padding:20px 16px;
-      border-radius:999px;
-      font-size:20px;
-      font-weight:900;
-      text-transform:uppercase;
-      margin:20px 0 12px;
-    }
-
-    .cta-gold{
-      background:linear-gradient(180deg,#fff1a8,#facc15,#d97706);
-      box-shadow:0 0 32px rgba(250,204,21,.75);
-      animation:pulseGold 1.45s infinite;
-    }
-
-    .cta-green{
-      background:linear-gradient(180deg,#25d366,#16a34a,#128c3a);
-      color:#fff;
-      box-shadow:0 0 32px rgba(37,211,102,.72);
-      animation:pulseGreen 1.55s infinite;
-    }
-
-    .whatsapp-icon{
-      width:25px;
-      height:25px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      color:#fff;
-      flex:none;
-    }
-
-    .whatsapp-icon svg{
-      width:25px;
-      height:25px;
-      display:block;
-    }
-
-    .support-text{
-      margin-top:10px;
-      font-size:14px;
-      color:#cbd5e1;
-      line-height:1.6;
     }
 
     .bonus-grid{
@@ -316,15 +321,15 @@
     @keyframes pulseGreen{
       0%{
         transform:scale(1);
-        box-shadow:0 0 24px rgba(37,211,102,.55);
+        box-shadow:0 0 24px rgba(34,197,94,.55);
       }
       50%{
         transform:scale(1.04);
-        box-shadow:0 0 44px rgba(37,211,102,.95);
+        box-shadow:0 0 44px rgba(34,197,94,.95);
       }
       100%{
         transform:scale(1);
-        box-shadow:0 0 24px rgba(37,211,102,.55);
+        box-shadow:0 0 24px rgba(34,197,94,.55);
       }
     }
 
@@ -351,11 +356,17 @@
       </h1>
 
       <p class="sub">
-        Entre na Águia Prime, faça sua recarga no menu LOTERIAS de R$10 a R$100 e receba bônus direto na plataforma.
+        Cadastre-se grátis na Águia Prime, faça sua recarga no menu LOTERIAS de R$10 a R$100 e ative os bônus disponíveis direto na plataforma.
       </p>
 
-      <a class="cta cta-gold" href="https://app.aguiaprime119000.com/pr/ePmazyKA" target="_blank" rel="noopener noreferrer">
-        🎁 Ativar cadastro e receber bônus
+      <a
+        class="cta cta-gold"
+        href="https://app.aguiaprime119000.com/pr/ePmazyKA"
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="fbq('track', 'Lead', {content_name: 'Clique Botao App Topo'});"
+      >
+        🎁 Cadastrar e ativar bônus
       </a>
 
       <div class="palpites-box">
@@ -369,23 +380,14 @@
         </div>
 
         <div class="palpites-note">
-          *Acompanhe os sinais completos dentro do app e no grupo VIP.
+          *Acompanhe os sinais completos dentro do app.
         </div>
       </div>
-
-      <a class="cta cta-green" href="https://chat.whatsapp.com/En6wJXbhJrWHHytj0qPTfP" target="_blank" rel="noopener noreferrer">
-        <span class="whatsapp-icon">
-          <svg viewBox="0 0 32 32" aria-hidden="true">
-            <path fill="currentColor" d="M16.04 3C8.86 3 3.04 8.82 3.04 16c0 2.3.6 4.48 1.66 6.36L3 29l6.82-1.63A12.9 12.9 0 0 0 16.04 29c7.18 0 13-5.82 13-13s-5.82-13-13-13Zm0 23.76c-2.05 0-3.96-.58-5.6-1.58l-.4-.24-4.04.96.98-3.94-.26-.42A10.68 10.68 0 0 1 5.28 16c0-5.94 4.82-10.76 10.76-10.76S26.8 10.06 26.8 16 21.98 26.76 16.04 26.76Zm5.9-8.04c-.32-.16-1.9-.94-2.2-1.04-.3-.12-.52-.16-.74.16-.22.32-.84 1.04-1.04 1.26-.18.22-.38.24-.7.08-.32-.16-1.36-.5-2.58-1.6-.96-.86-1.6-1.9-1.78-2.22-.18-.32-.02-.5.14-.66.14-.14.32-.38.48-.56.16-.2.22-.32.32-.54.1-.22.06-.4-.02-.56-.08-.16-.74-1.78-1.02-2.44-.26-.64-.54-.56-.74-.56h-.62c-.22 0-.56.08-.86.4-.3.32-1.12 1.1-1.12 2.68s1.14 3.1 1.3 3.32c.16.22 2.24 3.42 5.42 4.8.76.32 1.36.52 1.82.66.76.24 1.46.2 2 .12.62-.1 1.9-.78 2.16-1.52.26-.74.26-1.38.18-1.52-.08-.14-.3-.22-.62-.38Z"/>
-          </svg>
-        </span>
-        Entrar no Grupo VIP
-      </a>
 
       <div class="support-text">
         ✔ Cadastro rápido<br>
         ✔ Recarga simples na plataforma<br>
-        ✔ Grupo VIP gratuito no WhatsApp<br>
+        ✔ Bônus ativado após recarga elegível<br>
         ✔ Saque via PIX
       </div>
 
@@ -407,6 +409,16 @@
         <strong style="display:block;font-size:28px;color:#ffffff;">CENTENA: R$800</strong>
         <strong style="display:block;font-size:28px;color:#ffffff;">DEZENA: R$80</strong>
       </div>
+
+      <a
+        class="cta cta-green"
+        href="https://app.aguiaprime119000.com/pr/ePmazyKA"
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="fbq('track', 'Lead', {content_name: 'Clique Botao App Meio'});"
+      >
+        ⚡ Entrar agora pelo app
+      </a>
 
       <div class="money-box">
         <div>Saque até</div>
@@ -471,7 +483,7 @@
       const src = urlParams.get('src');
 
       if (src) {
-        const links = document.querySelectorAll('a[href*="aguiaprime119000.com"], a[href*="chat.whatsapp.com"]');
+        const links = document.querySelectorAll('a[href*="aguiaprime119000.com"]');
 
         links.forEach(link => {
           let currentHref = link.getAttribute('href');
