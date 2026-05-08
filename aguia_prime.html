@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9Y3FW10LC2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9Y3FW10LC2');
-  </script>
-
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -31,523 +22,234 @@
   </noscript>
   <!-- End Meta Pixel Code -->
 
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="shortcut icon" href="images/favicon.png">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Águia Prime | Aplicativo Rápido e Seguro</title>
-  <meta name="description" content="Águia Prime: aplicativo rápido e seguro, bônus todos os dias e saque de até R$50 mil por dia.">
-  <meta name="robots" content="index, follow">
+  <title>Águia Prime</title>
 
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-
-    body{
-      font-family:Arial,Helvetica,sans-serif;
-      background:#030712;
-      color:#fff;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .page{
-      min-height:100vh;
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #030712;
+      color: #fff;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
       background:
-        radial-gradient(circle at top,#0b3b75 0%,#061527 35%,#030712 75%),
-        linear-gradient(180deg,#061527,#030712);
-      overflow:hidden;
+        radial-gradient(circle at top, #0b3b75 0%, #061527 38%, #030712 78%),
+        linear-gradient(180deg, #061527, #030712);
     }
 
-    .hero{
-      max-width:520px;
-      margin:0 auto;
-      padding:22px 16px 42px;
-      text-align:center;
-      position:relative;
+    .card {
+      width: 100%;
+      max-width: 460px;
+      text-align: center;
+      padding: 28px 18px 30px;
+      border-radius: 28px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(250,204,21,.35);
+      box-shadow: 0 0 40px rgba(0,0,0,.35);
     }
 
-    .top-badge{
-      display:inline-block;
-      padding:9px 16px;
-      border:1px solid rgba(250,204,21,.5);
-      border-radius:999px;
-      color:#facc15;
-      font-size:13px;
-      font-weight:900;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      background:rgba(0,0,0,.35);
-      margin-bottom:18px;
+    .top-badge {
+      display: inline-block;
+      padding: 9px 16px;
+      border: 1px solid rgba(250,204,21,.55);
+      border-radius: 999px;
+      color: #facc15;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      background: rgba(0,0,0,.35);
+      margin-bottom: 22px;
     }
 
-    .logo{
-      font-size:42px;
-      line-height:1;
-      font-weight:900;
-      color:#facc15;
-      text-shadow:0 0 18px rgba(250,204,21,.65);
-      margin-bottom:8px;
+    .logo {
+      font-size: 54px;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 0 14px rgba(250,204,21,.55));
     }
 
-    .brand{
-      font-size:42px;
-      line-height:.95;
-      font-weight:900;
-      text-transform:uppercase;
-      background:linear-gradient(180deg,#fff4bf,#facc15,#b77900);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      margin-bottom:18px;
+    .brand {
+      font-size: 48px;
+      line-height: .92;
+      font-weight: 900;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #fff4bf, #facc15, #b77900);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 18px;
+      text-shadow: 0 0 18px rgba(250,204,21,.4);
     }
 
-    .headline{
-      font-size:32px;
-      line-height:1.05;
-      font-weight:900;
-      text-transform:uppercase;
-      margin-bottom:14px;
+    .description {
+      font-size: 20px;
+      line-height: 1.45;
+      color: #e5e7eb;
+      font-weight: 700;
+      margin-bottom: 28px;
     }
 
-    .headline span{
-      color:#facc15;
-      text-shadow:0 0 14px rgba(250,204,21,.55);
+    .buttons {
+      display: grid;
+      gap: 14px;
     }
 
-    .sub{
-      font-size:18px;
-      line-height:1.45;
-      color:#e5e7eb;
-      margin-bottom:22px;
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      text-decoration: none;
+      padding: 18px 16px;
+      border-radius: 999px;
+      font-size: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .25s ease;
     }
 
-    .cta{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      width:100%;
-      color:#050505;
-      text-decoration:none;
-      padding:20px 16px;
-      border-radius:999px;
-      font-size:20px;
-      font-weight:900;
-      text-transform:uppercase;
-      margin:20px 0 12px;
-      cursor:pointer;
+    .btn:hover {
+      transform: scale(1.035);
     }
 
-    .cta-gold{
-      background:linear-gradient(180deg,#fff1a8,#facc15,#d97706);
-      box-shadow:0 0 32px rgba(250,204,21,.75);
-      animation:pulseGold 1.45s infinite;
+    .btn-gold {
+      background: linear-gradient(180deg, #fff1a8, #facc15, #d97706);
+      color: #050505;
+      box-shadow: 0 0 32px rgba(250,204,21,.65);
+      animation: pulseGold 1.45s infinite;
     }
 
-    .cta-green{
-      background:linear-gradient(180deg,#22c55e,#16a34a,#128c3a);
-      color:#fff;
-      box-shadow:0 0 32px rgba(34,197,94,.72);
-      animation:pulseGreen 1.55s infinite;
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      box-shadow: 0 0 30px rgba(37,211,102,.55);
     }
 
-    .support-text{
-      margin-top:10px;
-      font-size:14px;
-      color:#cbd5e1;
-      line-height:1.6;
+    .btn-whatsapp svg {
+      width: 26px;
+      height: 26px;
+      fill: currentColor;
+      flex: none;
     }
 
-    .palpites-box{
-      margin:18px 0;
-      padding:16px;
-      border-radius:18px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(250,204,21,.35);
-      text-align:left;
+    .warning {
+      margin-top: 22px;
+      font-size: 12px;
+      line-height: 1.45;
+      color: #cbd5e1;
+      opacity: .9;
     }
 
-    .palpites-title{
-      font-size:16px;
-      font-weight:900;
-      color:#facc15;
-      margin-bottom:8px;
-    }
-
-    .palpites-text{
-      font-size:14px;
-      line-height:1.6;
-      color:#e5e7eb;
-    }
-
-    .palpites-note{
-      font-size:12px;
-      color:#cbd5e1;
-      margin-top:8px;
-    }
-
-    .bonus-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-      margin:20px 0;
-    }
-
-    .bonus-card{
-      border-radius:18px;
-      padding:16px 10px;
-      background:rgba(255,255,255,.07);
-      border:1px solid rgba(250,204,21,.35);
-      box-shadow:0 0 22px rgba(0,0,0,.25);
-    }
-
-    .bonus-card strong{
-      display:block;
-      font-size:28px;
-      color:#22c55e;
-      margin-bottom:6px;
-    }
-
-    .bonus-card.gold strong{
-      color:#facc15;
-    }
-
-    .bonus-card small{
-      font-size:13px;
-      color:#fff;
-      font-weight:700;
-      line-height:1.25;
-      display:block;
-    }
-
-    .money-box{
-      margin:22px 0;
-      padding:18px;
-      border-radius:22px;
-      background:linear-gradient(135deg,rgba(250,204,21,.18),rgba(0,0,0,.4));
-      border:2px solid rgba(250,204,21,.65);
-      box-shadow:0 0 30px rgba(250,204,21,.15);
-    }
-
-    .money-box div{
-      font-size:15px;
-      color:#e5e7eb;
-      text-transform:uppercase;
-      font-weight:800;
-      margin-bottom:6px;
-    }
-
-    .money-box strong{
-      font-size:38px;
-      color:#facc15;
-      text-shadow:0 0 15px rgba(250,204,21,.45);
-    }
-
-    .status-box{
-      margin:22px 0 18px;
-      padding:16px;
-      border-radius:18px;
-      background:rgba(255,255,255,.07);
-      border:1px solid rgba(250,204,21,.35);
-      text-align:left;
-      color:#fff;
-      font-size:15px;
-      line-height:1.6;
-    }
-
-    .features{
-      display:grid;
-      gap:12px;
-      margin-top:18px;
-    }
-
-    .feature{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      text-align:left;
-      padding:15px;
-      border-radius:16px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.1);
-    }
-
-    .feature-icon{
-      width:42px;
-      height:42px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:50%;
-      background:rgba(250,204,21,.15);
-      color:#facc15;
-      font-size:22px;
-      flex:none;
-    }
-
-    .feature strong{
-      display:block;
-      font-size:16px;
-      margin-bottom:3px;
-    }
-
-    .feature p{
-      font-size:13px;
-      color:#cbd5e1;
-      line-height:1.3;
-    }
-
-    .warning{
-      margin-top:24px;
-      font-size:12px;
-      line-height:1.45;
-      color:#cbd5e1;
-      opacity:.9;
-    }
-
-    @keyframes pulseGold{
-      0%{
-        transform:scale(1);
-        box-shadow:0 0 24px rgba(250,204,21,.55);
+    @keyframes pulseGold {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 24px rgba(250,204,21,.55);
       }
-      50%{
-        transform:scale(1.045);
-        box-shadow:0 0 46px rgba(250,204,21,.95);
+      50% {
+        transform: scale(1.04);
+        box-shadow: 0 0 44px rgba(250,204,21,.9);
       }
-      100%{
-        transform:scale(1);
-        box-shadow:0 0 24px rgba(250,204,21,.55);
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 24px rgba(250,204,21,.55);
       }
     }
 
-    @keyframes pulseGreen{
-      0%{
-        transform:scale(1);
-        box-shadow:0 0 24px rgba(34,197,94,.55);
+    @media(max-width:420px) {
+      .brand {
+        font-size: 42px;
       }
-      50%{
-        transform:scale(1.04);
-        box-shadow:0 0 44px rgba(34,197,94,.95);
-      }
-      100%{
-        transform:scale(1);
-        box-shadow:0 0 24px rgba(34,197,94,.55);
-      }
-    }
 
-    @media(max-width:420px){
-      .brand{font-size:36px}
-      .headline{font-size:28px}
-      .money-box strong{font-size:32px}
-      .cta{font-size:17px}
+      .description {
+        font-size: 18px;
+      }
+
+      .btn {
+        font-size: 16px;
+        padding: 16px 14px;
+      }
     }
   </style>
 </head>
 
 <body>
   <main class="page">
-    <section class="hero">
+    <section class="card">
 
-      <div class="top-badge">Oferta exclusiva para maiores de 18 anos</div>
+      <div class="top-badge">
+        Oferta exclusiva para maiores de 18 anos
+      </div>
 
       <div class="logo">🦅</div>
-      <div class="brand">Águia<br>Prime</div>
 
-      <h1 class="headline">
-        Aplicativo <span>rápido</span>, seguro e com bônus todos os dias
-      </h1>
-
-      <p class="sub">
-        Cadastre-se grátis na Águia Prime, faça sua recarga no menu LOTERIAS de R$10 a R$100 e ative os bônus disponíveis direto na plataforma.
-      </p>
-
-      <a
-        class="cta cta-gold"
-        href="https://app.aguiaprime119000.com/pr/ePmazyKA"
-        data-button="topo"
-        rel="noopener noreferrer"
-      >
-        🎁 Cadastrar e ativar bônus
-      </a>
-
-      <div class="palpites-box">
-        <div class="palpites-title">
-          🐾 Palpites do dia
-        </div>
-
-        <div class="palpites-text">
-          🐔 Galo • 🐐 Cabra • 🐎 Cavalo<br>
-          🎯 Combinações populares de hoje
-        </div>
-
-        <div class="palpites-note">
-          *Acompanhe os sinais completos dentro do app.
-        </div>
+      <div class="brand">
+        Águia<br>Prime
       </div>
 
-      <div class="support-text">
-        ✔ Cadastro rápido<br>
-        ✔ Recarga simples na plataforma<br>
-        ✔ Bônus ativado após recarga elegível<br>
-        ✔ Saque via PIX
+      <div class="description">
+        Aplicativo rápido, seguro e com bônus todos os dias
       </div>
 
-      <div class="bonus-grid">
-        <div class="bonus-card">
-          <strong>15%</strong>
-          <small>de bônus na recarga diária</small>
-        </div>
+      <div class="buttons">
 
-        <div class="bonus-card gold">
-          <strong>25%</strong>
-          <small>de boas-vindas na primeira recarga</small>
-        </div>
-      </div>
+        <a
+          class="btn btn-gold"
+          href="https://app.aguiaprime119000.com/pr/ePmazyKA"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-button="cadastro"
+        >
+          🎁 Cadastrar e ativar bônus
+        </a>
 
-      <div style="text-align:center; margin: 25px 0;">
-  <a href="https://chat.whatsapp.com/En6wJXbhJrWHHytj0qPTfP" 
-     target="_blank" 
-     rel="noopener noreferrer" 
-     style="
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        background: linear-gradient(135deg, #25D366, #128C7E);
-        color: #ffffff;
-        font-family: Arial, sans-serif;
-        font-size: 18px;
-        font-weight: 700;
-        text-decoration: none;
-        padding: 14px 24px;
-        border-radius: 50px;
-        box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
-        transition: all 0.3s ease;
-     "
-     onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 24px rgba(37, 211, 102, 0.5)'"
-     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 18px rgba(37, 211, 102, 0.35)'">
+        <a
+          class="btn btn-whatsapp"
+          href="https://chat.whatsapp.com/En6wJXbhJrWHHytj0qPTfP"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path d="M16.02 3C8.84 3 3 8.82 3 15.98c0 2.82.9 5.43 2.43 7.56L3.85 29l5.6-1.47A12.9 12.9 0 0 0 16.02 29C23.2 29 29 23.18 29 15.98S23.2 3 16.02 3zm0 23.8c-2.2 0-4.23-.65-5.95-1.78l-.43-.27-3.32.87.89-3.23-.29-.45a10.73 10.73 0 0 1-1.72-5.96c0-5.95 4.86-10.79 10.82-10.79 5.97 0 10.82 4.84 10.82 10.79S21.99 26.8 16.02 26.8zm5.94-8.08c-.33-.17-1.94-.96-2.24-1.07-.3-.11-.52-.17-.74.17-.22.33-.85 1.07-1.04 1.29-.19.22-.38.25-.71.08-.33-.17-1.39-.51-2.65-1.63-.98-.87-1.64-1.95-1.83-2.28-.19-.33-.02-.51.14-.68.15-.15.33-.38.49-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.17-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.71s1.17 3.15 1.33 3.37c.16.22 2.3 3.51 5.58 4.92.78.34 1.39.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.94-.79 2.21-1.55.27-.76.27-1.41.19-1.55-.08-.14-.3-.22-.63-.38z"/>
+          </svg>
+          ENTRE NO GRUPO DE PALPITES
+        </a>
 
-     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 32 32" fill="currentColor">
-        <path d="M16.02 3C8.84 3 3 8.82 3 15.98c0 2.82.9 5.43 2.43 7.56L3.85 29l5.6-1.47A12.9 12.9 0 0 0 16.02 29C23.2 29 29 23.18 29 15.98S23.2 3 16.02 3zm0 23.8c-2.2 0-4.23-.65-5.95-1.78l-.43-.27-3.32.87.89-3.23-.29-.45a10.73 10.73 0 0 1-1.72-5.96c0-5.95 4.86-10.79 10.82-10.79 5.97 0 10.82 4.84 10.82 10.79S21.99 26.8 16.02 26.8zm5.94-8.08c-.33-.17-1.94-.96-2.24-1.07-.3-.11-.52-.17-.74.17-.22.33-.85 1.07-1.04 1.29-.19.22-.38.25-.71.08-.33-.17-1.39-.51-2.65-1.63-.98-.87-1.64-1.95-1.83-2.28-.19-.33-.02-.51.14-.68.15-.15.33-.38.49-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.17-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.71s1.17 3.15 1.33 3.37c.16.22 2.3 3.51 5.58 4.92.78.34 1.39.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.94-.79 2.21-1.55.27-.76.27-1.41.19-1.55-.08-.14-.3-.22-.63-.38z"/>
-     </svg>
-
-     ENTRE NO GRUPO DE PALPITES
-  </a>
-</div>
-
-      <div class="money-box">
-        <div>Cotações da Águia Prime</div>
-        <strong style="display:block;font-size:30px;">MILHAR: R$8.000</strong>
-        <strong style="display:block;font-size:28px;color:#ffffff;">CENTENA: R$800</strong>
-        <strong style="display:block;font-size:28px;color:#ffffff;">DEZENA: R$80</strong>
-      </div>
-
-      
-
-      <div class="money-box">
-        <div>Saque até</div>
-        <strong>R$50 MIL</strong>
-        <div>por dia</div>
-      </div>
-
-      <div class="status-box">
-        <div>✅ +130 mil jogadores já estão ativos todos os dias</div>
-        <div>⚡ Saques via PIX em minutos</div>
-        <div>🚀 Plataforma leve e rápida</div>
-        <div>📲 Suporte direto com a equipe</div>
-        <div>⏳ Bônus disponível HOJE, podendo sair a qualquer momento</div>
-      </div>
-
-      <div class="features">
-        <div class="feature">
-          <div class="feature-icon">⚡</div>
-          <div>
-            <strong>Aplicativo rápido e seguro</strong>
-            <p>Acesso simples, direto pelo celular e com navegação leve.</p>
-          </div>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">💸</div>
-          <div>
-            <strong>Saques via PIX</strong>
-            <p>Mais praticidade para movimentar seus valores com agilidade.</p>
-          </div>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">🎁</div>
-          <div>
-            <strong>Bônus todos os dias</strong>
-            <p>15% diariamente e 25% de boas-vindas na primeira recarga.</p>
-          </div>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">🏦</div>
-          <div>
-            <strong>Saque até R$50 mil por dia</strong>
-            <p>Estrutura preparada para grandes movimentações.</p>
-          </div>
-        </div>
       </div>
 
       <div class="warning">
         🔞 Proibido para menores de 18 anos.<br>
-        Participe com responsabilidade. Consulte condições, limites e regras diretamente na plataforma.
+        Participe com responsabilidade.
       </div>
 
     </section>
   </main>
 
   <script>
-    const appBaseUrl = 'https://app.aguiaprime119000.com/pr/ePmazyKA';
-
-    function buildAppUrl(buttonName) {
-      const urlParams = new URLSearchParams(window.location.search);
-      const src = urlParams.get('src');
-
-      const finalUrl = new URL(appBaseUrl);
-      finalUrl.searchParams.set('src', src ? src : buttonName);
-      finalUrl.searchParams.set('botao', buttonName);
-
-      return finalUrl.toString();
-    }
-
-    function trackAppClick(event, buttonName) {
-      event.preventDefault();
-
-      const finalUrl = buildAppUrl(buttonName);
-
-      if (typeof fbq === 'function') {
-        fbq('track', 'Lead', {
-          content_name: buttonName === 'topo' ? 'Clique Botao App Topo' : 'Clique Botao App Meio',
-          button_position: buttonName
-        });
-
-        fbq('trackCustom', 'CliqueApp', {
-          button_position: buttonName
-        });
-
-        if (buttonName === 'topo') {
-          fbq('trackCustom', 'CliqueAppTopo');
-        } else {
-          fbq('trackCustom', 'CliqueAppMeio');
-        }
-      }
-
-      setTimeout(function() {
-        window.open(finalUrl, '_blank', 'noopener,noreferrer');
-      }, 350);
-    }
-
     document.querySelectorAll('a[data-button]').forEach(function(button) {
-      const buttonName = button.getAttribute('data-button');
+      button.addEventListener('click', function() {
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', {
+            content_name: 'Clique Botao Cadastro',
+            button_position: 'cadastro'
+          });
 
-      button.setAttribute('href', buildAppUrl(buttonName));
-      button.setAttribute('target', '_blank');
-
-      button.addEventListener('click', function(event) {
-        trackAppClick(event, buttonName);
+          fbq('trackCustom', 'CliqueCadastroBonus');
+        }
       });
     });
   </script>
