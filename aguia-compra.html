@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1470321281566816');
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent', {
+    content_name: 'Landing Águia Prime Benefícios',
+    content_category: 'Oferta Águia Prime'
+  });
+  </script>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1470321281566816&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Águia Prime no Celular</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #030712;
+      color: #fff;
+    }
+
+    .page {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(132, 204, 22, .25) 0%, transparent 32%),
+        radial-gradient(circle at bottom, rgba(250, 204, 21, .18) 0%, transparent 35%),
+        linear-gradient(180deg, #07110a 0%, #030712 48%, #050505 100%);
+      padding: 22px 14px 90px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 26px 16px 20px;
+      border: 1px solid rgba(163, 230, 53, .45);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow: 0 0 45px rgba(132, 204, 22, .22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: -80px;
+      background:
+        linear-gradient(120deg, transparent 35%, rgba(250, 204, 21, .16), transparent 65%);
+      transform: rotate(12deg);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(250,204,21,.65);
+      color: #facc15;
+      background: rgba(0,0,0,.45);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      font-size: 58px;
+      line-height: 1;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 0 18px rgba(132,204,22,.75));
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: .9;
+      font-weight: 900;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #fff7c2, #facc15 45%, #84cc16 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(132,204,22,.32);
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .subtitle {
+      font-size: 19px;
+      line-height: 1.35;
+      color: #f8fafc;
+      font-weight: 800;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .main-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      text-decoration: none;
+      border: none;
+      border-radius: 999px;
+      padding: 18px 18px;
+      background: linear-gradient(180deg, #fef08a, #facc15, #d97706);
+      color: #080808;
+      font-size: 18px;
+      font-weight: 950;
+      text-transform: uppercase;
+      box-shadow: 0 0 36px rgba(250,204,21,.72);
+      animation: pulse 1.5s infinite;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      margin-top: 16px;
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 0 28px rgba(0,0,0,.25);
+    }
+
+    .section-title {
+      font-size: 20px;
+      line-height: 1.2;
+      font-weight: 950;
+      text-transform: uppercase;
+      color: #facc15;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 14px;
+      border-radius: 16px;
+      background: rgba(0,0,0,.38);
+      border: 1px solid rgba(132,204,22,.22);
+    }
+
+    .label {
+      font-size: 16px;
+      font-weight: 900;
+      color: #f8fafc;
+      text-transform: uppercase;
+    }
+
+    .value {
+      font-size: 18px;
+      font-weight: 950;
+      color: #a3e635;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .bonus-box {
+      display: grid;
+      gap: 10px;
+    }
+
+    .bonus-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(0,0,0,.34);
+      border: 1px solid rgba(250,204,21,.16);
+      font-size: 15px;
+      line-height: 1.3;
+      color: #e5e7eb;
+      font-weight: 800;
+    }
+
+    .bonus-item strong {
+      color: #a3e635;
+    }
+
+    .proof {
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(250,204,21,.18), transparent 68%),
+        rgba(0,0,0,.38);
+      border: 1px solid rgba(250,204,21,.35);
+    }
+
+    .proof-small {
+      font-size: 13px;
+      color: #cbd5e1;
+      font-weight: 700;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .proof-big {
+      font-size: 36px;
+      line-height: 1;
+      font-weight: 950;
+      color: #facc15;
+      text-shadow: 0 0 18px rgba(250,204,21,.35);
+    }
+
+    .whatsapp {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      text-decoration: none;
+      padding: 15px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 950;
+      text-transform: uppercase;
+      box-shadow: 0 0 24px rgba(34,197,94,.45);
+    }
+
+    .warning {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.45;
+      color: #cbd5e1;
+      opacity: .95;
+    }
+
+    .sticky {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 10px 12px;
+      background: rgba(3,7,18,.86);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(132,204,22,.3);
+      z-index: 20;
+    }
+
+    .sticky-inner {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .sticky .main-cta {
+      padding: 15px 14px;
+      font-size: 16px;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 24px rgba(250,204,21,.55);
+      }
+      50% {
+        transform: scale(1.035);
+        box-shadow: 0 0 42px rgba(250,204,21,.9);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 24px rgba(250,204,21,.55);
+      }
+    }
+
+    @media(max-width:420px) {
+      h1 {
+        font-size: 42px;
+      }
+
+      .subtitle {
+        font-size: 17px;
+      }
+
+      .value {
+        font-size: 16px;
+      }
+
+      .proof-big {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <div class="wrap">
+
+      <section class="hero">
+        <div class="badge">Oferta exclusiva para maiores de 18 anos</div>
+
+        <div class="logo">🦅</div>
+
+        <h1>Águia<br>Prime</h1>
+
+        <div class="subtitle">
+          Cadastre-se, confira os benefícios e aproveite tudo direto pelo celular.
+        </div>
+
+        <a
+          class="main-cta"
+          href="https://app.aguiaprime119000.com/pr/n8KrbG4W"
+          target="_blank"
+          rel="noopener noreferrer"
+          onclick="trackCadastro()"
+        >
+          🎁 Cadastrar e ativar bônus
+        </a>
+      </section>
+
+      <section class="section">
+        <div class="section-title">Cotação Águia Prime</div>
+
+        <div class="grid">
+          <div class="row">
+            <div class="label">💰 Milhar</div>
+            <div class="value">R$ 8.000,00</div>
+          </div>
+
+          <div class="row">
+            <div class="label">💯 Centena</div>
+            <div class="value">R$ 800,00</div>
+          </div>
+
+          <div class="row">
+            <div class="label">🔟 Dezena</div>
+            <div class="value">R$ 80,00</div>
+          </div>
+
+          <div class="row">
+            <div class="label">🐾 Grupo</div>
+            <div class="value">R$ 20,00</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">🎁 Bônus Águia Prime</div>
+
+        <div class="bonus-box">
+          <div class="bonus-item">✅ <span><strong>15%</strong> de bônus: SEG / TER / QUI / SEX / DOM</span></div>
+          <div class="bonus-item">✅ <span><strong>20%</strong> de bônus em dias de Federal</span></div>
+          <div class="bonus-item">⚠️ <span>Válido na <strong>primeira recarga do dia</strong></span></div>
+          <div class="bonus-item">🎰 <span>Modalidade: <strong>Loterias</strong></span></div>
+          <div class="bonus-item">💵 <span>Mínimo para bônus: <strong>R$ 10,00</strong></span></div>
+          <div class="bonus-item">🚫 <span><strong>Sem limite</strong> de bônus</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">Recarga e Saque</div>
+
+        <div class="grid">
+          <div class="row">
+            <div class="label">🏧 Recarga</div>
+            <div class="value">R$ 1,00</div>
+          </div>
+
+          <div class="row">
+            <div class="label">🏧 Saque</div>
+            <div class="value">R$ 10,00</div>
+          </div>
+
+          <div class="row">
+            <div class="label">✅ Taxa de saque</div>
+            <div class="value">Sem taxa</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section proof">
+        <div class="proof-small">Acesso rápido pelo celular</div>
+        <div class="proof-big">Bônus ativo</div>
+      </section>
+
+      <a
+        class="whatsapp"
+        href="https://wa.me/5585989167222"
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="trackWhatsapp()"
+      >
+        Ficou com dúvida? Me chame no WhatsApp
+      </a>
+
+      <div class="warning">
+        🔞 Proibido para menores de 18 anos.<br>
+        Participe com responsabilidade.
+      </div>
+
+    </div>
+  </main>
+
+  <div class="sticky">
+    <div class="sticky-inner">
+      <a
+        class="main-cta"
+        href="https://app.aguiaprime119000.com/pr/ePmazyKA"
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="trackCadastro()"
+      >
+        🚀 Começar agora
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function trackCadastro() {
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: 'Clique Cadastro Águia Prime',
+          button_position: 'principal'
+        });
+
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Clique para Cadastro Águia Prime',
+          value: 0,
+          currency: 'BRL'
+        });
+
+        fbq('trackCustom', 'CliqueCadastroAguiaPrime');
+      }
+    }
+
+    function trackWhatsapp() {
+      if (typeof fbq === 'function') {
+        fbq('track', 'Contact', {
+          content_name: 'Clique WhatsApp Águia Prime'
+        });
+
+        fbq('trackCustom', 'CliqueWhatsappAguiaPrime');
+      }
+    }
+  </script>
+</body>
+</html>
