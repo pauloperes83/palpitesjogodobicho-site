@@ -1439,3 +1439,12 @@ DEBUG: Encontrei a marca <!--MARCA_AQUI--> -> 2 vezes no arquivo.
 From https://github.com/pauloperes83/palpitesjogodobicho-site
  * branch            main       -> FETCH_HEAD
 Already up to date.
+[main 67b06da] Auto Update Nacional 08/08/2026 Safe Mode
+ 3 files changed, 41 insertions(+), 29 deletions(-)
+To https://github.com/pauloperes83/palpitesjogodobicho-site.git
+   c967c5e..67b06da  main -> main
+--- Iniciando Processo Nacional para: /var/www/meusite/palpite-do-bicho-nacional.html ---
+DEBUG: Encontrei a marca <!--MARCA_AQUI--> -> 2 vezes no arquivo.
+🛡️ Iniciando Blindagem para Nacional...
+✅ Nacional finalizado com sucesso e páginas preservadas!
+✅ SUCESSO NACIONAL! Cookies e Blindagem ativos (08/08/2026).
