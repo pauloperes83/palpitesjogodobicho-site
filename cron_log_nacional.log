@@ -2308,3 +2308,13 @@ warning: redirecting to https://github.com/pauloperes83/palpitesjogodobicho-site
 From https://github.com/pauloperes83/palpitesjogodobicho-site
  * branch            main       -> FETCH_HEAD
 Already up to date.
+[main fd558c3] Auto Update Nacional 19/10/2026 Safe Mode
+ 3 files changed, 40 insertions(+), 34 deletions(-)
+warning: redirecting to https://github.com/pauloperes83/palpitesjogodobicho-site.git/
+To https://github.com/pauloperes83/palpitesjogodobicho-site.git
+   2128f34..fd558c3  main -> main
+--- Iniciando Processo Nacional para: /var/www/meusite/palpite-do-bicho-nacional.html ---
+DEBUG: Encontrei a marca <!--MARCA_AQUI--> -> 2 vezes no arquivo.
+🛡️ Iniciando Blindagem para Nacional...
+✅ Nacional finalizado com sucesso e páginas preservadas!
+✅ SUCESSO NACIONAL! Cookies e Blindagem ativos (19/10/2026).
